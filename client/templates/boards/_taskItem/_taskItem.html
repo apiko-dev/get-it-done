@@ -1,0 +1,27 @@
+<template name="_taskItem">
+	<div id="gfNdzTrBy5eesYAnv" class="row action">
+		<div class="handles handle ui-sortable-handle">
+			<div class="col-xs-12">
+				<div class="row">
+					<div class="col-xs-1 action-box complete-box">
+						
+						<i class="fa fa-circle-o fa-2x complete-action"></i>
+						
+					</div>
+					
+					<!-- editable title -->
+					<div class="col-xs-10 action-box content-box">
+						<a class="action-title">
+							{{text}}
+						</a>
+						<textarea rows="1" style="display:none"></textarea>
+					</div>
+					<div class="col-xs-1 delete-box">
+						<!-- <i class="fa fa-book fa-lg notes-action"></i> -->
+						<i class="fa fa-minus-circle fa-lg delete-action"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

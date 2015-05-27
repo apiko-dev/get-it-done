@@ -1,0 +1,8 @@
+<template name="boards">
+	<h1>Boards</h1>
+	<div id="lists" tabindex="0" class="row">
+		{{#each boards}}
+			{{> _boardItem}}
+		{{/each}}
+	</div>
+</template>
