@@ -14,4 +14,5 @@ iron:router
 coffeescript
 accounts-ui
 fortawesome:fontawesome
+linto:jquery-ui
 rubaxa:sortable
