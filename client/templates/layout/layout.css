@@ -15853,9 +15853,7 @@ a.action-title:hover {
 .toggle-list {
     color: #000
 }
-.toggle-list:after {
-    content: '-'
-}
+
 .toggle-list.collapsed:after {
     content: '+'
 }
@@ -16233,14 +16231,14 @@ table td {
 }
 
 /*///////////////////////////////////////////////////////////////////*/
-
-div#main {
-  margin-top: 30px;
-  padding: 10px 30px;
+body, div#main, .main-container.container {
+    margin: 0;
+    padding: 0;
 }
 
 div#lists {
   border-spacing: 5px 0px;
+  margin: 0;
 }
 
 .list {
@@ -16288,6 +16286,7 @@ div#lists {
   min-height: calc(100vh*0.9);
   max-height: calc(100vh*0.9);
   display: inline-flex;
+  width: 100%;
 }
 
 .delete-box {
@@ -16331,4 +16330,9 @@ div#lists {
   margin: 0;
   padding: 0;
   border: none;
+}
+
+a.color-picker {
+  margin-top: 5px;
+  color: #565656;
 }

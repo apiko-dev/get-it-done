@@ -1,9 +1,25 @@
 Template._boardItem.onCreated (->
 	@.taskCreating = new ReactiveVar(false);
+	@.bgColor = new ReactiveVar();
 )
 
 
 Template._boardItem.onRendered (->
+	self = @
+	@.bgColor.set @.data.config.bgColor
+	@.$('.color-picker').colorpicker
+		showPicker: () ->
+			console.log 'showPicker'
+			@.setColor self.bgColor.get()
+		changeColor: (e, t) ->
+			console.log 'changeColor'
+			console.log 'e', e
+			console.log 't', t
+		hidePicker: (e, t) ->
+			console.log 'hidePicker'
+			console.log 'e', e
+			console.log 't', t
+
 	@.$('.tile__list').sortable
 		connectWith: '.tile__list'
 		helper: 'clone'
@@ -36,6 +52,8 @@ Template._boardItem.helpers
 		return Tasks.find { boardId: Template.instance().data._id }, {sort: {order: 1} }
 	taskCreating: () ->
 		return Template.instance().taskCreating and Template.instance().taskCreating.get()
+	bgColor: () ->
+		return Template.instance().bgColor && Template.instance().bgColor.get()
 
 Template._boardItem.events
 	'click .new-task-action': (e, t) ->
