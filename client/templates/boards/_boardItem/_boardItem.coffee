@@ -24,7 +24,7 @@ Template._boardItem.onRendered (->
 			if !prevTaskData and nextTaskData
 				curOrder = nextTaskData.order/2
 			if !prevTaskData and !nextTaskData
-				curOrder = 0
+				curOrder = 1
 			if prevTaskData and nextTaskData
 				curOrder = (nextTaskData.order + prevTaskData.order) / 2
 			Tasks.update { _id: targetTaskId }, { $set: boardId: targetBoardId, order: curOrder}, (err, res) ->
