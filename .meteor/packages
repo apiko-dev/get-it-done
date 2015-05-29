@@ -16,3 +16,6 @@ accounts-ui
 fortawesome:fontawesome
 linto:jquery-ui
 rubaxa:sortable
+reactive-var
+percolate:momentum
+matb33:collection-hooks

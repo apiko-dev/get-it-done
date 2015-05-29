@@ -1,24 +1,36 @@
 <template name="_taskItem">
-	<div id="gfNdzTrBy5eesYAnv" class="row action">
+	<div class="row action">
 		<div class="handles handle ui-sortable-handle">
 			<div class="col-xs-12">
 				<div class="row">
 					<div class="col-xs-1 action-box complete-box">
-						
-						<i class="fa fa-circle-o fa-2x complete-action"></i>
-						
+						{{#if taskEditing}}
+							<i class="fa fa-check-circle-o fa-2x edit-ok-action"></i>
+						{{else}}
+							{{#if completed}}
+								<i class="fa fa-dot-circle-o fa-2x complete-action"></i>
+							{{else}}
+								<i class="fa fa-circle-o fa-2x complete-action"></i>
+							{{/if}}
+						{{/if}}
 					</div>
 					
 					<!-- editable title -->
 					<div class="col-xs-10 action-box content-box">
-						<a class="action-title">
-							{{text}}
-						</a>
-						<textarea rows="1" style="display:none"></textarea>
+						{{#if taskEditing}}
+							<textarea rows="1">{{text}}</textarea>
+						{{else}}
+							<a class="action-title action-edit">
+								{{text}} -- {{order}}
+							</a>
+						{{/if}}
 					</div>
 					<div class="col-xs-1 delete-box">
-						<!-- <i class="fa fa-book fa-lg notes-action"></i> -->
-						<i class="fa fa-minus-circle fa-lg delete-action"></i>
+						{{#if taskEditing}}
+							<i class="fa fa-times-circle-o fa-lg edit-cancel-action"></i>
+						{{else}}
+							<i class="fa fa-minus-circle fa-lg delete-action"></i>
+						{{/if}}
 					</div>
 				</div>
 			</div>

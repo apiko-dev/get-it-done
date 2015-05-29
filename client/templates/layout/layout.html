@@ -1,12 +1,11 @@
 <template name="layout">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport" user-scalable="no">
 
+  {{> header}}
   <div class="main-container container">
-    {{> header}}
-	<div id="main" class="container">
-		<div class="bootstrap-alerts">
+		<div id="main" class="container">
+			<div class="bootstrap-alerts"></div>
 			{{> yield}}
 		</div>
-	</div>
   </div>
 </template>

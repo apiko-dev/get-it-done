@@ -1,8 +1,34 @@
 <template name="boards">
-	<h1>Boards</h1>
 	<div id="lists" tabindex="0" class="row">
-		{{#each boards}}
-			{{> _boardItem}}
-		{{/each}}
+		{{#momentum plugin='growl'}}
+			{{#each boards}}
+				{{> _boardItem}}
+			{{/each}}
+		{{/momentum}}
+		<div class="list layer tile cols new-board-container">
+			<div class="handles handle ui-sortable-handle">
+				<div class="col-xs-12">
+					<div class="row">
+						<div class="col-xs-1 action-box complete-box">
+							{{#if boardCreating}}
+								<i class="fa fa-check-circle-o fa-2x new-board-ok-action"></i>
+							{{/if}}
+						</div>
+						<div class="col-xs-10 action-box content-box">
+							{{#if boardCreating}}
+								<textarea rows="1"></textarea>
+							{{else}}
+								<a class="new-board-action">Add a board...</a>
+							{{/if}}
+						</div>
+						<div class="col-xs-1 action-box delete-box">
+							{{#if boardCreating}}
+								<i class="fa fa-times-circle-o fa-lg new-board-cancel-action"></i>
+							{{/if}}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </template>
