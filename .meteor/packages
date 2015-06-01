@@ -12,7 +12,6 @@ accounts-google
 bootstrap
 iron:router
 coffeescript
-accounts-ui
 fortawesome:fontawesome
 linto:jquery-ui
 rubaxa:sortable
@@ -20,3 +19,8 @@ reactive-var
 percolate:momentum
 matb33:collection-hooks
 risul:bootstrap-colorpicker
+rzymek:fullcalendar
+twbs:bootstrap
+peppelg:bootstrap-3-modal
+tsega:bootstrap3-datetimepicker
+ian:accounts-ui-bootstrap-3

@@ -16241,32 +16241,7 @@ div#lists {
   margin: 0;
 }
 
-.list {
-  width: 300px;
-  min-width: 300px;
-  border: 1px solid #DFDFDF;
-  margin-right: 10px;
-  padding-bottom: 5px;
-  border-radius: 5px;
-}
 
-.tile__list {
-  min-height: 5px;
-}
-
-.new-board-action {
-  max-height: 50px;
-  height: 50px;
-  padding: 15px;
-  cursor: pointer;
-}
-
-.creator {
-  height: 50px;
-  min-height: 50px;
-  padding: 10px;
-  background: aliceblue;
-}
 
 div#lists {
   -webkit-box-align: start;
@@ -16289,50 +16264,6 @@ div#lists {
   width: 100%;
 }
 
-.delete-box {
-  padding-right: 1px;
-  padding-left: 0;
-  line-height: 2em;
-}
-
-.ui-sortable-helper {
-  z-index: 1050 !important;
-}
-
-.row.action.list.new-board-container {
-  border: none;
-  background-color: transparent;
-  height: 50px;
-  padding: 0;
-}
-
-.action-box i, .action-box a {
-  cursor: pointer;
-}
-
-.new-board-container .col-xs-12 {
-  background-color: aliceblue;
-  padding: 10px 25px;
-  position: relative;
-  margin: 0;
-  border-radius: 5px;
-}
-
 #lists > div {
     display: flex;
-}
-
-.list.layer.tile.cols {
-  display: table !important;
-}
-
-.list.layer.tile.cols.new-board-container {
-  margin: 0;
-  padding: 0;
-  border: none;
-}
-
-a.color-picker {
-  margin-top: 5px;
-  color: #565656;
 }

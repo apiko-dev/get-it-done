@@ -1,0 +1,26 @@
+.list {
+  width: 300px;
+  min-width: 300px;
+  border: 1px solid #DFDFDF;
+  margin-right: 10px;
+  padding-bottom: 5px;
+  border-radius: 5px;
+}
+
+.tile__list {
+  min-height: 5px;
+}
+
+.new-board-action {
+  max-height: 50px;
+  height: 50px;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.creator {
+  height: 50px;
+  min-height: 50px;
+  padding: 10px;
+  background: aliceblue;
+}

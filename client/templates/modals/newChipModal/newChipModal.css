@@ -1,0 +1,25 @@
+/*.modal {
+  display: block;
+  margin: auto;
+  width: initial;
+  background-color: transparent;
+}*/
+
+.modal {
+  margin: auto;
+  padding: 0;
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
+}
+
+.modal-dialog {
+  z-index: 1060;
+  width: 100%;
+  display: inline;
+  min-height: 300px;
+}
+
+.date input {
+  height: initial;
+}

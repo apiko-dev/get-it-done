@@ -2,7 +2,10 @@ Router.configure
 	layoutTemplate : 'layout'
 
 Router.route '/',
-	name : 'home'
+	name: 'home'
 
 Router.route '/boards',
-	name : 'boards'
+	name: 'boards'
+
+Router.route '/scheduler',
+	name: 'scheduler'

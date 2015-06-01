@@ -5,20 +5,17 @@ Template._boardItem.onCreated (->
 
 
 Template._boardItem.onRendered (->
-	self = @
-	@.bgColor.set @.data.config.bgColor
-	@.$('.color-picker').colorpicker
-		showPicker: () ->
-			console.log 'showPicker'
-			@.setColor self.bgColor.get()
-		changeColor: (e, t) ->
-			console.log 'changeColor'
-			console.log 'e', e
-			console.log 't', t
-		hidePicker: (e, t) ->
-			console.log 'hidePicker'
-			console.log 'e', e
-			console.log 't', t
+	instance = @
+	instance.bgColor.set instance.data.config.bgColor
+	@.$('.color-picker').colorpicker()
+		.on 'changeColor.colorpicker', (event) ->
+			instance.bgColor.set event.color.toHex()
+		.on 'showPicker.colorpicker', (event) ->
+			@.setColor instance.bgColor.get()
+		.on 'hidePicker.colorpicker', (event) ->
+			boardId = Blaze.getData(event.target)._id
+			Boards.update { _id: boardId }, { $set: 'config.bgColor': event.color.toHex()}, (err, res) ->
+				console.log err or res
 
 	@.$('.tile__list').sortable
 		connectWith: '.tile__list'
