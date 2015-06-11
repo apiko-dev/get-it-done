@@ -5,17 +5,17 @@ Template._boardItem.onCreated (->
 
 
 Template._boardItem.onRendered (->
-	instance = @
-	instance.bgColor.set instance.data.config.bgColor
-	@.$('.color-picker').colorpicker()
-		.on 'changeColor.colorpicker', (event) ->
-			instance.bgColor.set event.color.toHex()
-		.on 'showPicker.colorpicker', (event) ->
-			@.setColor instance.bgColor.get()
-		.on 'hidePicker.colorpicker', (event) ->
-			boardId = Blaze.getData(event.target)._id
-			Boards.update { _id: boardId }, { $set: 'config.bgColor': event.color.toHex()}, (err, res) ->
-				console.log err or res
+#	instance = @
+#	instance.bgColor.set instance.data.config.bgColor
+#	@.$('.color-picker').colorpicker()
+#		.on 'changeColor.colorpicker', (event) ->
+#			instance.bgColor.set event.color.toHex()
+#		.on 'showPicker.colorpicker', (event) ->
+#			@.setColor instance.bgColor.get()
+#		.on 'hidePicker.colorpicker', (event) ->
+#			boardId = Blaze.getData(event.target)._id
+#			Boards.update { _id: boardId }, { $set: 'config.bgColor': event.color.toHex()}, (err, res) ->
+#				console.log err or res
 
 	@.$('.tile__list').sortable
 		connectWith: '.tile__list'
@@ -50,7 +50,8 @@ Template._boardItem.helpers
 	taskCreating: () ->
 		return Template.instance().taskCreating and Template.instance().taskCreating.get()
 	bgColor: () ->
-		return Template.instance().bgColor && Template.instance().bgColor.get()
+		console.log 'bgColor', Template.instance().bgColor.get()
+		return Template.instance().bgColor.get()
 
 Template._boardItem.events
 	'click .new-task-action': (e, t) ->
@@ -70,4 +71,11 @@ Template._boardItem.events
 		Template.instance().taskCreating.set false
 	'click .cancel-action': (e, t) ->
 		Template.instance().taskCreating.set false
+	'change .color-picker': (e, t) ->
+		instance = Template.instance()
+		instance.bgColor.set e.target.value
+		console.log instance.bgColor.get()
+		boardId = Blaze.getData(e.target)._id
+		Boards.update { _id: boardId }, { $set: 'config.bgColor': e.target.value}, (err, res) ->
+			console.log err or res
 

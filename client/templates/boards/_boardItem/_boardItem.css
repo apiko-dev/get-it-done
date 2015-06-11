@@ -45,3 +45,40 @@ a.color-picker {
 .complete-box i {
   color: #646464 !important;
 }
+
+.row.action-row.list-title-row {
+    position: relative;
+}
+
+.color-picker {
+  display: inline;
+  width: 50px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
+.row.action-row.list-title-row {
+  position: relative;
+  padding: 5px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.cols {
+  width: 300px !important;
+}
+
+span.board-header {
+  height: 40px;
+  width: 297px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+.row.action-row.list-title-row .list-title {
+  color: white;
+}

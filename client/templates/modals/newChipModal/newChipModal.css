@@ -13,6 +13,13 @@
   border: none;
 }
 
+.modal-body {
+  position: relative;
+  padding: 15px;
+  overflow: visible;
+  min-height: 190px;
+}
+
 .modal-dialog {
   z-index: 1060;
   width: 100%;
@@ -22,4 +29,12 @@
 
 .date input {
   height: initial;
+}
+
+.bootstrap-datetimepicker-widget.dropdown-menu.bottom {
+  z-index: 99999999 !important;
+}
+
+.bootstrap-datetimepicker-widget table td{
+  border-color: transparent !important;
 }

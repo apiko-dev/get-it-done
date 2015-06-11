@@ -1,10 +1,11 @@
 .list {
   width: 300px;
   min-width: 300px;
-  border: 1px solid #DFDFDF;
+  border: 2px solid;
   margin-right: 10px;
   padding-bottom: 5px;
   border-radius: 5px;
+  position: relative;
 }
 
 .tile__list {
@@ -24,3 +25,4 @@
   padding: 10px;
   background: aliceblue;
 }
+

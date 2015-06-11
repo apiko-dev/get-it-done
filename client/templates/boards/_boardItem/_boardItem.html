@@ -1,5 +1,6 @@
 <template name="_boardItem">
-<div class="list layer tile cols" style="background-color: {{bgColor}}">
+<div class="list layer tile cols" style="border-color: {{config.bgColor}}">
+	<span class="board-header" style="background-color: {{config.bgColor}}"></span>
 	<div class="row action-row list-title-row">
 		<div class="col-xs-11">
 			<a class="toggle-list" data-toggle="collapse" href="#actions-today" aria-expanded="false" aria-controls="collapseExample" title="Hide or show column">
@@ -8,9 +9,26 @@
 				</span>
 			</a>
 		</div>
-		<a class="color-picker pull-right">
+		<select class="color-picker pull-rigtht">
+			<option value="rgb(77, 195, 255)" ><span style="rgb(77, 195, 255)">rgb(77, 195, 255)</span></option>
+			<option value="rgb(188, 133, 230)"><span style="rgb(188, 133, 230)">rgb(188, 133, 230)</span></option>
+			<option value="rgb(223, 123, 170)"><span style="rgb(223, 123, 170)">rgb(223, 123, 170)</span></option>
+			<option value="rgb(246, 141, 56)" ><span style="rgb(246, 141, 56)">rgb(246, 141, 56)</span></option>
+			<option value="rgb(178, 118, 54)" ><span style="rgb(178, 118, 54)">rgb(178, 118, 54)</span></option>
+			<option value="rgb(138, 183, 52)" ><span style="rgb(138, 183, 52)">rgb(138, 183, 52)</span></option>
+			<option value="rgb(20, 168, 142)" ><span style="rgb(20, 168, 142)">rgb(20, 168, 142)</span></option>
+			<option value="rgb(38, 139, 181)" ><span style="rgb(38, 139, 181)">rgb(38, 139, 181)</span></option>
+			<option value="rgb(102, 104, 180)"><span style="rgb(102, 104, 180)">rgb(102, 104, 180)</span></option>
+			<option value="rgb(164, 80, 108)" ><span style="rgb(164, 80, 108)">rgb(164, 80, 108)</span></option>
+			<option value="rgb(103, 65, 44)"  ><span style="rgb(103, 65, 44)">rgb(103, 65, 44)</span></option>
+			<option value="rgb(60, 101, 38)"  ><span style="rgb(60, 101, 38)">rgb(60, 101, 38)</span></option>
+			<option value="rgb(9, 69, 88)"    ><span style="rgb(9, 69, 88)">rgb(9, 69, 88)</span></option>
+			<option value="rgb(188, 45, 7)"   ><span style="rgb(188, 45, 7)">rgb(188, 45, 7)</span></option>
+			<option value="rgb(153, 153, 153)"><span style="rgb(153, 153, 153)">rgb(153, 153, 153)</span></option>
+		</select>
+<!-- 		<a class="color-picker pull-right">
 			<i class="fa fa-paint-brush"></i>
-		</a>
+		</a> -->
 	</div>
 	<div class="actions row collapse in ui-sortable">
 		<div class="col-xs-12">

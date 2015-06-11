@@ -1,6 +1,17 @@
 Template.scheduler.helpers
 	calendarOptions: () ->
 		{
+			events: (start, end, timezone, callback) ->
+				console.log Chips.find().map (el) ->
+        		board = Boards.findOne(el.boardId)
+        		el.title = board.title
+        		el.color = board.config.bgColor
+        		el
+      	callback Chips.find().map (el) ->
+        		board = Boards.findOne(el.boardId)
+        		el.title = board.title
+        		el.color = board.config.bgColor
+        		el
 			defaultView: 'agendaWeek'
 			id: 'calendar'
 			header: {

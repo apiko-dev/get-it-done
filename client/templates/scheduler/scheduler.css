@@ -1,0 +1,21 @@
+.fc-event {
+  color: white;
+  box-shadow: -1px 0px 7px rgba(0, 0, 0, 0.24);
+  font-family: sans-serif;
+  font-size: 11pt;
+  padding: 5px;
+  border: none;
+}
+
+.fc-event:hover *{
+  color: white;
+}
+
+.fc-event:hover {
+	box-shadow: -1px 0px 10px rgba(0, 0, 0, 0.24);
+	filter: brightness(95%);
+	-webkit-filter: brightness(95%);
+	-moz-filter: brightness(95%);
+	-o-filter: brightness(95%);
+	-ms-filter: brightness(95%);
+}
