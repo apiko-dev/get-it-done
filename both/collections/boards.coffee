@@ -11,7 +11,7 @@ Boards.allow
 if Meteor.isClient
 	Boards.before.insert (userId, doc) ->
 		doc.config = doc.config or {}
-		doc.config.bgColor = doc.config.bgColor or '#fff'
+		doc.config.bgColor = doc.config.bgColor or '#aaa'
 
 if Meteor.isServer
 	Boards.after.remove (userId, doc) -> 

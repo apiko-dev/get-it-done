@@ -2,9 +2,9 @@
   width: 300px;
   min-width: 300px;
   border: 2px solid;
+  border-radius: 5px;
   margin-right: 10px;
   padding-bottom: 5px;
-  border-radius: 5px;
   position: relative;
 }
 
@@ -26,3 +26,20 @@
   background: aliceblue;
 }
 
+.list * {
+  border-color: inherit;
+}
+
+/*.list > div:last-child {
+  border-color: transparent !important;
+}*/
+
+.new-board-container, .new-task-container {
+  cursor: pointer !important;
+}
+
+.row.action textarea {
+  resize: vertical !important;
+  margin-bottom: 5px !important;
+  border: 1px solid #cecece;
+}

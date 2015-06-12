@@ -1,7 +1,40 @@
+.action {
+  padding: 5px 15px 0px 5px !important;
+  margin-bottom: 5px !important;
+  min-height: 40px !important;
+  border: 1px solid transparent !important;
+  /*border-color: inherit; !important;*/
+  border-radius: 3px !important;
+}
+
+a.action-title {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+  font-weight: 500 !important;
+  color: #141414 !important;
+  font-size: 100% !important;
+  line-height: 22px !important;
+  word-wrap: break-word !important;
+  word-break: break-all !important;
+}
+
 .delete-box {
   padding-right: 1px;
   padding-left: 0;
   line-height: 2em;
+}
+
+.complete-box {
+  padding-left: 0 !important;
+  padding-top: 2px;
+}
+
+.complete-box i {
+  font-size: 20px !important;
+}
+
+.complete-box:hover i{
+  color: #333 !important;
+  opacity: 1;
 }
 
 .ui-sortable-helper {
@@ -17,6 +50,7 @@
 
 .action-box i, .action-box a {
   cursor: pointer;
+  opacity: 0.8;
 }
 
 .new-board-container .col-xs-12 {
@@ -81,4 +115,61 @@ span.board-header {
 
 .row.action-row.list-title-row .list-title {
   color: white;
+}
+
+a.new-task-action {
+  font-size: 18px;
+  line-height: 23px;
+}
+
+.new-task-container[data-creating="true"] {
+  background-color: #eee;
+}
+
+.new-task-container[data-creating="true"] .complete-box {
+  padding-top: 5px;
+}
+
+hr {
+  margin: 5px 0px !important;
+  border-style: dashed !important;
+  opacity: 0.3 !important;
+}
+.color-picker .dropdown-menu li{
+  display: inline-block;
+}
+
+.dropdown.color-picker {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+}
+
+.dropdown.color-picker .caret {
+  margin-top: 0px;
+  margin-left: 5px;
+}
+
+.dropdown.color-picker a {
+  color: white;
+  opacity: 0.8;
+}
+
+.dropdown.color-picker:hover a {
+  color: white !important;
+  text-decoration: underline;
+  opacity: 1;
+}
+
+.color-picker .dropdown-menu li span {
+  height: 25px;
+  background: rgb(77, 195, 255);
+  width: 25px;
+  display: inline-block;
+}
+
+.color-picker.open>.dropdown-menu {
+  position: relative;
+  display: block;
+  padding: 9px 9px 4px 9px;
 }

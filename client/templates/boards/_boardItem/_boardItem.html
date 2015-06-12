@@ -9,26 +9,29 @@
 				</span>
 			</a>
 		</div>
-		<select class="color-picker pull-rigtht">
-			<option value="rgb(77, 195, 255)" ><span style="rgb(77, 195, 255)">rgb(77, 195, 255)</span></option>
-			<option value="rgb(188, 133, 230)"><span style="rgb(188, 133, 230)">rgb(188, 133, 230)</span></option>
-			<option value="rgb(223, 123, 170)"><span style="rgb(223, 123, 170)">rgb(223, 123, 170)</span></option>
-			<option value="rgb(246, 141, 56)" ><span style="rgb(246, 141, 56)">rgb(246, 141, 56)</span></option>
-			<option value="rgb(178, 118, 54)" ><span style="rgb(178, 118, 54)">rgb(178, 118, 54)</span></option>
-			<option value="rgb(138, 183, 52)" ><span style="rgb(138, 183, 52)">rgb(138, 183, 52)</span></option>
-			<option value="rgb(20, 168, 142)" ><span style="rgb(20, 168, 142)">rgb(20, 168, 142)</span></option>
-			<option value="rgb(38, 139, 181)" ><span style="rgb(38, 139, 181)">rgb(38, 139, 181)</span></option>
-			<option value="rgb(102, 104, 180)"><span style="rgb(102, 104, 180)">rgb(102, 104, 180)</span></option>
-			<option value="rgb(164, 80, 108)" ><span style="rgb(164, 80, 108)">rgb(164, 80, 108)</span></option>
-			<option value="rgb(103, 65, 44)"  ><span style="rgb(103, 65, 44)">rgb(103, 65, 44)</span></option>
-			<option value="rgb(60, 101, 38)"  ><span style="rgb(60, 101, 38)">rgb(60, 101, 38)</span></option>
-			<option value="rgb(9, 69, 88)"    ><span style="rgb(9, 69, 88)">rgb(9, 69, 88)</span></option>
-			<option value="rgb(188, 45, 7)"   ><span style="rgb(188, 45, 7)">rgb(188, 45, 7)</span></option>
-			<option value="rgb(153, 153, 153)"><span style="rgb(153, 153, 153)">rgb(153, 153, 153)</span></option>
-		</select>
-<!-- 		<a class="color-picker pull-right">
-			<i class="fa fa-paint-brush"></i>
-		</a> -->
+		<div class="dropdown color-picker pull-rigtht">
+      <a id="color-chooser" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+        Color
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu" role="menu" aria-labelledby="color-chooser">
+        <li role="presentation" class="color" data-color="rgb(77, 195, 255)"><span style="background: rgb(77, 195, 255)"></span></li>
+        <li role="presentation" class="color" data-color="rgb(188, 133, 230)"><span style="background: rgb(188, 133, 230)"></span></li>
+        <li role="presentation" class="color" data-color="rgb(223, 123, 170)"><span style="background: rgb(223, 123, 170)"></span></li>
+        <li role="presentation" class="color" data-color="rgb(246, 141, 56)"><span style="background: rgb(246, 141, 56)"></span></li>
+        <li role="presentation" class="color" data-color="rgb(178, 118, 54)"><span style="background: rgb(178, 118, 54)"></span></li>
+        <li role="presentation" class="color" data-color="rgb(138, 183, 52)"><span style="background: rgb(138, 183, 52)"></span></li>
+        <li role="presentation" class="color" data-color="rgb(20, 168, 142)"><span style="background: rgb(20, 168, 142)"></span></li>
+        <li role="presentation" class="color" data-color="rgb(38, 139, 181)"><span style="background: rgb(38, 139, 181)"></span></li>
+        <li role="presentation" class="color" data-color="rgb(102, 104, 180)"><span style="background: rgb(102, 104, 180)"></span></li>
+        <li role="presentation" class="color" data-color="rgb(164, 80, 108)"><span style="background: rgb(164, 80, 108)"></span></li>
+        <li role="presentation" class="color" data-color="rgb(103, 65, 44)"><span style="background: rgb(103, 65, 44)"></span></li>
+        <li role="presentation" class="color" data-color="rgb(60, 101, 38)"><span style="background: rgb(60, 101, 38)"></span></li>
+        <li role="presentation" class="color" data-color="rgb(9, 69, 88)"><span style="background: rgb(9, 69, 88)"></span></li>
+        <li role="presentation" class="color" data-color="rgb(188, 45, 7)"><span style="background: rgb(188, 45, 7)"></span></li>
+        <li role="presentation" class="color" data-color="rgb(153, 153, 153)"><span style="background: rgb(153, 153, 153)"></span></li>
+      </ul>
+    </div>
 	</div>
 	<div class="actions row collapse in ui-sortable">
 		<div class="col-xs-12">
@@ -40,27 +43,27 @@
 			</div>
 		</div>
 	</div>
-	<div class="row action">
+	<div class="row action new-task-container" data-creating={{taskCreating}}>
 		<div class="handles handle ui-sortable-handle">
 			<div class="col-xs-12">
 				<div class="row">
 					<div class="col-xs-1 action-box complete-box">
 						{{#if taskCreating}}
-							<i class="fa fa-check-circle-o fa-2x ok-action"></i>
+							<i class="fa fa-floppy-o fa-2x ok-action"></i>
 						{{else}}
-							<i class="fa fa-plus-circle fa-2x new-task-action"></i>
+							<i class="fa fa-plus-circle new-task-action"></i>
 						{{/if}}
 					</div>
-					<div class="col-xs-10 action-box content-box">
+					<div class="col-xs-10 action-box content-box new-task-action">
 						{{#if taskCreating}}
 							<textarea rows="1"></textarea>
 						{{else}}
-							<a class="new-task-action">new task</a>
+							<a class="new-task-action">New task</a>
 						{{/if}}
 					</div>
 					<div class="col-xs-1 action-box delete-box">
 						{{#if taskCreating}}
-							<i class="fa fa-times-circle-o fa-lg cancel-action"></i>
+							<i class="fa fa-times cancel-action"></i>
 						{{/if}}
 					</div>
 				</div>

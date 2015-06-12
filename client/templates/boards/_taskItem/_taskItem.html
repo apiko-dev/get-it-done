@@ -5,12 +5,12 @@
 				<div class="row">
 					<div class="col-xs-1 action-box complete-box">
 						{{#if taskEditing}}
-							<i class="fa fa-check-circle-o fa-2x edit-ok-action"></i>
+							<i class="fa fa-floppy-o edit-ok-action"></i>
 						{{else}}
 							{{#if completed}}
-								<i class="fa fa-dot-circle-o fa-2x complete-action"></i>
+								<i class="fa fa-check complete-action"></i>
 							{{else}}
-								<i class="fa fa-circle-o fa-2x complete-action"></i>
+								<i class="fa fa-circle-thin complete-action"></i>
 							{{/if}}
 						{{/if}}
 					</div>
@@ -18,7 +18,7 @@
 					<!-- editable title -->
 					<div class="col-xs-10 action-box content-box">
 						{{#if taskEditing}}
-							<textarea rows="1">{{text}}</textarea>
+							<textarea rows="auto">{{text}}</textarea>
 						{{else}}
 							<a class="action-title action-edit">
 								{{text}}
@@ -27,13 +27,14 @@
 					</div>
 					<div class="col-xs-1 delete-box">
 						{{#if taskEditing}}
-							<i class="fa fa-times-circle-o fa-lg edit-cancel-action"></i>
+							<i class="fa fa-times edit-cancel-action"></i>
 						{{else}}
-							<i class="fa fa-minus-circle fa-lg delete-action"></i>
+							<i class="fa fa-minus delete-action"></i>
 						{{/if}}
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<hr>
 </template>

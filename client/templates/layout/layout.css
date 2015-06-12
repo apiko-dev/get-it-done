@@ -16254,7 +16254,7 @@ div#lists {
   -ms-flex-direction: row;
   flex-direction: row;
   overflow-x: auto;
-  overflow-y: hidden;
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   -webkit-transform: translate3d(0,0,0);
   height: calc(100vh*0.9);

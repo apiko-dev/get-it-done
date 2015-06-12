@@ -1,22 +1,10 @@
 Template._boardItem.onCreated (->
 	@.taskCreating = new ReactiveVar(false);
-	@.bgColor = new ReactiveVar();
 )
 
 
 Template._boardItem.onRendered (->
-#	instance = @
-#	instance.bgColor.set instance.data.config.bgColor
-#	@.$('.color-picker').colorpicker()
-#		.on 'changeColor.colorpicker', (event) ->
-#			instance.bgColor.set event.color.toHex()
-#		.on 'showPicker.colorpicker', (event) ->
-#			@.setColor instance.bgColor.get()
-#		.on 'hidePicker.colorpicker', (event) ->
-#			boardId = Blaze.getData(event.target)._id
-#			Boards.update { _id: boardId }, { $set: 'config.bgColor': event.color.toHex()}, (err, res) ->
-#				console.log err or res
-
+	@.$('.dropdown-toggle').dropdown()
 	@.$('.tile__list').sortable
 		connectWith: '.tile__list'
 		helper: 'clone'
@@ -49,9 +37,6 @@ Template._boardItem.helpers
 		return Tasks.find { boardId: Template.instance().data._id }, {sort: {order: 1} }
 	taskCreating: () ->
 		return Template.instance().taskCreating and Template.instance().taskCreating.get()
-	bgColor: () ->
-		console.log 'bgColor', Template.instance().bgColor.get()
-		return Template.instance().bgColor.get()
 
 Template._boardItem.events
 	'click .new-task-action': (e, t) ->
@@ -71,11 +56,9 @@ Template._boardItem.events
 		Template.instance().taskCreating.set false
 	'click .cancel-action': (e, t) ->
 		Template.instance().taskCreating.set false
-	'change .color-picker': (e, t) ->
-		instance = Template.instance()
-		instance.bgColor.set e.target.value
-		console.log instance.bgColor.get()
-		boardId = Blaze.getData(e.target)._id
-		Boards.update { _id: boardId }, { $set: 'config.bgColor': e.target.value}, (err, res) ->
+	'click li.color': (e, t) ->
+		$(e.target).parent().parent().css('border-color', e.currentTarget.dataset.color + ';')
+		boardId = @._id
+		Boards.update { _id: boardId }, { $set: 'config.bgColor': e.currentTarget.dataset.color}, (err, res) ->
 			console.log err or res
 
