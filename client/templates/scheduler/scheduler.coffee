@@ -21,8 +21,6 @@ Template.scheduler.helpers
 			timezone: 'local'
 			selectable: true
 			select: ( start, end, jsEvent, template ) ->
-				console.log start
-				console.log end
 				Modal.show 'newChipModal', 
 					start: start
 					end: end
@@ -33,8 +31,6 @@ Template.scheduler.helpers
 		}
 
 updateChip = (event) ->
-	console.log event.start
-	console.log event.end
 	Chips.update {_id: event._id}, {$set: {start: event.start.format(), end: event.end.format()}}, (err, res) ->
 		console.log err or res
 
