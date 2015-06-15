@@ -7,6 +7,10 @@
   border-radius: 3px !important;
 }
 
+.actions {
+  overflow: visible;
+}
+
 a.action-title {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
   font-weight: 500 !important;

@@ -9,6 +9,7 @@ Template._boardItem.onRendered (->
 	@.$('.tile__list').sortable
 		connectWith: '.tile__list'
 		helper: 'clone'
+		placeholder: 'sortable-placeholder'
 		items: '.action'
 		forcePlaceholderSize: !0
 		dropOnEmpty: true
