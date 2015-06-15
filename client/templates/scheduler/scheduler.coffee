@@ -21,21 +21,31 @@ Template.scheduler.helpers
 			timezone: 'local'
 			selectable: true
 			select: ( start, end, jsEvent, template ) ->
+				console.log start
+				console.log end
 				Modal.show 'newChipModal', 
 					start: start
 					end: end
 			eventDrop: (event, delta, revertFunc, jsEvent, ui, view ) ->
-				console.log 'event drop'
+				updateChip event
 			eventResize: ( event, jsEvent, ui, view ) ->
-				console.log 'event resize'
+				updateChip event
 		}
 
+updateChip = (event) ->
+	console.log event.start
+	console.log event.end
+	Chips.update {_id: event._id}, {$set: {start: event.start.format(), end: event.end.format()}}, (err, res) ->
+		console.log err or res
 
 createChip = (start, end, boardId) ->
 	Chips.insert { start: start, end: end, boardId: boardId }, (err, res) ->
 		console.log err or res
 
 Template.scheduler.onRendered ()->
+	Meteor.setTimeout (->
+  	refetchEvents()
+	), 100
 	Chips.after.insert refetchEvents
 	Chips.after.remove refetchEvents
 	Chips.after.update refetchEvents
