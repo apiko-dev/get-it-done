@@ -19,3 +19,7 @@
 	-o-filter: brightness(95%);
 	-ms-filter: brightness(95%);
 }
+
+.fc-left * {
+  font-size: 21pt !important;
+}

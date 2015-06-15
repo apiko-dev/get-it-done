@@ -1,0 +1,30 @@
+a.action-title.action-edit.description {
+  font-size: 13px !important;
+  font-family: sans-serif !important;
+	display: block;
+}
+
+.ctrl-box i.fa.edit-ok-action:hover {
+  color: #03F;
+}
+
+.ctrl-box i.fa.edit-cancel-action:hover{
+  color: red;
+}
+
+.row.action {
+  color: #8F8F8F !important;
+}
+
+.row.action:hover {
+  color: #000000 !important;
+  background-color: #fff;
+}
+
+.new-task-container:hover {
+	background-color: #eee;
+}
+
+a.show-description {
+  margin-left: 5px;
+}

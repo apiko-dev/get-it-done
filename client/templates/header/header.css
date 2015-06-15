@@ -3,3 +3,62 @@
   font-size: 10pt !important;
   line-height: 30pt !important;
 }
+
+.navbar .nav {
+  float: right !important;
+  position: relative;
+  left: 0;
+  display: block;
+  margin: 0!important;
+}
+
+#login-dropdown-list .dropdown-menu {
+  margin-left: -140px !important;
+}
+
+.nav .dropdown-toggle {
+  margin: 15px 0px 10px 15px !important;
+  line-height: 42px !important;
+}
+
+.navbar-default {
+  box-shadow: 0 0 10px gray;
+}
+
+.navbar .nav > li > a {
+  text-decoration: none;
+  text-shadow: none !important;
+}
+
+.navbar-default .navbar-nav li a, .navbar-text {
+  font-size: 13pt !important;
+  color: #337ab7;
+}
+
+.navbar-default .nav i {
+  vertical-align: initial;
+  font-size: 12pt !important;
+}
+
+@media (max-width: 767px) {
+
+	div#bs-example-navbar-collapse-1 {
+	  width: 100%;
+	}
+	
+	div#bs-example-navbar-collapse-1 ul.nav.navbar-nav {
+	  width: 100%;
+	}
+	
+	div#bs-example-navbar-collapse-1 ul li {
+	  display: block;
+	  width: 100%;
+	  text-align: left;
+	  border-bottom: 2px solid rgb(247, 247, 247);
+	}
+
+	#login-dropdown-list .dropdown-menu {
+  	margin-left: auto !important;
+  	padding: 0px 0 0 30px !important;
+	}
+}

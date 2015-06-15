@@ -16231,9 +16231,16 @@ table td {
 }
 
 /*///////////////////////////////////////////////////////////////////*/
+
 body, div#main, .main-container.container {
     margin: 0;
     padding: 0;
+}
+
+div#main {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding: 0 5px !important;
 }
 
 div#lists {

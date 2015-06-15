@@ -3,35 +3,54 @@
 	<span class="board-header" style="background-color: {{config.bgColor}}"></span>
 	<div class="row action-row list-title-row">
 		<div class="col-xs-11">
-			<a class="toggle-list" data-toggle="collapse" href="#actions-today" aria-expanded="false" aria-controls="collapseExample" title="Hide or show column">
+			{{#if boardEditing}}
 				<span class="list-title">
-					{{title}}
+					<div class="input-group board-title-editor">
+  					<span class="input-group-addon edit-board-title board-edit-ok-action"><i class="fa fa-floppy-o"></i></span>
+  					<input class="board-title form-control" type="text" value="{{title}}">
+					</div>
 				</span>
-			</a>
+			{{else}}
+				<a class="toggle-list edit-board-title" data-toggle="collapse" href="#actions-today" aria-expanded="false" aria-controls="collapseExample" title="Hide or show column">
+					<span class="list-title">
+						{{title}}
+					</span>
+				</a>
+			{{/if}}
 		</div>
-		<div class="dropdown color-picker pull-rigtht">
-      <a id="color-chooser" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-        Color
-        <span class="caret"></span>
-      </a>
-      <ul class="dropdown-menu" role="menu" aria-labelledby="color-chooser">
-        <li role="presentation" class="color" data-color="rgb(77, 195, 255)"><span style="background: rgb(77, 195, 255)"></span></li>
-        <li role="presentation" class="color" data-color="rgb(188, 133, 230)"><span style="background: rgb(188, 133, 230)"></span></li>
-        <li role="presentation" class="color" data-color="rgb(223, 123, 170)"><span style="background: rgb(223, 123, 170)"></span></li>
-        <li role="presentation" class="color" data-color="rgb(246, 141, 56)"><span style="background: rgb(246, 141, 56)"></span></li>
-        <li role="presentation" class="color" data-color="rgb(178, 118, 54)"><span style="background: rgb(178, 118, 54)"></span></li>
-        <li role="presentation" class="color" data-color="rgb(138, 183, 52)"><span style="background: rgb(138, 183, 52)"></span></li>
-        <li role="presentation" class="color" data-color="rgb(20, 168, 142)"><span style="background: rgb(20, 168, 142)"></span></li>
-        <li role="presentation" class="color" data-color="rgb(38, 139, 181)"><span style="background: rgb(38, 139, 181)"></span></li>
-        <li role="presentation" class="color" data-color="rgb(102, 104, 180)"><span style="background: rgb(102, 104, 180)"></span></li>
-        <li role="presentation" class="color" data-color="rgb(164, 80, 108)"><span style="background: rgb(164, 80, 108)"></span></li>
-        <li role="presentation" class="color" data-color="rgb(103, 65, 44)"><span style="background: rgb(103, 65, 44)"></span></li>
-        <li role="presentation" class="color" data-color="rgb(60, 101, 38)"><span style="background: rgb(60, 101, 38)"></span></li>
-        <li role="presentation" class="color" data-color="rgb(9, 69, 88)"><span style="background: rgb(9, 69, 88)"></span></li>
-        <li role="presentation" class="color" data-color="rgb(188, 45, 7)"><span style="background: rgb(188, 45, 7)"></span></li>
-        <li role="presentation" class="color" data-color="rgb(153, 153, 153)"><span style="background: rgb(153, 153, 153)"></span></li>
-      </ul>
-    </div>
+		<div class="board-ctrl pull-right">
+			<div class="dropdown color-picker">
+    	  <a id="color-chooser" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="	false">
+    	    Color
+    	    <span class="caret"></span>
+    	  </a>
+    	  <ul class="dropdown-menu" role="menu" aria-labelledby="color-chooser">
+    	    <li role="presentation" class="color" data-color="rgb(77, 195, 255)"><span style="background: rgb(77, 195, 255)"></span></li>
+    	    <li role="presentation" class="color" data-color="rgb(188, 133, 230)"><span style="background: rgb(188, 133, 230)"></span></li>
+    	    <li role="presentation" class="color" data-color="rgb(223, 123, 170)"><span style="background: rgb(223, 123, 170)"></span></li>
+    	    <li role="presentation" class="color" data-color="rgb(246, 141, 56)"><span style="background: rgb(246, 141, 56)"></span></li>
+    	    <li role="presentation" class="color" data-color="rgb(178, 118, 54)"><span style="background: rgb(178, 118, 54)"></span></li>
+    	    <li role="presentation" class="color" data-color="rgb(138, 183, 52)"><span style="background: rgb(138, 183, 52)"></span></li>
+    	    <li role="presentation" class="color" data-color="rgb(20, 168, 142)"><span style="background: rgb(20, 168, 142)"></span></li>
+    	    <li role="presentation" class="color" data-color="rgb(38, 139, 181)"><span style="background: rgb(38, 139, 181)"></span></li>
+    	    <li role="presentation" class="color" data-color="rgb(102, 104, 180)"><span style="background: rgb(102, 104, 180)"></span></li>
+    	    <li role="presentation" class="color" data-color="rgb(164, 80, 108)"><span style="background: rgb(164, 80, 108)"></span></li>
+    	    <li role="presentation" class="color" data-color="rgb(103, 65, 44)"><span style="background: rgb(103, 65, 44)"></span></li>
+    	    <li role="presentation" class="color" data-color="rgb(60, 101, 38)"><span style="background: rgb(60, 101, 38)"></span></li>
+    	    <li role="presentation" class="color" data-color="rgb(9, 69, 88)"><span style="background: rgb(9, 69, 88)"></span></li>
+    	    <li role="presentation" class="color" data-color="rgb(188, 45, 7)"><span style="background: rgb(188, 45, 7)"></span></li>
+    	    <li role="presentation" class="color" data-color="rgb(153, 153, 153)"><span style="background: rgb(153, 153, 153)"></span></li>
+    	  </ul>
+    	</div>
+			<div class="dropdown board-menu">
+    	  <a id="board-menu" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="	false">
+    	    <i class="fa fa-cogs"></i>
+    	  </a>
+    	  <ul class="dropdown-menu" role="menu" aria-labelledby="board-menu">
+    	    <li role="presentation"><button class="btn btn-danger delete-board">Delete board</button></li>
+    	  </ul>
+    	</div>
+		</div>
 	</div>
 	<div class="actions row collapse in ui-sortable">
 		<div class="col-xs-12">
@@ -47,25 +66,25 @@
 		<div class="handles handle ui-sortable-handle">
 			<div class="col-xs-12">
 				<div class="row">
-					<div class="col-xs-1 action-box complete-box">
-						{{#if taskCreating}}
-							<i class="fa fa-floppy-o fa-2x ok-action"></i>
-						{{else}}
-							<i class="fa fa-plus-circle new-task-action"></i>
-						{{/if}}
-					</div>
-					<div class="col-xs-10 action-box content-box new-task-action">
-						{{#if taskCreating}}
-							<textarea rows="1"></textarea>
-						{{else}}
-							<a class="new-task-action">New task</a>
-						{{/if}}
-					</div>
-					<div class="col-xs-1 action-box delete-box">
-						{{#if taskCreating}}
+					{{#if taskCreating}}
+						<div class="col-xs-12 action-box content-box new-task-action">
+								<label>Task title:</label>
+								<textarea class="title" rows="1"></textarea>
+								<label>Task description:</label>
+								<textarea class="description" rows="auto">{{description}}</textarea>
+						</div>
+						<div class="action-box ctrl-box pull-right">
+							<i class="fa fa-floppy-o ok-action"></i>
 							<i class="fa fa-times cancel-action"></i>
-						{{/if}}
-					</div>
+						</div>
+					{{else}}
+						<div class="col-xs-1 action-box complete-box">
+								<i class="fa fa-plus-circle new-task-action"></i>
+						</div>
+						<div class="col-xs-11">
+							<a class="new-task-action">New task</a>
+						</div>
+					{{/if}}
 				</div>
 			</div>
 		</div>

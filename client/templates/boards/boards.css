@@ -43,3 +43,11 @@
   margin-bottom: 5px !important;
   border: 1px solid #cecece;
 }
+
+.new-task-container * {
+  color: #777;
+}
+
+.new-task-container:hover * {
+  color: #111;
+}

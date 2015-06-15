@@ -2,11 +2,6 @@ Template.scheduler.helpers
 	calendarOptions: () ->
 		{
 			events: (start, end, timezone, callback) ->
-				console.log Chips.find().map (el) ->
-        		board = Boards.findOne(el.boardId)
-        		el.title = board.title
-        		el.color = board.config.bgColor
-        		el
       	callback Chips.find().map (el) ->
         		board = Boards.findOne(el.boardId)
         		el.title = board.title
@@ -14,12 +9,14 @@ Template.scheduler.helpers
         		el
 			defaultView: 'agendaWeek'
 			allDaySlot: false
+			editable: true
 			overlap: true
+			height: "auto"
 			id: 'calendar'
 			header: {
 				left:   'title',
 				center: '',
-				right:  'month,agendaWeek today prev,next'
+				right:  'month,agendaWeek,agendaDay today prev,next'
 			}
 			timezone: 'local'
 			selectable: true
@@ -27,6 +24,10 @@ Template.scheduler.helpers
 				Modal.show 'newChipModal', 
 					start: start
 					end: end
+			eventDrop: (event, delta, revertFunc, jsEvent, ui, view ) ->
+				console.log 'event drop'
+			eventResize: ( event, jsEvent, ui, view ) ->
+				console.log 'event resize'
 		}
 
 

@@ -2,36 +2,60 @@
 	<div class="row action">
 		<div class="handles handle ui-sortable-handle">
 			<div class="col-xs-12">
-				<div class="row">
-					<div class="col-xs-1 action-box complete-box">
-						{{#if taskEditing}}
-							<i class="fa fa-floppy-o edit-ok-action"></i>
-						{{else}}
+				<div class="row">		
+					<!-- editable title -->
+					
+					{{#if taskEditing}}
+							<div class="action-box content-box action-edit">
+								<textarea class="title" rows="1">{{text}}</textarea>
+								{{#if showDescription}}
+									<a class="show-description" title="">less...</a>
+									<textarea class="description" rows="auto">{{description}}</textarea>
+								{{else}}
+									<textarea class="description hidden" rows="auto">{{description}}</textarea>
+									<a class="show-description" title="">more...</a>
+								{{/if}}
+							</div>
+							<div class="action-box ctrl-box pull-right">
+								<i class="fa fa-floppy-o edit-ok-action"></i>
+								<i class="fa fa-times edit-cancel-action"></i>
+							</div>
+<!-- 							<textarea class="title" rows="1">{{text}}</textarea>
+							{{#if showDescription}}
+								<a class="show-description" title="">less...</a>	
+								<textarea class="description" rows="auto">{{description}}</textarea>
+							{{else}}
+								<textarea class="description hidden" rows="auto">{{description}}</textarea>
+								<a class="show-description" title="">more...</a>
+							{{/if}} -->
+					{{else}}
+						<div class="col-xs-1 action-box complete-box">
 							{{#if completed}}
 								<i class="fa fa-check complete-action"></i>
 							{{else}}
 								<i class="fa fa-circle-thin complete-action"></i>
 							{{/if}}
-						{{/if}}
-					</div>
-					
-					<!-- editable title -->
-					<div class="col-xs-10 action-box content-box">
-						{{#if taskEditing}}
-							<textarea rows="auto">{{text}}</textarea>
-						{{else}}
-							<a class="action-title action-edit">
+						</div>
+						<div class="col-xs-10 action-box content-box">
+							<a class="action-title title action-edit">
 								{{text}}
 							</a>
-						{{/if}}
-					</div>
-					<div class="col-xs-1 delete-box">
-						{{#if taskEditing}}
-							<i class="fa fa-times edit-cancel-action"></i>
-						{{else}}
+							{{#if showDescription}}
+								<a class="show-description" title="">less...</a>
+								<a class="action-title action-edit description">
+									{{description}}
+								</a>
+							{{else}}
+								<a class="action-title action-edit description hidden">
+									{{description}}
+								</a>
+								<a class="show-description" title="">more...</a>
+							{{/if}}
+						</div>
+						<div class="col-xs-1 delete-box">
 							<i class="fa fa-minus delete-action"></i>
-						{{/if}}
-					</div>
+						</div>
+					{{/if}}
 				</div>
 			</div>
 		</div>

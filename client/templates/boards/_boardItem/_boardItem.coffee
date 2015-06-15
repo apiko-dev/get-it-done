@@ -1,5 +1,6 @@
 Template._boardItem.onCreated (->
-	@.taskCreating = new ReactiveVar(false);
+	@.taskCreating = new ReactiveVar false
+	@.boardEditing = new ReactiveVar false
 )
 
 
@@ -37,6 +38,8 @@ Template._boardItem.helpers
 		return Tasks.find { boardId: Template.instance().data._id }, {sort: {order: 1} }
 	taskCreating: () ->
 		return Template.instance().taskCreating and Template.instance().taskCreating.get()
+	boardEditing: () ->
+		return Template.instance().boardEditing.get()
 
 Template._boardItem.events
 	'click .new-task-action': (e, t) ->
@@ -46,12 +49,13 @@ Template._boardItem.events
 		Tasks.update { _id: taskData._id }, { $set: completed: !taskData.completed }, (err, res) ->
   		console.log err or res
 	'click .ok-action': (e, t) ->
-		text = $(e.target).parent().parent().find('textarea').val()
+		text = $(e.target).parent().parent().find('textarea.title').val()
+		description = $(e.target).parent().parent().find('textarea.description').val()
 		if !text or !text.length
 			alert 'text is required'
 		else
 			boardId = t.data._id
-			Tasks.insert {ownerId: Meteor.userId(), boardId: boardId, text: text, completed: false}, (err, res) ->
+			Tasks.insert {ownerId: Meteor.userId(), boardId: boardId, text: text, description: description,completed: false}, (err, res) ->
 				console.log err or res
 		Template.instance().taskCreating.set false
 	'click .cancel-action': (e, t) ->
@@ -61,4 +65,14 @@ Template._boardItem.events
 		boardId = @._id
 		Boards.update { _id: boardId }, { $set: 'config.bgColor': e.currentTarget.dataset.color}, (err, res) ->
 			console.log err or res
-
+	'click .delete-board': (e, t) ->
+		Boards.remove {_id: t.data._id}, (err, res) ->
+			console.log err or res
+	'click .edit-board-title': (e, t) ->
+		instance = Template.instance()
+		cur = instance.boardEditing.get()
+		if cur
+			title = $(e.currentTarget).parent().find('input').val()
+			Boards.update {_id: @._id}, {$set: {title: title}}, (err, res) ->
+				console.log err or res
+		instance.boardEditing.set !cur
