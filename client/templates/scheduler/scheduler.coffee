@@ -30,6 +30,11 @@ Template.scheduler.helpers
 				updateChip event
 			eventResize: ( event, jsEvent, ui, view ) ->
 				updateChip event
+			eventClick: ( event, jsEvent, view ) ->
+				className = jsEvent.target.className
+				if className == 'remove-event' or className == 'fa fa-minus'
+					Chips.remove {_id: event._id}, (err, res) ->
+						console.log err or res
 		}
 
 Template.scheduler.onRendered ()->
@@ -40,10 +45,6 @@ Template.scheduler.onRendered ()->
 	Chips.after.remove refetchEvents
 	Chips.after.update refetchEvents
 
-Template.scheduler.events
-	'click .fc-event': (e, t) ->
-		console.log 'remove event e', e
-		console.log 'remove event t', t
 	
 refetchEvents = () ->
 	$('#calendar').fullCalendar 'refetchEvents'
