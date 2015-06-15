@@ -9,7 +9,7 @@ Template.boards.onCreated (->
 )
 
 Template.boards.onRendered (->
-
+	$('.new-board-container.dropdown-toggle').dropdown()
 )
 
 Template.boards.events
