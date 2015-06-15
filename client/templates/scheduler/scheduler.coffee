@@ -1,6 +1,8 @@
 Template.scheduler.helpers
 	calendarOptions: () ->
 		{
+			eventRender: (event, element) ->
+        element.append( '<span class="remove-event"><i class="fa fa-minus"></i></span>' );
 			events: (start, end, timezone, callback) ->
       	callback Chips.find().map (el) ->
         		board = Boards.findOne(el.boardId)
@@ -30,14 +32,6 @@ Template.scheduler.helpers
 				updateChip event
 		}
 
-updateChip = (event) ->
-	Chips.update {_id: event._id}, {$set: {start: event.start.format(), end: event.end.format()}}, (err, res) ->
-		console.log err or res
-
-createChip = (start, end, boardId) ->
-	Chips.insert { start: start, end: end, boardId: boardId }, (err, res) ->
-		console.log err or res
-
 Template.scheduler.onRendered ()->
 	Meteor.setTimeout (->
   	refetchEvents()
@@ -45,6 +39,19 @@ Template.scheduler.onRendered ()->
 	Chips.after.insert refetchEvents
 	Chips.after.remove refetchEvents
 	Chips.after.update refetchEvents
+
+Template.scheduler.events
+	'click .fc-event': (e, t) ->
+		console.log 'remove event e', e
+		console.log 'remove event t', t
 	
 refetchEvents = () ->
 	$('#calendar').fullCalendar 'refetchEvents'
+
+updateChip = (event) ->
+	Chips.update {_id: event._id}, {$set: {start: event.start.format(), end: event.end.format()}}, (err, res) ->
+		console.log err or res
+
+createChip = (start, end, boardId) ->
+	Chips.insert { start: start, end: end, boardId: boardId }, (err, res) ->
+		console.log err or res
