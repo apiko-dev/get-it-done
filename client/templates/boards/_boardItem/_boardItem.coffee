@@ -52,11 +52,12 @@ Template._boardItem.events
 	'click .ok-action': (e, t) ->
 		text = $(e.target).parent().parent().find('textarea.title').val()
 		description = $(e.target).parent().parent().find('textarea.description').val()
+		priority = $(e.target).parent().parent().find('select#priority-chooser').val()
 		if !text or !text.length
 			alert 'text is required'
 		else
 			boardId = t.data._id
-			Tasks.insert {ownerId: Meteor.userId(), boardId: boardId, text: text, description: description,completed: false}, (err, res) ->
+			Tasks.insert {ownerId: Meteor.userId(), boardId: boardId, text: text, description: description, priority: priority, completed: false}, (err, res) ->
 				console.log err or res
 		Template.instance().taskCreating.set false
 	'click .cancel-action': (e, t) ->

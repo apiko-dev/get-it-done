@@ -1,5 +1,5 @@
 <template name="_boardItem">
-<div class="list layer tile cols" style="border-color: {{config.bgColor}}">
+<div id="{{_id}}" class="list layer tile cols" style="border-color: {{config.bgColor}}">
 	<span class="board-header" style="background-color: {{config.bgColor}}"></span>
 	<div class="row action-row list-title-row">
 		<div class="col-xs-11">
@@ -72,6 +72,14 @@
 								<textarea class="title" rows="1"></textarea>
 								<label>Task description:</label>
 								<textarea class="description" rows="auto">{{description}}</textarea>
+						</div>
+						<div class="priority-container">
+							<label>Task priority:</label>
+							<select value="{{priority}}" name="priority-chooser" id="priority-chooser">
+								<option value="0" style="background-color: #21B24B; color: white;">Low</option>
+								<option value="1" style="background-color: #FDB813; color: white;">Medium</option>
+								<option value="2" style="background-color: #ED1B24; color: white;">High</option>
+							</select>
 						</div>
 						<div class="action-box ctrl-box pull-right">
 							<i class="fa fa-floppy-o ok-action"></i>

@@ -1,3 +1,9 @@
+PRIORITY_CLASSES = [
+  'LOW'
+  'MED'
+  'HIGH'
+]
+
 Template._taskItem.onCreated (->
 	@.taskEditing = new ReactiveVar(false);
 	@.showDescription = new ReactiveVar(false);
@@ -8,6 +14,8 @@ Template._taskItem.helpers
 		return Template.instance().taskEditing and Template.instance().taskEditing.get()
 	showDescription: () ->
 		return Template.instance().showDescription.get()
+	priority: () ->
+		return PRIORITY_CLASSES[Template.instance().data.priority]
 
 Template._taskItem.events
 	'click .action-edit': (e, t) ->
@@ -16,11 +24,10 @@ Template._taskItem.events
 		taskData = Blaze.getData(e.target)
 		text = $(e.target).parent().parent().find('textarea.title').val()
 		description = $(e.target).parent().parent().find('textarea.description').val()
-		console.log text
-		console.log description
+		priority = $(e.target).parent().parent().find('select#priority-chooser').val()
 		if !text or !text.length
 			removeTask taskData._id
-		Tasks.update { _id: taskData._id }, { $set: {text: text, description: description}}, (err, res) ->
+		Tasks.update { _id: taskData._id }, { $set: {text: text, description: description, priority: priority}}, (err, res) ->
   		console.log err or res
   	Template.instance().taskEditing.set false
 	'click .edit-cancel-action': (e, t) ->

@@ -1,8 +1,10 @@
+EVENT_CTRLS = '<div class="event-ctrls"><span class="remove-event"><i class="fa fa-minus"></i></span></div>'
+
 Template.scheduler.helpers
 	calendarOptions: () ->
 		{
 			eventRender: (event, element) ->
-        element.append( '<span class="remove-event"><i class="fa fa-minus"></i></span>' );
+        element.append EVENT_CTRLS
 			events: (start, end, timezone, callback) ->
       	callback Chips.find().map (el) ->
         		board = Boards.findOne(el.boardId)
@@ -35,6 +37,10 @@ Template.scheduler.helpers
 				if className == 'remove-event' or className == 'fa fa-minus'
 					Chips.remove {_id: event._id}, (err, res) ->
 						console.log err or res
+				else
+					Router.go 'boards', { },
+						hash: event.boardId
+					#console.log 'go to board ', event.boardId
 		}
 
 Template.scheduler.onRendered ()->

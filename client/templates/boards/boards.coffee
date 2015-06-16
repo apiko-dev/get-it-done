@@ -10,6 +10,13 @@ Template.boards.onCreated (->
 
 Template.boards.onRendered (->
 	$('.new-board-container.dropdown-toggle').dropdown()
+	hash = Router.current().params.hash
+	if hash
+		Meteor.setTimeout () ->
+				console.log hash
+  		location.hash = "#" + hash
+    return 
+		, 1000
 )
 
 Template.boards.events
