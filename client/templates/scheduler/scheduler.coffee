@@ -1,6 +1,10 @@
+EVENT_CTRLS = '<div class="event-ctrls"><span class="remove-event"><i class="fa fa-minus"></i></span></div>'
+
 Template.scheduler.helpers
 	calendarOptions: () ->
 		{
+			eventRender: (event, element) ->
+        element.append EVENT_CTRLS
 			events: (start, end, timezone, callback) ->
       	callback Chips.find().map (el) ->
         		board = Boards.findOne(el.boardId)
@@ -25,20 +29,36 @@ Template.scheduler.helpers
 					start: start
 					end: end
 			eventDrop: (event, delta, revertFunc, jsEvent, ui, view ) ->
-				console.log 'event drop'
+				updateChip event
 			eventResize: ( event, jsEvent, ui, view ) ->
-				console.log 'event resize'
+				updateChip event
+			eventClick: ( event, jsEvent, view ) ->
+				className = jsEvent.target.className
+				if className == 'remove-event' or className == 'fa fa-minus'
+					Chips.remove {_id: event._id}, (err, res) ->
+						console.log err or res
+				else
+					Router.go 'boards', { },
+						hash: event.boardId
+					#console.log 'go to board ', event.boardId
 		}
 
+Template.scheduler.onRendered ()->
+	Meteor.setTimeout (->
+  	refetchEvents()
+	), 100
+	Chips.after.insert refetchEvents
+	Chips.after.remove refetchEvents
+	Chips.after.update refetchEvents
+
+	
+refetchEvents = () ->
+	$('#calendar').fullCalendar 'refetchEvents'
+
+updateChip = (event) ->
+	Chips.update {_id: event._id}, {$set: {start: event.start.format(), end: event.end.format()}}, (err, res) ->
+		console.log err or res
 
 createChip = (start, end, boardId) ->
 	Chips.insert { start: start, end: end, boardId: boardId }, (err, res) ->
 		console.log err or res
-
-Template.scheduler.onRendered ()->
-	Chips.after.insert refetchEvents
-	Chips.after.remove refetchEvents
-	Chips.after.update refetchEvents
-	
-refetchEvents = () ->
-	$('#calendar').fullCalendar 'refetchEvents'

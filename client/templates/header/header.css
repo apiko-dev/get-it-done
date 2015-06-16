@@ -4,6 +4,11 @@
   line-height: 30pt !important;
 }
 
+.navbar-form {
+  margin: 0 !important;
+}
+
+
 .navbar .nav {
   float: right !important;
   position: relative;

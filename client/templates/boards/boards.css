@@ -12,13 +12,6 @@
   min-height: 5px;
 }
 
-.new-board-action {
-  max-height: 50px;
-  height: 50px;
-  padding: 15px;
-  cursor: pointer;
-}
-
 .creator {
   height: 50px;
   min-height: 50px;
@@ -33,6 +26,15 @@
 /*.list > div:last-child {
   border-color: transparent !important;
 }*/
+
+.list.layer.tile.cols.new-board-container {
+  background-color: rgb(252, 252, 252);
+  padding: 10px 15px;
+  position: relative;
+  margin: 0;
+  border-radius: 5px;
+  border: 2px dashed #E8E8E8;
+}
 
 .new-board-container, .new-task-container {
   cursor: pointer !important;
@@ -50,4 +52,12 @@
 
 .new-task-container:hover * {
   color: #111;
+}
+
+.new-board-container .row {
+  margin: 0 !important;
+}
+
+a.new-board-action {
+  font-size: 16px;
 }

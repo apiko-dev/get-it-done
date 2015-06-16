@@ -23,3 +23,23 @@
 .fc-left * {
   font-size: 21pt !important;
 }
+
+span.remove-event {
+  position: absolute;
+  z-index: 99999999999999999999999999999999;
+  top: 2px;
+  right: 2px;
+  background-color: rgba(37, 37, 37, 0.4);
+  border-radius: 50%;
+  height: 18px;
+  width: 18px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 20px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.17);
+  opacity: 0.1;
+}
+
+.fc-event:hover span.remove-event {
+  opacity: 1;
+}

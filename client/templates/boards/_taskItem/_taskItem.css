@@ -28,3 +28,7 @@ a.action-title.action-edit.description {
 a.show-description {
   margin-left: 5px;
 }
+
+.priority-container.edit {
+  left: 0;
+}
