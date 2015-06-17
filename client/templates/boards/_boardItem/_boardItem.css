@@ -154,7 +154,11 @@ a.action-title {
   padding: 0;
   display: inline-block;
   bottom: 0px;
-  right: 5px;
+  right: 0px;
+}
+
+.new-task-container .ctrl-box {
+  margin-right: -10px;
 }
 
 .priority-container {
@@ -365,4 +369,15 @@ span.priority.MED {
 span.priority.HIGH {
   /*background-color: #ED1B24;*/
   color: #ED1B24;
+}
+
+.dropdown.color-picker {
+  margin-right: 12px;
+}
+
+i.fa.fa-caret-down {
+  position: absolute;
+  top: 5px;
+  right: 0;
+  margin-right: -12px;
 }

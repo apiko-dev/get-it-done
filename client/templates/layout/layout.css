@@ -15,7 +15,7 @@ div#main {
 }
 
 div#main:focus {
-  outline: none;
+  outline: none !important;
 }
 
 textarea {
