@@ -22,7 +22,31 @@ div#lists {
 }
 
 #lists > div {
-    display: flex;
+  display: flex;
+}
+
+.list.layer.tile.cols.new-board-container {
+  height: 40px;
+  border: 2px dashed #E8E8E8;
+  padding: 5px 15px;
+}
+
+.list.layer.tile.cols.new-board-container[data-creating="true"] {
+  color: #888;
+  padding: 10px 10px 30px 10px;
+  border: 2px dashed #D0D0D0;
+  position: relative;
+  min-height: 100px;
+  height: initial;
+}
+
+.list.layer.tile.cols.new-board-container[data-creating="true"]:hover {
+  color: #555;
+  border-color: #888;
+}
+
+.list.layer.tile.cols.new-board-container .new-board-action, .list.layer.tile.cols.new-board-container[data-creating="true"] textarea {
+  width: 100%;
 }
 
 .new-board-container, .new-task-container {

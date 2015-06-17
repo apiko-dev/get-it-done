@@ -4,8 +4,11 @@
   border: 2px solid;
   border-radius: 5px;
   margin-right: 10px;
-  padding-bottom: 5px;
   position: relative;
+}
+
+.list .container {
+  padding-bottom: 5px;
 }
 
 .tile__list {
@@ -148,9 +151,9 @@ a.action-title {
   width: auto;
   font-size: 20px;
   position: absolute;
-  padding: 5px 0;
+  padding: 0;
   display: inline-block;
-  bottom: 10px;
+  bottom: 0px;
   right: 5px;
 }
 
