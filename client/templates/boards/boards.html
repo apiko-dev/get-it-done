@@ -4,7 +4,7 @@
 			{{#each boards}}
 				{{> _boardItem}}
 			{{/each}}
-		<div class="list layer tile cols new-board-container">
+		<div class="list layer tile cols new-board-container" data-creating={{boardCreating}}>
 				{{#if boardCreating}}
 					<div class="action-box content-box new-board-action">
 						<label>Board title:</label>
