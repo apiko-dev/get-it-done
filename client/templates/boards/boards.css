@@ -1,48 +1,37 @@
-.list {
-  width: 300px;
-  min-width: 300px;
-  border: 2px solid;
-  border-radius: 5px;
-  margin-right: 10px;
-  padding-bottom: 5px;
-  position: relative;
-}
-
-.tile__list {
-  min-height: 5px;
-}
-
-.creator {
-  height: 50px;
-  min-height: 50px;
-  padding: 10px;
-  background: aliceblue;
-}
-
-.list * {
-  border-color: inherit;
-}
-
-/*.list > div:last-child {
-  border-color: transparent !important;
-}*/
-
-.list.layer.tile.cols.new-board-container {
-  background-color: rgb(252, 252, 252);
-  padding: 10px 15px;
-  position: relative;
+div#lists {
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  overflow-x: auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  -webkit-transform: translate3d(0,0,0);
+  height: calc(100vh*0.9);
+  min-height: calc(100vh*0.9);
+  max-height: calc(100vh*0.9);
+  display: inline-flex;
+  width: 100%;
+  border-spacing: 5px 0px;
   margin: 0;
-  border-radius: 5px;
-  border: 2px dashed #E8E8E8;
+}
+
+#lists > div {
+    display: flex;
 }
 
 .new-board-container, .new-task-container {
-  cursor: pointer !important;
+  cursor: pointer;
 }
 
-.row.action textarea {
-  resize: vertical !important;
-  margin-bottom: 5px !important;
+.row.action.board textarea {
+  resize: vertical;
+  margin-bottom: 5px;
   border: 1px solid #cecece;
 }
 
@@ -55,7 +44,7 @@
 }
 
 .new-board-container .row {
-  margin: 0 !important;
+  margin: 0;
 }
 
 a.new-board-action {

@@ -10,13 +10,13 @@
 }
 
 #login-dropdown-list {
-  position: relative !important;
-  font-size: 10pt !important;
-  line-height: 30pt !important;
+  position: relative;
+  font-size: 10pt;
+  line-height: 30pt;
 }
 
 .navbar-form {
-  margin: 0 !important;
+  margin: 0;
 }
 
 .stripe {
@@ -36,7 +36,7 @@
 }
 
 .navbar .nav {
-  float: right !important;
+  float: right;
   position: relative;
   left: 0;
   display: block;
@@ -44,22 +44,22 @@
 }
 
 #login-dropdown-list .dropdown-menu {
-  margin-left: -140px !important;
+  margin-left: -140px;
 }
 
 .navbar .nav > li > a {
   text-decoration: none;
-  text-shadow: none !important;
+  text-shadow: none;
 }
 
 .navbar-default .navbar-nav li a, .navbar-text {
-  font-size: 11pt !important;
-  color: #626262 !important;
+  font-size: 11pt;
+  color: #626262;
 }
 
 .navbar-default .nav i {
   vertical-align: initial;
-  font-size: 12pt !important;
+  font-size: 12pt;
 }
 
 @media (max-width: 767px) {
@@ -80,7 +80,7 @@
 	}
 
 	#login-dropdown-list .dropdown-menu {
-  	margin-left: auto !important;
-  	padding: 0px 0 0 30px !important;
+  	margin-left: auto;
+  	padding: 0px 0 0 30px;
 	}
 }
