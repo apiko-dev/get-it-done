@@ -19,6 +19,14 @@
   margin: 0 !important;
 }
 
+.nav .navbar-form {
+  float: left;
+}
+
+.nav .navbar-form button {
+  margin-top: 7px;
+}
+
 .stripe {
   position: relative;
   z-index: 1;

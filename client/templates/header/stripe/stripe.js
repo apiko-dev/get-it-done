@@ -5,10 +5,15 @@ Template.Stripe.helpers({
     boards.forEach(function (board) {
       colors.push(board.config.bgColor || '#AAAAAA');
     });
+
+    if (colors.length === 0) return ['#f68d38'];
+
     return colors;
   },
 
   lineWidth: function () {
-    return 1 / Boards.find().count() * 100 + '%'; 
+
+    var count = Boards.find().count() || 1;
+    return 1 / count * 100 + '%'; 
   }
 });

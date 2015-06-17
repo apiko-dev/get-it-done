@@ -1,4 +1,4 @@
-.fc-event {
+  .fc-event {
   color: white;
   box-shadow: -1px 0px 7px rgba(0, 0, 0, 0.24);
   font-family: sans-serif;
@@ -42,4 +42,8 @@ span.remove-event {
 
 .fc-event:hover span.remove-event {
   opacity: 1;
+}
+
+#calendar {
+  padding: 0 20px;
 }
