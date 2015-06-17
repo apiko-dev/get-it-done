@@ -1,6 +1,6 @@
 <template name="_boardItem">
 <div id="{{_id}}" class="list layer tile cols" style="border-color: {{config.bgColor}}">
-	<span class="board-header" style="background-color: {{config.bgColor}}; border-bottom: 2px solid {{lightenDarkenColor config.bgColor -30}}"></span>
+	<span class="board-header" style="background-color: {{config.bgColor}}; border-bottom: 2px solid {{lightenDarkenColor config.bgColor -50}}"></span>  
 	<div class="row action-row list-title-row">
 		<div class="col-xs-11">
 			{{#if boardEditing}}
@@ -52,50 +52,52 @@
     	</div>
 		</div>
 	</div>
-	<div class="actions row collapse in ui-sortable">
-		<div class="col-xs-12">
-			
-			<div class="tile__list">
-					{{#each tasks}}
-						{{> _taskItem}}
-					{{/each}}
-			</div>
-		</div>
-	</div>
-	<div class="row action new-task-container" data-creating={{taskCreating}}>
-		<div class="handles handle ui-sortable-handle">
-			<div class="col-xs-12">
-				<div class="row">
-					{{#if taskCreating}}
-						<div class="col-xs-12 action-box content-box new-task-action">
-								<label>Task title:</label>
-								<textarea class="title" rows="1"></textarea>
-								<label>Task description:</label>
-								<textarea class="description" rows="auto">{{description}}</textarea>
-						</div>
-						<div class="priority-container">
-							<label>Task priority:</label>
-							<select value="{{priority}}" name="priority-chooser" id="priority-chooser">
-								<option value="0" style="background-color: #21B24B; color: white;">Low</option>
-								<option value="1" style="background-color: #FDB813; color: white;">Medium</option>
-								<option value="2" style="background-color: #ED1B24; color: white;">High</option>
-							</select>
-						</div>
-						<div class="action-box ctrl-box pull-right">
-							<i class="fa fa-floppy-o ok-action"></i>
-							<i class="fa fa-times cancel-action"></i>
-						</div>
-					{{else}}
-						<div class="col-xs-1 action-box complete-box">
-								<i class="fa fa-plus-circle new-task-action"></i>
-						</div>
-						<div class="col-xs-11">
-							<a class="new-task-action">New task</a>
-						</div>
-					{{/if}}
-				</div>
-			</div>
-		</div>
+  <div class="container">
+  	<div class="actions row collapse in ui-sortable">
+  		<div class="col-xs-12">
+  			
+  			<div class="tile__list">
+  					{{#each tasks}}
+  						{{> _taskItem}}
+  					{{/each}}
+  			</div>
+  		</div>
+  	</div>
+  	<div class="row action new-task-container" data-creating={{taskCreating}}>
+  		<div class="handles handle ui-sortable-handle">
+  			<div class="col-xs-12">
+  				<div class="row">
+  					{{#if taskCreating}}
+  						<div class="col-xs-12 action-box content-box new-task-action">
+  								<label>Task title:</label>
+  								<textarea class="title" rows="1"></textarea>
+  								<label>Task description:</label>
+  								<textarea class="description" rows="auto">{{description}}</textarea>
+  						</div>
+  						<div class="priority-container">
+  							<label>Task priority:</label>
+  							<select value="{{priority}}" name="priority-chooser" id="priority-chooser">
+  								<option value="0" style="background-color: #21B24B; color: white;">Low</option>
+  								<option value="1" style="background-color: #FDB813; color: white;">Medium</option>
+  								<option value="2" style="background-color: #ED1B24; color: white;">High</option>
+  							</select>
+  						</div>
+  						<div class="action-box ctrl-box pull-right">
+  							<i class="fa fa-floppy-o ok-action"></i>
+  							<i class="fa fa-times cancel-action"></i>
+  						</div>
+  					{{else}}
+  						<div class="col-xs-1 action-box complete-box">
+  								<i class="fa fa-plus-circle new-task-action"></i>
+  						</div>
+  						<div class="col-xs-11">
+  							<a class="new-task-action">New task</a>
+  						</div>
+  					{{/if}}
+  				</div>
+  			</div>
+  		</div>
+    </div>
 	</div>
 </div>
 </template>

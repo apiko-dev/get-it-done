@@ -1,3 +1,9 @@
+body {
+    padding-top: 30px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+}
+
 #login-buttons-image-google {
     width: 16px;
     background-position: center center;
@@ -13,7 +19,6 @@
     user-select: none;
     padding: 4px 8px;
     font-size: 80%;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     line-height: 1.5;
     text-align: center;
     color: #fff;
@@ -15974,9 +15979,7 @@ span.error {
     text-transform: uppercase;
     font-size: 1.25em;
     margin-bottom: 0 !important;
-    background-color: #fff;
-    border-bottom: none;
-    color: #000 !important
+    border-radius: 0;
 }
 .navbar-default .navbar-nav>li>a,
 .navbar-text {
@@ -16175,10 +16178,6 @@ a.editable-click {
 #show-complete {
     margin-left: 15px
 }
-body {
-    padding-top: 30px;
-    font-family: 'Roboto Slab', serif
-}
 .progress-col {
     padding-left: 0px;
     padding-right: 0px
@@ -16233,8 +16232,12 @@ table td {
 /*///////////////////////////////////////////////////////////////////*/
 
 body, div#main, .main-container.container {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.main-container {
+  background-color: #FDFDFD;
 }
 
 div#main {

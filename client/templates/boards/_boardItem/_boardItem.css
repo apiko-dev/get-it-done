@@ -1,7 +1,6 @@
 .action {
   padding: 5px 15px 0px 5px !important;
-  margin-bottom: 5px !important;
-  min-height: 50px !important;
+  min-height: 36px !important;
   border: 1px solid transparent !important;
   border-bottom: 1px dashed inherit !important;
   /*border-color: inherit; !important;*/
@@ -147,6 +146,7 @@ a.color-picker {
   padding: 5px;
   margin-left: 0;
   margin-right: 0;
+  margin-bottom: 0;
 }
 
 .cols {

@@ -1,0 +1,28 @@
+<template name="Stripe">
+  <style>
+    .stripe-line {
+      width: {{lineWidth}};
+    }
+
+    /* The animation code */
+    @keyframes stretch {
+      from {
+        width: 0;
+      }
+      to {
+        width: {{lineWidth}};
+      }
+    }
+
+    /* The element to apply the animation to */
+    .stripe-line {
+      animation-name: stretch;
+      animation-duration: 1s;
+    }
+  </style>
+  <div class="stripe">
+    {{#each colors}}
+      <div class="stripe-line" style="background-color: {{lightenDarkenColor this -50}};"></div>
+    {{/each}}
+  </div>
+</template>

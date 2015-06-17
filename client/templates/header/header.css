@@ -1,3 +1,14 @@
+.navbar-default {
+  background-color: #FFF;
+  border: none;
+  border-bottom: 1px solid #F0F0F0;
+  color: #626262;
+}
+
+.navbar-default .navbar-nav > li > a {
+  line-height: 30px;
+}
+
 #login-dropdown-list {
   position: relative !important;
   font-size: 10pt !important;
@@ -8,6 +19,21 @@
   margin: 0 !important;
 }
 
+.stripe {
+  position: relative;
+  z-index: 1;
+  height: 2px;
+  overflow: hidden;
+}
+
+.stripe > .stripe-line {
+  height: 2px;
+  float: left;
+  -webkit-transition: width 1s ease;
+  -moz-transition: width 1s ease;
+  -o-transition: width 1s ease;
+  transition: width 1s ease;
+}
 
 .navbar .nav {
   float: right !important;
@@ -21,23 +47,14 @@
   margin-left: -140px !important;
 }
 
-.nav .dropdown-toggle {
-  margin: 15px 0px 10px 15px !important;
-  line-height: 42px !important;
-}
-
-.navbar-default {
-  box-shadow: 0 0 10px gray;
-}
-
 .navbar .nav > li > a {
   text-decoration: none;
   text-shadow: none !important;
 }
 
 .navbar-default .navbar-nav li a, .navbar-text {
-  font-size: 13pt !important;
-  color: #337ab7;
+  font-size: 11pt !important;
+  color: #626262 !important;
 }
 
 .navbar-default .nav i {
