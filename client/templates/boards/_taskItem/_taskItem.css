@@ -1,6 +1,6 @@
 a.action-title.action-edit.description {
-  font-size: 13px !important;
-  font-family: sans-serif !important;
+  font-size: 13px;
+  font-family: sans-serif;
 	display: block;
 }
 
@@ -12,17 +12,19 @@ a.action-title.action-edit.description {
   color: red;
 }
 
-.row.action {
-  color: #8F8F8F !important;
+.row.action.board {
+  color: #8F8F8F;
+  border-bottom: 1px dashed black;
+  border-color: inherit;
 }
 
-.row.action:hover {
-  color: #000000 !important;
+.row.action.board:hover {
+  color: #000000;
   background-color: #fff;
 }
 
 .new-task-container:hover {
-	background-color: #eee;
+	
 }
 
 a.show-description {

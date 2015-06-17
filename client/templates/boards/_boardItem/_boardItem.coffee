@@ -73,8 +73,18 @@ Template._boardItem.events
 	'click .edit-board-title': (e, t) ->
 		instance = Template.instance()
 		cur = instance.boardEditing.get()
-		if cur
-			title = $(e.currentTarget).parent().find('input').val()
-			Boards.update {_id: @._id}, {$set: {title: title}}, (err, res) ->
-				console.log err or res
 		instance.boardEditing.set !cur
+	'keyup, focusout input.board-title': (e, t) ->
+		console.log 'keyup', e
+
+		if e.keyCode == 13 or e.type == 'focusout' 
+			instance = Template.instance()
+			cur = instance.boardEditing.get()
+			if cur
+				title = $(e.currentTarget).parent().find('input').val()
+				Boards.update {_id: @._id}, {$set: {title: title}}, (err, res) ->
+					console.log err or res
+			instance.boardEditing.set null
+
+
+
