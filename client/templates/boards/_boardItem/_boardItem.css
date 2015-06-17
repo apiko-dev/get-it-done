@@ -159,7 +159,11 @@ a.action-title {
   padding: 0;
   display: inline-block;
   bottom: 0px;
-  right: 5px;
+  right: 0px;
+}
+
+.new-task-container .ctrl-box {
+  margin-right: -10px;
 }
 
 .priority-container {
@@ -372,6 +376,18 @@ span.priority.HIGH {
   color: #ED1B24;
 }
 
+
 input.board-title {
   background-color: rgba(255,255,255,0.3);
+}
+
+.dropdown.color-picker {
+  margin-right: 12px;
+}
+
+i.fa.fa-caret-down {
+  position: absolute;
+  top: 5px;
+  right: 0;
+  margin-right: -12px;
 }
