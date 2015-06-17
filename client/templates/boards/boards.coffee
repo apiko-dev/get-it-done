@@ -13,10 +13,9 @@ Template.boards.onRendered (->
 	hash = Router.current().params.hash
 	if hash
 		Meteor.setTimeout () ->
-				console.log hash
-  		location.hash = "#" + hash
+  		$('#lists').stop().animate { scrollLeft: $('#'+hash).offset().left }, 1000
     return 
-		, 1000
+		, 100
 )
 
 Template.boards.events
