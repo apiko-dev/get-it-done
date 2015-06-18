@@ -50,7 +50,7 @@ div#lists {
 }
 
 .list .actions {
-  padding: 14px 14px 0 14px;
+  padding: 7px 14px 7px 14px;
 }
 
 .list .edit-board-title {
@@ -70,14 +70,6 @@ div#lists {
   resize: vertical;
   margin-bottom: 5px;
   border: 1px solid #cecece;
-}
-
-.new-task-container * {
-  color: #777;
-}
-
-.new-task-container:hover * {
-  color: #111;
 }
 
 .new-board-container .row {

@@ -13,8 +13,10 @@ Template._boardItem.onRendered (->
 		items: '.action'
 		forcePlaceholderSize: !0
 		dropOnEmpty: true
-		opacity: 0.8
+		opacity: 1
 		zIndex: 9999
+		start: (e, ui) ->
+		  ui.placeholder.height(ui.helper.outerHeight());
 		update: (event, ui) ->
 			targetBoardId = Blaze.getData(event.target)._id
 			targetTaskId = Blaze.getData(ui.item[0])._id
@@ -45,39 +47,48 @@ Template._boardItem.helpers
 Template._boardItem.events
 	'click .new-task-action': (e, t) ->
 		Template.instance().taskCreating.set true
+
 	'click .complete-action': (e, t) ->
 		taskData = Blaze.getData(event.target)
 		Tasks.update { _id: taskData._id }, { $set: completed: !taskData.completed }, (err, res) ->
   		console.log err or res
-	'click .ok-action': (e, t) ->
-		text = $(e.target).parent().parent().find('textarea.title').val()
-		description = $(e.target).parent().parent().find('textarea.description').val()
-		priority = $(e.target).parent().parent().find('select#priority-chooser').val()
-		if !text or !text.length
-			alert 'text is required'
-		else
-			boardId = t.data._id
-			Tasks.insert {ownerId: Meteor.userId(), boardId: boardId, text: text, description: description, priority: priority, completed: false}, (err, res) ->
-				console.log err or res
-		Template.instance().taskCreating.set false
+
+	'click .ok-action, keydown .new-task-action .title': (e, t) ->
+		if e.type == 'click' or e.keyCode == 13
+			text = $(e.target).parent().parent().find('textarea.title').val()
+			description = $(e.target).parent().parent().find('textarea.description').val()
+			priority = $(e.target).parent().parent().find('select#priority-chooser').val()
+			if !text or !text.length
+				alert 'text is required'
+			else
+				boardId = t.data._id
+				Tasks.insert {ownerId: Meteor.userId(), boardId: boardId, text: text, description: description, priority: priority || 1, completed: false}, (err, res) ->
+					console.log err or res
+			Template.instance().taskCreating.set false
+
 	'click .cancel-action': (e, t) ->
 		Template.instance().taskCreating.set false
+
 	'click li.color': (e, t) ->
 		$(e.target).parent().parent().css('border-color', e.currentTarget.dataset.color + ';')
 		boardId = @._id
 		Boards.update { _id: boardId }, { $set: 'config.bgColor': e.currentTarget.dataset.color}, (err, res) ->
 			console.log err or res
+
 	'click .delete-board': (e, t) ->
 		Boards.remove {_id: t.data._id}, (err, res) ->
 			console.log err or res
+
 	'click .edit-board-title': (e, t) ->
 		instance = Template.instance()
 		cur = instance.boardEditing.get()
 		instance.boardEditing.set !cur
-	'keyup, focusout input.board-title': (e, t) ->
-		console.log 'keyup', e
+		Meteor.setTimeout (->
+			t.$('.board-title').focus()
+		), 0
 
-		if e.keyCode == 13 or e.type == 'focusout' 
+	'keyup, focusout input.board-title': (e, t) ->
+		if e.type == 'focusout' or e.keyCode == 13
 			instance = Template.instance()
 			cur = instance.boardEditing.get()
 			if cur

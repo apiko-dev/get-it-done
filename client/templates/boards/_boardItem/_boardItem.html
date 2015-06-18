@@ -5,7 +5,6 @@
 			{{#if boardEditing}}
 				<span class="list-title">
 					<div class="input-group board-title-editor">
-  					<!-- <span class="input-group-addon edit-board-title board-edit-ok-action"><i class="fa fa-floppy-o"></i></span> -->
   					<input class="board-title form-control" type="text" value="{{title}}">
 					</div>
 				</span>
@@ -63,29 +62,26 @@
 
   					{{#if taskCreating}}
   						<div class="action-box content-box new-task-action">
-  								<label>Task title:</label>
+  								<!-- <label>Task title:</label> -->
   								<textarea class="title" rows="1"></textarea>
-  								<label>Task description:</label>
-  								<textarea class="description" rows="auto">{{description}}</textarea>
+  								<!-- <label>Task description:</label>
+  								<textarea class="description" rows="auto">{{description}}</textarea> -->
   						</div>
-  						<div class="priority-container">
+  						<!-- <div class="priority-container">
   							<label>Priority:</label>
   							<select value="{{priority}}" name="priority-chooser" id="priority-chooser">
   								<option value="0" style="background-color: #21B24B; color: white;">Low</option>
   								<option value="1" style="background-color: #FDB813; color: white;">Medium</option>
   								<option value="2" style="background-color: #ED1B24; color: white;">High</option>
   							</select>
-  						</div>
+  						</div> -->
   						<div class="action-box ctrl-box pull-right">
-  							<i class="fa fa-floppy-o ok-action"></i>
-  							<i class="fa fa-times cancel-action"></i>
+  							<span class="ok-action">Save</span>
+  							<span class="cancel-action text-danger">Cancel</span>
   						</div>
   					{{else}}
-  						<div class="col-xs-1 action-box complete-box">
-  								<i class="fa fa-plus-circle new-task-action"></i>
-  						</div>
-  						<div class="col-xs-11">
-  							<a class="new-task-action">New task</a>
+  						<div class="new-task-action-wrapper">
+  							<a class="new-task-action">New task...</a>
   						</div>
   					{{/if}}
 
