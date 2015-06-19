@@ -34,7 +34,8 @@ div#lists {
   font-size: 20px;
   padding: 5px;
   color: #626262;
-  line-height: 18px;
+  line-height: 30px;
+  margin: 0 5px;
 }
 
 /*.list.layer.tile.cols.new-board-container[data-creating="true"] {
@@ -85,4 +86,24 @@ div#lists {
 
 a.new-board-action {
   font-size: 16px;
+}
+
+.board .list {
+
+}
+
+/* The animation code */
+@keyframes stretchHeight {
+  from {
+    height: 0;
+  }
+  to {
+    height: 148px;
+  }
+}
+
+    /* The element to apply the animation to */
+#lists > div.board:nth-last-child(2) > .container {
+  animation-name: stretchHeight;
+  animation-duration: 0.3s;
 }

@@ -1,17 +1,23 @@
-.list {
+.list, #lists .sortable-placeholder {
   min-width: 300px;
   border: 2px solid;
   border-radius: 5px;
-  margin-right: 10px;
+  margin-right: 5px;
+  margin-left: 5px;
   position: relative;
   background-color: #EEE;
+}
+
+#lists .sortable-placeholder {
+  margin: 0 5px;
+  border: none;
 }
 
 .list .container {
   padding-bottom: 5px;
 }
 
-.tile__list {
+.task-list {
   min-height: 62px;
 }
 
@@ -238,10 +244,6 @@ a.color-picker {
   opacity: 1;
 }
 
-.ui-sortable-helper {
-  z-index: 1050;
-}
-
 .list.layer.tile.cols {
   display: table;
 }
@@ -312,9 +314,6 @@ hr {
   margin: 5px 0px;
   border-style: dashed;
   opacity: 0.3;
-}
-
-.input-group.board-title-editor {
 }
 
 .input-group.board-title-editor > * {
