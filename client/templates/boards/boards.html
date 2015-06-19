@@ -6,7 +6,14 @@
 			{{/each}}
 		<div class="list layer tile cols new-board-container" data-creating={{boardCreating}}>
 				{{#if boardCreating}}
-					<div class="action-box content-box new-board-action">
+					<div class="input-group board-title-editor">
+  					<input class="board-title form-control" type="text" value="{{title}}">
+					</div>
+					<div class="action-box ctrl-box pull-right">
+						<span class="new-board-ok-action">Save</span>
+						<span class="new-board-cancel-action text-danger">Cancel</span>
+					</div>
+					<!-- <div class="action-box content-box new-board-action">
 						<label>Board title:</label>
 						<textarea class="board-title" rows="1"></textarea>
 					</div>
@@ -14,18 +21,15 @@
   						<span class="new-board-ok-action">Save</span>
   						<span class="new-board-cancel-action text-danger">Cancel</span>
   				</div>
-<!-- 					<div class="action-box ctrl-box pull-right">
+ 					<div class="action-box ctrl-box pull-right">
 						<span class="new-board-ok-action">Save</span>
 						<i class="fa fa-floppy-o new-board-ok-action"></i>
 						<span class="new-board-cancel-action">Cancel</span>
 						<i class="fa fa-times new-board-cancel-action"></i>
 					</div> -->
 				{{else}}
-					<div class="col-xs-1 action-box complete-box">
-							<i class="fa fa-plus-circle new-board-action"></i>
-					</div>
-					<div class="col-xs-11">
-						<a class="new-board-action">New board</a>
+					<div class="toggle-list edit-board-title">
+						<span class="new-board-action list-title">New board</span>
 					</div>
 				{{/if}}
 		</div>

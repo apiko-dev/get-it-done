@@ -3,11 +3,9 @@
 	<span class="board-header" style="background-color: {{config.bgColor}}; border-bottom: 2px solid {{lightenDarkenColor config.bgColor -50}}"></span>  
 	<div class="row action-row list-title-row">
 			{{#if boardEditing}}
-				<span class="list-title">
 					<div class="input-group board-title-editor">
   					<input class="board-title form-control" type="text" value="{{title}}">
 					</div>
-				</span>
 			{{else}}
 				<div class="toggle-list edit-board-title">
 					<span class="list-title">

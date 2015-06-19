@@ -9,9 +9,11 @@
 }
 
 #lists .sortable-placeholder {
-  margin: 0 5px;
+  margin: 5px 0;
   border: none;
   min-width: 0px;
+  background-color: #ddd;
+  border-radius: 3px;
 }
 
 #lists.row.ui-sortable > .sortable-placeholder {
@@ -43,6 +45,7 @@
   position: relative;
   margin: 0;
   border-radius: 5px;
+  line-height: 30px;
   border: 2px dashed #E8E8E8;
 }
 
@@ -172,6 +175,7 @@ a.action-title {
 
 .new-task-container .ctrl-box {
   margin-right: -10px;
+  padding-top: 2px;
 }
 
 .priority-container {
@@ -228,7 +232,8 @@ a.color-picker {
 }
 
 .ctrl-box > * {
-  /*display: block;*/
+  margin-right: 5px;
+  text-transform: uppercase;
 }
 
 .ctrl-box i.fa {
@@ -292,7 +297,8 @@ span.board-header, .list-title-row {
 
 .row.action-row.list-title-row {
   left: 14px;
-  padding: 10px;
+  padding: 5px;
+  line-height: 28px;
 }
 
 .row.action-row.list-title-row * {
@@ -318,15 +324,6 @@ hr {
   margin: 5px 0px;
   border-style: dashed;
   opacity: 0.3;
-}
-
-.input-group.board-title-editor {
-  position: absolute;
-  left: 10px;
-  top: 4px;
-  margin-left: -5px;
-  height: 100%;
-  width: 60%;
 }
 
 .input-group.board-title-editor > * {
@@ -398,6 +395,8 @@ i.fa.fa-caret-down {
 
 .ui-sortable-helper {
   transform: rotate(-2deg);
-  margin-top: 5px;
-  z-index: 1050;
+}
+
+.board-title-editor {
+  float: left;
 }

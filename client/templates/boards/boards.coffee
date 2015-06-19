@@ -54,10 +54,11 @@ Template.boards.events
 		Template.instance().boardCreating.set true
 	'click .new-board-cancel-action': () ->
 		Template.instance().boardCreating.set false
-	'click .new-board-ok-action': (e, t) ->
-		text = $(e.target).parent().parent().find('textarea').val()
-		if !text or !text.length
-			alert 'Board name is required'
-		Boards.insert {ownerId: Meteor.userId(), title: text}, (err, res) ->
-			console.log err or res
-		Template.instance().boardCreating.set false
+	'click .new-board-ok-action, keydown .board-title': (e, t) ->
+		if e.type == 'click' or e.keyCode == 13
+			text = $(e.target).closest('.new-board-container').find('input').val()
+			if !text or !text.length
+				alert 'Board name is required'
+			Boards.insert {ownerId: Meteor.userId(), title: text}, (err, res) ->
+				console.log err or res
+			Template.instance().boardCreating.set false

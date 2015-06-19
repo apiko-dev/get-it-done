@@ -27,12 +27,18 @@ div#lists {
 
 .list.layer.tile.cols.new-board-container {
   height: 40px;
-  border: 2px dashed #E8E8E8;
-  padding: 5px 15px;
-  margin-left: 5px;
+  width: 298px;
+  border-radius: 5px;
+  background-color: #EEEEEE;
+  border-bottom: 2px solid #AEAEAE;
+  font-size: 20px;
+  padding: 5px;
+  color: #626262;
+  line-height: 30px;
+  margin: 0 5px;
 }
 
-.list.layer.tile.cols.new-board-container[data-creating="true"] {
+/*.list.layer.tile.cols.new-board-container[data-creating="true"] {
   color: #888;
   padding: 10px 10px 30px 10px;
   border: 2px dashed #D0D0D0;
@@ -44,7 +50,7 @@ div#lists {
 .list.layer.tile.cols.new-board-container[data-creating="true"]:hover {
   color: #555;
   border-color: #888;
-}
+}*/
 
 .list.layer.tile.cols.new-board-container .new-board-action, .list.layer.tile.cols.new-board-container[data-creating="true"] textarea {
   width: 100%;
@@ -55,8 +61,9 @@ div#lists {
 }
 
 .list .edit-board-title {
-  line-height: 18px;
+  line-height: 26px;
   float: left;
+  padding: 0 5px;
 }
 
 .list .edit-board-title .list-title {
@@ -80,3 +87,4 @@ div#lists {
 a.new-board-action {
   font-size: 16px;
 }
+
