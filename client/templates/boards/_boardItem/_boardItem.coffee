@@ -6,8 +6,8 @@ Template._boardItem.onCreated (->
 
 Template._boardItem.onRendered (->
 	@.$('.dropdown-toggle').dropdown()
-	@.$('.tile__list').sortable
-		connectWith: '.tile__list'
+	@.$('.task-list').sortable
+		connectWith: '.task-list'
 		helper: 'clone'
 		placeholder: 'sortable-placeholder'
 		items: '.action'
