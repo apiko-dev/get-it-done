@@ -88,22 +88,3 @@ a.new-board-action {
   font-size: 16px;
 }
 
-.board .list {
-
-}
-
-/* The animation code */
-@keyframes stretchHeight {
-  from {
-    height: 0;
-  }
-  to {
-    height: 148px;
-  }
-}
-
-    /* The element to apply the animation to */
-#lists > div.board:nth-last-child(2) > .container {
-  animation-name: stretchHeight;
-  animation-duration: 0.3s;
-}
