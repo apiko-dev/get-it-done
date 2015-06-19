@@ -53,7 +53,8 @@
 }
 
 .action {
-  padding: 5px 10px 5px 10px;
+  /*padding: 5px 10px 5px 10px;*/
+  padding: 7px; 
   min-height: 27px;
   border-radius: 3px;
   margin: 7px 0;
@@ -372,8 +373,10 @@ span.priority.HIGH {
 }
 
 
-input.board-title {
+input.board-title, .board textarea, .board input, .board select{
   background-color: rgba(255,255,255,0.3);
+  height: initial;
+  border-radius: 0;
 }
 
 .dropdown.color-picker {

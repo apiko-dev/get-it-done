@@ -20,10 +20,14 @@
 						<option value="2" style="background-color: #ED1B24; color: white;">High</option>
 					</select>
 				</div>
-				<div class="action-box ctrl-box pull-right">
+<!-- 				<div class="action-box ctrl-box pull-right">
 					<i class="fa fa-floppy-o edit-ok-action"></i>
 					<i class="fa fa-times edit-cancel-action"></i>
-				</div>
+				</div> -->
+				<div class="action-box ctrl-box pull-right">
+          <span class="edit-ok-action">Save</span>
+          <span class="edit-cancel-action text-danger">Cancel</span>
+        </div>
 		{{else}}
 			<div class="col-xs-1 action-box complete-box">
 				{{#if completed}}
