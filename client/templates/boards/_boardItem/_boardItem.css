@@ -8,16 +8,23 @@
   background-color: #EEE;
 }
 
+.ui-sortable-helper {
+  transform: rotate(-2deg);
+}
+
 #lists .sortable-placeholder {
-  margin: 5px 0;
   border: none;
   min-width: 0px;
   background-color: #ddd;
   border-radius: 3px;
+  margin: 7px 0;
 }
 
 #lists.row.ui-sortable > .sortable-placeholder {
   min-width: 300px;
+}
+#lists.row.ui-sortable > .ui-sortable-helper {
+  margin-top: 5px;
 }
 
 .list .container {
@@ -385,16 +392,6 @@ i.fa.fa-caret-down {
   top: 5px;
   right: 0;
   margin-right: -12px;
-}
-
-.sortable-placeholder {
-  background-color: #ddd;
-  border-radius: 3px;
-  margin: 7px 0;
-}
-
-.ui-sortable-helper {
-  transform: rotate(-2deg);
 }
 
 .board-title-editor {
