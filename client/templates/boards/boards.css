@@ -29,6 +29,7 @@ div#lists {
   height: 40px;
   border: 2px dashed #E8E8E8;
   padding: 5px 15px;
+  margin-left: 5px;
 }
 
 .list.layer.tile.cols.new-board-container[data-creating="true"] {
