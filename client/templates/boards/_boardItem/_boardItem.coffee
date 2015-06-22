@@ -43,6 +43,9 @@ Template._boardItem.helpers
 		return Template.instance().taskCreating and Template.instance().taskCreating.get()
 	boardEditing: () ->
 		return Template.instance().boardEditing.get()
+	isNoTasks: () ->
+		return !Tasks.find({ boardId: Template.instance().data._id }).count()
+
 
 Template._boardItem.events
 	'click .new-task-action': (e, t) ->

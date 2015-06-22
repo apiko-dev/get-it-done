@@ -8,6 +8,12 @@
   background-color: #EEE;
 }
 
+.list p.placeholder {
+  color: rgb(203, 203, 203);
+  text-align: center;
+  line-height: 60px;
+}
+
 .ui-sortable-helper {
   transform: rotate(-2deg);
 }
@@ -58,7 +64,6 @@
 
 .actions {
   padding: 3px;
-  margin-top: 40px;
   overflow: visible;
 }
 

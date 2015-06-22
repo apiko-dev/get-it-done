@@ -14,10 +14,14 @@ div#main {
   padding: 0 5px;
 }
 
-div#main:focus {
+/*div#main:focus {
   outline: none !important;
 }
-
+*/
 textarea {
   resize: vertical;
+}
+
+.button  {
+  cursor: pointer;
 }

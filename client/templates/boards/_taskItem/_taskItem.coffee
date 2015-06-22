@@ -16,6 +16,8 @@ Template._taskItem.helpers
 		return Template.instance().showDescription.get()
 	priority: () ->
 		return PRIORITY_CLASSES[Template.instance().data.priority]
+	description: () ->
+		return Template.instance().description or 'no description'
 
 Template._taskItem.events
 	'click .action-edit': (e, t) ->

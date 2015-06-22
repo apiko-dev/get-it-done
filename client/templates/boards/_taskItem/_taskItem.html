@@ -25,17 +25,17 @@
 					<i class="fa fa-times edit-cancel-action"></i>
 				</div> -->
 				<div class="action-box ctrl-box pull-right">
-          <span class="edit-ok-action">Save</span>
-          <span class="edit-cancel-action text-danger">Cancel</span>
+          <span class="button edit-ok-action">Save</span>
+          <span class="button edit-cancel-action text-danger">Cancel</span>
         </div>
 		{{else}}
 			<div class="col-xs-1 action-box complete-box">
 				{{#if completed}}
-					<i class="fa fa-check complete-action"></i>
+					<i class="button fa fa-check complete-action"></i>
 				{{else}}
-					<i class="fa fa-circle-thin complete-action"></i>
+					<i class="button fa fa-circle-thin complete-action"></i>
 				{{/if}}
-					<span class="action-edit priority {{priority}}">{{priority}}</span>
+					<span class="button action-edit priority {{priority}}">{{priority}}</span>
 			</div>
 			<div class="col-xs-10 action-box content-box">
 				<a class="action-title title action-edit">

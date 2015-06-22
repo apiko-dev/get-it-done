@@ -8,7 +8,7 @@ div#lists {
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  overflow-x: auto;
+  /*overflow-x: auto;*/
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   -webkit-transform: translate3d(0,0,0);
@@ -23,6 +23,16 @@ div#lists {
 
 #lists > div {
   display: flex;
+}
+
+.list.board {
+  max-height: 85vh;
+  display: flex;
+}
+
+.list.board > .container {
+  overflow-y: scroll;
+  margin-top: 40px;
 }
 
 .list.layer.tile.cols.new-board-container {

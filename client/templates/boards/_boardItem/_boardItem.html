@@ -17,7 +17,7 @@
 			<div class="dropdown color-picker">
     	  <a id="color-chooser" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="	false">
     	    Color
-    	    <i class="fa fa-caret-down"></i>
+    	    <i class="button fa fa-caret-down"></i>
     	  </a>
     	  <ul class="dropdown-menu" role="menu" aria-labelledby="color-chooser">
     	    <li role="presentation" class="color" data-color="#4dc3ff"><span style="background: #4dc3ff"></span></li>
@@ -39,7 +39,7 @@
     	</div>
 			<div class="dropdown board-menu">
     	  <a id="board-menu" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="	false">
-    	    <i class="fa fa-cogs"></i>
+    	    <i class="button fa fa-cogs"></i>
     	  </a>
     	  <ul class="dropdown-menu" role="menu" aria-labelledby="board-menu">
     	    <li role="presentation"><button class="btn btn-danger delete-board">Delete board</button></li>
@@ -49,11 +49,13 @@
 	</div>
   <div class="container">
   	<div class="actions row collapse in ui-sortable">
-  			
   			<div class="task-list">
-  					{{#each tasks}}
-  						{{> _taskItem}}
-  					{{/each}}
+  				{{#each tasks}}
+  					{{> _taskItem}}
+  				{{/each}}
+          {{#if isNoTasks}}
+            <p class="placeholder">No tasks...</p>
+          {{/if}}
   			</div>
   	</div>
   	<div class="row action new-task-container" data-creating={{taskCreating}}>
@@ -75,12 +77,12 @@
   						</div> -->
 
   						<div class="action-box ctrl-box pull-right">
-  							<span class="ok-action">Save</span>
-  							<span class="cancel-action text-danger">Cancel</span>
+  							<span class="button ok-action">Save</span>
+  							<span class="button cancel-action text-danger">Cancel</span>
   						</div>
   					{{else}}
   						<div class="new-task-action-wrapper">
-  							<a class="new-task-action">New task...</a>
+  							<a class="button new-task-action">New task...</a>
   						</div>
   					{{/if}}
 
