@@ -1,1 +1,1 @@
-// Write your package code here!
+TogglClient = Npm.require('toggl-api')

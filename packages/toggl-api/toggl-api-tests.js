@@ -1,1 +1,0 @@
-TogglClient = Npm.require('toggl-api')

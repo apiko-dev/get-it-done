@@ -1,3 +1,7 @@
 <template name="scheduler">
-	{{>fullcalendar calendarOptions}}
+	{{#unless currentUser}}
+		<h1>SIGN IN PLEASE</h1>
+	{{else}}
+		{{>fullcalendar calendarOptions}}
+	{{/unless}}
 </template>

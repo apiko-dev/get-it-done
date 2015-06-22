@@ -2,11 +2,11 @@
 
 Tasks.allow
 	insert: (userId, doc) ->
-		return true
+		userId && userId is doc.ownerId
 	update: (userId, doc, fields, modifier) ->
-		return true
+		userId && userId is doc.ownerId
 	remove: (userId, doc) ->
-		return true
+		userId && userId is doc.ownerId
 
 if Meteor.isClient
 	Tasks.before.insert (userId, doc) ->
