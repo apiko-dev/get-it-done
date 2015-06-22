@@ -8,13 +8,13 @@ div#lists {
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  /*overflow-x: auto;*/
-  overflow-y: auto;
+  overflow-x: scroll;
+  overflow-y: show;
   -webkit-overflow-scrolling: touch;
   -webkit-transform: translate3d(0,0,0);
-  height: calc(100vh*0.9);
-  min-height: calc(100vh*0.9);
-  max-height: calc(100vh*0.9);
+/*  height: 85vh;
+  min-height: 85vh;
+  max-height: 85vh;*/
   display: inline-flex;
   width: 100%;
   border-spacing: 5px 0px;
