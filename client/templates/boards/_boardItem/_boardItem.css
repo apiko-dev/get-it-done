@@ -168,8 +168,10 @@ a.action-title {
 .delete-box {
   padding-right: 1px;
   padding-left: 0;
-  line-height: 2em;
-  font-size: 20px;
+  bottom: 0;
+  margin-top: 20px;
+  line-height: 1em;
+  font-size: 19px;
   color: transparent;
 }
 

@@ -47,3 +47,20 @@ a.show-description {
 .priority-container.edit {
   left: 0;
 }
+
+.task .fa-clock-o {
+  position: absolute;
+  top: 5px;
+  right: 12px;
+  font-size: 20px;
+  color: #838383;
+  opacity: 0.8;
+}
+
+.task .fa-clock-o.stop-timer {
+  color: red;
+}
+
+.task .fa-clock-o:hover {
+  opacity: 1;
+}

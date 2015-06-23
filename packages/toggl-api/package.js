@@ -12,8 +12,11 @@ Package.describe({
 
 Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
-  api.addFiles('toggl-api.js', 'server');
+  api.use(['coffeescript']);
+  api.addFiles(['server/toggl-api.coffee', 'server/methods.coffee'], 'server');
+  api.addFiles(['client/toggl-api.coffee'], 'client');
   api.export('TogglClient', 'server');
+  api.export('TogglClientSide', 'client');
 });
 
 

@@ -56,6 +56,13 @@
 			<div class="col-xs-1 delete-box">
 				<i class="fa fa-minus delete-action"></i>
 			</div>
+			{{#if timerStarted}}
+				<i class="fa fa-clock-o stop-timer"></i>
+				<!-- <span class="stop-timer">Stop timer</span> -->
+			{{else}}
+				<i class="fa fa-clock-o start-timer"></i>
+				<!-- <span class="start-timer">Start timer</span> -->
+			{{/if}}
 		{{/if}}
 	</div>
 </template>

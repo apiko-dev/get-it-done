@@ -41,8 +41,24 @@ Template._taskItem.events
 		instance = Template.instance()
 		cur = instance.showDescription.get()
 		instance.showDescription.set !cur
+	'click .start-timer': (e, t) ->
+		console.log 'start'
+		task = Blaze.getData e.target
+		TogglClientSide.startTimer {taskTitle: task.text}, (err, res) ->
+			toggleTask task, 1
+	'click .stop-timer': (e, t) ->
+		console.log 'stop'
+		task = Blaze.getData e.target
+		TogglClientSide.stopTimer (err, res) ->
+			console.log 'stop timer callback'
+			toggleTask task, 0
+			
 
 
+toggleTask = (task, timerStarted) ->
+	console.log 'toggle task', timerStarted
+	Tasks.update {_id: task._id}, {$set: {'timerStarted': timerStarted}}, (err, res)->
+		console.log err or res
 
 removeTask = (taskId) ->
 	Tasks.remove {_id: taskId}, (err, res) ->
