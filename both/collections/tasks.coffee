@@ -13,9 +13,12 @@ if Meteor.isClient
 		maxOrderTask = Tasks.findOne {boardId: doc.boardId}, {sort: {order: -1}}
 		maxOrder = if maxOrderTask then maxOrderTask.order else 0
 		doc.order = maxOrder + 1
+		doc.timerStarted = 0
+		doc.timeEntry = null
 
-if Meteor.isServer
-	Tasks.before.update (userId, doc) ->
-		console.log 'before update', doc
-		if doc.timerStarted is 1
-			Tasks.update {ownerId: userId, timerStarted: 1}, {$set: {timerStarted: 0}}, {multi: 1}
+#if Meteor.isServer
+#	Tasks.before.update (userId, doc) ->
+#		console.log 'before update', doc
+#		if doc.timerStarted is 1
+#			Tasks.update {ownerId: userId, timerStarted: 1}, {$set: {timerStarted: 0}}, {multi: 1}, (err, res) ->
+#				console.log 'before update - update cb', err or res

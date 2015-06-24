@@ -18,6 +18,8 @@ Template._taskItem.helpers
 		return PRIORITY_CLASSES[Template.instance().data.priority]
 	description: () ->
 		return Template.instance().description or 'no description'
+	isTimeStarted: () ->
+		return !!Template.instance().data.timerStarted
 
 Template._taskItem.events
 	'click .action-edit': (e, t) ->
@@ -42,23 +44,18 @@ Template._taskItem.events
 		cur = instance.showDescription.get()
 		instance.showDescription.set !cur
 	'click .start-timer': (e, t) ->
-		console.log 'start'
 		task = Blaze.getData e.target
-		TogglClientSide.startTimer {taskTitle: task.text}, (err, res) ->
-			toggleTask task, 1
+		if Meteor.user().toggl and Meteor.user().toggl.api_token
+			Meteor.call	'toggl/startTimer', {taskId: task._id, taskTitle: task.text}
+		else
+			Modal.show 'togglSignIn'
 	'click .stop-timer': (e, t) ->
-		console.log 'stop'
 		task = Blaze.getData e.target
-		TogglClientSide.stopTimer (err, res) ->
-			console.log 'stop timer callback'
-			toggleTask task, 0
-			
+		if Meteor.user().toggl and Meteor.user().toggl.api_token
+			Meteor.call 'toggl/stopTimer'
+		else
+			Modal.show 'togglSignIn'
 
-
-toggleTask = (task, timerStarted) ->
-	console.log 'toggle task', timerStarted
-	Tasks.update {_id: task._id}, {$set: {'timerStarted': timerStarted}}, (err, res)->
-		console.log err or res
 
 removeTask = (taskId) ->
 	Tasks.remove {_id: taskId}, (err, res) ->

@@ -6,3 +6,6 @@ Meteor.publish 'userBoards', ->
 
 Meteor.publish 'userTasks', ->
   return Tasks.find ownerId: @userId
+
+Meteor.publish '', ->
+	return Meteor.users.find {_id: @userId}, {fields: {toggl: 1}}
