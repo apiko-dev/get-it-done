@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "wait.for": {
+      "version": "0.6.6",
+      "dependencies": {
+        "fibers": {
+          "version": "1.0.5"
+        }
+      }
+    }
+  }
+}

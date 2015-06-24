@@ -43,3 +43,13 @@ Meteor.methods
 			console.log 
 			task.timeEntry and toggl.stopTimeEntry task.timeEntry.id, (err) ->
 				boundfunction()
+	'toggl/signIn': (email, password) ->
+		check [email, password], [String]
+		api_token
+		try
+			resp = Wait.for HTTP.call, 'GET', 'https://www.toggl.com/api/v8/me', { auth: email + ':' + password }
+		catch e
+		if resp and resp.data and resp.data.data and resp.data.data.api_token
+			api_token = resp.data.data.api_token
+			Meteor.users.update {_id: @.userId}, {$set: {'toggl.api_token': api_token}}
+		!!api_token

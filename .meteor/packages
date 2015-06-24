@@ -26,3 +26,6 @@ mrt:bootstrap-select
 less
 okgrow:iron-router-autoscroll
 jss:toggl-api
+http
+jss:wait-for
+sacha:spin
