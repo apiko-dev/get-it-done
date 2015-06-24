@@ -5,6 +5,8 @@ Template._boardItem.onCreated (->
 
 
 Template._boardItem.onRendered (->
+	if @.data and not @.data.togglProject
+		Meteor.call 'toggl/createProject', {name: @.data.title, boardId: @.data._id, color: @.data.config.bgColor}
 	@.$('.dropdown-toggle').dropdown()
 	@.$('.task-list').sortable
 		connectWith: '.task-list'
@@ -75,8 +77,10 @@ Template._boardItem.events
 	'click li.color': (e, t) ->
 		$(e.target).parent().parent().css('border-color', e.currentTarget.dataset.color + ';')
 		boardId = @._id
+		self = @
 		Boards.update { _id: boardId }, { $set: 'config.bgColor': e.currentTarget.dataset.color}, (err, res) ->
 			console.log err or res
+			Meteor.call 'toggl/updateProject', self.togglProject.id, {color: e.currentTarget.dataset.color}
 
 	'click .delete-board': (e, t) ->
 		Boards.remove {_id: t.data._id}, (err, res) ->
@@ -98,6 +102,7 @@ Template._boardItem.events
 				title = $(e.currentTarget).parent().find('input').val()
 				Boards.update {_id: @._id}, {$set: {title: title}}, (err, res) ->
 					console.log err or res
+					Meteor.call 'toggl/updateProject', @.togglProject.id, {name: title}
 			instance.boardEditing.set null
 
 

@@ -1,6 +1,6 @@
 <template name="_boardItem">
-<div id="{{_id}}" class="list layer tile cols board" style="border-color: {{config.bgColor}};">
-	<span class="board-header" style="background-color: {{config.bgColor}}; border-bottom: 2px solid {{lightenDarkenColor config.bgColor -50}}"></span>  
+<div id="{{_id}}" class="list layer tile cols board" style="border-color: {{colorByKey config.bgColor}};">
+	<span class="board-header" style="background-color: {{colorByKey config.bgColor}}; border-bottom: 2px solid {{lightenDarkenColor config.bgColor -50}}"></span>  
 	<div class="row action-row list-title-row">
 			{{#if boardEditing}}
 					<div class="input-group board-title-editor">
@@ -20,21 +20,21 @@
     	    <i class="button fa fa-caret-down"></i>
     	  </a>
     	  <ul class="dropdown-menu" role="menu" aria-labelledby="color-chooser">
-    	    <li role="presentation" class="color" data-color="#4dc3ff"><span style="background: #4dc3ff"></span></li>
-    	    <li role="presentation" class="color" data-color="#bc85e6"><span style="background: #bc85e6"></span></li>
-    	    <li role="presentation" class="color" data-color="#df7baa"><span style="background: #df7baa"></span></li>
-    	    <li role="presentation" class="color" data-color="#f68d38"><span style="background: #f68d38"></span></li>
-    	    <li role="presentation" class="color" data-color="#b27636"><span style="background: #b27636"></span></li>
-    	    <li role="presentation" class="color" data-color="#8ab734"><span style="background: #8ab734"></span></li>
-    	    <li role="presentation" class="color" data-color="#14a88e"><span style="background: #14a88e"></span></li>
-    	    <li role="presentation" class="color" data-color="#268bb5"><span style="background: #268bb5"></span></li>
-    	    <li role="presentation" class="color" data-color="#6668b4"><span style="background: #6668b4"></span></li>
-    	    <li role="presentation" class="color" data-color="#a4506c"><span style="background: #a4506c"></span></li>
-    	    <li role="presentation" class="color" data-color="#67412c"><span style="background: #67412c"></span></li>
-    	    <li role="presentation" class="color" data-color="#3c6526"><span style="background: #3c6526"></span></li>
-    	    <li role="presentation" class="color" data-color="#094558"><span style="background: #094558"></span></li>
-    	    <li role="presentation" class="color" data-color="#bc2d07"><span style="background: #bc2d07"></span></li>
-    	    <li role="presentation" class="color" data-color="#999999"><span style="background: #999999"></span></li>
+    	    <li role="presentation" class="color" data-color="0"><span style="background: #4dc3ff"></span></li>
+    	    <li role="presentation" class="color" data-color="1"><span style="background: #bc85e6"></span></li>
+    	    <li role="presentation" class="color" data-color="2"><span style="background: #df7baa"></span></li>
+    	    <li role="presentation" class="color" data-color="3"><span style="background: #f68d38"></span></li>
+    	    <li role="presentation" class="color" data-color="4"><span style="background: #b27636"></span></li>
+    	    <li role="presentation" class="color" data-color="5"><span style="background: #8ab734"></span></li>
+    	    <li role="presentation" class="color" data-color="6"><span style="background: #14a88e"></span></li>
+    	    <li role="presentation" class="color" data-color="7"><span style="background: #268bb5"></span></li>
+    	    <li role="presentation" class="color" data-color="8"><span style="background: #6668b4"></span></li>
+    	    <li role="presentation" class="color" data-color="9"><span style="background: #a4506c"></span></li>
+    	    <li role="presentation" class="color" data-color="10"><span style="background: #67412c"></span></li>
+    	    <li role="presentation" class="color" data-color="11"><span style="background: #3c6526"></span></li>
+    	    <li role="presentation" class="color" data-color="12"><span style="background: #094558"></span></li>
+    	    <li role="presentation" class="color" data-color="13"><span style="background: #bc2d07"></span></li>
+    	    <li role="presentation" class="color" data-color="14"><span style="background: #999999"></span></li>
     	  </ul>
     	</div>
 			<div class="dropdown board-menu">
