@@ -105,8 +105,8 @@ Template._boardItem.events
 				Boards.update {_id: @._id}, {$set: {title: title}}, (err, res) ->
 					console.log err or res
 					console.log 'toggl/updateProject'
-					res and Meteor.call 'toggl/updateProject', self.togglProject.id, {name: title}, ()->
-						console.log err or res, self.togglProject.id
+				Meteor.call 'toggl/updateProject', {projectId: self.togglProject.id, data: {name: title}}, (err, res)->
+					console.log err or res, self.togglProject.id
 			instance.boardEditing.set null
 
 
