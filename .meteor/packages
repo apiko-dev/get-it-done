@@ -30,3 +30,4 @@ http
 jss:wait-for
 sacha:spin
 jss:google-calendar-api
+meteorhacks:async

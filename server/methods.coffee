@@ -93,4 +93,13 @@ Meteor.methods
 					err and console.log err
 
 	'gcalendar/fetchEvents': (query)->
-		
+		resp = undefined
+		if @.userId
+			user = Meteor.users.findOne @.userId
+			if user.services and user.services.google and user.services.google.accessToken
+				gc = new GCalendar.GoogleCalendar user.services.google.accessToken
+				resp = Async.runSync (done)->
+					gc.events.list user.services.google.email, (err, res)->
+						done err, res
+		resp
+					
