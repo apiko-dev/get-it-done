@@ -101,6 +101,10 @@
   padding: 0 10px;
 }
 
+.new-board-container .action-box.ctrl-box {
+  padding: 0;
+}
+
 .action-box.content-box.new-task-action textarea, .action-box.content-box.action-edit textarea {
   width: 100%;
   border: 1px solid #DEDEDE;
