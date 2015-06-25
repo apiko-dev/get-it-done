@@ -91,3 +91,6 @@ Meteor.methods
 				toggl = new TogglClient {apiToken: user.toggl.api_token}
 				toggl.updateProject query.projectId, query.data, (err, res) ->
 					err and console.log err
+
+	'gcalendar/fetchEvents': (query)->
+		

@@ -35,6 +35,7 @@ iron:router@1.0.7
 iron:url@1.0.7
 jquery@1.11.3_2
 json@1.0.3
+jss:google-calendar-api@0.0.1
 jss:toggl-api@0.0.1
 jss:wait-for@0.0.1
 lai:collection-extensions@0.1.3

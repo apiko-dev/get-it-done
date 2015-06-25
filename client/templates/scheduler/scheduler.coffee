@@ -9,7 +9,7 @@ Template.scheduler.helpers
       	callback Chips.find().map (el) ->
         		board = Boards.findOne(el.boardId)
         		el.title = board.title
-        		el.color = board.config.bgColor
+        		el.color = COLORS[board.config.bgColor]
         		el
 			defaultView: 'agendaWeek'
 			allDaySlot: false
