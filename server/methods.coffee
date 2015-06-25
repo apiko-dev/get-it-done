@@ -84,14 +84,10 @@ Meteor.methods
 				toggl.createProject { name: query.name, color: query.color, wid: 0 }, (err, togglProject) ->
 					console.log err or togglProject
 					boundfunction(togglProject)
-	'toggl/updateProject': (projectId, data)->
-		check data,
-			color: Match.Optional Match.Any
-			name: Match.Optional String
+	'toggl/updateProject': (query)->
 		if @.userId 
 			user = Meteor.users.findOne @.userId
 			if user.toggl and user.toggl.api_token
 				toggl = new TogglClient {apiToken: user.toggl.api_token}
-				toggl.updateProject projectId, data, (err, res) ->
+				toggl.updateProject query.projectId, query.data, (err, res) ->
 					err and console.log err
-	

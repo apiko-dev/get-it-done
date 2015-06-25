@@ -80,7 +80,8 @@ Template._boardItem.events
 		self = @
 		Boards.update { _id: boardId }, { $set: 'config.bgColor': e.currentTarget.dataset.color}, (err, res) ->
 			console.log err or res
-			Meteor.call 'toggl/updateProject', self.togglProject.id, {color: e.currentTarget.dataset.color}
+		Meteor.call 'toggl/updateProject', {projectId: self.togglProject.id, data: {color: e.currentTarget.dataset.color}}, (err, res)->
+			console.log err or res, self.togglProject.id
 
 	'click .delete-board': (e, t) ->
 		Boards.remove {_id: t.data._id}, (err, res) ->
@@ -98,11 +99,14 @@ Template._boardItem.events
 		if e.type == 'focusout' or e.keyCode == 13
 			instance = Template.instance()
 			cur = instance.boardEditing.get()
+			self = @
 			if cur
 				title = $(e.currentTarget).parent().find('input').val()
 				Boards.update {_id: @._id}, {$set: {title: title}}, (err, res) ->
 					console.log err or res
-					Meteor.call 'toggl/updateProject', @.togglProject.id, {name: title}
+					console.log 'toggl/updateProject'
+					res and Meteor.call 'toggl/updateProject', self.togglProject.id, {name: title}, ()->
+						console.log err or res, self.togglProject.id
 			instance.boardEditing.set null
 
 
