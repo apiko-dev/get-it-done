@@ -1,29 +1,27 @@
 EVENT_CTRLS = '<div class="event-ctrls"><span class="remove-event"><i class="fa fa-minus"></i></span></div>'
 
+Template.scheduler.onCreated ()->
+	@calendars = new ReactiveVar()
+	self = @
+	fetchGCCalendars()
+
 Template.scheduler.helpers
 	calendarOptions: () ->
 		{
 			eventRender: (event, element) ->
         element.append EVENT_CTRLS
 			events: (start, end, timezone, callback) ->
-				googleEvents = null;
 				allEvents = Chips.find().map (el) ->
 			  	board = Boards.findOne(el.boardId)
 			  	el.title = board.title
 			  	el.color = COLORS[board.config.bgColor]
 			  	el
-				Meteor.call 'gcalendar/fetchEvents', {}, (err, res) ->
-					console.log res || err
-					if res.result
-    				googleEvents = res.result.items.map (el) ->
-    					el.start = (new Date el.start.dateTime).toLocaleString()
-    					el.end = (new Date el.end.dateTime).toLocaleString()
-    					el.title = el.summary
-    					console.log el.start
-    					console.log el.end
-    		if googleEvents
-    			allEvents = allEvents.concat googleEvents
-    		console.log allEvents
+				googleEvents = GCEvents.find().fetch()
+				if googleEvents
+					allEvents = allEvents.concat googleEvents
+				console.log 'allEvents', allEvents
+				console.log 'googleEvents', googleEvents
+				console.log 'allEvents', allEvents
 				callback allEvents
 			defaultView: 'agendaWeek'
 			allDaySlot: false
@@ -42,6 +40,7 @@ Template.scheduler.helpers
 				Modal.show 'newChipModal', 
 					start: start
 					end: end
+				console.log start
 			eventDrop: (event, delta, revertFunc, jsEvent, ui, view ) ->
 				updateChip event
 			eventResize: ( event, jsEvent, ui, view ) ->
@@ -56,15 +55,30 @@ Template.scheduler.helpers
 						hash: event.boardId
 					#console.log 'go to board ', event.boardId
 		}
+	calendars: () ->
+		return GCCalendars.find()
 
 Template.scheduler.onRendered ()->
 	Meteor.setTimeout (->
   	refetchEvents()
 	), 100
+	Meteor.setTimeout (->
+  	fetchGCEvents()
+	), 5000
 	Chips.after.insert refetchEvents
 	Chips.after.remove refetchEvents
 	Chips.after.update refetchEvents
+	@.$('.dropdown-toggle').dropdown()
 
+
+Template.scheduler.events
+	'click .choosable-calendar-item': (e, t)->
+		calendar = Blaze.getData e.target
+		if not calendar.active
+			fetchGCEvents calendar.id
+		else
+			removeGCEventsByCalendarId calendar.id
+		GCCalendars.update {_id: calendar._id}, {$set: {active: not calendar.active}}
 	
 refetchEvents = () ->
 	$('#calendar').fullCalendar 'refetchEvents'
@@ -76,3 +90,27 @@ updateChip = (event) ->
 createChip = (start, end, boardId) ->
 	Chips.insert { start: start, end: end, boardId: boardId }, (err, res) ->
 		console.log err or res
+
+fetchGCEvents = (calendarId) ->
+	Meteor.call 'gcalendar/fetchEvents', calendarId, (err, res) ->
+		if res and res.result
+			res.result.items.forEach (el)->
+				if el.start and el.start.dateTime and el.end and el.end.dateTime
+					GCEvents.insert
+						start: el.start.dateTime#new Date el.start.dateTime
+						end: el.end.dateTime#new Date el.end.dateTime
+						title: el.summary
+						calendarId: res.result.summary
+			refetchEvents()
+
+fetchGCCalendars = () ->
+	Meteor.call 'gcalendar/fetchCalendars', (err, res) ->
+		if res and res.result
+			res.result.items.forEach (el)->
+				el.active = false
+				GCCalendars.insert el
+
+removeGCEventsByCalendarId = (calendarId) ->
+	GCEvents.remove calendarId: calendarId, () ->
+		refetchEvents()
+

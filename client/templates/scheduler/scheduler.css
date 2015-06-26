@@ -47,3 +47,25 @@ span.remove-event {
 #calendar {
   padding: 0 20px;
 }
+
+.dropdown.calendars-chooser {
+  width: 220px;
+  margin-left: calc(50% - 110px);
+  margin-right: calc(50% - 110px);
+  background-color: #FDFDFD;
+}
+
+.dropdown.calendars-chooser ul.dropdown-menu {
+  width: 220px;
+  padding: 10px;
+}
+
+.dropdown.calendars-chooser ul.dropdown-menu li {
+  cursor: pointer;
+  padding: 5px;
+}
+
+.dropdown.calendars-chooser ul.dropdown-menu li[data-active="true"] {
+  background-color: #CEEEFF;
+  border-radius: 5px;
+}

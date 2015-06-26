@@ -92,14 +92,23 @@ Meteor.methods
 				toggl.updateProject query.projectId, query.data, (err, res) ->
 					err and console.log err
 
-	'gcalendar/fetchEvents': (query)->
+	'gcalendar/fetchEvents': (calendarId)->
 		resp = undefined
 		if @.userId
 			user = Meteor.users.findOne @.userId
 			if user.services and user.services.google and user.services.google.accessToken
 				gc = new GCalendar.GoogleCalendar user.services.google.accessToken
 				resp = Async.runSync (done)->
-					gc.events.list user.services.google.email, (err, res)->
+					gc.events.list calendarId, (err, res)->
 						done err, res
 		resp
-					
+	'gcalendar/fetchCalendars': ()->
+		resp = undefined
+		if @.userId
+			user = Meteor.users.findOne @.userId
+			if user.services and user.services.google and user.services.google.accessToken
+				gc = new GCalendar.GoogleCalendar user.services.google.accessToken
+				resp = Async.runSync (done)->
+					gc.calendarList.list (err, res)->
+						done err, res
+		resp					
