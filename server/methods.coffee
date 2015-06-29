@@ -29,16 +29,17 @@ Meteor.methods
 			user = Meteor.users.findOne @.userId
 			if user.toggl and user.toggl.api_token
 				board = Boards.findOne query.boardId
-				toggl = new TogglClient({apiToken: user.toggl.api_token})
-				boundfunction = undefined
-				CurrentName.withValue query, ()->
-					boundfunction = Meteor.bindEnvironment (timeEntry)->
-						setTaskTimer user._id, query.taskId, timeEntry
-						return
-					, (e) ->
-						console.log e
-				toggl.startTimeEntry { description: query.taskTitle, pid: board.togglProject.id }, (err, timeEntry) ->
-					boundfunction(timeEntry)
+				if board and board.togglProject
+					toggl = new TogglClient({apiToken: user.toggl.api_token})
+					boundfunction = undefined
+					CurrentName.withValue query, ()->
+						boundfunction = Meteor.bindEnvironment (timeEntry)->
+							setTaskTimer user._id, query.taskId, timeEntry
+							return
+						, (e) ->
+							console.log e
+					toggl.startTimeEntry { description: query.taskTitle, pid: board.togglProject.id }, (err, timeEntry) ->
+						boundfunction(timeEntry)
 	'toggl/stopTimer': () ->
 		if @.userId
 			user = Meteor.users.findOne @.userId

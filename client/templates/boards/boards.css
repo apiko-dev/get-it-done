@@ -12,14 +12,34 @@ div#lists {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   -webkit-transform: translate3d(0,0,0);
+/*  height: 85vh;
+  min-height: 85vh;
+  max-height: 85vh;*/
+  overflow: visible;
   display: inline-flex;
   width: 100%;
-  border-spacing: 5px 0px;
   margin: 0;
 }
 
 #lists > div {
   display: flex;
+  overflow: visible;
+  flex-direction: column;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+   flex-direction: column; 
+  -webkit-box-flex: 0; 
+  -webkit-flex: 0 0 270px; 
+  -ms-flex: 0 0 270px;
+  flex: 0 0 270px; 
 }
 
 /*.list.board {
@@ -35,15 +55,12 @@ div#lists {
 
 .list.layer.tile.cols.new-board-container {
   height: 40px;
-  width: 320px;
   border-radius: 5px;
   background-color: #EEEEEE;
-  border-bottom: 2px solid #AEAEAE;
-  font-size: 20px;
   padding: 5px;
   color: #626262;
   line-height: 30px;
-  margin: 0 5px;
+  border-radius: 0;
 }
 
 /*.list.layer.tile.cols.new-board-container[data-creating="true"] {
@@ -64,10 +81,6 @@ div#lists {
   width: 100%;
 }
 
-.list .actions {
-  padding: 7px 14px 7px 14px;
-}
-
 .list .edit-board-title {
   line-height: 26px;
   float: left;
@@ -78,11 +91,19 @@ div#lists {
   font-size: 20px;
 }
 
+.list:nth-of-type(even), .list:nth-of-type(even) .action {
+  background-color: rgb(247, 247, 247);
+}
+
+.list:nth-of-type(odd), .list:nth-of-type(odd) .action {
+  background-color: rgb(240, 240, 240);
+}
+
 .new-board-container, .new-task-container {
   cursor: pointer;
 }
 
-.row.action.board textarea {
+.action.board textarea {
   resize: vertical;
   margin-bottom: 5px;
   border: 1px solid #cecece;

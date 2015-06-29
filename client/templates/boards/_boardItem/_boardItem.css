@@ -1,9 +1,5 @@
 .list, #lists .sortable-placeholder {
-  min-width: 300px;
-  border: 2px solid;
-  border-radius: 5px;
-  margin-right: 5px;
-  margin-left: 5px;
+  min-width: 30%;
   position: relative;
   background-color: #EEE;
 }
@@ -20,10 +16,8 @@
 
 #lists .sortable-placeholder {
   border: none;
-  min-width: 0px;
   background-color: #ddd;
-  border-radius: 3px;
-  margin: 7px 0;
+  margin: 0 0 7px 0;
 }
 
 #lists.row.ui-sortable > .sortable-placeholder {
@@ -52,6 +46,14 @@
   border-color: inherit;
 }
 
+.list:nth-of-type(odd) {
+  background-color: rgb(240, 240, 240);
+}
+
+.list:nth-of-type(even) {
+  background-color: rgb(247, 247, 247);
+}
+
 .list.layer.tile.cols.new-board-container {
   background-color: rgb(252, 252, 252);
   padding: 10px 15px;
@@ -59,7 +61,6 @@
   margin: 0;
   border-radius: 5px;
   line-height: 30px;
-  border: 2px dashed #E8E8E8;
 }
 
 .actions {
@@ -68,21 +69,14 @@
 }
 
 .action {
-  /*padding: 5px 10px 5px 10px;*/
-  padding: 7px; 
+  padding: 7px 7px 14px 7px;
   min-height: 27px;
-  border-radius: 3px;
-  margin: 7px 0;
-  border-bottom: 1px dashed;
+  margin: 0 0 7px 0;
   border-color: inherit;
-/*  transition: width 0.4s ease;
-  -webkit-transition: width 0.4s ease;
-  -moz-transition: width 0.4s ease;
-  -o-transition: width 0.4s ease;*/
   width: 100%;
   position: relative;
-  background-color: #fff;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #E0E0E0;
+  border-radius: 0;
   z-index: 0;
 }
 
@@ -90,7 +84,7 @@
   color: white;
 }
 
-.row.action.new-task-container {
+.action.new-task-container {
   padding: 0;
   margin: 0;
   border-color: transparent;
@@ -120,7 +114,7 @@
   border: 1px solid #9C9C9C;
 }
 
-.row.action.board.list.new-board-container {
+.action.board.list.new-board-container {
   border: none;
   background-color: transparent;
   height: 50px;
@@ -153,7 +147,7 @@ a.action-title {
   word-break: break-word;
 }
 
-.row.action-row.list-title-row * {
+.action-row.list-title-row * {
   color: white;
 }
 
@@ -286,12 +280,12 @@ a.color-picker {
   color: #646464;
 }
 
-.row.action.board-row.list-title-row {
+.action.board-row.list-title-row {
     position: relative;
 }
 
 
-.row.action.board-row.list-title-row {
+.action.board-row.list-title-row {
   position: relative;
   padding: 5px;
   margin-left: 0;
@@ -305,21 +299,16 @@ a.color-picker {
 
 span.board-header, .list-title-row {
   height: 40px;
-  width: 298px;
-  position: absolute;
-  top: 1;
-  left: 0;
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
+  width: 100%;
 }
 
-.row.action-row.list-title-row {
+.action-row.list-title-row {
   left: 14px;
   padding: 5px;
   line-height: 28px;
 }
 
-.row.action-row.list-title-row * {
+.action-row.list-title-row * {
   color: white;
 }
 
