@@ -35,7 +35,8 @@ Template._boardItem.onRendered (->
 			if prevTaskData and nextTaskData
 				curOrder = (nextTaskData.order + prevTaskData.order) / 2
 			Tasks.update { _id: targetTaskId }, { $set: boardId: targetBoardId, order: curOrder}, (err, res) ->
-				console.log err or res
+        console.log err or res
+        console.log "tid: #{targetTaskId}, bid: #{targetBoardId}, crdr: #{curOrder}"
 )
 
 Template._boardItem.helpers
@@ -110,15 +111,35 @@ Template._boardItem.events
 			instance.boardEditing.set null
 
 
-	'click .sort-by-priority-checkbox': (e) ->
-		checkboxState = $(e.target).prop 'checked'
-		sortChildren document.querySelectorAll('.task-list')[1], ((el) ->
-			if $(el).find('.priority').hasClass('LOW')
-				return 1
-			else if $(el).find('.priority').hasClass('HIGH')
-				return -1
-			else return 0
-		)
+	'click .sort-by-priority': (e) ->
+    elements = []
+    checkboxState = $(e.target).prop 'checked'
+
+    sortChildren document.querySelectorAll('.task-list')[1], (el) ->
+      elData = Blaze.getData el
+      taskId = elData._id
+      boardId = elData.boardId
+      order = 0
+
+      if $(el).find('.priority').hasClass('LOW')
+        order = 1
+      else if $(el).find('.priority').hasClass('HIGH')
+        order = -1
+      else order = 0
+
+      elements.push
+        taskId: taskId
+        boardId: boardId
+        order: order
+
+      return order
+
+    elements.sort (a, b) ->
+      if a.order > b.order then 1 else if b.order > a.order then -1 else 0
+
+    for el in elements
+      Tasks.update { _id: el.taskId }, { $set: boardId: el.boardId, order: el.order}, (err, res) ->
+        console.log err or res
 
 # http://stackoverflow.com/a/24342401/2727317
 sortChildren = (wrap, f, isNum) ->
