@@ -138,7 +138,7 @@ Template._boardItem.events
       if a.order > b.order then 1 else if b.order > a.order then -1 else 0
 
     for el in elements
-      Tasks.update { _id: el.taskId }, { $set: boardId: el.boardId, order: el.order}, (err, res) ->
+      Tasks.update { _id: el.taskId }, { $set: order: el.order}, (err, res) ->
         console.log err or res
 
 # http://stackoverflow.com/a/24342401/2727317
