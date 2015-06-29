@@ -25,3 +25,9 @@ ian:accounts-ui-bootstrap-3
 mrt:bootstrap-select
 less
 okgrow:iron-router-autoscroll
+jss:toggl-api
+http
+jss:wait-for
+sacha:spin
+jss:google-calendar-api
+meteorhacks:async

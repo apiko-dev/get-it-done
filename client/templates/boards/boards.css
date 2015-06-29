@@ -8,13 +8,14 @@ div#lists {
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  overflow-x: auto;
-  overflow-y: auto;
+  overflow-x: scroll;
+  overflow-y: show;
   -webkit-overflow-scrolling: touch;
   -webkit-transform: translate3d(0,0,0);
-  height: calc(100vh*0.9);
-  min-height: calc(100vh*0.9);
-  max-height: calc(100vh*0.9);
+/*  height: 85vh;
+  min-height: 85vh;
+  max-height: 85vh;*/
+  overflow: visible;
   display: inline-flex;
   width: 100%;
   margin: 0;
@@ -22,9 +23,8 @@ div#lists {
 
 #lists > div {
   display: flex;
+  overflow: visible;
   flex-direction: column;
-  height: 100%;
-  border-radius: 3px;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   display: -webkit-box;
@@ -42,17 +42,25 @@ div#lists {
   flex: 0 0 270px; 
 }
 
+/*.list.board {
+  max-height: 85vh;
+  display: flex;
+}
+*/
+
+.list.board > .container {
+  /*overflow-y: scroll;*/
+  margin-top: 40px;
+}
+
 .list.layer.tile.cols.new-board-container {
   height: 40px;
-  width: 298px;
   border-radius: 5px;
   background-color: #EEEEEE;
-  border-bottom: 2px solid #AEAEAE;
-  font-size: 20px;
   padding: 5px;
   color: #626262;
   line-height: 30px;
-  margin: 0 5px;
+  border-radius: 0;
 }
 
 /*.list.layer.tile.cols.new-board-container[data-creating="true"] {
@@ -83,11 +91,11 @@ div#lists {
   font-size: 20px;
 }
 
-.list:nth-of-type(even) {
+.list:nth-of-type(even), .list:nth-of-type(even) .action {
   background-color: rgb(247, 247, 247);
 }
 
-.list:nth-of-type(odd) {
+.list:nth-of-type(odd), .list:nth-of-type(odd) .action {
   background-color: rgb(240, 240, 240);
 }
 

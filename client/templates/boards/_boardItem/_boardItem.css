@@ -4,16 +4,27 @@
   background-color: #EEE;
 }
 
+.list p.placeholder {
+  color: rgb(203, 203, 203);
+  text-align: center;
+  line-height: 60px;
+}
+
+.ui-sortable-helper {
+  transform: rotate(-2deg);
+}
+
 #lists .sortable-placeholder {
-  margin: 5px 0;
   border: none;
-  min-width: 0px;
   background-color: #ddd;
-  border-radius: 3px;
+  margin: 0 0 7px 0;
 }
 
 #lists.row.ui-sortable > .sortable-placeholder {
   min-width: 300px;
+}
+#lists.row.ui-sortable > .ui-sortable-helper {
+  margin-top: 5px;
 }
 
 .list .container {
@@ -50,7 +61,6 @@
   margin: 0;
   border-radius: 5px;
   line-height: 30px;
-  border: 2px dashed #E8E8E8;
 }
 
 .actions {
@@ -83,6 +93,10 @@
 
 .action-box.ctrl-box {
   padding: 0 10px;
+}
+
+.new-board-container .action-box.ctrl-box {
+  padding: 0;
 }
 
 .action-box.content-box.new-task-action textarea, .action-box.content-box.action-edit textarea {
@@ -152,8 +166,10 @@ a.action-title {
 .delete-box {
   padding-right: 1px;
   padding-left: 0;
-  line-height: 2em;
-  font-size: 20px;
+  bottom: 0;
+  margin-top: 20px;
+  line-height: 1em;
+  font-size: 19px;
   color: transparent;
 }
 
@@ -361,8 +377,10 @@ span.priority.HIGH {
 }
 
 
-input.board-title {
+input.board-title, .board textarea, .board input, .board select{
   background-color: rgba(255,255,255,0.3);
+  height: initial;
+  border-radius: 0;
 }
 
 .dropdown.color-picker {
@@ -374,16 +392,6 @@ i.fa.fa-caret-down {
   top: 5px;
   right: 0;
   margin-right: -12px;
-}
-
-.sortable-placeholder {
-  background-color: #ddd;
-  border-radius: 3px;
-  margin: 7px 0;
-}
-
-.ui-sortable-helper {
-  transform: rotate(-2deg);
 }
 
 .board-title-editor {

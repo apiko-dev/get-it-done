@@ -1,0 +1,1 @@
+GCalendar = Npm.require('google-calendar');

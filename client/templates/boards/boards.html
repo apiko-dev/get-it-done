@@ -1,56 +1,43 @@
 <template name="boards">
-	<div id="lists" class="row">
-		<!-- {{#momentum plugin='growl'}} -->
-			{{#each boards}}
-				{{> _boardItem}}
-			{{/each}}
-		<div class="list layer tile cols new-board-container" data-creating={{boardCreating}}>
-				{{#if boardCreating}}
-					<div class="input-group board-title-editor">
-  					<input class="board-title form-control" type="text" value="{{title}}">
-					</div>
-					<div class="action-box ctrl-box pull-right">
-						<span class="new-board-ok-action">Save</span>
-						<span class="new-board-cancel-action text-danger">Cancel</span>
-					</div>
-					<!-- <div class="action-box content-box new-board-action">
-						<label>Board title:</label>
-						<textarea class="board-title" rows="1"></textarea>
-					</div>
-					<div class="action-box ctrl-box pull-right">
-  						<span class="new-board-ok-action">Save</span>
-  						<span class="new-board-cancel-action text-danger">Cancel</span>
-  				</div>
- 					<div class="action-box ctrl-box pull-right">
-						<span class="new-board-ok-action">Save</span>
-						<i class="fa fa-floppy-o new-board-ok-action"></i>
-						<span class="new-board-cancel-action">Cancel</span>
-						<i class="fa fa-times new-board-cancel-action"></i>
-					</div> -->
-				{{else}}
-					<div class="toggle-list edit-board-title">
-						<span class="new-board-action list-title">New board</span>
-					</div>
-				{{/if}}
+	{{#unless currentUser}}
+	<h1>SIGN IN PLEASE</h1>
+	{{else}}
+		<div id="lists">
+			<!-- {{#momentum plugin='growl'}} -->
+				{{#each boards}}
+					{{> _boardItem}}
+				{{/each}}
+			<div class="list layer tile cols new-board-container" data-creating={{boardCreating}}>
+					{{#if boardCreating}}
+						<div class="input-group board-title-editor">
+	  					<input class="board-title form-control" type="text" value="{{title}}">
+						</div>
+						<div class="action-box ctrl-box pull-right">
+							<span class="button new-board-ok-action">Save</span>
+							<span class="button new-board-cancel-action text-danger">Cancel</span>
+						</div>
+						<!-- <div class="action-box content-box new-board-action">
+							<label>Board title:</label>
+							<textarea class="board-title" rows="1"></textarea>
+						</div>
+						<div class="action-box ctrl-box pull-right">
+	  						<span class="new-board-ok-action">Save</span>
+	  						<span class="new-board-cancel-action text-danger">Cancel</span>
+	  				</div>
+	 					<div class="action-box ctrl-box pull-right">
+							<span class="new-board-ok-action">Save</span>
+							<i class="fa fa-floppy-o new-board-ok-action"></i>
+							<span class="new-board-cancel-action">Cancel</span>
+							<i class="fa fa-times new-board-cancel-action"></i>
+						</div> -->
+					{{else}}
+						<div class="toggle-list edit-board-title">
+							<span class="button new-board-action list-title">New board</span>
+						</div>
+					{{/if}}
+			</div>
+			<!-- {{/momentum}} -->
 		</div>
-		<!-- {{/momentum}} -->
-	</div>
+	{{/unless}}
 </template>
 
-<!-- 						<div class="col-xs-1 action-box complete-box">
-							{{#if boardCreating}}
-								<i class="fa fa-check-circle-o fa-2x new-board-ok-action"></i>
-							{{/if}}
-						</div>
-						<div class="col-xs-10 action-box content-box">
-							{{#if boardCreating}}
-								<textarea rows="1"></textarea>
-							{{else}}
-								<a class="new-board-action">Add a board...</a>
-							{{/if}}
-						</div>
-						<div class="col-xs-1 action-box delete-box">
-							{{#if boardCreating}}
-								<i class="fa fa-times-circle-o fa-lg new-board-cancel-action"></i>
-							{{/if}}
-						</div> -->

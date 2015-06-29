@@ -2,16 +2,16 @@
 
 Boards.allow
 	insert: (userId, doc) ->
-		return true
+		userId && userId is doc.ownerId
 	update: (userId, doc, fields, modifier) ->
-		return true
+		userId && userId is doc.ownerId
 	remove: (userId, doc) ->
-		return true
+		userId && userId is doc.ownerId
 
 if Meteor.isClient
 	Boards.before.insert (userId, doc) ->
 		doc.config = doc.config or {}
-		doc.config.bgColor = doc.config.bgColor or '#aaa'
+		doc.config.bgColor = doc.config.bgColor or 14
 		maxOrderBoard = Boards.findOne {boardId: doc.boardId}, {sort: {order: -1}}
 		maxOrder = if maxOrderBoard then maxOrderBoard.order else 0
 		doc.order = maxOrder + 1

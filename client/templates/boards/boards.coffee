@@ -4,6 +4,7 @@ Template.boards.helpers
 	boardCreating: () ->
 		return Template.instance().boardCreating.get()
 
+
 Template.boards.onCreated (->
 	@.boardCreating = new ReactiveVar(false);
 )
@@ -50,8 +51,9 @@ Template.boards.onRendered (->
 )
 
 Template.boards.events
-	'click .new-board-action': () ->
+	'click .new-board-action': (e, t) ->
 		Template.instance().boardCreating.set true
+		#$('#cmcwyzqrJfBHEWDnE > div.container').stop().animate scrollTop: $('#cmcwyzqrJfBHEWDnE > div.container > div.row.action.new-task-container').offset().left
 	'click .new-board-cancel-action': () ->
 		Template.instance().boardCreating.set false
 	'click .new-board-ok-action, keydown .board-title': (e, t) ->

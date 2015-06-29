@@ -78,6 +78,16 @@
   font-size: 12pt;
 }
 
+.navbar.navbar-default .nav > li > .dropdown-menu:after {
+  right: 10px;
+  left: auto;
+}
+
+.navbar.navbar-default .nav > li > .dropdown-menu:before {
+  right: 9px;
+  left: auto;
+}
+
 @media (max-width: 767px) {
 
 	div#bs-example-navbar-collapse-1 {

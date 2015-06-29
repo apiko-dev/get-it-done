@@ -2,8 +2,8 @@
   <div id="{{_id}}" class="list layer tile cols board" style="border-color: {{config.bgColor}};">
    <div class="action-row list-title-row" style="background-color: {{config.bgColor}};">
      {{#if boardEditing}}
-     <div class="input-group board-title-editor">
-       <input class="board-title form-control" type="text" value="{{title}}">
+     <div class="board-title-editor">
+       <input class="board-title" type="text" value="{{title}}">
      </div>
      {{else}}
      <div class="toggle-list edit-board-title">
@@ -46,20 +46,22 @@
      </div>
    </div>
  </div>
-  <div class="board-body">
-    <div class="actions collapse in ui-sortable">
-      <div class="task-list">
-        {{#each tasks}}
-        {{> _taskItem}}
-        {{/each}}
-      </div>
+ <div class="board-body">
+  <div class="actions collapse in ui-sortable">
+    <div class="task-list">
+      {{#each tasks}}
+      {{> _taskItem}}
+      {{else}}
+      <p class="placeholder">No tasks...</p>
+      {{/each}}
     </div>
-     <div class="action new-task-container" data-creating={{taskCreating}}>
+  </div>
+  <div class="action new-task-container" data-creating={{taskCreating}}>
 
-       {{#if taskCreating}}
-       <div class="action-box content-box new-task-action">
-        <!-- <label>Task title:</label> -->
-        <textarea class="title" rows="1"></textarea>
+   {{#if taskCreating}}
+   <div class="action-box content-box new-task-action">
+    <!-- <label>Task title:</label> -->
+    <textarea class="title" rows="1"></textarea>
     								<!-- <label>Task description:</label>
     								<textarea class="description" rows="auto">{{description}}</textarea> -->
                   </div>
@@ -83,5 +85,5 @@
 
              </div>
            </div>
-       </div>
-     </template>
+         </div>
+       </template>

@@ -13,10 +13,14 @@ div#main {
   margin-bottom: 10px;
 }
 
-div#main:focus {
+/*div#main:focus {
   outline: none !important;
 }
-
+*/
 textarea {
   resize: vertical;
+}
+
+.button  {
+  cursor: pointer;
 }

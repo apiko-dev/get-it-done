@@ -1,0 +1,1 @@
+Wait = Npm.require('wait.for');

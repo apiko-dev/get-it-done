@@ -26,7 +26,7 @@
 
 span.remove-event {
   position: absolute;
-  z-index: 99999999999999999999999999999999;
+  z-index: 9999;
   top: 2px;
   right: 2px;
   background-color: rgba(37, 37, 37, 0.4);
@@ -46,4 +46,37 @@ span.remove-event {
 
 #calendar {
   padding: 0 20px;
+}
+
+.dropdown.calendars-chooser {
+  width: 220px;
+  margin-left: calc(50% - 110px);
+  margin-right: calc(50% - 110px);
+  background-color: #FDFDFD;
+}
+
+.dropdown.calendars-chooser ul.dropdown-menu {
+  width: 220px;
+  padding: 10px;
+}
+
+.dropdown.calendars-chooser ul.dropdown-menu li {
+  cursor: pointer;
+  padding: 5px;
+}
+
+.dropdown.calendars-chooser ul.dropdown-menu li[data-active="true"] {
+  background-color: #CEEEFF;
+  border-radius: 2px;
+  margin-top: 2px;
+}
+
+.dropdown.calendars-chooser .spinner-container {
+  position: absolute;
+}
+
+.dropdown.calendars-chooser .spinner-container .spinner {
+  left: 0;
+  top: 10px;
+  margin-left: -15px;
 }

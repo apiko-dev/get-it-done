@@ -4,6 +4,19 @@ a.action-title.action-edit.description {
 	display: block;
 }
 
+.ui-sortable > .task > .action-box.ctrl-box{
+  padding: 0;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+}
+
+.new-task-container .action-box.ctrl-box, .new-board-container .action-box.ctrl-box{
+  margin-top: 0;
+  padding: 0 10px;
+  display: block;
+}
+
 .ctrl-box i.fa.edit-ok-action:hover {
   color: #03F;
 }
@@ -33,4 +46,21 @@ a.show-description {
 
 .priority-container.edit {
   left: 0;
+}
+
+.task .fa-clock-o {
+  position: absolute;
+  top: 5px;
+  right: 12px;
+  font-size: 20px;
+  color: #838383;
+  opacity: 0.8;
+}
+
+.task .fa-clock-o.stop-timer {
+  color: red;
+}
+
+.task .fa-clock-o:hover {
+  opacity: 1;
 }
