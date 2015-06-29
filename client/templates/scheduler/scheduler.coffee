@@ -13,7 +13,8 @@ Meteor.Spinner.options =
 
 Template.scheduler.onCreated ()->
 	@calendars = new ReactiveVar()
-	@showSpinner = new ReactiveVar true
+	calendarsCount = GCCalendars.find().count()
+	@showSpinner = new ReactiveVar not calendarsCount
 	self = @
 
 Template.scheduler.helpers
@@ -30,9 +31,6 @@ Template.scheduler.helpers
 				googleEvents = GCEvents.find().fetch()
 				if googleEvents
 					allEvents = allEvents.concat googleEvents
-				console.log 'allEvents', allEvents
-				console.log 'googleEvents', googleEvents
-				console.log 'allEvents', allEvents
 				callback allEvents
 			defaultView: 'agendaWeek'
 			allDaySlot: false
@@ -51,7 +49,6 @@ Template.scheduler.helpers
 				Modal.show 'newChipModal', 
 					start: start
 					end: end
-				console.log start
 			eventDrop: (event, delta, revertFunc, jsEvent, ui, view ) ->
 				updateChip event
 			eventResize: ( event, jsEvent, ui, view ) ->
@@ -87,7 +84,6 @@ Template.scheduler.events
 	'click .choosable-calendar-item': (e, t)->
 		calendar = Blaze.getData e.target
 		events = GCEvents.find( calendarId: calendar.id )
-		console.log 'eventsCount', events.count()
 		if events.count() < 1
 			fetchGCEvents calendar.id
 		else
@@ -116,6 +112,7 @@ fetchGCEvents = (calendarId) ->
 						end: el.end.dateTime#new Date el.end.dateTime
 						title: el.summary
 						isGoogle: true
+						color: 'rgba(69, 158, 203, 0.55)'
 						calendarId: calendarId
 			refetchEvents()
 

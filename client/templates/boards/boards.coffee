@@ -1,3 +1,5 @@
+BOARD_WIDTH = 300;
+
 Template.boards.helpers
 	boards: () ->
 		return Boards.find { ownerId: Meteor.userId() }, sort: order: 1
@@ -13,9 +15,9 @@ Template.boards.onRendered (->
 	$('.new-board-container.dropdown-toggle').dropdown()
 	hash = Router.current().params.hash
 	if hash
+		body_width = $('body').width()
 		Meteor.setTimeout () ->
-  		$('#lists').stop().animate { scrollLeft: $('#'+hash).offset().left }, 1000
-    return 
+  		$('#lists').stop().animate { scrollLeft: $('#'+hash).offset().left - body_width/2 + BOARD_WIDTH/2 }, 1000
 		, 100
 	@.$('#lists').sortable
 		connectWith: '#lists'
@@ -26,10 +28,10 @@ Template.boards.onRendered (->
 		dropOnEmpty: true
 		opacity: 1
 		zIndex: 9999
-		cursorAt: 
-      top: 100,
-      left: 190
-    axis: 'x'
+		distance: 5
+		axis: 'x'
+		scroll: true
+		tolerance: 'intersect'
 		start: (e, ui) ->
 		  #ui.placeholder.height(ui.helper.outerHeight());
 		update: (event, ui) ->

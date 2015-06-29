@@ -408,3 +408,9 @@ i.fa.fa-caret-down {
 .board-title-editor {
   float: left;
 }
+
+.task-list.ui-sortable {
+  max-height: calc(100vh - 195px);
+  overflow-y: auto;
+  overflow-wrap: normal;
+}

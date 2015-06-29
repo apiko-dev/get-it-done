@@ -31,3 +31,6 @@ jss:wait-for
 sacha:spin
 jss:google-calendar-api
 meteorhacks:async
+jss:perfect-scrollbar
+gromo:jquery.scrollbar
+yasaricli:nanoscroller
