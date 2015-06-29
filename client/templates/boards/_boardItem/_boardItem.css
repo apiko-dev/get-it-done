@@ -408,3 +408,14 @@ i.fa.fa-caret-down {
 .board-title-editor {
   float: left;
 }
+
+.sort-by-priority-checkbox {
+  width: auto !important;
+  margin: 0 !important;
+}
+
+.sort-by-priority-label {
+  color: black !important;
+  font-weight: normal !important;
+  margin: 5px;
+}

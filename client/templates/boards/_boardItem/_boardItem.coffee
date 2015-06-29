@@ -110,4 +110,38 @@ Template._boardItem.events
 			instance.boardEditing.set null
 
 
+	'click .sort-by-priority-checkbox': (e) ->
+		checkboxState = $(e.target).prop 'checked'
+		sortChildren document.querySelectorAll('.task-list')[1], ((el) ->
+			if $(el).find('.priority').hasClass('LOW')
+				return 1
+			else if $(el).find('.priority').hasClass('HIGH')
+				return -1
+			else return 0
+		)
 
+# http://stackoverflow.com/a/24342401/2727317
+sortChildren = (wrap, f, isNum) ->
+	l = wrap.children.length
+	arr = new Array(l)
+	i = 0
+	while i < l
+		arr[i] = [
+			f(wrap.children[i])
+			wrap.children[i]
+		]
+		++i
+	arr.sort if isNum then ((a, b) ->
+		a[0] - (b[0])
+	) else ((a, b) ->
+		if a[0] < b[0] then -1 else if a[0] > b[0] then 1 else 0
+	)
+	par = wrap.parentNode
+	ref = wrap.nextSibling
+	par.removeChild wrap
+	j = 0
+	while j < l
+		wrap.appendChild arr[j][1]
+		++j
+	par.insertBefore wrap, ref
+	return

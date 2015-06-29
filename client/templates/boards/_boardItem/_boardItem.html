@@ -1,73 +1,99 @@
 <template name="_boardItem">
-<div id="{{_id}}" class="list layer tile cols board" style="border-color: {{colorByKey config.bgColor}};">
-	<span class="board-header" style="background-color: {{colorByKey config.bgColor}}; border-bottom: 2px solid {{lightenDarkenColor config.bgColor -50}}"></span>  
-	<div class="row action-row list-title-row">
-			{{#if boardEditing}}
-					<div class="input-group board-title-editor">
-  					<input class="board-title form-control" type="text" value="{{title}}">
-					</div>
-			{{else}}
-				<div class="toggle-list edit-board-title">
-					<span class="list-title">
-						{{title}}
-					</span>
-				</div>
-			{{/if}}
-		<div class="board-ctrl pull-right">
-			<div class="dropdown color-picker">
-    	  <a id="color-chooser" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="	false">
-    	    Color
-    	    <i class="button fa fa-caret-down"></i>
-    	  </a>
-    	  <ul class="dropdown-menu" role="menu" aria-labelledby="color-chooser">
-    	    <li role="presentation" class="color" data-color="0"><span style="background: #4dc3ff"></span></li>
-    	    <li role="presentation" class="color" data-color="1"><span style="background: #bc85e6"></span></li>
-    	    <li role="presentation" class="color" data-color="2"><span style="background: #df7baa"></span></li>
-    	    <li role="presentation" class="color" data-color="3"><span style="background: #f68d38"></span></li>
-    	    <li role="presentation" class="color" data-color="4"><span style="background: #b27636"></span></li>
-    	    <li role="presentation" class="color" data-color="5"><span style="background: #8ab734"></span></li>
-    	    <li role="presentation" class="color" data-color="6"><span style="background: #14a88e"></span></li>
-    	    <li role="presentation" class="color" data-color="7"><span style="background: #268bb5"></span></li>
-    	    <li role="presentation" class="color" data-color="8"><span style="background: #6668b4"></span></li>
-    	    <li role="presentation" class="color" data-color="9"><span style="background: #a4506c"></span></li>
-    	    <li role="presentation" class="color" data-color="10"><span style="background: #67412c"></span></li>
-    	    <li role="presentation" class="color" data-color="11"><span style="background: #3c6526"></span></li>
-    	    <li role="presentation" class="color" data-color="12"><span style="background: #094558"></span></li>
-    	    <li role="presentation" class="color" data-color="13"><span style="background: #bc2d07"></span></li>
-    	    <li role="presentation" class="color" data-color="14"><span style="background: #999999"></span></li>
-    	  </ul>
-    	</div>
-			<div class="dropdown board-menu">
-    	  <a id="board-menu" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="	false">
-    	    <i class="button fa fa-cogs"></i>
-    	  </a>
-    	  <ul class="dropdown-menu" role="menu" aria-labelledby="board-menu">
-    	    <li role="presentation"><button class="btn btn-danger delete-board">Delete board</button></li>
-    	  </ul>
-    	</div>
-		</div>
-	</div>
-  <div class="container">
-  	<div class="actions row collapse in ui-sortable">
-  			<div class="task-list">
-  				{{#each tasks}}
-  					{{> _taskItem}}
-  				{{/each}}
-          {{#if isNoTasks}}
-            <p class="placeholder">No tasks...</p>
-          {{/if}}
-  			</div>
-  	</div>
-  	<div class="row action new-task-container" data-creating={{taskCreating}}>
+    <div id="{{_id}}" class="list layer tile cols board" style="border-color: {{colorByKey config.bgColor}};">
+        <span class="board-header"
+              style="background-color: {{colorByKey config.bgColor}}; border-bottom: 2px solid {{lightenDarkenColor config.bgColor -50}}"></span>
 
-  					{{#if taskCreating}}
-  						<div class="action-box content-box new-task-action">
-  								<!-- <label>Task title:</label> -->
-  								<textarea class="title" rows="1"></textarea>
-  								<!-- <label>Task description:</label>
+        <div class="row action-row list-title-row">
+            {{#if boardEditing}}
+                <div class="input-group board-title-editor">
+                    <input class="board-title form-control" type="text" value="{{title}}">
+                </div>
+            {{else}}
+                <div class="toggle-list edit-board-title">
+					<span class="list-title">
+                        {{title}}
+                    </span>
+                </div>
+            {{/if}}
+            <div class="board-ctrl pull-right">
+                <div class="dropdown color-picker">
+                    <a id="color-chooser" href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" role="button" aria-expanded="false">
+                        Color <i class="button fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="color-chooser">
+                        <li role="presentation" class="color" data-color="0">
+                            <span style="background: #4dc3ff"></span></li>
+                        <li role="presentation" class="color" data-color="1">
+                            <span style="background: #bc85e6"></span></li>
+                        <li role="presentation" class="color" data-color="2">
+                            <span style="background: #df7baa"></span></li>
+                        <li role="presentation" class="color" data-color="3">
+                            <span style="background: #f68d38"></span></li>
+                        <li role="presentation" class="color" data-color="4">
+                            <span style="background: #b27636"></span></li>
+                        <li role="presentation" class="color" data-color="5">
+                            <span style="background: #8ab734"></span></li>
+                        <li role="presentation" class="color" data-color="6">
+                            <span style="background: #14a88e"></span></li>
+                        <li role="presentation" class="color" data-color="7">
+                            <span style="background: #268bb5"></span></li>
+                        <li role="presentation" class="color" data-color="8">
+                            <span style="background: #6668b4"></span></li>
+                        <li role="presentation" class="color" data-color="9">
+                            <span style="background: #a4506c"></span></li>
+                        <li role="presentation" class="color" data-color="10">
+                            <span style="background: #67412c"></span></li>
+                        <li role="presentation" class="color" data-color="11">
+                            <span style="background: #3c6526"></span></li>
+                        <li role="presentation" class="color" data-color="12">
+                            <span style="background: #094558"></span></li>
+                        <li role="presentation" class="color" data-color="13">
+                            <span style="background: #bc2d07"></span></li>
+                        <li role="presentation" class="color" data-color="14">
+                            <span style="background: #999999"></span></li>
+                    </ul>
+                </div>
+                <div class="dropdown board-menu">
+                    <a id="board-menu" href="#" class="dropdown-toggle" data-toggle="dropdown"
+                       aria-haspopup="true" role="button" aria-expanded="false">
+                        <i class="button fa fa-cogs"></i>
+                    </a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="board-menu">
+                        <li role="presentation">
+                            <button class="btn btn-danger delete-board">Delete board</button>
+                        </li>
+                        <li role="presentation">
+                            <label class="sort-by-priority-label">
+                                <input type="checkbox" value="false" class="sort-by-priority-checkbox">
+                                Sort by priority
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="actions row collapse in ui-sortable">
+                <div class="task-list">
+                    {{#each tasks}}
+                        {{> _taskItem}}
+                    {{/each}}
+                    {{#if isNoTasks}}
+                        <p class="placeholder">No tasks...</p>
+                    {{/if}}
+                </div>
+            </div>
+            <div class="row action new-task-container" data-creating={{taskCreating}}>
+
+                {{#if taskCreating}}
+                    <div class="action-box content-box new-task-action">
+                        <!-- <label>Task title:</label> -->
+                        <textarea class="title" rows="1"></textarea>
+                        <!-- <label>Task description:</label>
   								<textarea class="description" rows="auto">{{description}}</textarea> -->
-  						</div>
-  						<!-- <div class="priority-container">
+                    </div>
+                    <!-- <div class="priority-container">
   							<label>Priority:</label>
   							<select value="{{priority}}" name="priority-chooser" id="priority-chooser">
   								<option value="0" style="background-color: #21B24B; color: white;">Low</option>
@@ -76,17 +102,17 @@
   							</select>
   						</div> -->
 
-  						<div class="action-box ctrl-box pull-right">
-  							<span class="button ok-action">Save</span>
-  							<span class="button cancel-action text-danger">Cancel</span>
-  						</div>
-  					{{else}}
-  						<div class="new-task-action-wrapper">
-  							<a class="button new-task-action">New task...</a>
-  						</div>
-  					{{/if}}
+                    <div class="action-box ctrl-box pull-right">
+                        <span class="button ok-action">Save</span>
+                        <span class="button cancel-action text-danger">Cancel</span>
+                    </div>
+                {{else}}
+                    <div class="new-task-action-wrapper">
+                        <a class="button new-task-action">New task...</a>
+                    </div>
+                {{/if}}
 
+            </div>
+        </div>
     </div>
-	</div>
-</div>
 </template>
