@@ -17,12 +17,29 @@ div#lists {
   max-height: calc(100vh*0.9);
   display: inline-flex;
   width: 100%;
-  border-spacing: 5px 0px;
   margin: 0;
 }
 
 #lists > div {
   display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-radius: 3px;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: initial;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+   flex-direction: column; 
+  -webkit-box-flex: 0; 
+  -webkit-flex: 0 0 270px; 
+  -ms-flex: 0 0 270px;
+  flex: 0 0 270px; 
 }
 
 .list.layer.tile.cols.new-board-container {
@@ -56,10 +73,6 @@ div#lists {
   width: 100%;
 }
 
-.list .actions {
-  padding: 7px 14px 7px 14px;
-}
-
 .list .edit-board-title {
   line-height: 26px;
   float: left;
@@ -70,11 +83,19 @@ div#lists {
   font-size: 20px;
 }
 
+.list:nth-of-type(even) {
+  background-color: rgb(247, 247, 247);
+}
+
+.list:nth-of-type(odd) {
+  background-color: rgb(240, 240, 240);
+}
+
 .new-board-container, .new-task-container {
   cursor: pointer;
 }
 
-.row.action.board textarea {
+.action.board textarea {
   resize: vertical;
   margin-bottom: 5px;
   border: 1px solid #cecece;
