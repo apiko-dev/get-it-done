@@ -43,18 +43,17 @@ Template._boardItem.onRendered (->
 
 Template._boardItem.helpers
 	tasks: () ->
-		if not Template.instance().data.sortByPriority
-			console.log 'by order'
-			return Tasks.find { boardId: Template.instance().data._id }, {sort: {order: 1}}
-		else
-			console.log 'by priority'
-			return Tasks.find { boardId: Template.instance().data._id }, {sort: {priority: 1}}
+		sortByPriority = Template.instance().data.config.sortByPriority
+		sortingQuery = sort: if sortByPriority then	{priority: -1} else {order: 1}
+		return Tasks.find { boardId: Template.instance().data._id }, sortingQuery
 	taskCreating: () ->
 		return Template.instance().taskCreating and Template.instance().taskCreating.get()
 	boardEditing: () ->
 		return Template.instance().boardEditing.get()
 	isNoTasks: () ->
 		return !Tasks.find({ boardId: Template.instance().data._id }).count()
+	sortByPriority: ()->
+		return Template.instance().data.config.sortByPriority
 
 
 Template._boardItem.events

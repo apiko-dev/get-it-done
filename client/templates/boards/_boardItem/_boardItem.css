@@ -403,3 +403,9 @@ i.fa.fa-caret-down {
   overflow-y: auto;
   overflow-wrap: normal;
 }
+
+button.btn.btn-default.sort-by-priority {
+  background-color: rgba(242, 242, 242, 0.72);
+  color: rgb(79, 79, 79);
+  border: none;
+}

@@ -42,7 +42,11 @@
        </a>
        <ul class="dropdown-menu" role="menu" aria-labelledby="board-menu">
          <li role="presentation"><button class="btn btn-danger delete-board">Delete board</button></li>
-         <li role="presentation"><button class="btn btn-primary sort-by-priority">Sort by priority</button></li>
+        {{#if sortByPriority}}
+          <li role="presentation"><button class="btn btn-primary sort-by-priority">Sort by priority</button></li>
+        {{else}}
+          <li role="presentation"><button class="btn btn-default sort-by-priority">Sort by priority</button></li>
+        {{/if}}
        </ul>
      </div>
    </div>
