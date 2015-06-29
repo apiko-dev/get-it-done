@@ -113,9 +113,9 @@ Template._boardItem.events
 
 	'click .sort-by-priority': (e) ->
     elements = []
-    checkboxState = $(e.target).prop 'checked'
+    boardIndex = $(e.target).index('.sort-by-priority')
 
-    sortChildren document.querySelectorAll('.task-list')[1], (el) ->
+    sortChildren document.querySelectorAll('.task-list')[boardIndex], (el) ->
       elData = Blaze.getData el
       taskId = elData._id
       boardId = elData.boardId
