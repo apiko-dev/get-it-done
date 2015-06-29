@@ -1,6 +1,6 @@
 <template name="_boardItem">
-  <div id="{{_id}}" class="list layer tile cols board" style="border-color: {{config.bgColor}};">
-   <div class="action-row list-title-row" style="background-color: {{config.bgColor}};">
+  <div id="{{_id}}" class="list layer tile cols board" style="border-color: {{colorByKey config.bgColor}};">
+   <div class="action-row list-title-row" style="background-color: {{colorByKey config.bgColor}};">
      {{#if boardEditing}}
      <div class="board-title-editor">
        <input class="board-title" type="text" value="{{title}}">
