@@ -1,7 +1,7 @@
 <template name="_taskItem">
 	<div class="row task action ui-sortable-handle">
 					<!-- editable title -->
-				
+
 		{{#if taskEditing}}
 				<div class="action-box content-box action-edit">
 					<textarea class="title" rows="1">{{text}}</textarea>
@@ -14,11 +14,11 @@
 					{{/if}}
 				</div>
 				<div value="{{priority}}" class="priority-container edit">
-					<select name="priority-chooser" id="priority-chooser">
-						<option value="0" style="background-color: #21B24B; color: white;">Low</option>
-						<option value="1" style="background-color: #FDB813; color: white;">Medium</option>
-						<option value="2" style="background-color: #ED1B24; color: white;">High</option>
-					</select>
+                    <select name="priority-chooser" id="priority-chooser">
+                            <option value="0" {{isSelected 0}}  style="background-color: #21B24B; color: white;">>Low</option>
+                            <option value="1" {{isSelected 1}} style="background-color: #FDB813; color: white;">>Medium</option>
+                            <option value="2" {{isSelected 2}} style="background-color: #ED1B24; color: white;">>High</option>
+                    </select>
 				</div>
 <!-- 				<div class="action-box ctrl-box pull-right">
 					<i class="fa fa-floppy-o edit-ok-action"></i>
