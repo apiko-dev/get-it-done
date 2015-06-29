@@ -50,3 +50,7 @@ Template.registerHelper('lightenDarkenColor', function(col, amt) {
 Template.registerHelper('colorByKey', function(key) {
   return COLORS[key];
 });
+
+Template.registerHelper('equals', function (a, b) {
+  return a === b;
+});

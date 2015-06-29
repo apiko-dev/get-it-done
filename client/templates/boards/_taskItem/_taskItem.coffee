@@ -15,13 +15,15 @@ Template._taskItem.helpers
 	showDescription: () ->
 		return Template.instance().showDescription.get()
 	description: () ->
-		console.log Template.instance()
 		return Template.instance().data.description or "no description"
 	priority: () ->
 		return PRIORITY_CLASSES[Template.instance().data.priority]
 	isTimeStarted: () ->
 		return !!Template.instance().data.timerStarted
-
+	isSelected: (priority) ->
+		if parseInt(Template.instance().data.priority) is priority
+			return "selected"
+		else return ""
 Template._taskItem.events
 	'click .action-edit': (e, t) ->
 		Template.instance().taskEditing.set true
