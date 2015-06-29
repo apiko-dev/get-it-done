@@ -3,7 +3,7 @@ Template.Stripe.helpers({
     var boards = Boards.find();
     var colors = [];
     boards.forEach(function (board) {
-      colors.push(board.config.bgColor || '#AAAAAA');
+      colors.push(COLORS[board.config.bgColor] || '#AAAAAA');
     });
 
     if (colors.length === 0) return ['#f68d38'];
