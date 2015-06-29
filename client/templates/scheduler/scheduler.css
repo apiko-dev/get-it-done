@@ -26,7 +26,7 @@
 
 span.remove-event {
   position: absolute;
-  z-index: 99999999999999999999999999999999;
+  z-index: 9999;
   top: 2px;
   right: 2px;
   background-color: rgba(37, 37, 37, 0.4);
@@ -67,5 +67,16 @@ span.remove-event {
 
 .dropdown.calendars-chooser ul.dropdown-menu li[data-active="true"] {
   background-color: #CEEEFF;
-  border-radius: 5px;
+  border-radius: 2px;
+  margin-top: 2px;
+}
+
+.dropdown.calendars-chooser .spinner-container {
+  position: absolute;
+}
+
+.dropdown.calendars-chooser .spinner-container .spinner {
+  left: 0;
+  top: 10px;
+  margin-left: -15px;
 }

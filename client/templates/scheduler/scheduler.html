@@ -4,7 +4,10 @@
 	{{else}}
 		<div class="dropdown calendars-chooser">
   	  <a id="calendars-chooser" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="	false">
-  	    Displayable secondary calendars
+				{{#if showSpinner}}
+					{{> spinner}}
+				{{/if}}
+  	    Displayable secondary calendars 
   	    <i class="button fa fa-caret-down"></i>
   	  </a>
   	  <ul class="dropdown-menu" role="menu" aria-labelledby="calendars-chooser">
