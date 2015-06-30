@@ -1,11 +1,10 @@
-Template._boardItem.onCreated ->
+Template._boardItem.onCreated ()->
 	@.taskCreating = new ReactiveVar false
 	@.boardEditing = new ReactiveVar false
 	#@.allowCreatingNew = new ReactiveVar true
-)
 
 
-Template._boardItem.onRendered (->
+Template._boardItem.onRendered ()->
 	#isAllowCreatingNew 
 	@.$('.dropdown-toggle').dropdown()
 	taskListOptions =
@@ -132,7 +131,7 @@ Template._boardItem.events
 					console.log err or res, self.togglProject.id
 			instance.boardEditing.set null
 
-	'click #priority-switch-checkbox': (e, t) ->
+	'click .priority-switch-checkbox': (e, t) ->
 		board = Blaze.getData e.target
 		currentSorting = board.config.sortByPriority
 		newSorting = if currentSorting == 1 then 0 else 1

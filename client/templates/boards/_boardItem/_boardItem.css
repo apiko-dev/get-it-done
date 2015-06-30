@@ -219,12 +219,12 @@ a.color-picker {
   margin-left: 5px;
 }
 
-.dropdown.color-picker a, .project-picker a {
+.dropdown.color-picker a, .project-picker a, .checkbox-label {
   color: white;
   opacity: 0.8;
 }
 
-.dropdown.color-picker:hover a, .project-picker:hover a {
+.dropdown.color-picker:hover a, .project-picker:hover a, .checkbox-label:hover {
   color: white !important;
   opacity: 1;
   text-decoration: underline;
@@ -452,4 +452,13 @@ button.btn.btn-default.sort-by-priority {
   background-color: rgba(242, 242, 242, 0.72);
   color: rgb(79, 79, 79);
   border: none;
+}
+
+.dropdown.board-menu .checkbox {
+  padding: 0;
+}
+
+.dropdown.board-menu .checkbox label {
+  color: black;
+  text-align: center;
 }

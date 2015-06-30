@@ -1,8 +1,8 @@
-#priority-switch-label {
-    margin-top: 4px;
-    font-weight: normal;
+.checkbox-label {
+  padding: 4px;
+  font-weight: normal;
 }
 
-#priority-switch-checkbox {
-    margin: 0;
+.checkbox-label input[type="checkbox"] {
+  margin: 0;
 }

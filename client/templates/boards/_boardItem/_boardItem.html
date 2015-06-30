@@ -21,7 +21,7 @@
                   </a>
                   <ul class="dropdown-menu" role="menu" aria-labelledby="toggl-project">
                     <!-- {{#if allowCreatingNew}} -->
-                      <li role="presentation" class="toggl-project-item">Create new one</li>
+                      <li role="presentation" class="toggl-project-item">The same...</li>
                     <!-- {{/if}} -->
                     {{#each togglProjects}}
                       {{togglProject.id}}
@@ -72,6 +72,11 @@
                         <li role="presentation">
                             <button class="btn btn-danger delete-board">Delete board</button>
                         </li>
+                        <div class="checkbox">
+                          <label>
+                            <input checked="{{config.showArchieved}}" type="checkbox"> Show archieved
+                          </label>
+                        </div>
                     </ul>
                 </div>
             </div>
