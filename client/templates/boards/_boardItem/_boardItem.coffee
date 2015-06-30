@@ -41,6 +41,9 @@ Template._boardItem.onRendered ->
 
 	@.$('.task-list').sortable taskListOptions
 
+	# Restore checkbox value according to sorting methods selected by user
+	@.$(".priority-switch-checkbox").prop "checked", if Number @.data.config.sortByPriority is 0 then false else true
+
 Template._boardItem.helpers
 	tasks: ->
 		sortByPriority = Template.instance().data.config.sortByPriority
@@ -128,7 +131,7 @@ Template._boardItem.events
 					console.log err or res, self.togglProject.id
 			instance.boardEditing.set null
 
-	'click #priority-switch-checkbox': (e, t) ->
+	'click .priority-switch-checkbox': (e, t) ->
 		board = Blaze.getData e.target
 		currentSorting = board.config.sortByPriority
 		newSorting = if currentSorting == 1 then 0 else 1
