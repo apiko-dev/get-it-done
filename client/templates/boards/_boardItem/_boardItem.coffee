@@ -87,8 +87,9 @@ Template._boardItem.events
 		self = @
 		Boards.update { _id: boardId }, { $set: 'config.bgColor': e.currentTarget.dataset.color}, (err, res) ->
 			console.log err or res
-		Meteor.call 'toggl/updateProject', {projectId: self.togglProject.id, data: {color: e.currentTarget.dataset.color}}, (err, res)->
-			console.log err or res, self.togglProject.id
+		if self.togglProject and self.togglProject.id
+			Meteor.call 'toggl/updateProject', {projectId: self.togglProject.id, data: {color: e.currentTarget.dataset.color}}, (err, res)->
+				console.log err or res, self.togglProject.id
 
 	'click .delete-board': (e, t) ->
 		Boards.remove {_id: t.data._id}, (err, res) ->

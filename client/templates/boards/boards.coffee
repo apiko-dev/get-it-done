@@ -63,6 +63,7 @@ Template.boards.events
 			text = $(e.target).closest('.new-board-container').find('input').val()
 			if !text or !text.length
 				alert 'Board name is required'
-			Boards.insert {ownerId: Meteor.userId(), title: text}, (err, res) ->
-				console.log err or res
+			else
+				Boards.insert {ownerId: Meteor.userId(), title: text}, (err, res) ->
+					console.log err or res
 			Template.instance().boardCreating.set false
