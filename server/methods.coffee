@@ -67,20 +67,35 @@ Meteor.methods
 			name: String
 			boardId: String
 			color: Match.Any
-		if @.userId 
+		if @.userId
 			user = Meteor.users.findOne @.userId
 			if user.toggl and user.toggl.api_token
-				toggl = new TogglClient({apiToken: user.toggl.api_token})
-				boundfunction = undefined
-				CurrentName.withValue query, ()->
-					boundfunction = Meteor.bindEnvironment (togglProject)->
-						setBoardProject query.boardId, togglProject
-						return
-					, (e) ->
-						console.log e
-				toggl.createProject { name: query.name, color: query.color, wid: 0 }, (err, togglProject) ->
-					console.log err or togglProject
-					boundfunction(togglProject)
+				toggl = new TogglClient({apiToken: user.toggl.api_token}) 
+				proj = Async.runSync (done)->
+					toggl.createProject { name: query.name, color: query.color, wid: 0 }, (err, res) ->
+						done err, res
+				Async.runSync (done)->
+					Boards.update {_id: query.boardId}, {$set: {togglProject: proj.result}}, (err, res) ->
+						done(err, res)
+	#'toggl/createProject': (query) ->
+	#	check query, 
+	#		name: String
+	#		boardId: String
+	#		color: Match.Any
+	#	if @.userId 
+	#		user = Meteor.users.findOne @.userId
+	#		if user.toggl and user.toggl.api_token
+	#			toggl = new TogglClient({apiToken: user.toggl.api_token})
+	#			boundfunction = undefined
+	#			CurrentName.withValue query, ()->
+	#				boundfunction = Meteor.bindEnvironment (togglProject)->
+	#					setBoardProject query.boardId, togglProject
+	#					return
+	#				, (e) ->
+	#					console.log e
+	#			toggl.createProject { name: query.name, color: query.color, wid: 0 }, (err, togglProject) ->
+	#				console.log err or togglProject
+	#				boundfunction(togglProject)
 	'toggl/updateProject': (query)->
 		if @.userId 
 			user = Meteor.users.findOne @.userId

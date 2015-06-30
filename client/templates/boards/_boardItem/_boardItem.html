@@ -20,7 +20,9 @@
                     <i class="fa fa-caret-down"></i>
                   </a>
                   <ul class="dropdown-menu" role="menu" aria-labelledby="toggl-project">
-                    <li role="presentation" class="toggl-project-item">Create new one with the same name as board</li>
+                    <!-- {{#if allowCreatingNew}} -->
+                      <li role="presentation" class="toggl-project-item">Create new one</li>
+                    <!-- {{/if}} -->
                     {{#each togglProjects}}
                       {{togglProject.id}}
                       <li role="presentation" class="toggl-project-item {{#if isCurrentProject .. id }}current{{/if}}">{{name}}</li>

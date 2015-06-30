@@ -1,10 +1,12 @@
 Template._boardItem.onCreated (->
 	@.taskCreating = new ReactiveVar false
 	@.boardEditing = new ReactiveVar false
+	#@.allowCreatingNew = new ReactiveVar true
 )
 
 
 Template._boardItem.onRendered (->
+	#isAllowCreatingNew @
 	@.$('.dropdown-toggle').dropdown()
 	@.$('.task-list').sortable
 		connectWith: '.task-list'
@@ -51,6 +53,8 @@ Template._boardItem.helpers
 		return Template.instance().data.config.sortByPriority
 	togglProjects: ()->
 		return TogglProjects.find()
+	#allowCreatingNew: ()->
+	#	return Template.instance().allowCreatingNew.get()
 
 
 Template._boardItem.events
@@ -101,13 +105,15 @@ Template._boardItem.events
 		), 0
 
 	'click .toggl-project-item': (e, t) ->
-		board = Template.instance().data
+		instance = Template.instance()
+		board = instance.data
 		togglProj = Blaze.getData e.target
-		if togglProj
+		if togglProj and togglProj.id
 			Boards.update {_id: board._id}, {$set: {'togglProject': togglProj}}, (err, res) ->
 				console.log err or res
 		else
-			createProject board.title, board._id, board.config.bgColor
+			createProject board.title, board._id, board.config.bgColor, (err, res) ->
+				console.log err or res
 
 	'keyup, focusout input.board-title': (e, t) ->
 		if e.type == 'focusout' or e.keyCode == 13
@@ -130,5 +136,25 @@ Template._boardItem.events
 		Boards.update {_id: board._id}, {$set: {'config.sortByPriority': newSorting}}, (err, res) ->
 			console.log err or res
 
-createProject = (name, boardId, bgColor)->
-	Meteor.call 'toggl/createProject', {name: name, boardId: boardId, color: bgColor}
+createProject = (name, boardId, bgColor, cb)->
+	Meteor.call 'toggl/createProject', {name: name, boardId: boardId, color: bgColor}, (err, res)->
+		res.result and fetchProjects()
+
+#isAllowCreatingNew = (instance) ->
+#	board = instance.data
+#	board.togglProject and board.togglProject.name and console.log TogglProjects.findOne {name: board.togglProject.name} 
+#	board.togglProject and board.togglProject.name and if TogglProjects.findOne {name: board.togglProject.name}
+#		instance.allowCreatingNew.set false
+
+
+
+
+
+
+
+
+
+
+
+
+

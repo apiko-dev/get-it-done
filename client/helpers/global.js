@@ -51,10 +51,26 @@ Template.registerHelper('colorByKey', function(key) {
   return COLORS[key];
 });
 
-Template.registerHelper('equals', function (a, b) {
+Template.registerHelper('equals', function(a, b) {
   return a === b;
 });
 
-Template.registerHelper('isCurrentProject', function (board, togglProjectId) {
+Template.registerHelper('isCurrentProject', function(board, togglProjectId) {
   return board.togglProject && board.togglProject.id == togglProjectId
 });
+
+fetchProjects = function() {
+  console.log('fetch projects');
+  var user = Meteor.user()
+  if (user && user.toggl && user.toggl.workspaceId) {
+    Meteor.call('toggl/getProjects', user.toggl.workspaceId, function(err, res) {
+      if (res && res.result) {
+        res.result.forEach(function(el) {
+          if (!TogglProjects.findOne({ name: el.name })) {
+            TogglProjects.insert(el)
+          }
+        })
+      }
+    })
+  }
+}
