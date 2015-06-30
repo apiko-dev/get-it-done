@@ -457,6 +457,7 @@ button.btn.btn-default.sort-by-priority {
   border: none;
 }
 
+
 .dropdown.board-menu .checkbox {
   padding: 0;
 }
@@ -464,4 +465,13 @@ button.btn.btn-default.sort-by-priority {
 .dropdown.board-menu .checkbox label {
   color: black;
   text-align: center;
+}
+
+#priority-switch-label {
+  margin-top: 4px;
+  font-weight: normal;
+}
+
+input.priority-switch-checkbox {
+  margin: 0 !important;
 }
