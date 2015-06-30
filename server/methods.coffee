@@ -10,11 +10,7 @@ setTaskTimer = (userId, taskId, timeEntry)->
 setBoardProject = (boardId, togglProject)->
 	Boards.update {_id: boardId}, {$set: {togglProject: togglProject}}, (err, res) ->
 		console.log err or res
-
-setWorkspace = (userId, workspace)->
-	Boards.update {_id: boardId}, {$set: {togglProject: togglProject}}, (err, res) ->
-		console.log err or res
-
+		
 Meteor.methods
 	'toggl/createUser': (email, password)->
 		check [email, password], [String]
@@ -92,6 +88,26 @@ Meteor.methods
 				toggl = new TogglClient {apiToken: user.toggl.api_token}
 				toggl.updateProject query.projectId, query.data, (err, res) ->
 					err and console.log err
+	'toggl/getWorkspaces': ()->
+		resp = undefined
+		if @.userId
+			user = Meteor.users.findOne @.userId
+			if user.toggl and user.toggl.api_token
+				toggl = new TogglClient {apiToken: user.toggl.api_token}
+				resp = Async.runSync (done)->
+					toggl.getWorkspaces (err, res)->
+						done err, res
+		resp
+	'toggl/getProjects': (wid)->
+		resp = undefined
+		if @.userId
+			user = Meteor.users.findOne @.userId
+			if user.toggl and user.toggl.api_token
+				toggl = new TogglClient {apiToken: user.toggl.api_token}
+				resp = Async.runSync (done)->
+					toggl.getWorkspaceProjects  wid, (err, res)->
+						done err, res
+		resp
 
 	'gcalendar/fetchEvents': (calendarId)->
 		resp = undefined
@@ -112,4 +128,13 @@ Meteor.methods
 				resp = Async.runSync (done)->
 					gc.calendarList.list (err, res)->
 						done err, res
-		resp					
+		resp	
+
+	'user/setTogglWorkspace': (workspaceId) ->
+		console.log 'workspaceId -1', workspaceId
+		userId = @.userId
+		Async.runSync (done) ->
+			console.log 'workspaceId -2', workspaceId
+			Meteor.users.update {_id: userId}, { $set: {'toggl.workspaceId': workspaceId} }, (err, res) ->
+				console.log err or res 
+				done err, res

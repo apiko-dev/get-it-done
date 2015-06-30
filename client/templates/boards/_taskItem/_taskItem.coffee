@@ -51,8 +51,13 @@ Template._taskItem.events
 		instance.showDescription.set !cur
 	'click .start-timer': (e, t) ->
 		task = Blaze.getData e.target
-		if Meteor.user().toggl and Meteor.user().toggl.api_token
-			Meteor.call	'toggl/startTimer', {taskId: task._id, taskTitle: task.text, boardId: task.boardId}
+		user = Meteor.user()
+		board = Boards.findOne task.boardId
+		if user.toggl and user.toggl.api_token and user.toggl.workspaceId
+			if board.togglProject and board.togglProject.id
+				Meteor.call	'toggl/startTimer', {taskId: task._id, taskTitle: task.text, boardId: task.boardId}
+			else
+				alert 'You must choose Toggl project for this board'
 		else
 			Modal.show 'togglSignIn'
 	'click .stop-timer': (e, t) ->

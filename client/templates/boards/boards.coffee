@@ -9,6 +9,12 @@ Template.boards.helpers
 
 Template.boards.onCreated (->
 	@.boardCreating = new ReactiveVar(false);
+	user = Meteor.user()
+	if user.toggl and user.toggl.workspaceId
+		Meteor.call 'toggl/getProjects', user.toggl.workspaceId, (err, res)->
+			if res and res.result
+				res.result.forEach (el)->
+					TogglProjects.insert el
 )
 
 Template.boards.onRendered (->

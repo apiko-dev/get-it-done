@@ -5,8 +5,6 @@ Template._boardItem.onCreated (->
 
 
 Template._boardItem.onRendered (->
-	if @.data and not @.data.togglProject
-		Meteor.call 'toggl/createProject', {name: @.data.title, boardId: @.data._id, color: @.data.config.bgColor}
 	@.$('.dropdown-toggle').dropdown()
 	@.$('.task-list').sortable
 		connectWith: '.task-list'
@@ -54,6 +52,8 @@ Template._boardItem.helpers
 		return !Tasks.find({ boardId: Template.instance().data._id }).count()
 	sortByPriority: ()->
 		return Template.instance().data.config.sortByPriority
+	togglProjects: ()->
+		return TogglProjects.find()
 
 
 Template._boardItem.events
@@ -103,6 +103,15 @@ Template._boardItem.events
 			t.$('.board-title').focus()
 		), 0
 
+	'click .toggl-project-item': (e, t) ->
+		board = Template.instance().data
+		togglProj = Blaze.getData e.target
+		if togglProj
+			Boards.update {_id: board._id}, {$set: {'togglProject': togglProj}}, (err, res) ->
+				console.log err or res
+		else
+			createProject board.title, board._id, board.config.bgColor
+
 	'keyup, focusout input.board-title': (e, t) ->
 		if e.type == 'focusout' or e.keyCode == 13
 			instance = Template.instance()
@@ -123,3 +132,6 @@ Template._boardItem.events
 		newSorting = if currentSorting == 1 then 0 else 1
 		Boards.update {_id: board._id}, {$set: {'config.sortByPriority': newSorting}}, (err, res) ->
 			console.log err or res
+
+createProject = (name, boardId, bgColor)->
+	Meteor.call 'toggl/createProject', {name: name, boardId: boardId, color: bgColor}

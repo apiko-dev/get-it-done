@@ -409,3 +409,14 @@ button.btn.btn-default.sort-by-priority {
   color: rgb(79, 79, 79);
   border: none;
 }
+
+.project-picker ul.dropdown-menu li {
+  color: #686868;
+  border-bottom: 1px dashed #EAEAEA;
+  padding: 2px 5px;
+}
+
+.project-picker ul.dropdown-menu li:hover {
+  color: #484848;
+  border-bottom: 1px dashed #009FFF;
+}

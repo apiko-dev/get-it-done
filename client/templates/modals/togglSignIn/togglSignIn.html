@@ -2,40 +2,91 @@
 <div id="togglSignInModal" class="modal fade">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<div class="modal-header">
-				<h4 class="modal-title">Sign in to Toggl at first</h4>
-			</div>
-			<div class="modal-body">
-				<form class="toggl-sign-in">
-					<div class="form-group">
-						<div class='col-md-12'>
-							<div class="form-group">
-								<label for="toggl_email">Toggl-user Email:</label>
-								<div class='input-group'>
-									<span class="input-group-addon">
-										<i class="fa fa-envelope-o"></i>
-									</span>
-									<input id="toggl_email" type='email' class="form-control"/>
+			{{#unless currentUser.toggl}}
+				<div class="modal-header">
+					<h4 class="modal-title">Sign in to Toggl at first</h4>
+				</div>
+				<div class="modal-body">
+					<form class="toggl-sign-in">
+						<div class="form-group">
+							<div class='col-md-12'>
+								<div class="form-group">
+									<label for="toggl_email">Toggl-user Email:</label>
+									<div class='input-group'>
+										<span class="input-group-addon">
+											<i class="fa fa-envelope-o"></i>
+										</span>
+										<input id="toggl_email" type='email' class="form-control"/>
+									</div>
+								</div>
+							</div>
+							<div class='col-md-12'>
+								<div class="form-group">
+									<label for="toggl_password">Toggl-user password:</label>
+									<div class='input-group'>
+										<span class="input-group-addon">
+											<i class="fa fa-key"></i>
+										</span>
+										<input id="toggl_password" type='password' class="form-control"/>
+									</div>
 								</div>
 							</div>
 						</div>
-						<div class='col-md-12'>
-							<div class="form-group">
-								<label for="toggl_password">Toggl-user password:</label>
-								<div class='input-group'>
-									<span class="input-group-addon">
-										<i class="fa fa-key"></i>
-									</span>
-									<input id="toggl_password" type='password' class="form-control"/>
+					</form>
+				</div>
+				{{#if showSpinner}}
+					{{> spinner}}
+				{{/if}}
+			{{else}}
+				<div class="modal-header">
+					<h4 class="modal-title">Select toggl workspace</h4>
+				</div>
+				<div class="modal-body">
+					<form class="toggl-sign-in">
+						<div class="form-group">
+							<div class='col-md-12'>
+								<div class="form-group">
+									<label for="toggl_password">Available workspaces:</label>
+									<div class='input-group'>
+										<select name="workspace" class="toggl-workspace">
+											{{#each workspaces}}
+												<option class="workspace-item" value="{{id}}">{{name}}</option>
+											{{/each}}
+										</select>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				</form>
-			</div>
-			{{#if showSpinner}}
-				{{> spinner}}
-			{{/if}}
+					</form>
+				</div>
+				<!-- <div class="modal-header">
+					<h4 class="modal-title">Select toggl workspace</h4>
+				</div>
+				<div class="modal-body">
+					<form class="toggl-sign-in">
+						<div class="form-group">
+							<div class='col-md-12'>
+								<div class="form-group">
+									<label for="toggl_password">Available workspaces:</label>
+									<div class='input-group'>
+										<div class="dropdown color-picker">
+     								  <a id="toggl-workspace" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="	false">
+     								    Toggl workspace
+     								    <i class="fa fa-caret-down"></i>
+     								  </a>
+     								  <ul class="dropdown-menu" role="menu" aria-labelledby="workspace-chooser">
+     								  	{{#each workspaces}}
+     								    	<li role="presentation" class="workspace-item">{{name}}</li>
+     								    {{/each}}
+     								  </ul>
+     								</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div> -->
+			{{/unless}}
 			<div class="modal-footer">
 				{{#if signInFailed}}
 					<h3 class="fail-msg">Sign in failed. Try again</h3>
