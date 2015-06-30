@@ -40,6 +40,11 @@ Template._boardItem.onRendered (->
 )
 
 Template._boardItem.helpers
+	colors: () ->
+		arr = []
+		for el, i in COLORS
+			arr.push { _index: i, color: el }
+		return arr;
 	tasks: () ->
 		return Tasks.find { boardId: Template.instance().data._id }, {sort: {order: 1} }
 	taskCreating: () ->
@@ -59,18 +64,21 @@ Template._boardItem.events
 		Tasks.update { _id: taskData._id }, { $set: completed: !taskData.completed }, (err, res) ->
   		console.log err or res
 
-	'click .ok-action, keydown .new-task-action .title': (e, t) ->
+	'click .ok-action, keyup .new-task-action .title': (e, t) ->
 		if e.type == 'click' or e.keyCode == 13
-			text = $(e.target).parent().parent().find('textarea.title').val()
-			description = $(e.target).parent().parent().find('textarea.description').val()
-			priority = $(e.target).parent().parent().find('select#priority-chooser').val()
+			$textarea = $(e.target).parent().parent().find('textarea.title')
+			text = $textarea.val()
+			# description = $(e.target).parent().parent().find('textarea.description').val()
+			# priority = $(e.target).parent().parent().find('select#priority-chooser').val()
 			if !text or !text.length
 				alert 'text is required'
 			else
 				boardId = t.data._id
-				Tasks.insert {ownerId: Meteor.userId(), boardId: boardId, text: text, description: description, priority: priority || 1, completed: false}, (err, res) ->
+				Tasks.insert { ownerId: Meteor.userId(), boardId: boardId, text: text, priority: 1, completed: false }, (err, res) ->
 					console.log err or res
-			Template.instance().taskCreating.set false
+			$textarea.val('')
+			if e.type == 'click'
+				Template.instance().taskCreating.set false
 
 	'click .cancel-action': (e, t) ->
 		Template.instance().taskCreating.set false

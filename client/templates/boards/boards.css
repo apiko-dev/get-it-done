@@ -1,5 +1,5 @@
 div#lists {
-  -webkit-box-align: start;
+/*  -webkit-box-align: start;
   -webkit-align-items: flex-start;
   -ms-flex-align: start;
   align-items: flex-start;
@@ -12,18 +12,36 @@ div#lists {
   overflow-y: show;
   -webkit-overflow-scrolling: touch;
   -webkit-transform: translate3d(0,0,0);
-/*  height: 85vh;
-  min-height: 85vh;
-  max-height: 85vh;*/
-  overflow: visible;
+  overflow: scroll;
   display: inline-flex;
   width: 100%;
-  margin: 0;
+  margin: 0;*/
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-box-align: start;
+  -o-box-align: start;
+  -ms-flex-align: start;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -o-box-orient: horizontal;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  overflow: auto;
+  padding-top: 10px;
 }
 
 #lists > div {
-  display: flex;
-  overflow: visible;
+/*  display: flex;
   flex-direction: column;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -39,7 +57,26 @@ div#lists {
   -webkit-box-flex: 0; 
   -webkit-flex: 0 0 270px; 
   -ms-flex: 0 0 270px;
-  flex: 0 0 270px; 
+  flex: 0 0 270px; */
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -o-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-flex: 1;
+  -o-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 0 0 270px;
+  -ms-flex: 0 0 270px;
+  flex: 0 0 270px;
+  position: relative;
+  height: 100%;
 }
 
 /*.list.board {
@@ -83,7 +120,6 @@ div#lists {
 
 .list .edit-board-title {
   line-height: 26px;
-  float: left;
   padding: 0 5px;
 }
 
