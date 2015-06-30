@@ -1,11 +1,13 @@
 PRIORITY_CLASSES = [
-  'LOW'
-  'MED'
-  'HIGH'
+	'LOW'
+	'MED'
+	'HIGH'
 ]
 
 Template._taskItem.onCreated (->
-	@.taskEditing = new ReactiveVar(false);
+	@.taskEditing = new ReactiveVar false
+	console.log @.data.priority
+	@.currPriority = new ReactiveVar @.data.priority
 )
 
 Template._taskItem.helpers
@@ -14,7 +16,7 @@ Template._taskItem.helpers
 	description: () ->
 		return Template.instance().data.description or "no description"
 	priority: () ->
-		return PRIORITY_CLASSES[Template.instance().data.priority]
+		return PRIORITY_CLASSES[Template.instance().currPriority.get()]
 	isTimeStarted: () ->
 		return !!Template.instance().data.timerStarted
 	isSelected: (priority) ->
@@ -23,6 +25,19 @@ Template._taskItem.helpers
 		else return ""
 
 Template._taskItem.events
+	'click .button.priority': (e) ->
+		console.log Template.instance()
+		oldPriority = Number Template.instance().currPriority.get()
+		if oldPriority is 0
+			Template.instance().currPriority.set 1
+		if oldPriority is 1
+			Template.instance().currPriority.set 2
+		if oldPriority is 2
+			Template.instance().currPriority.set 0
+
+		taskId = Template.instance().data._id
+		Tasks.update {_id: taskId}, {$set: {priority: Template.instance().currPriority.get()}}, (err, res) ->
+			console.log err or res
 	'click .action-edit': (e, t) ->
 		Template.instance().taskEditing.set true
 	'click .edit-ok-action': (e, t) ->
@@ -34,8 +49,8 @@ Template._taskItem.events
 		if !text or !text.length
 			removeTask taskData._id
 
-		Tasks.update { _id: taskData._id }, { $set: {text: text, description: description, priority: priority}}, (err, res) ->
-  		console.log err or res
+		Tasks.update {_id: taskData._id}, {$set: {text: text, description: description, priority: priority}}, (err, res) ->
+			console.log err or res
 
 		Template.instance().taskEditing.set false
 	'click .edit-cancel-action': (e, t) ->
@@ -46,7 +61,7 @@ Template._taskItem.events
 	'click .start-timer': (e, t) ->
 		task = Blaze.getData e.target
 		if Meteor.user().toggl and Meteor.user().toggl.api_token
-			Meteor.call	'toggl/startTimer', {taskId: task._id, taskTitle: task.text, boardId: task.boardId}
+			Meteor.call 'toggl/startTimer', {taskId: task._id, taskTitle: task.text, boardId: task.boardId}
 		else
 			Modal.show 'togglSignIn'
 	'click .stop-timer': (e, t) ->
