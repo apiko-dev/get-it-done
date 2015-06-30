@@ -3,6 +3,6 @@
     font-weight: normal;
 }
 
-#priority-switch-checkbox {
-    margin: 0;
+input.priority-switch-checkbox {
+    margin: 0 !important;
 }

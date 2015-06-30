@@ -13,7 +13,6 @@ a.action-title.action-edit.description {
 
 .new-task-container .action-box.ctrl-box, .new-board-container .action-box.ctrl-box{
   margin-top: 0;
-  padding: 0 10px;
   display: block;
 }
 
