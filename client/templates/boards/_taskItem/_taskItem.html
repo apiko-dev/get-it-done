@@ -1,68 +1,51 @@
 <template name="_taskItem">
-	<div class="row task action ui-sortable-handle">
-					<!-- editable title -->
-				
-		{{#if taskEditing}}
-				<div class="action-box content-box action-edit">
-					<textarea class="title" rows="1">{{text}}</textarea>
-					{{#if showDescription}}
-						<a class="show-description" title="">less...</a>
-						<textarea class="description" rows="auto">{{description}}</textarea>
-					{{else}}
-						<textarea class="description hidden" rows="auto">{{description}}</textarea>
-						<a class="show-description" title="">more...</a>
-					{{/if}}
-				</div>
-				<div value="{{priority}}" class="priority-container edit">
-					<select name="priority-chooser" id="priority-chooser">
-						<option value="0" style="background-color: #21B24B; color: white;">Low</option>
-						<option value="1" style="background-color: #FDB813; color: white;">Medium</option>
-						<option value="2" style="background-color: #ED1B24; color: white;">High</option>
-					</select>
-				</div>
-<!-- 				<div class="action-box ctrl-box pull-right">
-					<i class="fa fa-floppy-o edit-ok-action"></i>
-					<i class="fa fa-times edit-cancel-action"></i>
-				</div> -->
-				<div class="action-box ctrl-box pull-right">
-          <span class="button edit-ok-action">Save</span>
-          <span class="button edit-cancel-action text-danger">Cancel</span>
-        </div>
-		{{else}}
-			<div class="col-xs-1 action-box complete-box">
-				{{#if completed}}
-					<i class="button fa fa-check complete-action"></i>
-				{{else}}
-					<i class="button fa fa-circle-thin complete-action"></i>
-				{{/if}}
-					<span class="button action-edit priority {{priority}}">{{priority}}</span>
-			</div>
-			<div class="col-xs-10 action-box content-box">
-				<a class="action-title title action-edit">
-					{{text}}
-				</a>
-				{{#if showDescription}}
-					<a class="show-description" title="">less...</a>
-					<a class="action-title action-edit description">
-						{{description}}
-					</a>
-				{{else}}
-					<a class="action-title action-edit description hidden">
-						{{description}}
-					</a>
-					<a class="show-description" title="">more...</a>
-				{{/if}}
-			</div>
-			<div class="col-xs-1 delete-box">
-				<i class="fa fa-minus delete-action"></i>
-			</div>
-			{{#if isTimeStarted}}
-				<i class="fa fa-clock-o stop-timer"></i>
-				<!-- <span class="stop-timer">Stop timer</span> -->
-			{{else}}
-				<i class="fa fa-clock-o start-timer"></i>
-				<!-- <span class="start-timer">Start timer</span> -->
-			{{/if}}
-		{{/if}}
-	</div>
+    <div class="row task action ui-sortable-handle">
+        <!-- editable title -->
+        {{#if taskEditing}}
+            <div class="action-box content-box action-edit">
+                <textarea class="title" rows="1">{{text}}</textarea>
+                <textarea class="description" rows="auto">{{description}}</textarea>
+            </div>
+            <div value="{{priority}}" class="priority-container edit">
+                <select name="priority-chooser" id="priority-chooser">
+                    <option value="0" {{isSelected 0}}  style="background-color: #21B24B; color: white;">Low</option>
+                    <option value="1" {{isSelected 1}} style="background-color: #FDB813; color: white;">Medium</option>
+                    <option value="2" {{isSelected 2}} style="background-color: #ED1B24; color: white;">High</option>
+                </select>
+            </div>
+            <!-- <div class="action-box ctrl-box pull-right">
+                    <i class="fa fa-floppy-o edit-ok-action"></i>
+                    <i class="fa fa-times edit-cancel-action"></i>
+                 </div> -->
+            <div class="action-box ctrl-box pull-right">
+                <span class="button edit-ok-action">Save</span>
+                <span class="button edit-cancel-action text-danger">Cancel</span>
+            </div>
+        {{else}}
+            <div class="col-xs-1 action-box complete-box">
+                {{#if completed}}
+                    <i class="button fa fa-check complete-action"></i>
+                {{else}}
+                    <i class="button fa fa-circle-thin complete-action"></i>
+                {{/if}}
+                <span class="button priority {{priority}}">{{priority}}</span>
+            </div>
+            <div class="col-xs-10 action-box content-box">
+                <a class="action-title title action-edit">
+                    {{trimLongText text 40}}
+                </a>
+                <a class="action-title action-edit description">{{trimLongText description 130}}</a>
+            </div>
+            <div class="col-xs-1 delete-box">
+                <i class="fa fa-minus delete-action"></i>
+            </div>
+            {{#if isTimeStarted}}
+                <i class="fa fa-clock-o stop-timer"></i>
+                <!-- <span class="stop-timer">Stop timer</span> -->
+            {{else}}
+                <i class="fa fa-clock-o start-timer"></i>
+                <!-- <span class="start-timer">Start timer</span> -->
+            {{/if}}
+        {{/if}}
+    </div>
 </template>

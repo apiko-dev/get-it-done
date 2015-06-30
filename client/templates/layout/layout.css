@@ -6,6 +6,7 @@
 body, div#main, .main-container.container {
   margin: 0;
   padding: 0;
+  height: calc(100vh - 73px)
 }
 
 div#main {
@@ -15,10 +16,6 @@ div#main {
   min-height: calc(100vh - 100px);
 }
 
-/*div#main:focus {
-  outline: none !important;
-}
-*/
 textarea {
   resize: vertical;
 }

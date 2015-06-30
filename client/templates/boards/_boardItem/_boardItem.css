@@ -191,9 +191,18 @@ a.action-title {
 }
 
 .priority-container {
+  width: 100%;
   margin-top: 4px;
   position: relative;
   display: inline-block;
+}
+
+textarea {
+  resize: none;
+}
+
+textarea.title {
+  margin-bottom: 10px;
 }
 
 a.color-picker {
@@ -210,12 +219,12 @@ a.color-picker {
   margin-left: 5px;
 }
 
-.dropdown.color-picker a {
+.dropdown.color-picker a, .project-picker a {
   color: white;
   opacity: 0.8;
 }
 
-.dropdown.color-picker:hover a {
+.dropdown.color-picker:hover a, .project-picker:hover a {
   color: white !important;
   opacity: 1;
   text-decoration: underline;
@@ -241,6 +250,41 @@ a.color-picker {
 .board-menu.open ul.dropdown-menu * {
   border-color: initial;
   width: 100%;
+}
+
+.project-picker {
+  margin-right: 10px;
+}
+
+.project-picker ul.dropdown-menu {
+  max-height: 200px;
+  width: 200px;
+  overflow: auto;
+}
+
+.project-picker ul.dropdown-menu li {
+  color: #686868;
+  border-bottom: 1px dashed #EAEAEA;
+  padding: 2px 5px;
+}
+
+.project-picker ul.dropdown-menu li:hover {
+  color: #484848;
+  border-bottom: 1px dashed #009FFF;
+}
+
+li.toggl-project-item.current {
+  background-color: #EAEAEA;
+}
+
+li.toggl-project-item.current::after {
+  content: "\f00c";
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  right: 0;
+  position: absolute;
+  padding-right: 10px;
 }
 
 .ctrl-box > * {
@@ -394,4 +438,16 @@ i.fa.fa-caret-down {
 .board-body {
   padding: 7px 14px 7px 14px;
   overflow-y: scroll;
+}
+
+.task-list.ui-sortable {
+  max-height: calc(100vh - 195px);
+  overflow-y: auto;
+  overflow-wrap: normal;
+}
+
+button.btn.btn-default.sort-by-priority {
+  background-color: rgba(242, 242, 242, 0.72);
+  color: rgb(79, 79, 79);
+  border: none;
 }
