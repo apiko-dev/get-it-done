@@ -5,13 +5,7 @@
 		{{#if taskEditing}}
 				<div class="action-box content-box action-edit">
 					<textarea class="title" rows="1">{{text}}</textarea>
-					{{#if showDescription}}
-						<a class="show-description" title="">less...</a>
-						<textarea class="description" rows="auto">{{description}}</textarea>
-					{{else}}
-						<textarea class="description hidden" rows="auto">{{description}}</textarea>
-						<a class="show-description" title="">more...</a>
-					{{/if}}
+                    <textarea class="description" rows="auto">{{description}}</textarea>
 				</div>
 				<div value="{{priority}}" class="priority-container edit">
                     <select name="priority-chooser" id="priority-chooser">
@@ -41,19 +35,9 @@
 				<a class="action-title title action-edit">
 					{{text}}
 				</a>
-				{{#if showDescription}}
-					<a class="show-description" title="">less...</a>
-					<a class="action-title action-edit description">
-						{{description}}
-					</a>
-				{{else}}
-					<a class="action-title action-edit description hidden">
-						{{description}}
-					</a>
-					<a class="show-description" title="">more...</a>
-				{{/if}}
-			</div>
-			<div class="col-xs-1 delete-box">
+                <a class="action-title action-edit description">{{description}}</a>
+            </div>
+            <div class="col-xs-1 delete-box">
 				<i class="fa fa-minus delete-action"></i>
 			</div>
 			{{#if isTimeStarted}}

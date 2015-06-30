@@ -6,14 +6,11 @@ PRIORITY_CLASSES = [
 
 Template._taskItem.onCreated (->
 	@.taskEditing = new ReactiveVar(false);
-	@.showDescription = new ReactiveVar(false);
 )
 
 Template._taskItem.helpers
 	taskEditing: () ->
 		return Template.instance().taskEditing and Template.instance().taskEditing.get()
-	showDescription: () ->
-		return Template.instance().showDescription.get()
 	description: () ->
 		return Template.instance().data.description or "no description"
 	priority: () ->
@@ -24,6 +21,7 @@ Template._taskItem.helpers
 		if parseInt(Template.instance().data.priority) is priority
 			return "selected"
 		else return ""
+
 Template._taskItem.events
 	'click .action-edit': (e, t) ->
 		Template.instance().taskEditing.set true
@@ -45,10 +43,6 @@ Template._taskItem.events
 	'click .delete-action': (e, t) ->
 		taskId = Blaze.getData(e.target)._id
 		removeTask taskId
-	'click .show-description': (e, t) ->
-		instance = Template.instance()
-		cur = instance.showDescription.get()
-		instance.showDescription.set !cur
 	'click .start-timer': (e, t) ->
 		task = Blaze.getData e.target
 		if Meteor.user().toggl and Meteor.user().toggl.api_token
