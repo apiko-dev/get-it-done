@@ -14,9 +14,11 @@ if Meteor.isClient
 		randomColorIndex = Math.floor(Math.random() * (COLORS.length))
 		doc.config.bgColor = randomColorIndex # doc.config.bgColor or 14
 		doc.config.sortByPriority = 0
+		doc.config.showArchieved = 0
 		maxOrderBoard = Boards.findOne {boardId: doc.boardId}, {sort: {order: -1}}
 		maxOrder = if maxOrderBoard then maxOrderBoard.order else 0
 		doc.order = maxOrder + 1
+		doc.completed = doc.completed or 0
 
 if Meteor.isServer
 	Boards.after.remove (userId, doc) -> 

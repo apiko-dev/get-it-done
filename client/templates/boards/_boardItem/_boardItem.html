@@ -13,15 +13,17 @@
                 </div>
             {{/if}}
             <div class="board-ctrl pull-right">
-                {{> toggleSwitch}}
+                <label id="priority-switch-label">
+                    <input type="checkbox" name="toggle-switch" class="priority-switch-checkbox">
+                </label>
                 <div class="dropdown project-picker">
-                  <a id="toggl-project" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="  false">
-                    Toggl project
-                    <i class="fa fa-caret-down"></i>
-                  </a>
-                  <ul class="dropdown-menu" role="menu" aria-labelledby="toggl-project">
+                    <a id="toggl-project" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                        Toggl project
+                        <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="toggl-project">
                     <!-- {{#if allowCreatingNew}} -->
-                      <li role="presentation" class="toggl-project-item">Create new one</li>
+                      <li role="presentation" class="toggl-project-item">The same...</li>
                     <!-- {{/if}} -->
                     {{#each togglProjects}}
                       {{togglProject.id}}
@@ -75,6 +77,11 @@
                         <li role="presentation">
                             <button class="btn btn-danger delete-board">Delete board</button>
                         </li>
+                        <div class="checkbox show-archieved">
+                          <label>
+                            <input checked="{{showArchieved}}" type="checkbox"> Show archieved
+                          </label>
+                        </div>
                     </ul>
                 </div>
             </div>
@@ -95,13 +102,14 @@
                         <textarea class="title" rows="1" placeholder="Enter your title here"></textarea>
                         <textarea class="description" rows="auto" placeholder="Enter your description here"></textarea>
                     </div>
-                    <div class="priority-container">
-                        <select name="priority-chooser" id="priority-chooser">
-                            <option value="0" style="background-color: #21B24B; color: white;">Low</option>
-                            <option value="1" style="background-color: #FDB813; color: white;">Medium</option>
-                            <option value="2" style="background-color: #ED1B24; color: white;">High</option>
-                        </select>
-
+                    <div class="action-box ctrl-box">
+                        <div class="priority-container">
+                            <select name="priority-chooser" id="priority-chooser">
+                                <option value="0" style="background-color: #21B24B; color: white;">Low</option>
+                                <option value="1" style="background-color: #FDB813; color: white;">Medium</option>
+                                <option value="2" style="background-color: #ED1B24; color: white;">High</option>
+                            </select>
+                        </div>
                         <div class="action-box ctrl-box pull-right">
                             <span class="ok-action btn btn-primary btn-sm">Save</span>
                             <span class="cancel-action text-danger btn btn-danger btn-sm">Cancel</span>
@@ -118,3 +126,5 @@
         </div>
     </div>
 </template>
+
+

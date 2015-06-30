@@ -111,6 +111,7 @@
 
 .action-box.content-box.new-task-action {
   margin-bottom: 4px;
+  padding: 0 10px;
 }
 
 .action-box.content-box.new-task-action:hover textarea {
@@ -191,14 +192,14 @@ a.action-title {
 }
 
 .priority-container {
-  width: 100%;
+  width: auto;
   margin-top: 4px;
   position: relative;
   display: inline-block;
 }
 
 textarea {
-  resize: none;
+  resize: none !important;
 }
 
 textarea.title {
@@ -219,12 +220,12 @@ a.color-picker {
   margin-left: 5px;
 }
 
-.dropdown.color-picker a, .project-picker a {
+.dropdown.color-picker a, .project-picker a, .checkbox-label {
   color: white;
   opacity: 0.8;
 }
 
-.dropdown.color-picker:hover a, .project-picker:hover a {
+.dropdown.color-picker:hover a, .project-picker:hover a, .checkbox-label:hover {
   color: white !important;
   opacity: 1;
   text-decoration: underline;
@@ -354,6 +355,8 @@ li.toggl-project-item.current::after {
 a.new-task-action {
   font-size: 14px;
   line-height: 20px;
+  margin-right: 15px;
+  margin-bottom: 10px;
 }
 
 .new-task-container[data-creating="true"] {
@@ -450,4 +453,22 @@ button.btn.btn-default.sort-by-priority {
   background-color: rgba(242, 242, 242, 0.72);
   color: rgb(79, 79, 79);
   border: none;
+}
+
+.dropdown.board-menu .checkbox {
+  padding: 0;
+}
+
+.dropdown.board-menu .checkbox label {
+  color: black;
+  text-align: center;
+}
+
+#priority-switch-label {
+  margin-top: 4px;
+  font-weight: normal;
+}
+
+input.priority-switch-checkbox {
+  margin: 0 !important;
 }
