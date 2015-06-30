@@ -1,19 +1,16 @@
 PRIORITY_CLASSES = [
-  'LOW'
-  'MED'
-  'HIGH'
+	'LOW'
+	'MED'
+	'HIGH'
 ]
 
 Template._taskItem.onCreated (->
-	@.taskEditing = new ReactiveVar(false);
-	@.showDescription = new ReactiveVar(false);
+	@.taskEditing = new ReactiveVar false
 )
 
 Template._taskItem.helpers
 	taskEditing: () ->
 		return Template.instance().taskEditing and Template.instance().taskEditing.get()
-	showDescription: () ->
-		return Template.instance().showDescription.get()
 	description: () ->
 		return Template.instance().data.description or "no description"
 	priority: () ->
@@ -24,7 +21,21 @@ Template._taskItem.helpers
 		if parseInt(Template.instance().data.priority) is priority
 			return "selected"
 		else return ""
+
 Template._taskItem.events
+	'click .button.priority': (e) ->
+		oldPriority = Number Template.instance().data.priority
+		newPriority = 2
+		if oldPriority is 0
+			newPriority =  1
+		if oldPriority is 1
+			newPriority =  2
+		if oldPriority is 2
+			newPriority =  0
+
+		taskId = Template.instance().data._id
+		Tasks.update {_id: taskId}, {$set: {priority: newPriority}}, (err, res) ->
+			console.log err or res
 	'click .action-edit': (e, t) ->
 		Template.instance().taskEditing.set true
 	'click .edit-ok-action': (e, t) ->
@@ -36,8 +47,8 @@ Template._taskItem.events
 		if !text or !text.length
 			removeTask taskData._id
 
-		Tasks.update { _id: taskData._id }, { $set: {text: text, description: description, priority: priority}}, (err, res) ->
-  		console.log err or res
+		Tasks.update {_id: taskData._id}, {$set: {text: text, description: description, priority: priority}}, (err, res) ->
+			console.log err or res
 
 		Template.instance().taskEditing.set false
 	'click .edit-cancel-action': (e, t) ->
@@ -45,10 +56,6 @@ Template._taskItem.events
 	'click .delete-action': (e, t) ->
 		taskId = Blaze.getData(e.target)._id
 		removeTask taskId
-	'click .show-description': (e, t) ->
-		instance = Template.instance()
-		cur = instance.showDescription.get()
-		instance.showDescription.set !cur
 	'click .start-timer': (e, t) ->
 		task = Blaze.getData e.target
 		user = Meteor.user()
