@@ -15,7 +15,7 @@ div#lists {
 /*  height: 85vh;
   min-height: 85vh;
   max-height: 85vh;*/
-  overflow: visible;
+  overflow: auto;
   display: inline-flex;
   width: 100%;
   margin: 0;
