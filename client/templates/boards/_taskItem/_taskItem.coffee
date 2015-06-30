@@ -31,7 +31,7 @@ Template._taskItem.events
 		taskData = Blaze.getData(e.target)
 		text = $(e.target).parent().parent().find('textarea.title').val()
 		description = $(e.target).parent().parent().find('textarea.description').val()
-		priority = $(e.target).parent().parent().find('select#priority-chooser').val()
+		priority = Number $(e.target).parent().parent().find('select#priority-chooser').val()
 
 		if !text or !text.length
 			removeTask taskData._id
