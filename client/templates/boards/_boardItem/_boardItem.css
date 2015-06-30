@@ -456,3 +456,12 @@ button.btn.btn-default.sort-by-priority {
   color: rgb(79, 79, 79);
   border: none;
 }
+
+#priority-switch-label {
+  margin-top: 4px;
+  font-weight: normal;
+}
+
+input.priority-switch-checkbox {
+  margin: 0 !important;
+}
