@@ -40,6 +40,9 @@ Template._boardItem.onRendered ()->
 
 	@.$('.task-list').sortable taskListOptions
 
+	# Restore checkbox value according to sorting methods selected by user
+	@.$(".priority-switch-checkbox").prop "checked", if Number @.data.config.sortByPriority is 0 then false else true
+
 Template._boardItem.helpers
 	tasks: ->
 		findQuery = { boardId: Template.instance().data._id}
@@ -93,6 +96,7 @@ Template._boardItem.events
 
 	'click .cancel-action': (e, t) ->
 		Template.instance().taskCreating.set false
+		console.log Template.instance().taskCreating.get()
 
 	'click li.color': (e, t) ->
 		$(e.target).parent().parent().css('border-color', e.currentTarget.dataset.color + ';')
@@ -164,16 +168,3 @@ createProject = (name, boardId, bgColor, cb)->
 #	board.togglProject and board.togglProject.name and console.log TogglProjects.findOne {name: board.togglProject.name} 
 #	board.togglProject and board.togglProject.name and if TogglProjects.findOne {name: board.togglProject.name}
 #		instance.allowCreatingNew.set false
-
-
-
-
-
-
-
-
-
-
-
-
-

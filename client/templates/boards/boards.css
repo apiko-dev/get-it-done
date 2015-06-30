@@ -117,3 +117,7 @@ a.new-board-action {
   font-size: 16px;
 }
 
+input.board-title.form-control {
+  width: 50%;
+  margin-left: 15px;
+}

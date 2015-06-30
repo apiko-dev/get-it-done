@@ -107,6 +107,7 @@
 
 .action-box.content-box.new-task-action {
   margin-bottom: 4px;
+  padding: 0 10px;
 }
 
 .action-box.content-box.new-task-action:hover textarea {
@@ -191,14 +192,14 @@ a.action-title {
 }
 
 .priority-container {
-  width: 100%;
+  width: auto;
   margin-top: 4px;
   position: relative;
   display: inline-block;
 }
 
 textarea {
-  resize: none;
+  resize: none !important;
 }
 
 textarea.title {
@@ -359,6 +360,8 @@ span.board-header, .list-title-row {
 a.new-task-action {
   font-size: 14px;
   line-height: 20px;
+  margin-right: 15px;
+  margin-bottom: 10px;
 }
 
 .new-task-container[data-creating="true"] {
