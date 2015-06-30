@@ -6,8 +6,6 @@ PRIORITY_CLASSES = [
 
 Template._taskItem.onCreated (->
 	@.taskEditing = new ReactiveVar false
-	console.log @.data.priority
-	@.currPriority = new ReactiveVar @.data.priority
 )
 
 Template._taskItem.helpers
@@ -16,7 +14,7 @@ Template._taskItem.helpers
 	description: () ->
 		return Template.instance().data.description or "no description"
 	priority: () ->
-		return PRIORITY_CLASSES[Template.instance().currPriority.get()]
+		return PRIORITY_CLASSES[Template.instance().data.priority]
 	isTimeStarted: () ->
 		return !!Template.instance().data.timerStarted
 	isSelected: (priority) ->
@@ -26,17 +24,17 @@ Template._taskItem.helpers
 
 Template._taskItem.events
 	'click .button.priority': (e) ->
-		console.log Template.instance()
-		oldPriority = Number Template.instance().currPriority.get()
+		oldPriority = Number Template.instance().data.priority
+		newPriority = 2
 		if oldPriority is 0
-			Template.instance().currPriority.set 1
+			newPriority =  1
 		if oldPriority is 1
-			Template.instance().currPriority.set 2
+			newPriority =  2
 		if oldPriority is 2
-			Template.instance().currPriority.set 0
+			newPriority =  0
 
 		taskId = Template.instance().data._id
-		Tasks.update {_id: taskId}, {$set: {priority: Template.instance().currPriority.get()}}, (err, res) ->
+		Tasks.update {_id: taskId}, {$set: {priority: newPriority}}, (err, res) ->
 			console.log err or res
 	'click .action-edit': (e, t) ->
 		Template.instance().taskEditing.set true
