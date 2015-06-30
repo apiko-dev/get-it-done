@@ -44,6 +44,11 @@ Template._boardItem.onRendered ()->
 	@.$(".priority-switch-checkbox").prop "checked", if Number @.data.config.sortByPriority is 0 then false else true
 
 Template._boardItem.helpers
+  colors: ->
+    array = []
+    for color, i in COLORS
+      array.push color: color, _index: i
+    return array 
 	tasks: ->
 		findQuery = { boardId: Template.instance().data._id}
 		board = Template.instance().data

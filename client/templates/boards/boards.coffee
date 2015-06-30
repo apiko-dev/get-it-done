@@ -1,17 +1,31 @@
 BOARD_WIDTH = 300;
 
+Template.boards.events
+    'click .new-board-action': (e, t) ->
+        Template.instance().boardCreating.set true
+    'click .new-board-cancel-action': () ->
+        Template.instance().boardCreating.set false
+    'click .new-board-ok-action, keydown .board-title': (e, t) ->
+        if e.type == 'click' or e.keyCode == 13
+            text = $(e.target).closest('.new-board-container').find('input').val()
+            if !text or !text.length
+                alert 'Board name is required'
+            else
+                Boards.insert {ownerId: Meteor.userId(), title: text}, (err, res) ->
+                    console.log err or res
+            Template.instance().boardCreating.set false
+
 Template.boards.helpers
     boards: () ->
         return Boards.find { ownerId: Meteor.userId() }, sort: order: 1
     boardCreating: () ->
         return Template.instance().boardCreating.get()
 
-
-Template.boards.onCreated ()->
+Template.boards.onCreated () ->
     @.boardCreating = new ReactiveVar(false);
     fetchProjects()
 
-Template.boards.onRendered ()->
+Template.boards.onRendered () ->
     $('.new-board-container.dropdown-toggle').dropdown()
     hash = Router.current().params.hash
     if hash
@@ -47,18 +61,3 @@ Template.boards.onRendered ()->
                 curOrder = (nextBoardData.order + prevBoardData.order) / 2
             Boards.update { _id: targetBoardId }, { $set: order: curOrder}, (err, res) ->
                 console.log err or res
-
-Template.boards.events
-    'click .new-board-action': (e, t) ->
-        Template.instance().boardCreating.set true
-    'click .new-board-cancel-action': () ->
-        Template.instance().boardCreating.set false
-    'click .new-board-ok-action, keydown .board-title': (e, t) ->
-        if e.type == 'click' or e.keyCode == 13
-            text = $(e.target).closest('.new-board-container').find('input').val()
-            if !text or !text.length
-                alert 'Board name is required'
-            else
-                Boards.insert {ownerId: Meteor.userId(), title: text}, (err, res) ->
-                    console.log err or res
-            Template.instance().boardCreating.set false
