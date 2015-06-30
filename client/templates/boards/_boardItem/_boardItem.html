@@ -7,13 +7,26 @@
                 </div>
             {{else}}
                 <div class="toggle-list edit-board-title">
-       <span class="list-title">
-           {{title}}
-       </span>
+                   <span class="list-title">
+                       {{title}}
+                   </span>
                 </div>
             {{/if}}
             <div class="board-ctrl pull-right">
                 {{> toggleSwitch}}
+                <div class="dropdown project-picker">
+                    <a id="toggl-project" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="  false">
+                        Toggl project
+                        <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="toggl-project">
+                        <li role="presentation" class="toggl-project-item">Create new one with the same name as board</li>
+                        {{#each togglProjects}}
+                            {{togglProject.id}}
+                            <li role="presentation" class="toggl-project-item {{#if isCurrentProject .. id }}current{{/if}}">{{name}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
                 <div class="dropdown color-picker">
                     <a id="color-chooser" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                        role="button" aria-expanded="false">

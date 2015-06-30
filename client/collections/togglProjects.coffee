@@ -1,0 +1,1 @@
+@TogglProjects =  new Mongo.Collection null
