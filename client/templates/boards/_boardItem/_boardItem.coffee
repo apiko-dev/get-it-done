@@ -68,10 +68,11 @@ Template._boardItem.events
 
 	'click .ok-action, keydown .new-task-action .title': (e, t) ->
 		if e.type == 'click' or e.keyCode == 13
-			text = $(e.target).parent().parent().find('textarea.title').val()
-			description = $(e.target).parent().parent().find('textarea.description').val()
-			priority = $(e.target).parent().parent().find('select#priority-chooser').val()
-			if !text or !text.length
+			text = t.$("textarea.title").val()
+			description = t.$("textarea.description").val()
+			priority = Number t.$("select#priority-chooser").val()
+
+			if text?.length < 1
 				alert 'text is required'
 			else
 				boardId = t.data._id

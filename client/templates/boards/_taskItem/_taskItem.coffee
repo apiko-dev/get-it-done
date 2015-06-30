@@ -10,17 +10,19 @@ Template._taskItem.onCreated (->
 
 Template._taskItem.helpers
 	taskEditing: () ->
-		return Template.instance().taskEditing and Template.instance().taskEditing.get()
+		Template.instance().taskEditing and Template.instance().taskEditing.get()
 	description: () ->
-		return Template.instance().data.description or "no description"
+		Template.instance().data.description or "no description"
 	priority: () ->
-		return PRIORITY_CLASSES[Template.instance().data.priority]
+		PRIORITY_CLASSES[Template.instance().data.priority]
 	isTimeStarted: () ->
-		return !!Template.instance().data.timerStarted
+		!!Template.instance().data.timerStarted
 	isSelected: (priority) ->
 		if parseInt(Template.instance().data.priority) is priority
 			return "selected"
 		else return ""
+	text: () ->
+		Template.instance().data.text or "no text"
 
 Template._taskItem.events
 	'click .button.priority': (e) ->
