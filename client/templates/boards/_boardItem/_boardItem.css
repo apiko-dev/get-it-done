@@ -247,6 +247,12 @@ a.color-picker {
   margin-right: 10px;
 }
 
+.project-picker ul.dropdown-menu {
+  max-height: 200px;
+  width: 200px;
+  overflow: auto;
+}
+
 .project-picker ul.dropdown-menu li {
   color: #686868;
   border-bottom: 1px dashed #EAEAEA;
@@ -256,6 +262,10 @@ a.color-picker {
 .project-picker ul.dropdown-menu li:hover {
   color: #484848;
   border-bottom: 1px dashed #009FFF;
+}
+
+li.toggl-project-item.current {
+  background-color: #EAEAEA;
 }
 
 .ctrl-box > * {

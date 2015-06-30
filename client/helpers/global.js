@@ -54,3 +54,7 @@ Template.registerHelper('colorByKey', function(key) {
 Template.registerHelper('equals', function (a, b) {
   return a === b;
 });
+
+Template.registerHelper('isCurrentProject', function (board, togglProjectId) {
+  return board.togglProject && board.togglProject.id == togglProjectId
+});

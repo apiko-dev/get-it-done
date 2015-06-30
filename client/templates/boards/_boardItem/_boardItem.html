@@ -22,7 +22,8 @@
                   <ul class="dropdown-menu" role="menu" aria-labelledby="toggl-project">
                     <li role="presentation" class="toggl-project-item">Create new one with the same name as board</li>
                     {{#each togglProjects}}
-                      <li role="presentation" class="toggl-project-item">{{name}}</li>
+                      {{togglProject.id}}
+                      <li role="presentation" class="toggl-project-item {{#if isCurrentProject .. id }}current{{/if}}">{{name}}</li>
                     {{/each}}
                   </ul>
                 </div>
