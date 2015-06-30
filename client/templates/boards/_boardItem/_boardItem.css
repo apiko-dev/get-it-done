@@ -107,6 +107,7 @@
 
 .action-box.content-box.new-task-action {
   margin-bottom: 4px;
+  padding: 0 10px;
 }
 
 .action-box.content-box.new-task-action:hover textarea {
@@ -198,7 +199,7 @@ a.action-title {
 }
 
 textarea {
-  resize: none;
+  resize: none !important;
 }
 
 textarea.title {
@@ -359,6 +360,8 @@ span.board-header, .list-title-row {
 a.new-task-action {
   font-size: 14px;
   line-height: 20px;
+  margin-right: 15px;
+  margin-bottom: 10px;
 }
 
 .new-task-container[data-creating="true"] {
@@ -390,6 +393,7 @@ select#priority-chooser {
   width: 100px;
   border: 1px solid #CECECE;
   height: 27px;
+  margin-top: 5px;
 }
 
 .priority-container label {

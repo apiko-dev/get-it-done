@@ -15,19 +15,19 @@
             <div class="board-ctrl pull-right">
                 {{> toggleSwitch}}
                 <div class="dropdown project-picker">
-                  <a id="toggl-project" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="  false">
-                    Toggl project
-                    <i class="fa fa-caret-down"></i>
-                  </a>
-                  <ul class="dropdown-menu" role="menu" aria-labelledby="toggl-project">
+                    <a id="toggl-project" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="  false">
+                        Toggl project
+                        <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="toggl-project">
                     <!-- {{#if allowCreatingNew}} -->
-                      <li role="presentation" class="toggl-project-item">Create new one</li>
-                    <!-- {{/if}} -->
-                    {{#each togglProjects}}
-                      {{togglProject.id}}
-                      <li role="presentation" class="toggl-project-item {{#if isCurrentProject .. id }}current{{/if}}">{{name}}</li>
-                    {{/each}}
-                  </ul>
+                        <li role="presentation" class="toggl-project-item">Create new one</li>
+                            <!-- {{/if}} -->
+                        {{#each togglProjects}}
+                            {{togglProject.id}}
+                            <li role="presentation" class="toggl-project-item {{#if isCurrentProject .. id }}current{{/if}}">{{name}}</li>
+                        {{/each}}
+                    </ul>
                 </div>
                 <div class="dropdown color-picker">
                     <a id="color-chooser" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
@@ -91,17 +91,18 @@
                     <div class="action-box content-box new-task-action">
                         <textarea class="title" rows="1" placeholder="Enter your title here"></textarea>
                         <textarea class="description" rows="auto" placeholder="Enter your description here"></textarea>
-                    </div>
-                    <div class="priority-container">
-                        <select name="priority-chooser" id="priority-chooser">
-                            <option value="0" style="background-color: #21B24B; color: white;">Low</option>
-                            <option value="1" style="background-color: #FDB813; color: white;">Medium</option>
-                            <option value="2" style="background-color: #ED1B24; color: white;">High</option>
-                        </select>
 
-                        <div class="action-box ctrl-box pull-right">
-                            <span class="ok-action btn btn-primary btn-sm">Save</span>
-                            <span class="cancel-action text-danger btn btn-danger btn-sm">Cancel</span>
+                        <div class="priority-container">
+                            <select name="priority-chooser" id="priority-chooser">
+                                <option value="0" style="background-color: #21B24B; color: white;">Low</option>
+                                <option value="1" style="background-color: #FDB813; color: white;">Medium</option>
+                                <option value="2" style="background-color: #ED1B24; color: white;">High</option>
+                            </select>
+
+                            <div class="action-box ctrl-box pull-right">
+                                <span class="ok-action btn btn-primary btn-sm">Save</span>
+                                <span class="cancel-action text-danger btn btn-danger btn-sm">Cancel</span>
+                            </div>
                         </div>
                     </div>
                 {{else}}
@@ -115,3 +116,5 @@
         </div>
     </div>
 </template>
+
+
