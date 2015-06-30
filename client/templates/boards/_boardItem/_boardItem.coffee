@@ -86,6 +86,7 @@ Template._boardItem.events
 
 	'click .cancel-action': (e, t) ->
 		Template.instance().taskCreating.set false
+		console.log Template.instance().taskCreating.get()
 
 	'click li.color': (e, t) ->
 		$(e.target).parent().parent().css('border-color', e.currentTarget.dataset.color + ';')

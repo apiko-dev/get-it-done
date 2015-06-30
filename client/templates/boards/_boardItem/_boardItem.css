@@ -192,7 +192,7 @@ a.action-title {
 }
 
 .priority-container {
-  width: 100%;
+  width: auto;
   margin-top: 4px;
   position: relative;
   display: inline-block;
@@ -393,7 +393,6 @@ select#priority-chooser {
   width: 100px;
   border: 1px solid #CECECE;
   height: 27px;
-  margin-top: 5px;
 }
 
 .priority-container label {
