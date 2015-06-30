@@ -1,16 +1,18 @@
-Template._boardItem.onCreated (->
+Template._boardItem.onCreated ->
 	@.taskCreating = new ReactiveVar false
 	@.boardEditing = new ReactiveVar false
-)
 
 
-Template._boardItem.onRendered (->
+
+Template._boardItem.onRendered ->
 	if @.data and not @.data.togglProject
 		Meteor.call 'toggl/createProject', {name: @.data.title, boardId: @.data._id, color: @.data.config.bgColor}
 	@.$('.dropdown-toggle').dropdown()
-	@.$('.task-list').sortable
+	taskListOptions =
 		connectWith: '.task-list'
 		helper: 'clone'
+		sort: true
+		disabled: false
 		placeholder: 'sortable-placeholder'
 		items: '.action'
 		forcePlaceholderSize: !0
@@ -39,22 +41,22 @@ Template._boardItem.onRendered (->
 				console.log curOrder
 			Tasks.update { _id: targetTaskId }, { $set: boardId: targetBoardId, order: curOrder}, (err, res) ->
 				console.log err or res
-)
+
+	@.$('.task-list').sortable taskListOptions
 
 Template._boardItem.helpers
-	tasks: () ->
+	tasks: ->
 		sortByPriority = Template.instance().data.config.sortByPriority
 		sortingQuery = sort: if sortByPriority then	{priority: -1} else {order: 1}
-		return Tasks.find { boardId: Template.instance().data._id }, sortingQuery
-	taskCreating: () ->
-		return Template.instance().taskCreating and Template.instance().taskCreating.get()
-	boardEditing: () ->
-		return Template.instance().boardEditing.get()
-	isNoTasks: () ->
-		return !Tasks.find({ boardId: Template.instance().data._id }).count()
-	sortByPriority: ()->
-		return Template.instance().data.config.sortByPriority
-
+		Tasks.find { boardId: Template.instance().data._id }, sortingQuery
+	taskCreating: ->
+		Template.instance().taskCreating and Template.instance().taskCreating.get()
+	boardEditing: ->
+		Template.instance().boardEditing.get()
+	isNoTasks: ->
+		!Tasks.find({ boardId: Template.instance().data._id }).count()
+	sortByPriority: ->
+		Template.instance().data.config.sortByPriority
 
 Template._boardItem.events
 	'click .new-task-action': (e, t) ->
@@ -117,7 +119,7 @@ Template._boardItem.events
 					console.log err or res, self.togglProject.id
 			instance.boardEditing.set null
 
-	'click .sort-by-priority': (e, t) ->
+	'click #priority-switch-checkbox': (e, t) ->
 		board = Blaze.getData e.target
 		currentSorting = board.config.sortByPriority
 		newSorting = if currentSorting == 1 then 0 else 1
