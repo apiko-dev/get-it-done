@@ -54,7 +54,7 @@ Template._boardItem.helpers
 		!Tasks.find({ boardId: Template.instance().data._id }).count()
 	sortByPriority: ->
 		Template.instance().data.config.sortByPriority
-	togglProjects: ()->
+	togglProjects: ->
 		TogglProjects.find()
 
 Template._boardItem.events

@@ -58,3 +58,8 @@ Template.registerHelper('equals', function (a, b) {
 Template.registerHelper('isCurrentProject', function (board, togglProjectId) {
   return board.togglProject && board.togglProject.id == togglProjectId
 });
+
+Template.registerHelper('trimLongText', function(text, symbols) {
+  if (symbols < text.length) return text.slice(0, symbols - 2) + "...";
+  return text.slice(0, symbols);
+});
