@@ -36,15 +36,21 @@ Template._boardItem.onRendered ()->
 			if prevTaskData and nextTaskData
 				curOrder = (nextTaskData.order + prevTaskData.order) / 2
 			Tasks.update { _id: targetTaskId }, { $set: boardId: targetBoardId, order: curOrder}, (err, res) ->
-				console.log err or res
+				err and console.log err
 
 	@.$('.task-list').sortable taskListOptions
 
 Template._boardItem.helpers
 	tasks: ->
-		sortByPriority = Template.instance().data.config.sortByPriority
-		sortingQuery = sort: if sortByPriority then	{priority: -1} else {order: 1}
-		return Tasks.find { boardId: Template.instance().data._id }, sortingQuery
+		findQuery = { boardId: Template.instance().data._id}
+		board = Template.instance().data
+		sortByPriority = board.config.sortByPriority
+		showArchieved = board.config.showArchieved
+		sortingQuery = $sort: if sortByPriority then	{priority: -1} else {order: 1}
+		sortingQuery.$sort.completed = 1
+		if not showArchieved
+			findQuery.completed = 0
+		return Tasks.find findQuery, sortingQuery
 	taskCreating: () ->
 		return Template.instance().taskCreating and Template.instance().taskCreating.get()
 	boardEditing: () ->
@@ -55,6 +61,8 @@ Template._boardItem.helpers
 		return Template.instance().data.config.sortByPriority
 	togglProjects: ()->
 		return TogglProjects.find()
+	showArchieved: () ->
+		return !!Template.instance().data.config.showArchieved
 	#allowCreatingNew: ()->
 	#	return Template.instance().allowCreatingNew.get()
 
@@ -64,8 +72,10 @@ Template._boardItem.events
 
 	'click .complete-action': (e, t) ->
 		taskData = Blaze.getData(event.target)
-		Tasks.update { _id: taskData._id }, { $set: completed: !taskData.completed }, (err, res) ->
-  		console.log err or res
+		cur = taskData.completed
+		newCompleted = if cur == 1 then 0 else 1
+		Tasks.update { _id: taskData._id }, { $set: completed: newCompleted }, (err, res) ->
+  		err and console.log err
 
 	'click .ok-action, keydown .new-task-action .title': (e, t) ->
 		if e.type == 'click' or e.keyCode == 13
@@ -77,8 +87,8 @@ Template._boardItem.events
 				alert 'text is required'
 			else
 				boardId = t.data._id
-				Tasks.insert {ownerId: Meteor.userId(), boardId: boardId, text: text, description: description, priority: priority || 1, completed: false}, (err, res) ->
-					console.log err or res
+				Tasks.insert {ownerId: Meteor.userId(), boardId: boardId, text: text, description: description, priority: priority || 1, completed: 0}, (err, res) ->
+					err and console.log err
 			Template.instance().taskCreating.set false
 
 	'click .cancel-action': (e, t) ->
@@ -89,14 +99,14 @@ Template._boardItem.events
 		boardId = @._id
 		self = @
 		Boards.update { _id: boardId }, { $set: 'config.bgColor': e.currentTarget.dataset.color}, (err, res) ->
-			console.log err or res
+			err and console.log err
 		if self.togglProject and self.togglProject.id
 			Meteor.call 'toggl/updateProject', {projectId: self.togglProject.id, data: {color: e.currentTarget.dataset.color}}, (err, res)->
-				console.log err or res, self.togglProject.id
+				err and console.log err
 
 	'click .delete-board': (e, t) ->
 		Boards.remove {_id: t.data._id}, (err, res) ->
-			console.log err or res
+			err and console.log err
 
 	'click .edit-board-title': (e, t) ->
 		instance = Template.instance()
@@ -112,10 +122,10 @@ Template._boardItem.events
 		togglProj = Blaze.getData e.target
 		if togglProj and togglProj.id
 			Boards.update {_id: board._id}, {$set: {'togglProject': togglProj}}, (err, res) ->
-				console.log err or res
+				err and console.log err
 		else
 			createProject board.title, board._id, board.config.bgColor, (err, res) ->
-				console.log err or res
+				err and console.log err
 
 	'keyup, focusout input.board-title': (e, t) ->
 		if e.type == 'focusout' or e.keyCode == 13
@@ -125,10 +135,9 @@ Template._boardItem.events
 			if cur
 				title = $(e.currentTarget).parent().find('input').val()
 				Boards.update {_id: @._id}, {$set: {title: title}}, (err, res) ->
-					console.log err or res
-					console.log 'toggl/updateProject'
+					err and console.log err
 				Meteor.call 'toggl/updateProject', {projectId: self.togglProject.id, data: {name: title}}, (err, res)->
-					console.log err or res, self.togglProject.id
+					err and console.log err
 			instance.boardEditing.set null
 
 	'click .priority-switch-checkbox': (e, t) ->
@@ -136,7 +145,15 @@ Template._boardItem.events
 		currentSorting = board.config.sortByPriority
 		newSorting = if currentSorting == 1 then 0 else 1
 		Boards.update {_id: board._id}, {$set: {'config.sortByPriority': newSorting}}, (err, res) ->
-			console.log err or res
+			err and console.log err
+
+	'click .show-archieved': (e, t) ->
+		e.preventDefault()
+		board = Blaze.getData e.target
+		cur = board.config.showArchieved
+		showArchieved = if cur == 1 then 0 else 1
+		Boards.update {_id: board._id}, {$set: {'config.showArchieved': showArchieved}}, (err, res) ->
+			err and console.log err
 
 createProject = (name, boardId, bgColor, cb)->
 	Meteor.call 'toggl/createProject', {name: name, boardId: boardId, color: bgColor}, (err, res)->
