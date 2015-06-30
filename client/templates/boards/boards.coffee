@@ -7,12 +7,11 @@ Template.boards.helpers
 		return Template.instance().boardCreating.get()
 
 
-Template.boards.onCreated (->
+Template.boards.onCreated ()->
 	@.boardCreating = new ReactiveVar(false);
 	fetchProjects()
-)
 
-Template.boards.onRendered (->
+Template.boards.onRendered ()->
 	$('.new-board-container.dropdown-toggle').dropdown()
 	hash = Router.current().params.hash
 	if hash
@@ -51,7 +50,6 @@ Template.boards.onRendered (->
 				curOrder = (nextBoardData.order + prevBoardData.order) / 2
 			Boards.update { _id: targetBoardId }, { $set: order: curOrder}, (err, res) ->
 				console.log err or res
-)
 
 Template.boards.events
 	'click .new-board-action': (e, t) ->
