@@ -13,9 +13,11 @@
                 </div>
             {{/if}}
             <div class="board-ctrl pull-right">
-                {{> toggleSwitch}}
+                <label id="priority-switch-label">
+                    <input type="checkbox" name="toggle-switch" class="priority-switch-checkbox">
+                </label>
                 <div class="dropdown project-picker">
-                    <a id="toggl-project" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="  false">
+                    <a id="toggl-project" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
                         Toggl project
                         <i class="fa fa-caret-down"></i>
                     </a>
