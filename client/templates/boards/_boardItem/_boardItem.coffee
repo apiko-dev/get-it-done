@@ -2,10 +2,9 @@ Template._boardItem.onCreated ->
 	@.taskCreating = new ReactiveVar false
 	@.boardEditing = new ReactiveVar false
 	#@.allowCreatingNew = new ReactiveVar true
-)
 
 
-Template._boardItem.onRendered (->
+Template._boardItem.onRendered ->
 	#isAllowCreatingNew 
 	@.$('.dropdown-toggle').dropdown()
 	taskListOptions =
@@ -151,16 +150,3 @@ createProject = (name, boardId, bgColor, cb)->
 #	board.togglProject and board.togglProject.name and console.log TogglProjects.findOne {name: board.togglProject.name} 
 #	board.togglProject and board.togglProject.name and if TogglProjects.findOne {name: board.togglProject.name}
 #		instance.allowCreatingNew.set false
-
-
-
-
-
-
-
-
-
-
-
-
-
