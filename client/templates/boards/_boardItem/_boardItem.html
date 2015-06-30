@@ -85,32 +85,30 @@
                 </div>
             </div>
             <div class="action new-task-container" data-creating={{taskCreating}}>
-
                 {{#if taskCreating}}
                     <div class="action-box content-box new-task-action">
-                        <!-- <label>Task title:</label> -->
-                        <textarea class="title" rows="1"></textarea>
-                        <!-- <label>Task description:</label>
-    								<textarea class="description" rows="auto">{{description}}</textarea> -->
+                        <textarea class="title" rows="1" placeholder="Enter your title here"></textarea>
+                        <textarea class="description" rows="auto" placeholder="Enter your description here">{{description}}</textarea>
                     </div>
-                    <!-- <div class="priority-container">
-    							<label>Priority:</label>
-    							<select value="{{priority}}" name="priority-chooser" id="priority-chooser">
-    								<option value="0" style="background-color: #21B24B; color: white;">Low</option>
-    								<option value="1" style="background-color: #FDB813; color: white;">Medium</option>
-    								<option value="2" style="background-color: #ED1B24; color: white;">High</option>
-    							</select>
-    						</div> -->
-                    <div class="action-box ctrl-box pull-right">
-                        <span class="ok-action">Save</span>
-                        <span class="cancel-action text-danger">Cancel</span>
+                    <div class="priority-container">
+                        <select value="{{priority}}" name="priority-chooser" id="priority-chooser">
+                            <option value="0" style="background-color: #21B24B; color: white;">Low</option>
+                            <option value="1" style="background-color: #FDB813; color: white;">Medium</option>
+                            <option value="2" style="background-color: #ED1B24; color: white;">High</option>
+                        </select>
+
+                        <div class="action-box ctrl-box pull-right">
+                            <span class="ok-action btn btn-primary btn-sm">Save</span>
+                            <span class="cancel-action text-danger btn btn-danger btn-sm">Cancel</span>
+                        </div>
                     </div>
                 {{else}}
-                    <div class="new-task-action-wrapper">
-                        <a class="new-task-action">New task...</a>
-                    </div>
+                    <a class="new-task-action btn btn-success btn-sm pull-right">
+                        <div class="new-task-action-wrapper">
+                            New task...
+                        </div>
+                    </a>
                 {{/if}}
-
             </div>
         </div>
     </div>

@@ -191,9 +191,18 @@ a.action-title {
 }
 
 .priority-container {
+  width: 100%;
   margin-top: 4px;
   position: relative;
   display: inline-block;
+}
+
+textarea {
+  resize: none;
+}
+
+textarea.title {
+  margin-bottom: 10px;
 }
 
 a.color-picker {
