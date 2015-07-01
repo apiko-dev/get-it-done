@@ -131,8 +131,11 @@ div#lists {
 
 .new-board-container .toggle-list.edit-board-title, .new-board-wrapper, .board-title-editor {
     position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+}
+
+.new-board-container .toggle-list.edit-board-title, .new-board-wrapper {
+  top: 50%;
+  transform: translateY(-50%);  
 }
 
 .new-board-wrapper {
