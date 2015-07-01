@@ -243,7 +243,7 @@ a.color-picker {
 }
 
 .color-picker.open>.dropdown-menu {
-  padding: 7px 6px 9px 8px;
+  padding: 7px 6px 0 8px;
 }
 
 .board-menu.open ul.dropdown-menu {
@@ -481,57 +481,29 @@ input.priority-switch-checkbox {
   margin: 0 !important;
 }
 
-/*========================== backlog ==========================*/
-#lists > div.list.backlog {
-  position: fixed;
-  right: 0;
-  z-index: 9999;
-  top: 0;
-  bottom: 0;
-  box-shadow: 2px 0px 20px #101010;
-  width: 30%;
-  margin-right: -30%;
-  transition: margin-right 0.5s ease;
-  -webkit-transition: margin-right 0.5s ease;
-  -moz-transition: margin-right 0.5s ease;
-  -o-transition: margin-right 0.5s ease;
+.board-settings-button {
+  line-height: 30px;
+  width: 30px;
+  text-align: center;
+  cursor: pointer;
 }
 
-#lists > div.list.backlog .board-ctrl > * {
-  margin: 0;
-  padding: 0;
-  padding-right: 5px;
+.board-settings-button:hover {
+  opacity: .7;
 }
 
-#lists > div.list.backlog .board-ctrl  * {
-  font-weight: 400;
+.hidden-settings {
+  display: none;
+  float: left !important;
+  margin-left: 10px;
 }
 
-#lists > div.list.backlog.expanded {
-  margin-right: 0;
-}
-
-.backlog button.show-backlog {
-  position: absolute;
-  top: 60px;
-  left: 0;
-  width: 50px;
-  height: 50px;
-  border: none;
-  margin-left: -60px;
-  outline: none;
-  background-color: inherit;
+.dropdown.board-menu {
+  margin-right: 15px;
+  color: white;
   opacity: 0.8;
-  box-shadow: 0px 0px 20px rgba(16, 16, 16, 0.32);
 }
 
-.backlog button.show-backlog:hover, .backlog.expanded button.show-backlog:hover {
-  opacity: 1;
-  box-shadow: 0px 0px 20px rgba(16, 16, 16, 0.42);
+.show-archieved, .priority-switch-label {
+  margin: 0;
 }
-
-.backlog.expanded button.show-backlog {
-  opacity: 0.9;
-  box-shadow: 0px 0px 20px rgba(16, 16, 16, 0.38)
-}
-/*========================== backlog ==========================*/

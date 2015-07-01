@@ -13,8 +13,7 @@ COLORS = [
   '#3c6526',
   '#094558',
   '#bc2d07',
-  '#999999',
-  '#00130C'
+  '#999999'
 ]
 
 Template.registerHelper('lightenDarkenColor', function(col, amt) {
@@ -49,7 +48,7 @@ Template.registerHelper('lightenDarkenColor', function(col, amt) {
 });
 
 Template.registerHelper('colorByKey', function(key) {
-  return COLORS[key];
+  return COLORS[Number(key)];
 });
 
 Template.registerHelper('equals', function(a, b) {

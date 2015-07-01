@@ -17,9 +17,11 @@ Template.boards.events
 
 Template.boards.helpers
   boards: () ->
-    return Boards.find { ownerId: Meteor.userId()}, sort: order: 1
+    return Boards.find { ownerId: Meteor.userId(), isBacklog: {$exists: false}}, sort: order: 1
   boardCreating: () ->
     return Template.instance().boardCreating.get()
+  backlogBoard: () ->
+    return Boards.findOne {isBacklog: true}
 
 Template.boards.onCreated () ->
   @.boardCreating = new ReactiveVar(false);
