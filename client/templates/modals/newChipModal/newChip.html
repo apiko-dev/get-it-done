@@ -41,6 +41,16 @@
 							</select>
 						</div>
 					</div>
+                    <div class='col-md-6'>
+                        <div class="form-group">
+                            <label for="select-tasks">Select the tasks</label>
+                            <select id="select-tasks" class="form-control" multiple size="5">
+                                {{#each tasks}}
+                                    <option value="{{_id}}">{{text}}</option>
+                                {{/each}}
+                            </select>
+                        </div>
+                    </div>
 				</form>
 			</div>
 			<div class="modal-footer">

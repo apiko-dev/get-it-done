@@ -12,4 +12,4 @@ Router.route '/boards',
 Router.route '/scheduler',
 	name: 'scheduler'
 	waitOn: ->
-		[ Meteor.subscribe('userBoards'), Meteor.subscribe('userChips')]
+		[ Meteor.subscribe('userBoards'), Meteor.subscribe('userChips'), Meteor.subscribe('userTasks')]
