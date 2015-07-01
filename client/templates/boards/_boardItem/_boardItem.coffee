@@ -1,15 +1,12 @@
 Template._boardItem.onCreated ()->
   @.taskCreating = new ReactiveVar false
   @.boardEditing = new ReactiveVar false
-  @,showSettings = new ReactiveVar false
-#@.allowCreatingNew = new ReactiveVar true
+  @.showSettings = new ReactiveVar false
 
 Template._boardItem.onRendered ()->
-  #isAllowCreatingNew
   @.$(".hidden-settings").hide()
   @.$('.dropdown-toggle').dropdown()
   makeTaskListSortable.call @
-  #restoreButtonsActiveState.call @
 
 makeTaskListSortable = ->
   taskListOptions =
@@ -45,12 +42,6 @@ makeTaskListSortable = ->
         err and console.log err
 
   @.$('.task-list').sortable taskListOptions
-
-#restoreButtonsActiveState = ->
-#  if not Number @.data.config.sortByPriority is 0
-#    @.$(".priority-switch-label").addClass "active"
-#  if not @.showArchieved
-#    @.$(".show-archieved").addClass "active"
 
 Template._boardItem.helpers
   colors: ->
@@ -188,15 +179,8 @@ Template._boardItem.events
   'click .board-settings-button': (e, t) ->
     instance = Template.instance()
     cur = instance.showSettings.get()
-    #t.$(".hidden-settings").toggle()
-    #t.$(".toggle-list.edit-board-title").toggle()
+    instance.showSettings.set not cur
 
 createProject = (name, boardId, bgColor, cb)->
   Meteor.call 'toggl/createProject', name: name, boardId: boardId, color: bgColor, (err, res)->
     res.result and fetchProjects()
-
-#isAllowCreatingNew = (instance) ->
-#  board = instance.data
-#  board.togglProject and board.togglProject.name and console.log TogglProjects.findOne {name: board.togglProject.name} 
-#  board.togglProject and board.togglProject.name and if TogglProjects.findOne {name: board.togglProject.name}
-#    instance.allowCreatingNew.set false
