@@ -6,7 +6,7 @@ Template._nestedBoard.helpers
     return Tasks.find findQuery, sortingQuery
   isAnyTasks: () ->
     board = Template.instance().data
-    return !!Tasks.find({ boardId: board._id, priority: 2 }).count()
+    return !!Tasks.find({ boardId: board._id, priority: 2, completed: 0}).count()
 
 Template._nestedBoard.events
   'click .toggl-project-item': (e, t) ->
