@@ -23,6 +23,8 @@ Template._taskItem.helpers
     else return ""
   text: () ->
     Template.instance().data.text or "no text"
+  taskCompleted: () ->
+    return !!Template.instance().data.completed
 
 Template._taskItem.events
   'click .button.priority': (e) ->
@@ -79,6 +81,8 @@ Template._taskItem.events
     taskData = Template.instance().data
     cur = taskData.completed
     newCompleted = if cur == 1 then 0 else 1
+    console.log 'cur', cur
+    console.log 'newCompleted', newCompleted
     Tasks.update { _id: taskData._id }, { $set: completed: newCompleted }, (err, res) ->
       err and console.log err
 
