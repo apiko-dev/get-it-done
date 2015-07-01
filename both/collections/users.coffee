@@ -4,6 +4,7 @@ if Meteor.isServer
       ownerId: doc._id
       title: 'Backlog'
       order: 1
+      isBacklog: true
       config:
         bgColor: 0
         showArchieved: 0

@@ -10,8 +10,6 @@ Template._boardItem.onRendered ()->
   taskListOptions =
     connectWith: '.task-list'
     helper: 'clone'
-    sort: true
-    disabled: false
     placeholder: 'sortable-placeholder'
     items: '.action'
     forcePlaceholderSize: !0
@@ -71,6 +69,8 @@ Template._boardItem.helpers
     return TogglProjects.find()
   showArchieved: () ->
     return !!Template.instance().data.config.showArchieved
+  backlogExpanded: () ->
+    return Session.get 'backlogExpanded'
   #allowCreatingNew: ()->
   #  return Template.instance().allowCreatingNew.get()
 
@@ -147,7 +147,7 @@ Template._boardItem.events
       instance.boardEditing.set null
 
   'click .priority-switch-checkbox': (e, t) ->
-    board = Blaze.getData e.target
+    board = Template.instance().data
     currentSorting = board.config.sortByPriority
     newSorting = if currentSorting == 1 then 0 else 1
     Boards.update {_id: board._id}, {$set: {'config.sortByPriority': newSorting}}, (err, res) ->
@@ -155,7 +155,7 @@ Template._boardItem.events
 
   'click .show-archieved': (e, t) ->
     e.preventDefault()
-    board = Blaze.getData e.target
+    board = Template.instance().data
     cur = board.config.showArchieved
     showArchieved = if cur == 1 then 0 else 1
     Boards.update {_id: board._id}, {$set: {'config.showArchieved': showArchieved}}, (err, res) ->

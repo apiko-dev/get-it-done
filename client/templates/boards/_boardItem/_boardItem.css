@@ -156,6 +156,10 @@ a.action-title {
   color: white;
 }
 
+.list-title-row > div {
+  display: inline-block;
+}
+
 .board-ctrl {
   text-align: right;
 }
@@ -381,6 +385,10 @@ input.board-title.form-control {
   margin-left: -5px;
 }
 
+.board-title-editor input.board-title {
+  margin-bottom: 0;
+  height: 28px;
+}
 
 select#priority-chooser {
   width: 100px;
@@ -440,7 +448,7 @@ i.fa.fa-caret-down {
 
 .board-body {
   padding: 7px 14px 7px 14px;
-  overflow-y: scroll;
+  /*overflow-y: scroll;*/
 }
 
 .task-list.ui-sortable {
@@ -472,3 +480,19 @@ button.btn.btn-default.sort-by-priority {
 input.priority-switch-checkbox {
   margin: 0 !important;
 }
+
+/*========================== backlog ==========================*/
+#lists > div.list.backlog {
+  position: fixed;
+  right: 0;
+  z-index: 9999;
+  background-color: red;
+  top: 0;
+  bottom: 0;
+  box-shadow: 2px 0px 20px #101010;
+}
+
+#lists > div.list.backlog > div{
+
+}
+/*========================== backlog ==========================*/

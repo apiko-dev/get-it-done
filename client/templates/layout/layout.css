@@ -23,3 +23,8 @@ textarea {
 .button  {
   cursor: pointer;
 }
+
+.btn, input, textarea, select {
+  border: none;
+  border-radius: 0;
+}
