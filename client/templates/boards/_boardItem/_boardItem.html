@@ -1,106 +1,125 @@
 <template name="_boardItem">
-    <div id="{{_id}}" class="list layer tile cols {{#if isBacklog}} {{#if backlogExpanded}}expanded{{/if}} backlog{{else}}board{{/if}}" style="border-color: {{colorByKey config.bgColor}};">
-        <div class="action-row list-title-row" style="background-color: {{colorByKey config.bgColor}};">
-            {{#if boardEditing}}
-                <div class="board-title-editor">
-                    <input class="board-title" type="text" value="{{title}}">
-                </div>
-            {{else}}
-                <div class="toggle-list edit-board-title">
-                   <span class="list-title">
-                       {{trimLongText title 10}}
-                   </span>
-                </div>
-            {{/if}}
-            <div class="board-ctrl pull-right">
-                <label id="priority-switch-label">
-                    <input type="checkbox" name="toggle-switch" class="priority-switch-checkbox">
-                </label>
-                {{#if currentUser.toggl}}
-                  <div class="dropdown project-picker">
-                      <a id="toggl-project" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="  false">
-                          Toggl project
-                          <i class="fa fa-caret-down"></i>
-                      </a>
-                      <ul class="dropdown-menu" role="menu" aria-labelledby="toggl-project">
-                      <!-- {{#if allowCreatingNew}} -->
-                        <li role="presentation" class="toggl-project-item">The same...</li>
-                      <!-- {{/if}} -->
-                      {{#each togglProjects}}
-                        <li role="presentation" class="toggl-project-item {{#if isCurrentProject .. id }}current{{/if}}">{{name}}</li>
-                      {{/each}}
-                    </ul>
-                  </div>
-                {{/if}}
-                <div class="dropdown color-picker">
-                    <a id="color-chooser" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                       role="button" aria-expanded="false">
-                        Color
-                        <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="color-chooser">
-                        {{#each colors}}
-                          <li role="presentation" class="color" data-color="{{_index}}"><span style="background: {{color}}"></span></li>
-                        {{/each}}
-                    </ul>
-                </div>
-                <div class="dropdown board-menu">
-                    <a id="board-menu" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                       role="button" aria-expanded="false">
-                        <i class="fa fa-cogs"></i>
-                    </a>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="board-menu">
-                        <li role="presentation">
-                            <button class="btn btn-danger delete-board">Delete board</button>
-                        </li>
-                        <div class="checkbox show-archieved">
-                          <label>
-                            <input checked="{{showArchieved}}" type="checkbox"> Show archieved
-                          </label>
-                        </div>
-                    </ul>
-                </div>
-            </div>
+<div id="{{_id}}" class="list layer tile cols {{#if isBacklog}} {{#if backlogExpanded}}expanded{{/if}} backlog{{else}}board{{/if}}" style="border-color: {{colorByKey config.bgColor}};">
+  {{#if isBacklog}}
+    <button class="show-backlog">
+    {{#if backlogExpanded}}
+      <i class="fa fa-times"></i>
+    {{else}}
+      <i class="fa fa-list"></i>
+    {{/if}}
+    </button>
+  {{/if}}
+  <div class="action-row list-title-row" style="background-color: {{colorByKey config.bgColor}};">
+    {{#if boardEditing}}
+      <div class="board-title-editor">
+        <input class="board-title" type="text" value="{{title}}">
+      </div>
+    {{else}}
+      <div class="toggle-list edit-board-title">
+        <span class="list-title">
+          {{trimLongText title 10}}
+        </span>
+      </div>
+    {{/if}}
+    <div class="board-ctrl pull-right">
+      {{#if isBacklog}}
+        <div class="checkbox show-archieved">
+          <label>
+            <input checked="{{showArchieved}}" type="checkbox"> Show archieved
+          </label>
         </div>
-        <div class="board-body">
-            <div class="actions collapse in ui-sortable">
-                <div class="task-list">
-                    {{#each tasks}}
-                        {{> _taskItem}}
-                    {{else}}
-                        <p class="placeholder">No tasks...</p>
-                    {{/each}}
-                </div>
-            </div>
-            <div class="action new-task-container" data-creating={{taskCreating}}>
-                {{#if taskCreating}}
-                    <div class="action-box content-box new-task-action">
-                        <textarea class="title" rows="1" placeholder="Enter your title here"></textarea>
-                        <textarea class="description" rows="auto" placeholder="Enter your description here"></textarea>
-                    </div>
-                    <div class="action-box ctrl-box">
-                        <div class="priority-container">
-                            <select name="priority-chooser" id="priority-chooser">
-                                <option value="0" style="background-color: #21B24B; color: white;">Low</option>
-                                <option value="1" style="background-color: #FDB813; color: white;">Medium</option>
-                                <option value="2" style="background-color: #ED1B24; color: white;">High</option>
-                            </select>
-                        </div>
-                        <div class="action-box ctrl-box pull-right">
-                            <span class="ok-action btn btn-primary btn-sm">Save</span>
-                            <span class="cancel-action text-danger btn btn-danger btn-sm">Cancel</span>
-                        </div>
-                    </div>
-                {{else}}
-                    <a class="new-task-action btn btn-success btn-sm pull-right">
-                        <div class="new-task-action-wrapper">
-                            New task...
-                        </div>
-                    </a>
-                {{/if}}
-            </div>
+        <label id="priority-switch-label">
+          <input type="checkbox" name="toggle-switch" class="priority-switch-checkbox">
+          Sort by priority
+        </label>
+      {{else}}
+        <label class="priority-switch-label">
+          <input type="checkbox" name="toggle-switch" class="priority-switch-checkbox">
+        </label>
+        {{#if currentUser.toggl}}
+        <div class="dropdown project-picker">
+          <a id="toggl-project" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="  false">
+            Toggl project
+            <i class="fa fa-caret-down"></i>
+          </a>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="toggl-project">
+            <!-- {{#if allowCreatingNew}} -->
+            <li role="presentation" class="toggl-project-item">The same...</li>
+            <!-- {{/if}} -->
+            {{#each togglProjects}}
+            <li role="presentation" class="toggl-project-item {{#if isCurrentProject .. id }}current{{/if}}">{{name}}</li>
+            {{/each}}
+          </ul>
         </div>
+        {{/if}}
+        <div class="dropdown color-picker">
+          <a id="color-chooser" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+            role="button" aria-expanded="false">
+            Color
+            <i class="fa fa-caret-down"></i>
+          </a>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="color-chooser">
+            {{#each colors}}
+            <li role="presentation" class="color" data-color="{{_index}}"><span style="background: {{color}}"></span></li>
+            {{/each}}
+          </ul>
+        </div>
+        <div class="dropdown board-menu">
+          <a id="board-menu" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+            role="button" aria-expanded="false">
+            <i class="fa fa-cogs"></i>
+          </a>
+          <ul class="dropdown-menu" role="menu" aria-labelledby="board-menu">
+            <li role="presentation">
+              <button class="btn btn-danger delete-board">Delete board</button>
+            </li>
+            <div class="checkbox show-archieved">
+              <label>
+                <input checked="{{showArchieved}}" type="checkbox"> Show archieved
+              </label>
+            </div>
+          </ul>
+        </div>
+      {{/if}}
     </div>
+  </div>
+  <div class="board-body">
+    <div class="actions collapse in ui-sortable">
+      <div class="task-list">
+        {{#each tasks}}
+        {{> _taskItem}}
+        {{else}}
+        <p class="placeholder">No tasks...</p>
+        {{/each}}
+      </div>
+    </div>
+    <div class="action new-task-container" data-creating={{taskCreating}}>
+      {{#if taskCreating}}
+      <div class="action-box content-box new-task-action">
+        <textarea class="title" rows="1" placeholder="Enter your title here"></textarea>
+        <textarea class="description" rows="auto" placeholder="Enter your description here"></textarea>
+      </div>
+      <div class="action-box ctrl-box">
+        <div class="priority-container">
+          <select name="priority-chooser" class="priority-chooser">
+            <option value="0" style="background-color: #21B24B; color: white;">Low</option>
+            <option value="1" style="background-color: #FDB813; color: white;">Medium</option>
+            <option value="2" style="background-color: #ED1B24; color: white;">High</option>
+          </select>
+        </div>
+        <div class="action-box ctrl-box pull-right">
+          <span class="ok-action btn btn-primary btn-sm">Save</span>
+          <span class="cancel-action text-danger btn btn-danger btn-sm">Cancel</span>
+        </div>
+      </div>
+      {{else}}
+      <a class="new-task-action btn btn-success btn-sm pull-right">
+        <div class="new-task-action-wrapper">
+          New task...
+        </div>
+      </a>
+      {{/if}}
+    </div>
+  </div>
+</div>
 </template>
-
-

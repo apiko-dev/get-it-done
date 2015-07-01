@@ -6,7 +6,7 @@ if Meteor.isServer
       order: 1
       isBacklog: true
       config:
-        bgColor: 0
+        bgColor: 15
         showArchieved: 0
         sortByPriority: 0
     , (err, res) ->

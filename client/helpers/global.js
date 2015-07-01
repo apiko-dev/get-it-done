@@ -13,7 +13,8 @@ COLORS = [
   '#3c6526',
   '#094558',
   '#bc2d07',
-  '#999999'
+  '#999999',
+  '#00130C'
 ]
 
 Template.registerHelper('lightenDarkenColor', function(col, amt) {

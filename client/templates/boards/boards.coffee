@@ -14,10 +14,6 @@ Template.boards.events
         Boards.insert {ownerId: Meteor.userId(), title: text}, (err, res) ->
           console.log err or res
       Template.instance().boardCreating.set false
-  'click .show-backlog': (e, t) ->
-    cur = Session.get 'backlogExpanded'
-    console.log cur
-    Session.set 'backlogExpanded', not cur
 
 Template.boards.helpers
   boards: () ->
