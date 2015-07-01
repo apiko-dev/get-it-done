@@ -11,13 +11,13 @@ Meteor.Spinner.options =
 	width: 1
 	speed: 3
 
-Template.scheduler.onCreated ()->
+Template.scheduler.onCreated ->
 	@calendars = new ReactiveVar()
 	calendarsCount = GCCalendars.find().count()
 	@showSpinner = new ReactiveVar not calendarsCount
 	self = @
 
-Template.scheduler.onRendered ()->
+Template.scheduler.onRendered ->
 	hr = $ '<hr>'
 	container = $ 'td.fc-today'
 	unit = container.height()/(24*60) #pixel per minute
@@ -26,14 +26,14 @@ Template.scheduler.onRendered ()->
 	hr.css 'top', minutes * unit + 'px'
 	hr.css 'width', container.width()
 	container.append hr
-	Meteor.setInterval ()->
+	Meteor.setInterval ->
 		hr.css 'top', hr.height + unit + 'px'
 		console.log hr
 	, 60000
 	#$('.fc-view-container > div > table > tbody').height()
 
 Template.scheduler.helpers
-	calendarOptions: () ->
+	calendarOptions: ->
 		{
 			eventRender: (event, element) ->
         element.append EVENT_CTRLS
@@ -79,16 +79,16 @@ Template.scheduler.helpers
 							hash: event.boardId
 						#console.log 'go to board ', event.boardId
 		}
-	calendars: () ->
+	calendars: ->
 		return GCCalendars.find()
-	showSpinner: ()->
+	showSpinner: ->
 		return Template.instance().showSpinner.get()
 
-Template.scheduler.onRendered ()->
+Template.scheduler.onRendered ->
 	fetchGCCalendars()
-	Meteor.setTimeout (->
+	Meteor.setTimeout ->
   	refetchEvents()
-	), 100
+	, 100
 	Chips.after.insert refetchEvents
 	Chips.after.remove refetchEvents
 	Chips.after.update refetchEvents

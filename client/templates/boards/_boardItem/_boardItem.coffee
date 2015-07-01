@@ -107,15 +107,15 @@ Template._boardItem.events
         alert 'text is required'
       else
         boardId = t.data._id
-        Tasks.insert
-          ownerId: Meteor.userId(),
-          boardId: boardId,
-          text: text,
-          description: description,
-          priority: if priority? then priority else 1,
-          completed: 0, (err, res) ->
-          err and console.log err
-      Template.instance().taskCreating.set false
+        taskDoc =
+          ownerId: Meteor.userId()
+          boardId: boardId
+          text: text
+          description: description
+          priority: if priority? then priority else 1
+          completed: 0
+        Tasks.insert taskDoc, (err, res) ->
+          err and console.log(err)
 
   'click .cancel-action': (e, t) ->
     Template.instance().taskCreating.set false
@@ -184,7 +184,9 @@ Template._boardItem.events
     board = Template.instance().data
     cur = board.config.showArchieved
     showArchieved = if cur == 1 then 0 else 1
-    Boards.update _id: board._id, $set: 'config.showArchieved': showArchieved, (err, res) ->
+    Boards.update _id: board._id, $set:
+      'config.showArchieved': showArchieved
+    , (err, res) ->
       err and console.log err
   'click .show-backlog': (e, t) ->
     cur = Session.get 'backlogExpanded'
