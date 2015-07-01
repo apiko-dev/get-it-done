@@ -40,13 +40,14 @@ Template._boardItem.onRendered ()->
 
   # Restore checkbox value according to sorting methods selected by user
   @.$(".priority-switch-checkbox").prop "checked", if Number @.data.config.sortByPriority is 0 then false else true
+  @.$(".hidden-settings").hide()
 
 Template._boardItem.helpers
   colors: ->
     array = []
     for color, i in COLORS
       array.push color: color, _index: i
-    return array 
+    return array
   tasks: ->
     findQuery = { boardId: Template.instance().data._id}
     board = Template.instance().data
@@ -147,19 +148,28 @@ Template._boardItem.events
       instance.boardEditing.set null
 
   'click .priority-switch-checkbox': (e, t) ->
+    $(e.target).parent().toggleClass "active"
+
     board = Template.instance().data
     currentSorting = board.config.sortByPriority
     newSorting = if currentSorting == 1 then 0 else 1
     Boards.update {_id: board._id}, {$set: {'config.sortByPriority': newSorting}}, (err, res) ->
+      console.log err or res
       err and console.log err
 
   'click .show-archieved': (e, t) ->
     e.preventDefault()
+    $(e.target).toggleClass "active"
+
     board = Template.instance().data
     cur = board.config.showArchieved
     showArchieved = if cur == 1 then 0 else 1
     Boards.update {_id: board._id}, {$set: {'config.showArchieved': showArchieved}}, (err, res) ->
       err and console.log err
+
+  'click .board-settings-button': (e, t) ->
+    t.$(".hidden-settings").toggle()
+    t.$(".toggle-list.edit-board-title").toggle()
 
 createProject = (name, boardId, bgColor, cb)->
   Meteor.call 'toggl/createProject', {name: name, boardId: boardId, color: bgColor}, (err, res)->

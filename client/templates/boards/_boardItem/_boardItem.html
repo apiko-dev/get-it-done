@@ -1,5 +1,6 @@
 <template name="_boardItem">
-    <div id="{{_id}}" class="list layer tile cols {{#if isBacklog}} {{#if backlogExpanded}}expanded{{/if}} backlog{{else}}board{{/if}}" style="border-color: {{colorByKey config.bgColor}};">
+    <div id="{{_id}}" class="list layer tile cols {{#if isBacklog}} {{#if backlogExpanded}}expanded{{/if}} backlog{{else}}board{{/if}}"
+         style="border-color: {{colorByKey config.bgColor}};">
         <div class="action-row list-title-row" style="background-color: {{colorByKey config.bgColor}};">
             {{#if boardEditing}}
                 <div class="board-title-editor">
@@ -13,52 +14,49 @@
                 </div>
             {{/if}}
             <div class="board-ctrl pull-right">
-                <label id="priority-switch-label">
-                    <input type="checkbox" name="toggle-switch" class="priority-switch-checkbox">
-                </label>
+                <i class="fa fa-cogs board-settings-button"></i>
+            </div>
+            <div class="board-ctrl pull-right hidden-settings">
                 {{#if currentUser.toggl}}
-                  <div class="dropdown project-picker">
-                      <a id="toggl-project" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="  false">
-                          Toggl project
-                          <i class="fa fa-caret-down"></i>
-                      </a>
-                      <ul class="dropdown-menu" role="menu" aria-labelledby="toggl-project">
-                      <!-- {{#if allowCreatingNew}} -->
-                        <li role="presentation" class="toggl-project-item">The same...</li>
-                      <!-- {{/if}} -->
-                      {{#each togglProjects}}
-                        <li role="presentation" class="toggl-project-item {{#if isCurrentProject .. id }}current{{/if}}">{{name}}</li>
-                      {{/each}}
-                    </ul>
-                  </div>
+                    <div class="dropdown project-picker">
+                        <a id="toggl-project" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button"
+                           aria-expanded="  false">
+                            Toggl project
+                            <i class="fa fa-caret-down"></i>
+                        </a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="toggl-project">
+                        <!-- {{#if allowCreatingNew}} -->
+                            <li role="presentation" class="toggl-project-item">The same...</li>
+                                <!-- {{/if}} -->
+                            {{#each togglProjects}}
+                                <li role="presentation" class="toggl-project-item {{#if isCurrentProject .. id }}current{{/if}}">{{name}}</li>
+                            {{/each}}
+                        </ul>
+                    </div>
                 {{/if}}
-                <div class="dropdown color-picker">
-                    <a id="color-chooser" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                       role="button" aria-expanded="false">
-                        Color
-                        <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="color-chooser">
-                        {{#each colors}}
-                          <li role="presentation" class="color" data-color="{{_index}}"><span style="background: {{color}}"></span></li>
-                        {{/each}}
-                    </ul>
-                </div>
-                <div class="dropdown board-menu">
-                    <a id="board-menu" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                       role="button" aria-expanded="false">
-                        <i class="fa fa-cogs"></i>
-                    </a>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="board-menu">
-                        <li role="presentation">
-                            <button class="btn btn-danger delete-board">Delete board</button>
-                        </li>
-                        <div class="checkbox show-archieved">
-                          <label>
-                            <input checked="{{showArchieved}}" type="checkbox"> Show archieved
-                          </label>
-                        </div>
-                    </ul>
+                <div class="btn-group">
+                    <label class="priority-switch-label btn btn-primary btn-xs">
+                        <input style="display: none;" type="checkbox" name="toggle-switch" class="priority-switch-checkbox">
+                        Priority sort
+                    </label>
+                    <label class="checkbox show-archieved btn btn-primary btn-xs">
+                        <input style="display: none;" checked="{{showArchieved}}" type="checkbox"> Archived
+                    </label>
+                    <label class="btn btn-danger btn-xs delete-board">
+                        Delete board
+                    </label>
+                    <div class="btn-group color-picker" role="group">
+                        <button id="color-chooser" type="button" class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                            Color <i class="fa fa-caret-down"></i>
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="color-chooser">
+                            {{#each colors}}
+                                <li data-color="{{_index}}"><span style="background: {{color}}"></span></li>
+                            {{/each}}
+                        </ul>
+
+                    </div>
                 </div>
             </div>
         </div>

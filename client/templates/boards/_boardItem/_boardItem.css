@@ -243,7 +243,7 @@ a.color-picker {
 }
 
 .color-picker.open>.dropdown-menu {
-  padding: 7px 6px 9px 8px;
+  padding: 7px 6px 0 8px;
 }
 
 .board-menu.open ul.dropdown-menu {
@@ -472,7 +472,7 @@ button.btn.btn-default.sort-by-priority {
   text-align: center;
 }
 
-#priority-switch-label {
+.priority-switch-label {
   margin-top: 4px;
   font-weight: normal;
 }
@@ -496,3 +496,30 @@ input.priority-switch-checkbox {
 
 }
 /*========================== backlog ==========================*/
+
+.board-settings-button {
+  line-height: 30px;
+  width: 30px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.board-settings-button:hover {
+  opacity: .7;
+}
+
+.hidden-settings {
+  display: none;
+  float: left !important;
+  margin-left: 10px;
+}
+
+.dropdown.board-menu {
+  margin-right: 15px;
+  color: white;
+  opacity: 0.8;
+}
+
+.show-archieved, .priority-switch-label {
+  margin: 0;
+}
