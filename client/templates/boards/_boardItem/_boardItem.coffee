@@ -72,8 +72,6 @@ Template._boardItem.helpers
     return TogglProjects.find()
   showArchieved: () ->
     return !!Template.instance().data.config.showArchieved
-  backlogExpanded: () ->
-    return Session.get 'backlogExpanded'
   #allowCreatingNew: ()->
   #  return Template.instance().allowCreatingNew.get()
 

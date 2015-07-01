@@ -91,7 +91,7 @@ Template.backlog.events
       if text?.length < 1
         alert 'text is required'
       else
-        boardId = Template.instance()._id
+        boardId = Template.instance().data.backlogBoard._id
         Tasks.insert {ownerId: Meteor.userId(), boardId: boardId, text: text, description: description, priority: priority || 1, completed: 0}, (err, res) ->
           err and console.log err
       Template.instance().taskCreating.set false
