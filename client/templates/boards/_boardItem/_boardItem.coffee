@@ -8,7 +8,7 @@ Template._boardItem.onRendered ()->
   @.$(".hidden-settings").hide()
   @.$('.dropdown-toggle').dropdown()
   makeTaskListSortable.call @
-  restoreButtonsActiveState.call @
+  #restoreButtonsActiveState.call @
 
 makeTaskListSortable = ->
   taskListOptions =
@@ -45,11 +45,11 @@ makeTaskListSortable = ->
 
   @.$('.task-list').sortable taskListOptions
 
-restoreButtonsActiveState = ->
-  if not Number @.data.config.sortByPriority is 0
-    @.$(".priority-switch-label").addClass "active"
-  if not @.showArchieved
-    @.$(".show-archieved").addClass "active"
+#restoreButtonsActiveState = ->
+#  if not Number @.data.config.sortByPriority is 0
+#    @.$(".priority-switch-label").addClass "active"
+#  if not @.showArchieved
+#    @.$(".show-archieved").addClass "active"
 
 Template._boardItem.helpers
   colors: ->

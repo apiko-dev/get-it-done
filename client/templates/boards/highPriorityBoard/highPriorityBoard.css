@@ -1,13 +1,79 @@
-.board.high-priority .board-body .actions, .list.nested {
+.list.high-priority .board-body .actions, .list.nested {
   margin: 0;
   padding: 0;
   width: 100%;
 }
 
-.board.high-priority .list-title-row {
+#lists > div .list.high-priority .list-title-row {
 	background-color: #ED1B24;
 }
 
-.board.high-priority .board-body {
+#lists > div .list.high-priority .board-body {
 	overflow-y: auto;
+}
+
+/*------------------*/
+
+#lists > .list.high-priority {
+  position: fixed;
+  left: 0;
+  z-index: 9999;
+  top: 0;
+  bottom: 0;
+  box-shadow: -2px 0px 20px #101010;
+  width: 30%;
+  margin-left: -30%;
+  transition: margin-left 0.5s ease;
+  -webkit-transition: margin-left 0.5s ease;
+  -moz-transition: margin-left 0.5s ease;
+  -o-transition: margin-left 0.5s ease;
+}
+
+#lists >  div.list.high-priority .board-body {
+  overflow-y: auto;
+}
+
+#lists > div.list.high-priority .board-ctrl > * {
+  margin: 0;
+  padding: 0;
+  padding-left: 5px;
+}
+
+.list.high-priority .list-title-row {
+  background-color: red;
+}
+
+#lists > .list.high-priority .board-ctrl  * {
+  font-weight: 400;
+}
+
+#lists > .list.high-priority.expanded {
+  margin-left: 0;
+}
+
+.high-priority button.show-high-priority {
+  position: absolute;
+  bottom: 10px;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  border: none;
+  margin-right: -60px;
+  outline: none;
+  background-color: inherit;
+  opacity: 0.8;
+  color: rgba(255, 0, 0, 0.8);
+  box-shadow: 0px 0px 20px rgba(16, 16, 16, 0.32);
+}
+
+.high-priority button.show-high-priority:hover, .high-priority.expanded button.show-high-priority:hover {
+  opacity: 1;
+  box-shadow: 0px 0px 20px rgba(16, 16, 16, 0.42);
+  color: red;
+}
+
+.high-priority.expanded button.show-high-priority {
+  opacity: 0.9;
+  color: rgba(255, 0, 0, 0.9);
+  box-shadow: 0px 0px 20px rgba(16, 16, 16, 0.38)
 }
