@@ -1,5 +1,5 @@
 <template name="highPriorityBoard">
-<div class="list layer tile cols board high-priority">
+<div class="list layer tile cols high-priority {{#if highPriorityExpanded}}expanded{{/if}}">
 	<div class="action-row list-title-row">
 		<div class="toggle-list edit-board-title">
 			<span class="list-title">
@@ -21,5 +21,12 @@
 			</div>
 		</div>
 	</div>
+	<button class="show-high-priority">
+  	{{#if highPriorityExpanded}}
+  	  <i class="fa fa-times"></i>
+  	{{else}}
+  	  <i class="fa fa-list"></i>
+  	{{/if}}
+  </button>
 </div>
 </template>

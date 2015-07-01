@@ -79,7 +79,6 @@ Template.backlog.events
 
   'click .show-backlog': (e, t) ->
     cur = Session.get 'backlogExpanded'
-    console.log cur
     Session.set 'backlogExpanded', not cur
 
   'click .ok-action, keydown .new-task-action .title': (e, t) ->
