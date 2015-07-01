@@ -16,21 +16,22 @@
                 <label id="priority-switch-label">
                     <input type="checkbox" name="toggle-switch" class="priority-switch-checkbox">
                 </label>
-                <div class="dropdown project-picker">
-                    <a id="toggl-project" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
-                        Toggl project
-                        <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="toggl-project">
-                    <!-- {{#if allowCreatingNew}} -->
-                      <li role="presentation" class="toggl-project-item">The same...</li>
-                    <!-- {{/if}} -->
-                    {{#each togglProjects}}
-                      {{togglProject.id}}
-                      <li role="presentation" class="toggl-project-item {{#if isCurrentProject .. id }}current{{/if}}">{{name}}</li>
-                    {{/each}}
-                  </ul>
-                </div>
+                {{#if currentUser.toggl}}
+                  <div class="dropdown project-picker">
+                      <a id="toggl-project" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="  false">
+                          Toggl project
+                          <i class="fa fa-caret-down"></i>
+                      </a>
+                      <ul class="dropdown-menu" role="menu" aria-labelledby="toggl-project">
+                      <!-- {{#if allowCreatingNew}} -->
+                        <li role="presentation" class="toggl-project-item">The same...</li>
+                      <!-- {{/if}} -->
+                      {{#each togglProjects}}
+                        <li role="presentation" class="toggl-project-item {{#if isCurrentProject .. id }}current{{/if}}">{{name}}</li>
+                      {{/each}}
+                    </ul>
+                  </div>
+                {{/if}}
                 <div class="dropdown color-picker">
                     <a id="color-chooser" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                        role="button" aria-expanded="false">
