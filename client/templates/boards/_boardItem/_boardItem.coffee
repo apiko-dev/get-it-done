@@ -1,6 +1,7 @@
 Template._boardItem.onCreated ()->
   @.taskCreating = new ReactiveVar false
   @.boardEditing = new ReactiveVar false
+  @,showSettings = new ReactiveVar false
 #@.allowCreatingNew = new ReactiveVar true
 
 Template._boardItem.onRendered ()->
@@ -78,6 +79,8 @@ Template._boardItem.helpers
     return TogglProjects.find()
   showArchieved: () ->
     return !!Template.instance().data.config.showArchieved
+  showSettings: () ->
+    return Template.instance().showSettings.get()
 #allowCreatingNew: ()->
 #  return Template.instance().allowCreatingNew.get()
 
@@ -183,8 +186,10 @@ Template._boardItem.events
     Session.set 'backlogExpanded', not cur
 
   'click .board-settings-button': (e, t) ->
-    t.$(".hidden-settings").toggle()
-    t.$(".toggle-list.edit-board-title").toggle()
+    instance = Template.instance()
+    cur = instance.showSettings.get()
+    #t.$(".hidden-settings").toggle()
+    #t.$(".toggle-list.edit-board-title").toggle()
 
 createProject = (name, boardId, bgColor, cb)->
   Meteor.call 'toggl/createProject', name: name, boardId: boardId, color: bgColor, (err, res)->
