@@ -1,83 +1,83 @@
 div#lists {
-/*  -webkit-box-align: start;
-  -webkit-align-items: flex-start;
-  -ms-flex-align: start;
-  align-items: flex-start;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  overflow-x: auto;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  -webkit-transform: translate3d(0,0,0);
-  overflow: scroll;
-  height: 85vh;
-  min-height: 85vh;
-  max-height: 85vh;*/
-  margin: 0;
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  -webkit-box-align: start;
-  -o-box-align: start;
-  -ms-flex-align: start;
-  -webkit-align-items: flex-start;
-  align-items: flex-start;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: box;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -o-box-orient: horizontal;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  overflow: auto;
-  padding-top: 10px;
+    /*  -webkit-box-align: start;
+      -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+      align-items: flex-start;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      overflow-x: auto;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      -webkit-transform: translate3d(0,0,0);
+      overflow: scroll;
+      height: 85vh;
+      min-height: 85vh;
+      max-height: 85vh;*/
+    margin: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    -webkit-box-align: start;
+    -o-box-align: start;
+    -ms-flex-align: start;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -o-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    overflow: auto;
+    padding-top: 10px;
 }
 
 #lists > div {
-/*  display: flex;
-  flex-direction: column;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: initial;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-   flex-direction: column; 
-  -webkit-box-flex: 0; 
-  -webkit-flex: 0 0 270px; 
-  -ms-flex: 0 0 270px;
-  flex: 0 0 270px; */
-  box-sizing: border-box;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: box;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -o-box-orient: vertical;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-flex: 1;
-  -o-box-flex: 1;
-  box-flex: 1;
-  -webkit-flex: 0 0 270px;
-  -ms-flex: 0 0 270px;
-  flex: 0 0 270px;
-  position: relative;
-  height: 100%;
+    /*  display: flex;
+      flex-direction: column;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: initial;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+       flex-direction: column;
+      -webkit-box-flex: 0;
+      -webkit-flex: 0 0 270px;
+      -ms-flex: 0 0 270px;
+      flex: 0 0 270px; */
+    box-sizing: border-box;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -o-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-flex: 1;
+    -o-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 0 0 270px;
+    -ms-flex: 0 0 270px;
+    flex: 0 0 270px;
+    position: relative;
+    height: 100%;
 }
 
 /*.list.board {
@@ -87,18 +87,18 @@ div#lists {
 */
 
 .list.board > .container {
-  /*overflow-y: scroll;*/
-  margin-top: 40px;
+    /*overflow-y: scroll;*/
+    margin-top: 40px;
 }
 
 .list.layer.tile.cols.new-board-container {
-  height: 40px;
-  border-radius: 5px;
-  background-color: #EEEEEE;
-  padding: 5px;
-  color: #626262;
-  line-height: 30px;
-  border-radius: 0;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #EEEEEE;
+    padding: 5px;
+    color: #626262;
+    line-height: 30px;
+    border-radius: 0;
 }
 
 /*.list.layer.tile.cols.new-board-container[data-creating="true"] {
@@ -116,45 +116,81 @@ div#lists {
 }*/
 
 .list.layer.tile.cols.new-board-container .new-board-action, .list.layer.tile.cols.new-board-container[data-creating="true"] textarea {
-  width: 100%;
+    width: 100%;
+    font-size: 30px;
+}
+
+.new-board-sign {
+    font-size: 100px;
 }
 
 .list .edit-board-title {
-  line-height: 26px;
-  padding: 0 5px;
+    line-height: 26px;
+    padding: 0 5px;
+}
+
+.new-board-container .toggle-list.edit-board-title, .new-board-wrapper, .board-title-editor {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.new-board-wrapper {
+    background-color: rgb(240, 240, 240);
+    height: 100%;
+}
+
+.new-board-wrapper:hover {
+    background-color: #e8e8e8;
+}
+
+.new-board-container .save-cancel-box {
+    width: 176%;
 }
 
 .list .edit-board-title .list-title {
-  font-size: 20px;
+    font-size: 20px;
 }
 
 .list:nth-of-type(even), .list:nth-of-type(even) .action {
-  background-color: rgb(247, 247, 247);
+    background-color: rgb(247, 247, 247);
 }
 
 .list:nth-of-type(odd), .list:nth-of-type(odd) .action {
-  background-color: rgb(240, 240, 240);
+    background-color: rgb(240, 240, 240);
 }
 
 .new-board-container, .new-task-container {
-  cursor: pointer;
+    cursor: pointer;
+    text-align: center;
 }
 
 .action.board textarea {
-  resize: vertical;
-  margin-bottom: 5px;
-  border: 1px solid #cecece;
+    resize: vertical;
+    margin-bottom: 5px;
+    border: 1px solid #cecece;
 }
 
 .new-board-container .row {
-  margin: 0;
+    margin: 0;
 }
 
 a.new-board-action {
-  font-size: 16px;
+    font-size: 16px;
 }
 
 input.board-title.form-control {
-  width: 50%;
-  margin-left: 15px;
+    width: 50%;
+    margin-left: 15px;
+}
+
+.new-board-container input.board-title.form-control {
+    width: 158%;
+    margin-bottom: 20px;
+}
+
+input {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
