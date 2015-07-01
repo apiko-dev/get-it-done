@@ -103,14 +103,12 @@ Template._boardItem.events
     Template.instance().taskCreating.set false
 
   'click li.color': (e, t) ->
-    $(e.target).parent().parent().css('border-color', e.currentTarget.dataset.color + ';')
-    boardId = @._id
-    self = @
-    Boards.update { _id: boardId }, { $set: 'config.bgColor': e.currentTarget.dataset.color}, (err, res) ->
+    self = Template.instance()
+    Boards.update { _id: self.data._id }, { $set: 'config.bgColor': e.currentTarget.dataset.color}, (err, res) ->
       err and console.log err
-    if self.togglProject and self.togglProject.id
-      Meteor.call 'toggl/updateProject', {projectId: self.togglProject.id, data: {color: e.currentTarget.dataset.color}}, (err, res)->
-        err and console.log err
+    ##if self.togglProject and self.togglProject.id
+    ##  Meteor.call 'toggl/updateProject', {projectId: self.togglProject.id, data: {color: e.currentTarget.dataset.color}}, (err, res)->
+    ##    err and console.log err
 
   'click .delete-board': (e, t) ->
     Boards.remove {_id: t.data._id}, (err, res) ->
@@ -144,8 +142,8 @@ Template._boardItem.events
         title = $(e.currentTarget).parent().find('input').val()
         Boards.update {_id: @._id}, {$set: {title: title}}, (err, res) ->
           err and console.log err
-        Meteor.call 'toggl/updateProject', {projectId: self.togglProject.id, data: {name: title}}, (err, res)->
-          err and console.log err
+        #Meteor.call 'toggl/updateProject', {projectId: self.togglProject.id, data: {name: title}}, (err, res)->
+        #  err and console.log err
       instance.boardEditing.set null
 
   'click .priority-switch-checkbox': (e, t) ->
