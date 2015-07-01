@@ -92,8 +92,6 @@ Template._boardItem.events
       description = t.$("textarea.description").val()
       priority = Number t.$("select#priority-chooser").val()
 
-      console.log text, description, priority
-
       if text?.length < 1
         alert 'text is required'
       else
