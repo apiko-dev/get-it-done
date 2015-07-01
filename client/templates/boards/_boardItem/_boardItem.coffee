@@ -85,16 +85,6 @@ Template._boardItem.events
   'click .new-task-action': (e, t) ->
     Template.instance().taskCreating.set true
 
-  'click .complete-action': (e, t) ->
-    taskData = Blaze.getData event.target
-    cur = taskData.completed
-    newCompleted = if cur is 1 then 0 else 1
-    Tasks.update _id: taskData._id,
-      $set:
-        completed: newCompleted
-    , (err, res) ->
-      err and console.log err
-
   'click .ok-action, keydown .new-task-action .title': (e, t) ->
     if e.type is 'click' or e.keyCode is 13
       text = t.$("textarea.title").val()

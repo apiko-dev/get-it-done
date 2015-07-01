@@ -13,6 +13,10 @@
   -o-transition: margin-right 0.5s ease;
 }
 
+div.list.backlog .board-body {
+  overflow-y: auto;
+}
+
 #lists > div.list.backlog .board-ctrl > * {
   margin: 0;
   padding: 0;
