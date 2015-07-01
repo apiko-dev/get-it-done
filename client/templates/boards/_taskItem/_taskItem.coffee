@@ -8,9 +8,6 @@ Template._taskItem.onCreated (->
   @.taskEditing = new ReactiveVar false
 )
 
-Template._taskItem.onRendered ()->
-  @.$('.dropdown-toggle').dropdown()
-
 Template._taskItem.helpers
   taskEditing: () ->
     Template.instance().taskEditing and Template.instance().taskEditing.get()

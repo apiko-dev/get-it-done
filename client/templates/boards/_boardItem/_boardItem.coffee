@@ -5,8 +5,8 @@ Template._boardItem.onCreated ()->
 
 Template._boardItem.onRendered ()->
   @.$(".hidden-settings").hide()
-  @.$('.dropdown-toggle').dropdown()
   makeTaskListSortable.call @
+  $('.dropdown-toggle').dropdown()
 
 makeTaskListSortable = ->
   taskListOptions =

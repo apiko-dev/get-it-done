@@ -28,7 +28,9 @@ Template.boards.onCreated () ->
   fetchProjects()
 
 Template.boards.onRendered () ->
-  $('.new-board-container.dropdown-toggle').dropdown()
+  Meteor.setTimeout ->
+    $('.dropdown-toggle').dropdown()
+  , 1000
   hash = Router.current().params.hash
   if hash
     body_width = $('body').width()
