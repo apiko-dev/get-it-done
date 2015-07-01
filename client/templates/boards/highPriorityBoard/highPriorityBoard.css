@@ -77,3 +77,16 @@
   color: rgba(255, 0, 0, 0.9);
   box-shadow: 0px 0px 20px rgba(16, 16, 16, 0.38)
 }
+
+@media screen and (max-width: 1024px) {
+  #lists > .list.high-priority {
+    width: 50%;
+    margin-left: -50%;
+  }
+}
+@media screen and (max-width: 800px) {
+  #lists > .list.high-priority {
+    width: 70%;
+    margin-left: -70%;
+  }
+}
