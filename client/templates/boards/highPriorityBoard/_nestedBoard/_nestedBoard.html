@@ -1,7 +1,7 @@
 <template name="_nestedBoard">
   {{#if isAnyTasks}}
     <div class="list layer tile cols nested" style="border-color: {{colorByKey config.bgColor}};">
-      <div class="action-row list-title-row" style="background-color: {{colorByKey config.bgColor}};">
+      <div class="action-row list-title-row">
         <div class="toggle-list edit-board-title">
           <span class="list-title">
             {{trimLongText title 25}}
