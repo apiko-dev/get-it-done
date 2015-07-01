@@ -1,7 +1,8 @@
-Template.newChipModal.onRendered ->
+Template.newChipModal.onDestroyed ->
   delete Session.keys['selectedBoard']
   delete Session.keys['selectedTasks']
 
+Template.newChipModal.onRendered ->
   $('#datetimepicker_start').datetimepicker
     date: new Date @.data.start
     stepping: 30
@@ -38,7 +39,6 @@ Template.newChipModal.events
 
     Chips.insert chipDoc, (err, res) ->
       console.log err or res
-      console.log chipDoc
 
   'click .submit': (e, t) ->
     $('.new-chip').submit()

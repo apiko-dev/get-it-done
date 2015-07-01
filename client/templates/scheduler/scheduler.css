@@ -85,3 +85,7 @@ span.remove-event {
   border: 1px solid red;
   position: absolute;
 }
+
+.event-tasks {
+  opacity: .8;
+}
