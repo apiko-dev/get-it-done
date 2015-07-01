@@ -66,6 +66,7 @@
 .actions {
   padding: 3px;
   overflow: visible;
+  padding-bottom: 37px;
 }
 
 .action {
@@ -85,10 +86,13 @@
 }
 
 .action.new-task-container {
-  padding: 0;
+  background: inherit;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
   margin: 0;
-  border-color: transparent;
-  background: none;
+  padding: 10px 18px;
 }
 
 .action-box.ctrl-box {
@@ -152,16 +156,12 @@ a.action-title {
   color: white;
 }
 
-.board-ctrl.pull-right {
-  position: relative;
-  padding: 0;
-  display: inline-flex;
-  margin-left: auto;
-  margin-right: 5px;
+.board-ctrl {
+  text-align: right;
 }
 
-.board-ctrl.pull-right > * {
-  margin-left: 10px;
+.board-ctrl > * {
+  display: inline-block;
 }
 
 .delete-box {
@@ -342,15 +342,10 @@ li.toggl-project-item.current::after {
   width: 300px;
 }
 
-span.board-header, .list-title-row {
-  height: 40px;
-  width: 100%;
-}
-
 .action-row.list-title-row {
-  left: 14px;
-  padding: 5px;
+  padding: 6px;
   line-height: 28px;
+  min-height: 40px;
 }
 
 .action-row.list-title-row * {
@@ -365,8 +360,6 @@ a.new-task-action {
 }
 
 .new-task-container[data-creating="true"] {
-  padding: 0 0 5px 0;
-  margin: 0 0 5px 0;
   width: 100%;
 }
 
@@ -445,6 +438,11 @@ i.fa.fa-caret-down {
   float: left;
 }
 
+.board-body {
+  padding: 7px 14px 7px 14px;
+  overflow-y: scroll;
+}
+
 .task-list.ui-sortable {
   max-height: calc(100vh - 195px);
   overflow-y: auto;
@@ -456,7 +454,6 @@ button.btn.btn-default.sort-by-priority {
   color: rgb(79, 79, 79);
   border: none;
 }
-
 
 .dropdown.board-menu .checkbox {
   padding: 0;

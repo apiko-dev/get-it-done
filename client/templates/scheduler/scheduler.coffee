@@ -17,6 +17,21 @@ Template.scheduler.onCreated ()->
 	@showSpinner = new ReactiveVar not calendarsCount
 	self = @
 
+Template.scheduler.onRendered ()->
+	hr = $ '<hr>'
+	container = $ 'td.fc-today'
+	unit = container.height()/(24*60) #pixel per minute
+	curTime = new Date()
+	minutes = curTime.getHours()*60 + curTime.getMinutes()
+	hr.css 'top', minutes * unit + 'px'
+	hr.css 'width', container.width()
+	container.append hr
+	Meteor.setInterval ()->
+		hr.css 'top', hr.height + unit + 'px'
+		console.log hr
+	, 60000
+	#$('.fc-view-container > div > table > tbody').height()
+
 Template.scheduler.helpers
 	calendarOptions: () ->
 		{

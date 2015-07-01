@@ -38,31 +38,9 @@
                         <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu" role="menu" aria-labelledby="color-chooser">
-                        <li role="presentation" class="color" data-color="0"><span
-                                style="background: #4dc3ff"></span></li>
-                        <li role="presentation" class="color" data-color="1"><span
-                                style="background: #bc85e6"></span></li>
-                        <li role="presentation" class="color" data-color="2"><span
-                                style="background: #df7baa"></span></li>
-                        <li role="presentation" class="color" data-color="3"><span
-                                style="background: #f68d38"></span></li>
-                        <li role="presentation" class="color" data-color="4"><span
-                                style="background: #b27636"></span></li>
-                        <li role="presentation" class="color" data-color="5"><span
-                                style="background: #8ab734"></span></li>
-                        <li role="presentation" class="color" data-color="6"><span
-                                style="background: #14a88e"></span></li>
-                        <li role="presentation" class="color" data-color="7"><span
-                                style="background: #268bb5"></span></li>
-                        <li role="presentation" class="color" data-color="8"><span
-                                style="background: #6668b4"></span></li>
-                        <li role="presentation" class="color" data-color="9"><span
-                                style="background: #a4506c"></span></li>
-                        <li role="presentation" class="color" data-color="10"><span style="background: #67412c"></span></li>
-                        <li role="presentation" class="color" data-color="11"><span style="background: #3c6526"></span></li>
-                        <li role="presentation" class="color" data-color="12"><span style="background: #094558"></span></li>
-                        <li role="presentation" class="color" data-color="13"><span style="background: #bc2d07"></span></li>
-                        <li role="presentation" class="color" data-color="14"><span style="background: #999999"></span></li>
+                        {{#each colors}}
+                          <li role="presentation" class="color" data-color="{{_index}}"><span style="background: {{color}}"></span></li>
+                        {{/each}}
                     </ul>
                 </div>
                 <div class="dropdown board-menu">

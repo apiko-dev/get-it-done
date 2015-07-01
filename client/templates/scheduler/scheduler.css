@@ -80,3 +80,8 @@ span.remove-event {
   top: 10px;
   margin-left: -15px;
 }
+
+#calendar td hr {
+  border: 1px solid red;
+  position: absolute;
+}
