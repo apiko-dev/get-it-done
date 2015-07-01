@@ -1,7 +1,7 @@
 BOARD_WIDTH = 300;
 
 Template.boards.events
-  'click .new-board-action': (e, t) ->
+  'click .new-board-wrapper': (e, t) ->
     Template.instance().boardCreating.set true
   'click .new-board-cancel-action': () ->
     Template.instance().boardCreating.set false
