@@ -6,7 +6,7 @@ Template.boards.events
   'click .new-board-cancel-action': () ->
     Template.instance().boardCreating.set false
   'click .new-board-ok-action, keydown .board-title': (e, t) ->
-    if e.type == 'click' or e.keyCode == 13
+    if e.type is 'click' or e.keyCode is 13 and Template.instance().boardCreating.get()
       text = $(e.target).closest('.new-board-container').find('input').val()
       if !text or !text.length
         alert 'Board name is required'
