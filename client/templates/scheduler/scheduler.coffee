@@ -28,7 +28,6 @@ Template.scheduler.onRendered ()->
 	container.append hr
 	Meteor.setInterval ()->
 		hr.css 'top', hr.height + unit + 'px'
-		console.log hr
 	, 60000
 	#$('.fc-view-container > div > table > tbody').height()
 
@@ -73,7 +72,7 @@ Template.scheduler.helpers
 					className = jsEvent.target.className
 					if className == 'remove-event' or className == 'fa fa-minus'
 						Chips.remove {_id: event._id}, (err, res) ->
-							console.log err or res
+							err and console.log err
 					else
 						Router.go 'boards', { },
 							hash: event.boardId

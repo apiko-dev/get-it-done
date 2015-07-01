@@ -349,7 +349,7 @@ li.toggl-project-item.current::after {
 .action-row.list-title-row {
   padding: 6px;
   line-height: 28px;
-  min-height: 40px;
+  min-height: 42px;
 }
 
 .action-row.list-title-row * {

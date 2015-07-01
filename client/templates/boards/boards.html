@@ -3,6 +3,7 @@
     <h1>SIGN IN PLEASE</h1>
   {{else}}
     <div id="lists">
+      {{> highPriorityBoard boards=boards}}
       {{#each boards}}
         {{> _boardItem}}
       {{/each}}

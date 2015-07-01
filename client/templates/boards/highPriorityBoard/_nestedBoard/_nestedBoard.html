@@ -1,0 +1,22 @@
+<template name="_nestedBoard">
+  {{#if isAnyTasks}}
+    <div class="list layer tile cols nested" style="border-color: {{colorByKey config.bgColor}};">
+      <div class="action-row list-title-row" style="background-color: {{colorByKey config.bgColor}};">
+        <div class="toggle-list edit-board-title">
+          <span class="list-title">
+            {{trimLongText title 25}}
+          </span>
+        </div>
+      </div>
+      <div class="board-body">
+        <div class="actions collapse in ui-sortable">
+          <div class="task-list">
+            {{#each tasks}}
+              {{> _taskItem}}
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    </div>
+  {{/if}}
+</template>

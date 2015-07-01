@@ -24,7 +24,7 @@ Template.backlog.helpers
   isNoTasks: () ->
     return !Tasks.find({ boardId: Template.instance().backlogBoard.data._id }).count()
   sortByPriority: ()->
-    return Template.instance().data.backlogBoard.config.sortByPriority
+    return !!Template.instance().data.backlogBoard.config.sortByPriority
   togglProjects: ()->
     return TogglProjects.find()
   showArchieved: () ->

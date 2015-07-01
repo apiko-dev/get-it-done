@@ -55,8 +55,6 @@ Template._boardItem.helpers
     showArchieved = board.config.showArchieved
     sortingQuery = sort: if sortByPriority then  {priority: -1} else {order: 1}
     sortingQuery.sort.completed = -1
-    console.log 'findQuery', findQuery
-    console.log 'sortingQuery', sortingQuery
     if not showArchieved
       findQuery.completed = 0
     return Tasks.find findQuery, sortingQuery
@@ -160,7 +158,6 @@ Template._boardItem.events
     currentSorting = board.config.sortByPriority
     newSorting = if currentSorting == 1 then 0 else 1
     Boards.update {_id: board._id}, {$set: {'config.sortByPriority': newSorting}}, (err, res) ->
-      console.log err or res
       err and console.log err
 
   'click .show-archieved': (e, t) ->
@@ -172,10 +169,6 @@ Template._boardItem.events
     showArchieved = if cur == 1 then 0 else 1
     Boards.update {_id: board._id}, {$set: {'config.showArchieved': showArchieved}}, (err, res) ->
       err and console.log err
-  'click .show-backlog': (e, t) ->
-    cur = Session.get 'backlogExpanded'
-    console.log cur
-    Session.set 'backlogExpanded', not cur
 
   'click .board-settings-button': (e, t) ->
     t.$(".hidden-settings").toggle()

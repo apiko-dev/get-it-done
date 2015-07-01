@@ -1,0 +1,12 @@
+.list.layer.tile.cols.nested {
+  background-color: inherit;
+}
+
+.list.nested .action-row.list-title-row, .list.nested .edit-board-title {
+	line-height: 15px;
+	min-height: 0;
+}
+
+.list.nested span.list-title {
+  font-size: 15px;
+}
