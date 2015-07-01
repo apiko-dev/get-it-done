@@ -35,6 +35,18 @@
                     </div>
                 {{/if}}
                 <div class="btn-group">
+                    <div class="btn-group color-picker" role="group">
+                        <button id="color-chooser" type="button" class="fa fa-caret-down btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                            Color
+                        </button>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="color-chooser">
+                            {{#each colors}}
+                                <li data-color="{{_index}}"><span style="background: {{color}}"></span></li>
+                            {{/each}}
+                        </ul>
+                    </div>
+
                     <label class="priority-switch-label btn btn-primary btn-xs">
                         <input style="display: none;" type="checkbox" name="toggle-switch" class="priority-switch-checkbox">
                         Priority sort
@@ -45,18 +57,6 @@
                     <label class="btn btn-danger btn-xs delete-board">
                         Delete board
                     </label>
-                    <div class="btn-group color-picker" role="group">
-                        <button id="color-chooser" type="button" class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
-                            Color <i class="fa fa-caret-down"></i>
-                        </button>
-                        <ul class="dropdown-menu" role="menu" aria-labelledby="color-chooser">
-                            {{#each colors}}
-                                <li data-color="{{_index}}"><span style="background: {{color}}"></span></li>
-                            {{/each}}
-                        </ul>
-
-                    </div>
                 </div>
             </div>
         </div>
