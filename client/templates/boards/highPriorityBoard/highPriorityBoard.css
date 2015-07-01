@@ -7,3 +7,7 @@
 .board.high-priority .list-title-row {
 	background-color: #ED1B24;
 }
+
+.board.high-priority .board-body {
+	overflow-y: auto;
+}
