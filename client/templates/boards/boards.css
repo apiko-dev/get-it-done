@@ -129,11 +129,8 @@ div#lists {
     padding: 0 5px;
 }
 
-.new-board-container .toggle-list.edit-board-title, .new-board-wrapper, .board-title-editor {
-    position: relative;
-}
-
-.new-board-container .toggle-list.edit-board-title, .new-board-wrapper {
+.new-board-container .toggle-list.edit-board-title, .new-board-wrapper, .new-board-container .board-title-editor {
+  position: relative;
   top: 50%;
   transform: translateY(-50%);  
 }
