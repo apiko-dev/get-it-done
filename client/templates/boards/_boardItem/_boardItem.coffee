@@ -38,9 +38,14 @@ Template._boardItem.onRendered ()->
 
   @.$('.task-list').sortable taskListOptions
 
-  # Restore checkbox value according to sorting methods selected by user
-  @.$(".priority-switch-checkbox").prop "checked", if Number @.data.config.sortByPriority is 0 then false else true
+  restoreButtonsActiveState @
   @.$(".hidden-settings").hide()
+
+restoreButtonsActiveState = (that) ->
+  if not Number that.data.config.sortByPriority is 0
+    that.$(".priority-switch-label").addClass "active"
+  if not that.showArchieved
+    that.$(".show-archieved").addClass "active"
 
 Template._boardItem.helpers
   colors: ->
