@@ -92,12 +92,20 @@ Template._boardItem.events
       description = t.$("textarea.description").val()
       priority = Number t.$("select#priority-chooser").val()
 
+      console.log text, description, priority
+
       if text?.length < 1
         alert 'text is required'
       else
         boardId = t.data._id
-        Tasks.insert {ownerId: Meteor.userId(), boardId: boardId, text: text, description: description, priority: priority || 1, completed: 0}, (err, res) ->
-          err and console.log err
+        Tasks.insert
+          ownerId: Meteor.userId(),
+          boardId: boardId,
+          text: text,
+          description: description,
+          priority: if priority? then priority else 1,
+          completed: 0, (err, res) ->
+            err and console.log err
       Template.instance().taskCreating.set false
 
   'click .cancel-action': (e, t) ->
