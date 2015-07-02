@@ -174,6 +174,20 @@ a.action-title {
   display: inline-block;
 }
 
+.board-ctrl label {
+  background-color: transparent;
+  line-height: 28px;
+  border-radius: 0;
+  border-right: 1px solid rgba(0,0,0,0.05);
+  border-left: 1px solid rgba(0,0,0,0.05);
+}
+
+.board-ctrl label:hover, .board-ctrl label.active {
+  background-color: rgba(0,0,0,0.1);
+  border-right: 1px solid rgba(0,0,0,0.05);
+  border-left: 1px solid rgba(0,0,0,0.05);
+}
+
 .delete-box {
   padding-right: 1px;
   padding-left: 0;
@@ -256,7 +270,7 @@ a.color-picker {
   width: 100%;
 }
 
-.project-picker {
+.project-picker, .show-archieved {
   margin-right: 10px;
 }
 
@@ -432,12 +446,12 @@ input.board-title, .board textarea, .board input, .board select {
   margin-right: 12px;
 }
 
-i.fa.fa-caret-down {
+/*i.fa.fa-caret-down { WTF?
   position: absolute;
   top: 5px;
   right: 0;
   margin-right: -12px;
-}
+}*/
 
 .board-title-editor {
   float: left;
@@ -469,10 +483,10 @@ button.btn.btn-default.sort-by-priority {
   text-align: center;
 }
 
-.priority-switch-label {
+/*.priority-switch-label {
   margin-top: 4px;
   font-weight: normal;
-}
+}*/
 
 input.priority-switch-checkbox {
   margin: 0 !important;
@@ -501,6 +515,6 @@ input.priority-switch-checkbox {
   opacity: 0.8;
 }
 
-.show-archieved, .priority-switch-label {
+/*.show-archieved, .priority-switch-label {
   margin: 0;
-}
+}*/

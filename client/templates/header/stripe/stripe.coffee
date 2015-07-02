@@ -1,6 +1,6 @@
 Template.Stripe.helpers
   colors: ->
-    boards = Boards.find()
+    boards = Boards.find({}, { sort: { order: 1 } })
     colors = []
     boards.forEach (board) ->
       if not board.isBacklog

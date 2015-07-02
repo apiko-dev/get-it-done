@@ -101,6 +101,26 @@ div#lists {
     border-radius: 0;
 }
 
+#lists .new-board-container {
+  padding: 0;
+  width: 100px;
+  min-width: 50px;
+  max-width: 100px;
+  padding: 0;
+  box-shadow: -4px 4px 10px 0px rgba(16, 16, 16, 0.32);
+  margin-left: 30px;
+}
+
+#lists .new-board-container.first {
+  box-shadow: 4px 4px 10px 0px rgba(16, 16, 16, 0.32);
+  margin-right: 30px;
+  margin-left: 0;
+}
+
+.new-board-container + .new-board-container {
+  display: none !important;
+}
+
 /*.list.layer.tile.cols.new-board-container[data-creating="true"] {
   color: #888;
   padding: 10px 10px 30px 10px;
@@ -121,7 +141,7 @@ div#lists {
 }
 
 .new-board-sign {
-    font-size: 100px;
+    font-size: 38px;
 }
 
 .list .edit-board-title {

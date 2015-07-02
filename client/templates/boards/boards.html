@@ -4,6 +4,15 @@
     {{else}}
         <div id="lists">
             {{> highPriorityBoard boards=boards}}
+            <div class="list layer tile cols new-board-container first" data-creating={{boardCreating}}>
+                <div class="new-board-wrapper">
+                    <div class="toggle-list edit-board-title">
+                        <i class="fa fa-plus new-board-sign"></i>
+                        <br><br>
+                       <!--  <span class="button new-board-action list-title">NEW BOARD</span> -->
+                    </div>
+                </div>
+            </div>
             {{#each boards}}
                 {{> _boardItem}}
             {{/each}}
@@ -18,11 +27,11 @@
                         </div>
                     </div>
                 {{else}}
-                    <div class="new-board-wrapper">
+                    <div class="new-board-wrapper last">
                         <div class="toggle-list edit-board-title">
                             <i class="fa fa-plus new-board-sign"></i>
                             <br><br>
-                            <span class="button new-board-action list-title">NEW BOARD</span>
+                           <!--  <span class="button new-board-action list-title">NEW BOARD</span> -->
                         </div>
                     </div>
                 {{/if}}

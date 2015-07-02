@@ -22,11 +22,12 @@
                 <div class="board-ctrl pull-right hidden-settings">
                     <div class="btn-group">
                         <label class="btn btn-primary btn-xs color-picker" role="group">
-                            <button id="color-chooser" type="button" class="fa fa-caret-down btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown"
+                            <span id="color-chooser" type="button" class="dropdown-toggle" data-toggle="dropdown"
                                     aria-haspopup="true"
                                     aria-expanded="  false">
-                                Color
-                            </button>
+                              <i class="fa fa-caret-down"></i>
+                              Color
+                            </span>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="color-chooser">
                                 {{#each colors}}
                                     <li data-color="{{_index}}" class="color"><span style="background: {{color}}"></span></li>
@@ -36,10 +37,11 @@
 
                         {{#if currentUser.toggl}}
                             <label class="btn btn-primary btn-xs dropdown project-picker">
-                                <button id="toggl-project" href="#" class="btn btn-primary btn-xs fa fa-caret-down dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" role="button"
-                                   aria-expanded="false">
-                                    Toggl project
-                                </button>
+                                <span id="toggl-project" href="#" class="dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" role="button"
+                                  aria-expanded="false">
+                                  <i class="fa fa-caret-down"></i>
+                                  Toggl project
+                                </span>
                                 <ul class="dropdown-menu" role="menu" aria-labelledby="toggl-project">
                                 <!-- {{#if allowCreatingNew}} -->
                                     <li role="presentation" class="toggl-project-item">The same...</li>
@@ -55,7 +57,7 @@
                             <input style="display: none;" checked="{{sortByPriority}}" type="checkbox" name="toggle-switch" class="priority-switch-checkbox">
                             Priority sort
                         </label>
-                        <label class="checkbox show-archieved btn btn-primary btn-xs {{#if showArchieved}}active{{/if}}">
+                        <label class="show-archieved btn btn-primary btn-xs {{#if showArchieved}}active{{/if}}">
                             <input style="display: none;" checked="{{showArchieved}}" type="checkbox"> Archived
                         </label>
                         <label class="btn btn-danger btn-xs delete-board">
