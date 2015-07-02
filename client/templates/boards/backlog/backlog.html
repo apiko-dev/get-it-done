@@ -4,7 +4,7 @@
   {{#if backlogExpanded}}
     <i class="fa fa-times"></i>
   {{else}}
-    <i class="fa fa-list"></i>
+    <i class="fa fa-inbox"></i>
   {{/if}}
   </button>
   <div class="action-row list-title-row">
@@ -27,7 +27,7 @@
   </div>
   <div class="board-body">
     <div class="actions collapse in ui-sortable">
-      <div class="task-list">
+      <div class="backlog-task-list">
         {{#each tasks}}
         	{{> _taskItem}}
         {{else}}
@@ -42,13 +42,8 @@
         <textarea class="description" rows="auto" placeholder="Enter your description here"></textarea>
       </div>
       <div class="action-box ctrl-box">
-        <div class="priority-container">
-          <select name="priority-chooser" class="priority-chooser">
-            <option value="0" style="background-color: #21B24B; color: white;">Low</option>
-            <option value="1" style="background-color: #FDB813; color: white;">Medium</option>
-            <option value="2" style="background-color: #ED1B24; color: white;">High</option>
-          </select>
-        </div>
+        {{> priorityChooser}}
+        {{> boardChooser}}
         <div class="action-box ctrl-box pull-right">
           <span class="ok-action btn btn-primary btn-sm">Save</span>
           <span class="cancel-action text-danger btn btn-danger btn-sm">Cancel</span>

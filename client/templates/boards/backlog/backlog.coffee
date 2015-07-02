@@ -1,6 +1,48 @@
 Template.backlog.onCreated ()->
   @.taskCreating = new ReactiveVar false
   @.boardEditing = new ReactiveVar false
+
+
+Template.backlog.onRendered ()->
+  $('.dropdown-toggle').dropdown()
+  @.$('.backlog-task-list').sortable 
+    connectWith: '.task-list'
+    helper: 'clone'
+    placeholder: 'sortable-placeholder'
+    items: '.action'
+    forcePlaceholderSize: !0
+    dropOnEmpty: true
+    opacity: 1
+    zIndex: 9999
+    start: (e, ui) ->
+      ui.placeholder.height(ui.helper.outerHeight());
+    update: (event, ui) ->
+      task = Blaze.getData(ui.item[0])
+      targetBoardId = Blaze.getData(event.target)._id
+      targetTaskId = task._id
+      try
+        prevTaskData = Blaze.getData ui.item[0].previousElementSibling
+      try
+        nextTaskData = Blaze.getData ui.item[0].nextElementSibling
+      if !nextTaskData and prevTaskData
+        curOrder = prevTaskData.order + 1
+      if !prevTaskData and nextTaskData
+        curOrder = nextTaskData.order / 2
+      if !prevTaskData and !nextTaskData
+        curOrder = 1
+      if prevTaskData and nextTaskData
+        curOrder = (nextTaskData.order + prevTaskData.order) / 2
+      Tasks.update _id: targetTaskId,
+        $set:
+          boardId: targetBoardId, order: curOrder
+      , (err, res) ->
+        err and console.log err
+  #@.$('.task.action').draggable
+  #  revert: 'invalid'
+  #  connectToSortable: '.task-list'
+  #  zIndex: 9999
+  #  dropOnEmpty: true
+  #  opacity: 1
   
 
 Template.backlog.helpers
@@ -85,7 +127,7 @@ Template.backlog.events
     if e.type == 'click' or e.keyCode == 13
       text = t.$("input.title").val()
       description = t.$("textarea.description").val()
-      priority = Number t.$("select#priority-chooser").val()
+      priority = Number t.$('#priority-chooser button').filter(".active").data("value")
 
       if text?.length < 1
         alert 'text is required'

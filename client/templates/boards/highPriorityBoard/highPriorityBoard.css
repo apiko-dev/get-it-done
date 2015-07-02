@@ -4,17 +4,18 @@
   width: 100%;
 }
 
-#lists > div .list.high-priority .list-title-row {
+#lists > div .list.high-priority .list-title-row, div .list.high-priority .list-title-row {
 	background-color: #ED1B24;
 }
 
-#lists > div .list.high-priority .board-body {
+#lists > div .list.high-priority .board-body, div .list.high-priority .board-body {
 	overflow-y: auto;
 }
 
 /*------------------*/
 
-#lists > .list.high-priority {
+#lists > .list.high-priority, .list.high-priority {
+  height: 100vh;
   position: fixed;
   left: 0;
   z-index: 9999;
@@ -29,11 +30,11 @@
   -o-transition: margin-left 0.5s ease;
 }
 
-#lists >  div.list.high-priority .board-body {
+#lists >  div.list.high-priority .board-body, div.list.high-priority .board-body {
   overflow-y: auto;
 }
 
-#lists > div.list.high-priority .board-ctrl > * {
+#lists > div.list.high-priority .board-ctrl > *,div.list.high-priority .board-ctrl > * {
   margin: 0;
   padding: 0;
   padding-left: 5px;
@@ -43,11 +44,11 @@
   background-color: red;
 }
 
-#lists > .list.high-priority .board-ctrl  * {
+#lists > .list.high-priority .board-ctrl  *, .list.high-priority .board-ctrl  * {
   font-weight: 400;
 }
 
-#lists > .list.high-priority.expanded {
+#lists > .list.high-priority.expanded, .list.high-priority.expanded {
   margin-left: 0;
 }
 
@@ -63,29 +64,30 @@
   background-color: inherit;
   opacity: 0.8;
   color: rgba(255, 0, 0, 0.8);
-  box-shadow: 0px 0px 20px rgba(16, 16, 16, 0.32);
+  border-radius: 50%;
+  box-shadow: 0px 4px 10px rgba(16, 16, 16, 0.32);
 }
 
 .high-priority button.show-high-priority:hover, .high-priority.expanded button.show-high-priority:hover {
   opacity: 1;
-  box-shadow: 0px 0px 20px rgba(16, 16, 16, 0.42);
+  box-shadow: 0px 4px 10px rgba(16, 16, 16, 0.42);
   color: red;
 }
 
 .high-priority.expanded button.show-high-priority {
   opacity: 0.9;
   color: rgba(255, 0, 0, 0.9);
-  box-shadow: 0px 0px 20px rgba(16, 16, 16, 0.38)
+  box-shadow: 0px 4px 10px rgba(16, 16, 16, 0.38)
 }
 
 @media screen and (max-width: 1024px) {
-  #lists > .list.high-priority {
+  #lists > .list.high-priority, .list.high-priority {
     width: 50%;
     margin-left: -50%;
   }
 }
 @media screen and (max-width: 800px) {
-  #lists > .list.high-priority {
+  #lists > .list.high-priority, .list.high-priority {
     width: 70%;
     margin-left: -70%;
   }

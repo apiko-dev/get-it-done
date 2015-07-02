@@ -19,13 +19,22 @@ Template.scheduler.onCreated ->
 
 Template.scheduler.onRendered ->
   hr = $ '<hr>'
-  container = $ 'td.fc-today'
+  hr.attr "id", "cur-time-ruler"
+  container = $ '.fc-time-grid'
+
+  rulerPosition = $('td.fc-today').position()
+  rulerWidth = $('td.fc-today').width()
+
   unit = container.height() / (24 * 60) #pixel per minute
   curTime = new Date()
-  minutes = curTime.getHours() * 60 + curTime.getMinutes()
-  hr.css 'top', minutes * unit + 'px'
-  hr.css 'width', container.width()
+  minutesAfterMidnight = curTime.getHours() * 60 + curTime.getMinutes()
+
+  hr.css 'top', minutesAfterMidnight * unit + 'px'
+  hr.css 'left', rulerPosition.left
+  hr.css 'width', rulerWidth
+  hr.css 'z-index', 12
   container.append hr
+
   Meteor.setInterval ->
     hr.css 'top', hr.height + unit + 'px'
     console.log hr
@@ -33,11 +42,17 @@ Template.scheduler.onRendered ->
 #$('.fc-view-container > div > table > tbody').height()
 
 Template.scheduler.helpers
+  boards: () ->
+    return Boards.find { ownerId: Meteor.userId(), isBacklog: {$exists: false}}, sort: order: 1
+  backlogBoard: () ->
+    return Boards.findOne {isBacklog: true}
   calendarOptions: ->
     {
     eventRender: (event, element) ->
       if not event.isGoogle
         element.append EVENT_REMOVE_BUTTON
+      if event.isGoogle
+        element.addClass "gc-event"
       if event.tasks?
         element.append "<div class=\"event-tasks\">#{event.tasks?.join ", "}"
     events: (start, end, timezone, callback) ->
@@ -46,7 +61,10 @@ Template.scheduler.helpers
         if el.taskIds?
           el.tasks = []
           for taskId in el.taskIds
-            el.tasks.push Tasks.findOne(_id: taskId).text
+            try
+              el.tasks.push Tasks.findOne(_id: taskId).text
+            catch e
+              #task is removed
         el.title = board.title
         el.color = COLORS[board.config.bgColor]
         el

@@ -1,4 +1,4 @@
-#lists > div.list.backlog {
+#lists > div.list.backlog, div.list.backlog {
   position: fixed;
   right: 0;
   z-index: 9999;
@@ -11,27 +11,28 @@
   -webkit-transition: margin-right 0.5s ease;
   -moz-transition: margin-right 0.5s ease;
   -o-transition: margin-right 0.5s ease;
+  height: 100vh;
 }
 
 div.list.backlog .board-body {
-  overflow-y: auto;
+  /*overflow-y: auto;*/
 }
 
-#lists > div.list.backlog .board-ctrl > * {
+#lists > div.list.backlog .board-ctrl > *, div.list.backlog .board-ctrl > * {
   margin: 0;
   padding: 0;
   padding-right: 5px;
 }
 
-#lists > div.list.backlog .list-title-row {
+#lists > div.list.backlog .list-title-row, div.list.backlog .list-title-row {
   background-color: #00130C;
 }
 
-#lists > div.list.backlog .board-ctrl  * {
+#lists > div.list.backlog .board-ctrl  *, div.list.backlog .board-ctrl  * {
   font-weight: 400;
 }
 
-#lists > div.list.backlog.expanded {
+#lists > div.list.backlog.expanded,div.list.backlog.expanded {
   margin-right: 0;
 }
 
@@ -46,27 +47,28 @@ div.list.backlog .board-body {
   outline: none;
   background-color: inherit;
   opacity: 0.8;
-  box-shadow: 0px 0px 20px rgba(16, 16, 16, 0.32);
+  border-radius: 50%;
+  box-shadow: 0px 4px 10px rgba(16, 16, 16, 0.32);
 }
 
 .backlog button.show-backlog:hover, .backlog.expanded button.show-backlog:hover {
   opacity: 1;
-  box-shadow: 0px 0px 20px rgba(16, 16, 16, 0.42);
+  box-shadow: 0px 4px 10px rgba(16, 16, 16, 0.42);
 }
 
 .backlog.expanded button.show-backlog {
   opacity: 0.9;
-  box-shadow: 0px 0px 20px rgba(16, 16, 16, 0.38)
+  box-shadow: 0px 4px 10px rgba(16, 16, 16, 0.38)
 }
 
 @media screen and (max-width: 1024px) {
-  #lists > div.list.backlog {
+  #lists > div.list.backlog, div.list.backlog {
     width: 50%;
     margin-right: -50%;
   }
 }
 @media screen and (max-width: 800px) {
-  #lists > div.list.backlog {
+  #lists > div.list.backlog, div.list.backlog {
     width: 70%;
     margin-right: -70%;
   }

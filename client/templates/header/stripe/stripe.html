@@ -22,7 +22,8 @@
   </style>
   <div class="stripe">
     {{#each colors}}
-      <div class="stripe-line" style="background-color: {{this}};"></div>
+        {{collapseStripe}}
+      <div class="stripe-line" style="background-color: {{boardColor}}; height: 50px; padding: 10px 10px">{{boardName}}</div>
     {{/each}}
   </div>
 </template>

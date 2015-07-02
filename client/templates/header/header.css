@@ -10,9 +10,9 @@
 }
 
 #login-dropdown-list {
-  position: relative;
   font-size: 10pt;
   line-height: 30pt;
+  position: relative;
 }
 
 .navbar-form {
@@ -35,28 +35,12 @@
   font-size: 11pt;
 }
 
-.stripe {
-  position: relative;
-  z-index: 1;
-  height: 2px;
-  overflow: hidden;
-}
-
-.stripe > .stripe-line {
-  height: 2px;
-  float: left;
-  -webkit-transition: width 1s ease;
-  -moz-transition: width 1s ease;
-  -o-transition: width 1s ease;
-  transition: width 1s ease;
-}
-
 .navbar .nav {
-  float: right;
-  position: relative;
-  left: 0;
   display: block;
-  margin: 0!important;
+  float: right;
+  left: 0;
+  margin: 0 !important;
+  position: relative;
 }
 
 #login-dropdown-list .dropdown-menu {
@@ -69,44 +53,44 @@
 }
 
 .navbar-default .navbar-nav li a, .navbar-text {
-  font-size: 11pt;
   color: #626262;
+  font-size: 11pt;
 }
 
 .navbar-default .nav i {
-  vertical-align: initial;
   font-size: 12pt;
+  vertical-align: initial;
 }
 
 .navbar.navbar-default .nav > li > .dropdown-menu:after {
-  right: 10px;
   left: auto;
+  right: 10px;
 }
 
 .navbar.navbar-default .nav > li > .dropdown-menu:before {
-  right: 9px;
   left: auto;
+  right: 9px;
 }
 
 @media (max-width: 767px) {
 
-	div#bs-example-navbar-collapse-1 {
-	  width: 100%;
-	}
-	
-	div#bs-example-navbar-collapse-1 ul.nav.navbar-nav {
-	  width: 100%;
-	}
-	
-	div#bs-example-navbar-collapse-1 ul li {
-	  display: block;
-	  width: 100%;
-	  text-align: left;
-	  border-bottom: 2px solid rgb(247, 247, 247);
-	}
+  div#bs-example-navbar-collapse-1 {
+    width: 100%;
+  }
 
-	#login-dropdown-list .dropdown-menu {
-  	margin-left: auto;
-  	padding: 0px 0 0 30px;
-	}
+  div#bs-example-navbar-collapse-1 ul.nav.navbar-nav {
+    width: 100%;
+  }
+
+  div#bs-example-navbar-collapse-1 ul li {
+    border-bottom: 2px solid rgb(247, 247, 247);
+    display: block;
+    text-align: left;
+    width: 100%;
+  }
+
+  #login-dropdown-list .dropdown-menu {
+    margin-left: auto;
+    padding: 0 0 0 30px;
+  }
 }
