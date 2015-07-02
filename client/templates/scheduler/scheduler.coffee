@@ -20,12 +20,15 @@ Template.scheduler.onCreated ->
 Template.scheduler.onRendered ->
   hr = $ '<hr>'
   container = $ 'td.fc-today'
+
   unit = container.height() / (24 * 60) #pixel per minute
   curTime = new Date()
-  minutes = curTime.getHours() * 60 + curTime.getMinutes()
-  hr.css 'top', minutes * unit + 'px'
+  minutesAfterMidnight = curTime.getHours() * 60 + curTime.getMinutes()
+
+  hr.css 'top', minutesAfterMidnight * unit + 'px'
   hr.css 'width', container.width()
   container.append hr
+
   Meteor.setInterval ->
     hr.css 'top', hr.height + unit + 'px'
     console.log hr
@@ -38,6 +41,9 @@ Template.scheduler.helpers
     eventRender: (event, element) ->
       if not event.isGoogle
         element.append EVENT_REMOVE_BUTTON
+      if event.isGoogle
+        console.log element
+        element.addClass "gc-event"
       if event.tasks?
         element.append "<div class=\"event-tasks\">#{event.tasks?.join ", "}"
     events: (start, end, timezone, callback) ->

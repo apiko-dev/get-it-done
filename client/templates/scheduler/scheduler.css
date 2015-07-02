@@ -89,3 +89,7 @@ span.remove-event {
 .event-tasks {
   opacity: .8;
 }
+
+.gc-event {
+  z-index: -1 !important;
+}
