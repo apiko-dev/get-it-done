@@ -54,8 +54,9 @@ Template._boardItem.helpers
     showArchieved = board.config.showArchieved
     sortingQuery = sort: if sortByPriority then  priority: -1 else order: 1
     sortingQuery.sort.completed = -1
-    if not showArchieved
-      findQuery.completed = 0
+    if showArchieved
+      findQuery.completed = 1
+    else findQuery.completed = 0
     return Tasks.find findQuery, sortingQuery
   taskCreating: () ->
     return Template.instance().taskCreating and Template.instance().taskCreating.get()

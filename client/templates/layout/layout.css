@@ -12,7 +12,6 @@ body, div#main, .main-container.container {
 div#main {
   width: 100%;
   position: relative;
-  margin-bottom: 10px;
   min-height: calc(100vh - 100px);
 }
 
