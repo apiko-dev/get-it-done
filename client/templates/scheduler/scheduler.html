@@ -2,6 +2,7 @@
     {{#unless currentUser}}
         <h1>SIGN IN PLEASE</h1>
     {{else}}
+        {{> highPriorityBoard boards=boards}}
         <div class="dropdown calendars-chooser">
             <a id="calendars-chooser" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
                 {{#if showSpinner}}
@@ -25,5 +26,6 @@
 			{{/each}}
 		</select> -->
         {{>fullcalendar calendarOptions}}
+        {{> backlog backlogBoard=backlogBoard}}
     {{/unless}}
 </template>
