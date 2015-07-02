@@ -23,6 +23,7 @@
 #lists.row.ui-sortable > .sortable-placeholder {
   min-width: 300px;
 }
+
 #lists.row.ui-sortable > .ui-sortable-helper {
   margin-top: 5px;
 }
@@ -103,10 +104,11 @@
   padding: 0;
 }
 
-.action-box.content-box.new-task-action textarea, .action-box.content-box.action-edit textarea {
+.action-box.content-box.new-task-action textarea, .action-box.content-box.action-edit textarea,
+.action-box.content-box.new-task-action input, .action-box.content-box.action-edit input {
   width: 100%;
   border: 1px solid #DEDEDE;
-  resize:vertical;
+  resize: vertical;
 }
 
 .action-box.content-box.new-task-action {
@@ -114,9 +116,13 @@
   padding: 0 10px;
 }
 
-.action-box.content-box.new-task-action:hover textarea {
+.action-box.content-box.new-task-action:hover textarea, .action-box.content-box.new-task-action:hover input {
   width: 100%;
   border: 1px solid #9C9C9C;
+}
+
+.action-box.content-box.new-task-action input {
+  padding: 4px 6px;
 }
 
 .action.board.list.new-board-container {
@@ -149,7 +155,7 @@ a.action-title {
   color: #141414;
   font-size: 100%;
   line-height: 22px;
-  word-break: break-word;
+  word-break: break-all;
 }
 
 .action-row.list-title-row * {
@@ -206,7 +212,7 @@ textarea {
   resize: none !important;
 }
 
-textarea.title {
+input.title {
   margin-bottom: 10px;
 }
 
@@ -215,12 +221,12 @@ a.color-picker {
   color: #565656;
 }
 
-.color-picker .dropdown-menu li{
+.color-picker .dropdown-menu li {
   display: inline-block;
 }
 
 .dropdown.color-picker .caret {
-  margin-top: 0px;
+  margin-top: 0;
   margin-left: 5px;
 }
 
@@ -242,7 +248,7 @@ a.color-picker {
   display: inline-block;
 }
 
-.color-picker.open>.dropdown-menu {
+.color-picker.open > .dropdown-menu {
   padding: 7px 6px 0 8px;
 }
 
@@ -310,7 +316,7 @@ li.toggl-project-item.current::after {
   font-size: 20px;
 }
 
-.complete-box:hover i{
+.complete-box:hover i {
   /*color: #333;*/
   opacity: 1;
 }
@@ -330,9 +336,8 @@ li.toggl-project-item.current::after {
 }
 
 .action.board-row.list-title-row {
-    position: relative;
+  position: relative;
 }
-
 
 .action.board-row.list-title-row {
   position: relative;
@@ -372,7 +377,7 @@ a.new-task-action {
 }
 
 hr {
-  margin: 5px 0px;
+  margin: 5px 0;
   border-style: dashed;
   opacity: 0.3;
 }
@@ -424,9 +429,8 @@ span.priority.HIGH {
   color: #ED1B24;
 }
 
-
-input.board-title, .board textarea, .board input, .board select{
-  background-color: rgba(255,255,255,0.3);
+input.board-title, .board textarea, .board input, .board select {
+  background-color: rgba(255, 255, 255, 0.3);
   height: initial;
   border-radius: 0;
 }

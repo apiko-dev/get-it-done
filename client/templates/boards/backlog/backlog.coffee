@@ -125,7 +125,7 @@ Template.backlog.events
 
   'click .ok-action, keydown .new-task-action .title': (e, t) ->
     if e.type == 'click' or e.keyCode == 13
-      text = t.$("textarea.title").val()
+      text = t.$("input.title").val()
       description = t.$("textarea.description").val()
       priority = Number t.$("select#priority-chooser").val()
 
