@@ -1,9 +1,3 @@
-PRIORITY_CLASSES = [
-  'LOW'
-  'MED'
-  'HIGH'
-]
-
 Template._taskItem.onCreated (->
   @.taskEditing = new ReactiveVar false
 )
@@ -13,7 +7,7 @@ Template._taskItem.helpers
     Template.instance().taskEditing and Template.instance().taskEditing.get()
   description: () ->
     Template.instance().data.description or "no description"
-  priority: () ->
+  priorityText: () ->
     PRIORITY_CLASSES[Template.instance().data.priority]
   isTimeStarted: () ->
     !!Template.instance().data.timerStarted

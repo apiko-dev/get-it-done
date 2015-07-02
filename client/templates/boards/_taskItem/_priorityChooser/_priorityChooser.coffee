@@ -1,10 +1,14 @@
+Template.priorityChooser.onCreated ()->
+  @.currentPriority = new ReactiveVar 1
+
+Template.priorityChooser.onRendered ()->
+  console.log @.data.priority
+  @.currentPriority.set Number(@.data.priority)
+
 Template.priorityChooser.helpers
   isSelected: (priority) ->
-    if Template.instance().data is priority
-      return "active"
-    else return ""
+    return priority == Template.instance().currentPriority.get()
 
 Template.priorityChooser.events
   'click .priority-value': (e, t) ->
-    t.$(e.target).parent().find(".priority-value").removeClass "active"
-    t.$(e.target).addClass "active"
+    Template.instance().currentPriority.set Number(e.target.dataset.value)

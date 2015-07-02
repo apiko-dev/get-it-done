@@ -16,6 +16,12 @@ COLORS = [
   '#999999'
 ]
 
+PRIORITY_CLASSES = [
+  'LOW',
+  'MED',
+  'HIGH'
+]
+
 Template.registerHelper('lightenDarkenColor', function(col, amt) {
   col = COLORS[col];
   var usePound = false;
