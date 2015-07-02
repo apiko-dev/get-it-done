@@ -184,6 +184,10 @@ Template._boardItem.events
     instance = Template.instance()
     cur = instance.showSettings.get()
     instance.showSettings.set not cur
+  'click #color-chooser': (e, t) ->
+    t.$(e.target).closest(".dropdown-menu").toggle()
+  'click #toggl-project': (e, t) ->
+    t.$(e.target).closest(".dropdown-menu").toggle()
 
 createProject = (name, boardId, bgColor, cb)->
   Meteor.call 'toggl/createProject', name: name, boardId: boardId, color: bgColor, (err, res)->
