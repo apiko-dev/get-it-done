@@ -7,7 +7,7 @@
                 <textarea class="description" rows="auto">{{description}}</textarea>
             </div>
             <div class="edit">
-                {{> priorityChooser priority}}
+                {{> priorityChooser priority=priority}}
             </div>
             <!-- <div class="action-box ctrl-box pull-right">
                     <i class="fa fa-floppy-o edit-ok-action"></i>
@@ -24,7 +24,7 @@
                 {{else}}
                     <i class="button fa fa-circle-thin complete-action"></i>
                 {{/if}}
-                <span class="button priority {{priority}}">{{priority}}</span>
+                <span class="button priority {{priorityText}}">{{priorityText}}</span>
             </div>
             <div class="col-xs-10 action-box content-box">
                 <a class="action-title title action-edit">

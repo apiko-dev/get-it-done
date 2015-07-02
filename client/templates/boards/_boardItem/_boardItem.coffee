@@ -77,7 +77,9 @@ Template._boardItem.helpers
 
 Template._boardItem.events
   'click .new-task-action': (e, t) ->
-    Template.instance().taskCreating.set true
+    #Template.instance().taskCreating.set true
+    Modal.show 'newTaskModal',
+      board: Template.instance().data
 
   'click .ok-action, keydown .new-task-action .title': (e, t) ->
     if e.type is 'click' or e.keyCode is 13
