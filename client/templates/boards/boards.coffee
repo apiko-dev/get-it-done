@@ -27,13 +27,18 @@ Template.boards.onCreated () ->
   @.boardCreating = new ReactiveVar(false);
   fetchProjects()
 
-Template.boards.onRendered () ->
-  hash = Router.current().params.hash
+@scrollToBoard = ->
+  hash = Iron.Location.get().hash
+  hash = hash.slice 1, hash.length
   if hash
     body_width = $('body').width()
-    Meteor.setTimeout () ->
-      $('#lists').stop().animate { scrollLeft: $('#'+hash).offset().left - body_width/2 + BOARD_WIDTH/2 }, 1000
-    , 100
+    $('#lists').stop().animate {scrollLeft: $('#' + hash).offset().left - body_width / 2 + BOARD_WIDTH / 2}, 700
+
+Template.boards.onRendered () ->
+  Meteor.setTimeout ->
+    $('.dropdown-toggle').dropdown()
+  , 1000
+  scrollToBoard()
   @.$('#lists').sortable
     helper: 'clone'
     placeholder: 'sortable-placeholder'

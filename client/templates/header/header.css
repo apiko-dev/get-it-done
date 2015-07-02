@@ -35,28 +35,61 @@
   font-size: 11pt;
 }
 
+/*======STRIPE======*/
 .stripe {
+  color: white;
+  cursor: pointer;
+  height: 50px;
+  overflow: hidden;
   position: relative;
   z-index: 1;
-  height: 2px;
-  overflow: hidden;
 }
 
 .stripe > .stripe-line {
   height: 2px;
   float: left;
-  -webkit-transition: width 1s ease;
-  -moz-transition: width 1s ease;
-  -o-transition: width 1s ease;
-  transition: width 1s ease;
+  font-size: 20px;
+  -webkit-transition: width 1s ease, height .3s ease, padding .3s ease;
+  -moz-transition: width 1s ease, height .3s ease, padding .3s ease;
+  -o-transition: width 1s ease, height .3s ease, padding .3s ease;
+  text-align: center;
+  transition: width 1s ease, height .3s ease, padding .3s ease;
 }
+
+.stripe:hover {
+  z-index: 3;
+}
+
+.stripe:hover > .stripe-line{
+  height: 50px;
+  padding: 10px 15px;
+}
+
+@keyframes make-tall {
+  from {
+    height: 2px;
+  }
+  to {
+    height: 40px;
+  }
+}
+
+.navbar.navbar-default {
+  margin-top: -50px;
+}
+
+.collapse.navbar-collapse.pull-right, .navbar.navbar-default .navbar-header {
+  z-index: 2;
+  height: 50px;
+}
+/*======STRIPE======*/
 
 .navbar .nav {
   float: right;
   position: relative;
   left: 0;
   display: block;
-  margin: 0!important;
+  margin: 0 !important;
 }
 
 #login-dropdown-list .dropdown-menu {
@@ -90,23 +123,23 @@
 
 @media (max-width: 767px) {
 
-	div#bs-example-navbar-collapse-1 {
-	  width: 100%;
-	}
-	
-	div#bs-example-navbar-collapse-1 ul.nav.navbar-nav {
-	  width: 100%;
-	}
-	
-	div#bs-example-navbar-collapse-1 ul li {
-	  display: block;
-	  width: 100%;
-	  text-align: left;
-	  border-bottom: 2px solid rgb(247, 247, 247);
-	}
+  div#bs-example-navbar-collapse-1 {
+    width: 100%;
+  }
 
-	#login-dropdown-list .dropdown-menu {
-  	margin-left: auto;
-  	padding: 0px 0 0 30px;
-	}
+  div#bs-example-navbar-collapse-1 ul.nav.navbar-nav {
+    width: 100%;
+  }
+
+  div#bs-example-navbar-collapse-1 ul li {
+    display: block;
+    width: 100%;
+    text-align: left;
+    border-bottom: 2px solid rgb(247, 247, 247);
+  }
+
+  #login-dropdown-list .dropdown-menu {
+    margin-left: auto;
+    padding: 0px 0 0 30px;
+  }
 }
