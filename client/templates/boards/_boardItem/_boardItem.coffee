@@ -23,13 +23,13 @@ makeTaskListSortable = ->
       targetBoardId = Blaze.getData(event.target)._id
       targetTaskId = ui.item[0].dataset.id
       try
-        prevTaskData = Blaze.getData ui.item[0].previousElementSibling
+        prevTaskData = ui.item[0].previousElementSibling.dataset #Blaze.getData ui.item[0].previousElementSibling
       try
-        nextTaskData = Blaze.getData ui.item[0].nextElementSibling
+        nextTaskData = ui.item[0].nextElementSibling.dataset #Blaze.getData ui.item[0].nextElementSibling
       if !nextTaskData and prevTaskData
-        curOrder = prevTaskData.order + 1
+        curOrder = Number prevTaskData.order + 1
       if !prevTaskData and nextTaskData
-        curOrder = nextTaskData.order / 2
+        curOrder = Number nextTaskData.order / 2
       if !prevTaskData and !nextTaskData
         curOrder = 1
       if prevTaskData and nextTaskData
@@ -38,7 +38,7 @@ makeTaskListSortable = ->
         $set:
           boardId: targetBoardId, order: curOrder
       , (err, res) ->
-        err and console.log err
+        console.log err or res
 
   @.$('.task-list').sortable taskListOptions
 
@@ -158,8 +158,6 @@ Template._boardItem.events
       instance.boardEditing.set null
 
   'click .priority-switch-checkbox': (e, t) ->
-    $(e.target).parent().toggleClass "active"
-
     board = Template.instance().data
     currentSorting = board.config.sortByPriority
     newSorting = if currentSorting is 1 then 0 else 1
@@ -168,8 +166,6 @@ Template._boardItem.events
 
   'click .show-archieved': (e, t) ->
     e.preventDefault()
-    $(e.target).toggleClass "active"
-
     board = Template.instance().data
     cur = board.config.showArchieved
     showArchieved = if cur is 1 then 0 else 1

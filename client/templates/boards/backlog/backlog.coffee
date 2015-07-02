@@ -5,7 +5,7 @@ Template.backlog.onCreated ()->
 
 Template.backlog.onRendered ()->
   $('.dropdown-toggle').dropdown()
-  @.$('.task-list').sortable 
+  @.$('.backlog-task-list').sortable 
     connectWith: '.task-list'
     helper: 'clone'
     placeholder: 'sortable-placeholder'
