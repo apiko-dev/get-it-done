@@ -1,0 +1,42 @@
+.priority-container {
+  width: auto;
+  margin-top: 4px;
+  position: relative;
+  display: inline-block;
+}
+
+.priority-container .btn-group button {
+  text-shadow: none;
+}
+
+.priority-value {
+  color: white;
+}
+
+.priority-value.pv-low {
+  background-color: #21B24B;
+}
+
+.priority-value.pv-med {
+  background-color: #FDB813;
+}
+
+.priority-value.pv-high {
+  background-color: #ED1B24;
+}
+
+.priority-value.pv-low.active {
+  color: rgb(165, 237, 165);;
+}
+
+.priority-value.pv-med.active {
+  color: #FCF6DA;
+}
+
+.priority-value.pv-high.active {
+color: rgb(253, 170, 170);
+}
+
+.priority-value:hover {
+  color: rgba(255, 255, 255, 0.69);
+}

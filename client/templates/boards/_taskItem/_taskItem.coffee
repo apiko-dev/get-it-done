@@ -17,10 +17,6 @@ Template._taskItem.helpers
     PRIORITY_CLASSES[Template.instance().data.priority]
   isTimeStarted: () ->
     !!Template.instance().data.timerStarted
-  isSelected: (priority) ->
-    if parseInt(Template.instance().data.priority) is priority
-      return "selected"
-    else return ""
   text: () ->
     Template.instance().data.text or "no text"
   taskCompleted: () ->
@@ -46,7 +42,7 @@ Template._taskItem.events
     taskData = Blaze.getData(e.target)
     text = $(e.target).parent().parent().find('input.title').val()
     description = $(e.target).parent().parent().find('textarea.description').val()
-    priority = Number $(e.target).parent().parent().find('select#priority-chooser').val()
+    priority = Number $('#priority-chooser button').filter(".active").data("value")
 
     console.log text, description, priority
 

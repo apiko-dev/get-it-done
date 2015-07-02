@@ -86,7 +86,7 @@ Template._boardItem.events
 
       text = titleField.val()
       description = descriptionField.val()
-      priority = Number t.$("select#priority-chooser").val()
+      priority = Number t.$('#priority-chooser button').filter(".active").data("value")
 
       if text?.length < 1
         alert 'text is required'

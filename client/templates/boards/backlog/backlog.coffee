@@ -127,7 +127,7 @@ Template.backlog.events
     if e.type == 'click' or e.keyCode == 13
       text = t.$("input.title").val()
       description = t.$("textarea.description").val()
-      priority = Number t.$("select#priority-chooser").val()
+      priority = Number t.$('#priority-chooser button').filter(".active").data("value")
 
       if text?.length < 1
         alert 'text is required'

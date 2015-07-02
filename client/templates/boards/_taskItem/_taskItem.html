@@ -6,12 +6,8 @@
                 <input class="title" rows="1" required value="{{text}}">
                 <textarea class="description" rows="auto">{{description}}</textarea>
             </div>
-            <div value="{{priority}}" class="priority-container edit">
-                <select name="priority-chooser" id="priority-chooser">
-                    <option value="0" {{isSelected 0}}  style="background-color: #21B24B; color: white;">Low</option>
-                    <option value="1" {{isSelected 1}} style="background-color: #FDB813; color: white;">Medium</option>
-                    <option value="2" {{isSelected 2}} style="background-color: #ED1B24; color: white;">High</option>
-                </select>
+            <div class="edit">
+                {{> priorityChooser priority}}
             </div>
             <!-- <div class="action-box ctrl-box pull-right">
                     <i class="fa fa-floppy-o edit-ok-action"></i>
@@ -37,7 +33,7 @@
                 <a class="action-title action-edit description">{{trimLongText description 100}}</a>
             </div>
             <div class="col-xs-1 delete-box">
-                <i class="fa fa-minus delete-action"></i>
+                <i class="fa fa-trash-o delete-action"></i>
             </div>
             {{#if isTimeStarted}}
                 <i class="fa fa-clock-o stop-timer"></i>
