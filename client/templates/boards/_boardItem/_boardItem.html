@@ -20,25 +20,8 @@
             </div>
             {{#if showSettings}}
                 <div class="board-ctrl pull-right hidden-settings">
-                    {{#if currentUser.toggl}}
-                        <div class="dropdown project-picker">
-                            <a id="toggl-project" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button"
-                               aria-expanded="  false">
-                                Toggl project
-                                <i class="fa fa-caret-down"></i>
-                            </a>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="toggl-project">
-                            <!-- {{#if allowCreatingNew}} -->
-                                <li role="presentation" class="toggl-project-item">The same...</li>
-                                    <!-- {{/if}} -->
-                                {{#each togglProjects}}
-                                    <li role="presentation" class="toggl-project-item {{#if isCurrentProject .. id }}current{{/if}}">{{name}}</li>
-                                {{/each}}
-                            </ul>
-                        </div>
-                    {{/if}}
                     <div class="btn-group">
-                        <div class="btn-group color-picker" role="group">
+                        <label class="btn btn-primary btn-xs color-picker" role="group">
                             <button id="color-chooser" type="button" class="fa fa-caret-down btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown"
                                     aria-haspopup="true"
                                     aria-expanded="false">
@@ -49,7 +32,24 @@
                                     <li data-color="{{_index}}" class="color"><span style="background: {{color}}"></span></li>
                                 {{/each}}
                             </ul>
-                        </div>
+                        </label>
+
+                        {{#if currentUser.toggl}}
+                            <label class="btn btn-primary btn-xs dropdown project-picker">
+                                <button id="toggl-project" href="#" class="btn btn-primary btn-xs fa fa-caret-down dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" role="button"
+                                   aria-expanded="false">
+                                    Toggl project
+                                </button>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="toggl-project">
+                                <!-- {{#if allowCreatingNew}} -->
+                                    <li role="presentation" class="toggl-project-item">The same...</li>
+                                        <!-- {{/if}} -->
+                                    {{#each togglProjects}}
+                                        <li role="presentation" class="toggl-project-item {{#if isCurrentProject .. id }}current{{/if}}">{{name}}</li>
+                                    {{/each}}
+                                </ul>
+                            </label>
+                        {{/if}}
 
                         <label class="priority-switch-label btn btn-primary btn-xs {{#if sortByPriority}}active{{/if}}">
                             <input style="display: none;" checked="{{sortByPriority}}" type="checkbox" name="toggle-switch" class="priority-switch-checkbox">
