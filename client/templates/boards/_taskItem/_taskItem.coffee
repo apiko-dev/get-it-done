@@ -44,9 +44,11 @@ Template._taskItem.events
     Template.instance().taskEditing.set true
   'click .edit-ok-action': (e, t) ->
     taskData = Blaze.getData(e.target)
-    text = $(e.target).parent().parent().find('textarea.title').val()
+    text = $(e.target).parent().parent().find('input.title').val()
     description = $(e.target).parent().parent().find('textarea.description').val()
     priority = Number $(e.target).parent().parent().find('select#priority-chooser').val()
+
+    console.log text, description, priority
 
     if !text or !text.length
       removeTask taskData._id

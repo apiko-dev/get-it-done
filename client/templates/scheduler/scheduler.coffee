@@ -1,4 +1,4 @@
-EVENT_CTRLS = '<div class="event-ctrls"><span class="remove-event"><i class="fa fa-minus"></i></span></div>'
+EVENT_REMOVE_BUTTON = '<div class="event-ctrls"><span class="remove-event"><i class="fa fa-minus"></i></span></div>'
 
 Meteor.Spinner.options =
   width: 5
@@ -36,7 +36,8 @@ Template.scheduler.helpers
   calendarOptions: ->
     {
     eventRender: (event, element) ->
-      element.append EVENT_CTRLS
+      if not event.isGoogle
+        element.append EVENT_REMOVE_BUTTON
       if event.tasks?
         element.append "<div class=\"event-tasks\">#{event.tasks?.join ", "}"
     events: (start, end, timezone, callback) ->
