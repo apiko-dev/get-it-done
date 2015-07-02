@@ -1,8 +1,3 @@
-Template.Stripe.onRendered ->
-  Meteor.setTimeout ->
-    $(".stripe-line").css("height", "").css "padding", ""
-  , 1000
-
 Template.Stripe.helpers
   colors: ->
     boards = Boards.find()
@@ -18,14 +13,21 @@ Template.Stripe.helpers
       return [
         {
           boardColor: '#f68d38'
-          boardName: ''
+          boardName: 'Your boards...'
           boardHash: ''
         }
       ]
     colors
+
   lineWidth: ->
     count = Boards.find(isBacklog: "$exists": false).count() or 1
     return 1 / count * 100 + '%'
+
+  collapseStripe: ->
+    Meteor.setTimeout ->
+      $(".stripe-line").css("height", "").css "padding", ""
+    , 1000
+    return
 
 Template.Stripe.events
   'click .stripe-line': (e, t) ->
