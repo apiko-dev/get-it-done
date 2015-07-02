@@ -36,6 +36,10 @@ Template.scheduler.onRendered ->
 #$('.fc-view-container > div > table > tbody').height()
 
 Template.scheduler.helpers
+  boards: () ->
+    return Boards.find { ownerId: Meteor.userId(), isBacklog: {$exists: false}}, sort: order: 1
+  backlogBoard: () ->
+    return Boards.findOne {isBacklog: true}
   calendarOptions: ->
     {
     eventRender: (event, element) ->

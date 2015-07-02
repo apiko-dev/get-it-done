@@ -1,5 +1,5 @@
 <template name="_taskItem">
-    <div class="row task action ui-sortable-handle" data-id="{{_id}}">
+    <div class="row task action ui-sortable-handle" data-id="{{_id}}" data-order="{{order}}">
         <!-- editable title -->
         {{#if taskEditing}}
             <div class="action-box content-box action-edit">
