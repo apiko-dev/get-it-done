@@ -201,13 +201,6 @@ a.action-title {
   padding-top: 2px;
 }
 
-.priority-container {
-  width: auto;
-  margin-top: 4px;
-  position: relative;
-  display: inline-block;
-}
-
 textarea {
   resize: none !important;
 }

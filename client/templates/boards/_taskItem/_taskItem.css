@@ -43,10 +43,6 @@ a.show-description {
   margin-left: 5px;
 }
 
-.priority-container.edit {
-  left: 0;
-}
-
 .task .fa-clock-o {
   color: #838383;
   font-size: 20px;
