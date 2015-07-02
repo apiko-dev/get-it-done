@@ -4,7 +4,6 @@ Template._boardItem.onCreated ()->
   @.showSettings = new ReactiveVar false
 
 Template._boardItem.onRendered ()->
-  @.$(".hidden-settings").hide()
   makeTaskListSortable.call @
   $('.dropdown-toggle').dropdown()
 

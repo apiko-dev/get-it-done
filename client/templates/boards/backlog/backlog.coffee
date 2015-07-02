@@ -1,6 +1,46 @@
 Template.backlog.onCreated ()->
   @.taskCreating = new ReactiveVar false
   @.boardEditing = new ReactiveVar false
+
+
+Template.backlog.onRendered ()->
+  makeTaskListSortable.call @
+  $('.dropdown-toggle').dropdown()
+
+makeTaskListSortable = ()->
+  taskListOptions =
+    connectWith: '.task-list'
+    helper: 'clone'
+    placeholder: 'sortable-placeholder'
+    items: '.action'
+    forcePlaceholderSize: !0
+    dropOnEmpty: true
+    opacity: 1
+    zIndex: 9999
+    start: (e, ui) ->
+      ui.placeholder.height(ui.helper.outerHeight());
+    update: (event, ui) ->
+      targetBoardId = Blaze.getData(event.target)._id
+      targetTaskId = Template.instance().data._id
+      try
+        prevTaskData = Blaze.getData ui.item[0].previousElementSibling
+      try
+        nextTaskData = Blaze.getData ui.item[0].nextElementSibling
+      if !nextTaskData and prevTaskData
+        curOrder = prevTaskData.order + 1
+      if !prevTaskData and nextTaskData
+        curOrder = nextTaskData.order / 2
+      if !prevTaskData and !nextTaskData
+        curOrder = 1
+      if prevTaskData and nextTaskData
+        curOrder = (nextTaskData.order + prevTaskData.order) / 2
+      Tasks.update _id: targetTaskId,
+        $set:
+          boardId: targetBoardId, order: curOrder
+      , (err, res) ->
+        err and console.log err
+
+  @.$('.task-list').sortable taskListOptions
   
 
 Template.backlog.helpers
