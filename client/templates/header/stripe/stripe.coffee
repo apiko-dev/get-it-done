@@ -25,7 +25,11 @@ Template.Stripe.helpers
 
   collapseStripe: ->
     Meteor.setTimeout ->
+      $('#bs-example-navbar-collapse-1 .nav').fadeOut()
+    , 300
+    Meteor.setTimeout ->
       $(".stripe-line").css("height", "").css "padding", ""
+      $('#bs-example-navbar-collapse-1 .nav').fadeIn()
     , 1000
     return
 
@@ -37,9 +41,9 @@ Template.Stripe.events
     scrollToBoard()
 
   'mouseenter .stripe': (e, t) ->
-    $('#bs-example-navbar-collapse-1 .nav').hide()
+    $('#bs-example-navbar-collapse-1 .nav').fadeOut()
 
   'mouseleave .stripe': (e, t) ->
     Meteor.setTimeout ->
-      $('#bs-example-navbar-collapse-1 .nav').show()
+      $('#bs-example-navbar-collapse-1 .nav').fadeIn()
     , 200
