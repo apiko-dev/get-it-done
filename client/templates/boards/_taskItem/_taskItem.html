@@ -3,7 +3,7 @@
         <!-- editable title -->
         {{#if taskEditing}}
             <div class="action-box content-box action-edit">
-                <textarea class="title" rows="1">{{text}}</textarea>
+                <input class="title" rows="1" required value="{{text}}">
                 <textarea class="description" rows="auto">{{description}}</textarea>
             </div>
             <div value="{{priority}}" class="priority-container edit">

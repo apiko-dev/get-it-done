@@ -82,8 +82,11 @@ Template._boardItem.events
 
   'click .ok-action, keydown .new-task-action .title': (e, t) ->
     if e.type is 'click' or e.keyCode is 13
-      text = t.$("textarea.title").val()
-      description = t.$("textarea.description").val()
+      titleField = t.$("input.title")
+      descriptionField = t.$("textarea.description")
+
+      text = titleField.val()
+      description = descriptionField.val()
       priority = Number t.$("select#priority-chooser").val()
 
       if text?.length < 1
@@ -99,6 +102,9 @@ Template._boardItem.events
           completed: 0
         Tasks.insert taskDoc, (err, res) ->
           err and console.log(err)
+
+      titleField.val ""
+      descriptionField.val ""
 
   'click .cancel-action': (e, t) ->
     Template.instance().taskCreating.set false
