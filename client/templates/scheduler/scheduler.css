@@ -1,23 +1,23 @@
-  .fc-event {
+.fc-event {
+  border: none;
+  box-shadow: -1px 0 7px rgba(0, 0, 0, 0.24);
   color: white;
-  box-shadow: -1px 0px 7px rgba(0, 0, 0, 0.24);
   font-family: sans-serif;
   font-size: 11pt;
   padding: 5px;
-  border: none;
 }
 
-.fc-event:hover *{
+.fc-event:hover * {
   color: white;
 }
 
 .fc-event:hover {
-	box-shadow: -1px 0px 10px rgba(0, 0, 0, 0.24);
-	filter: brightness(95%);
-	-webkit-filter: brightness(95%);
-	-moz-filter: brightness(95%);
-	-o-filter: brightness(95%);
-	-ms-filter: brightness(95%);
+  box-shadow: -1px 0 10px rgba(0, 0, 0, 0.24);
+  filter: brightness(95%);
+  -webkit-filter: brightness(95%);
+  -moz-filter: brightness(95%);
+  -ms-filter: brightness(95%);
+  -o-filter: brightness(95%);
 }
 
 .fc-left * {
@@ -25,19 +25,28 @@
 }
 
 span.remove-event {
-  position: absolute;
-  z-index: 9999;
-  top: 2px;
-  right: 2px;
   background-color: rgba(37, 37, 37, 0.4);
   border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.17);
   height: 18px;
-  width: 18px;
-  text-align: center;
-  vertical-align: middle;
   line-height: 20px;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.17);
   opacity: 0.1;
+  position: absolute;
+  right: 2px;
+  text-align: center;
+  top: 2px;
+  vertical-align: middle;
+  width: 18px;
+  z-index: 9999;
+}
+
+.fc-event {
+  border-radius: 0 !important;
+  box-shadow: 0 4px 10px rgba(16, 16, 16, 0.42) !important;
+}
+
+.fc-button-group button {
+  border-radius: 0 !important;
 }
 
 .fc-event:hover span.remove-event {
@@ -49,15 +58,15 @@ span.remove-event {
 }
 
 .dropdown.calendars-chooser {
-  width: 220px;
+  background-color: #FDFDFD;
   margin-left: calc(50% - 110px);
   margin-right: calc(50% - 110px);
-  background-color: #FDFDFD;
+  width: 220px;
 }
 
 .dropdown.calendars-chooser ul.dropdown-menu {
-  width: 220px;
   padding: 10px;
+  width: 220px;
 }
 
 .dropdown.calendars-chooser ul.dropdown-menu li {
@@ -77,8 +86,8 @@ span.remove-event {
 
 .dropdown.calendars-chooser .spinner-container .spinner {
   left: 0;
-  top: 10px;
   margin-left: -15px;
+  top: 10px;
 }
 
 #calendar td hr {
