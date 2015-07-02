@@ -1,3 +1,8 @@
+Template.Stripe.onRendered ->
+  Meteor.setTimeout ->
+    $(".stripe-line").css("height", "").css "padding", ""
+  , 1000
+
 Template.Stripe.helpers
   colors: ->
     boards = Boards.find()
