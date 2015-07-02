@@ -35,60 +35,6 @@
   font-size: 11pt;
 }
 
-/*======STRIPE======*/
-.stripe {
-  color: white;
-  cursor: pointer;
-  height: 50px;
-  overflow: hidden;
-  position: relative;
-  z-index: 1;
-}
-
-.stripe > .stripe-line {
-  float: left;
-  font-size: 20px;
-  height: 2px;
-  overflow: hidden;
-  text-align: center;
-  text-overflow: ellipsis;
-  -ms-text-overflow: ellipsis;
-  transition: width 1s ease, height .3s ease, padding .3s ease;
-  -moz-transition: width 1s ease, height .3s ease, padding .3s ease;
-  -o-transition: width 1s ease, height .3s ease, padding .3s ease;
-  -webkit-transition: width 1s ease, height .3s ease, padding .3s ease;
-  white-space: nowrap;
-}
-
-.stripe:hover {
-  z-index: 3;
-}
-
-.stripe:hover > .stripe-line {
-  height: 50px;
-  padding: 10px 10px;
-}
-
-@keyframes make-tall {
-  from {
-    height: 2px;
-  }
-  to {
-    height: 40px;
-  }
-}
-
-.navbar.navbar-default {
-  margin-top: -50px;
-}
-
-.collapse.navbar-collapse.pull-right, .navbar.navbar-default .navbar-header {
-  height: 50px;
-  z-index: 2;
-}
-
-/*======STRIPE======*/
-
 .navbar .nav {
   display: block;
   float: right;
@@ -145,6 +91,6 @@
 
   #login-dropdown-list .dropdown-menu {
     margin-left: auto;
-    padding: 0px 0 0 30px;
+    padding: 0 0 0 30px;
   }
 }

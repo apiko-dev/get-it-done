@@ -28,3 +28,11 @@ Template.Stripe.events
     Router.go 'boards', {},
       hash: boardHash
     scrollToBoard()
+
+  'mouseenter .stripe': (e, t) ->
+    $('#bs-example-navbar-collapse-1 .nav').hide()
+
+  'mouseleave .stripe': (e, t) ->
+    Meteor.setTimeout ->
+      $('#bs-example-navbar-collapse-1 .nav').show()
+    , 200
