@@ -1,0 +1,9 @@
+<template name="boardChooser">
+    <div class="form-group">
+        <select id="select-board" class="form-control">
+            {{#each boards}}
+                <option value="{{_id}}">{{title}}</option>
+            {{/each}}
+        </select>
+    </div>
+</template>
