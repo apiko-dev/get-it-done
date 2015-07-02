@@ -1,3 +1,8 @@
+Template.Stripe.onRendered ->
+  Meteor.setTimeout ->
+    $(".stripe-line").css("height", "").css "padding", ""
+  , 1000
+
 Template.Stripe.helpers
   colors: ->
     boards = Boards.find()
@@ -28,3 +33,11 @@ Template.Stripe.events
     Router.go 'boards', {},
       hash: boardHash
     scrollToBoard()
+
+  'mouseenter .stripe': (e, t) ->
+    $('#bs-example-navbar-collapse-1 .nav').hide()
+
+  'mouseleave .stripe': (e, t) ->
+    Meteor.setTimeout ->
+      $('#bs-example-navbar-collapse-1 .nav').show()
+    , 200

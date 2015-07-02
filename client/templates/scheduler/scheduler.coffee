@@ -46,7 +46,6 @@ Template.scheduler.helpers
       if not event.isGoogle
         element.append EVENT_REMOVE_BUTTON
       if event.isGoogle
-        console.log element
         element.addClass "gc-event"
       if event.tasks?
         element.append "<div class=\"event-tasks\">#{event.tasks?.join ", "}"
@@ -56,7 +55,10 @@ Template.scheduler.helpers
         if el.taskIds?
           el.tasks = []
           for taskId in el.taskIds
-            el.tasks.push Tasks.findOne(_id: taskId).text
+            try
+              el.tasks.push Tasks.findOne(_id: taskId).text
+            catch e
+              #task is removed
         el.title = board.title
         el.color = COLORS[board.config.bgColor]
         el
