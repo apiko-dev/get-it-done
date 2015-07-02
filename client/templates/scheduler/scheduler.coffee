@@ -19,14 +19,20 @@ Template.scheduler.onCreated ->
 
 Template.scheduler.onRendered ->
   hr = $ '<hr>'
-  container = $ 'td.fc-today'
+  hr.attr "id", "cur-time-ruler"
+  container = $ '.fc-time-grid'
+
+  rulerPosition = $('td.fc-today').position()
+  rulerWidth = $('td.fc-today').width()
 
   unit = container.height() / (24 * 60) #pixel per minute
   curTime = new Date()
   minutesAfterMidnight = curTime.getHours() * 60 + curTime.getMinutes()
 
   hr.css 'top', minutesAfterMidnight * unit + 'px'
-  hr.css 'width', container.width()
+  hr.css 'left', rulerPosition.left
+  hr.css 'width', rulerWidth
+  hr.css 'z-index', 12
   container.append hr
 
   Meteor.setInterval ->
