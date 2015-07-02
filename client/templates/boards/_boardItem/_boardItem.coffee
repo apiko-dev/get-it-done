@@ -78,7 +78,7 @@ Template._boardItem.helpers
 Template._boardItem.events
   'click .new-task-action': (e, t) ->
     #Template.instance().taskCreating.set true
-    Modal.show 'newTaskModal',
+    Modal.show 'newItemModal',
       board: Template.instance().data
 
   'click .ok-action, keydown .new-task-action .title': (e, t) ->

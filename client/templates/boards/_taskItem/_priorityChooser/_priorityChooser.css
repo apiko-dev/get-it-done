@@ -7,6 +7,12 @@
 
 .priority-container .btn-group button {
   text-shadow: none;
+  outline: none;
+}
+
+.priority-container .btn-group button:active {
+  text-shadow: none;
+  outline: none;
 }
 
 .priority-value {
