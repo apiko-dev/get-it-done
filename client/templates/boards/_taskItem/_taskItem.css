@@ -1,42 +1,42 @@
 a.action-title.action-edit.description {
-  font-size: 13px;
+  display: block;
   font-family: sans-serif;
-	display: block;
+  font-size: 13px;
 }
 
-.ui-sortable > .task > .action-box.ctrl-box{
+.ui-sortable > .task > .action-box.ctrl-box {
+  bottom: 5px;
   padding: 0;
   position: absolute;
   right: 5px;
-  bottom: 5px;
 }
 
-.new-task-container .action-box.ctrl-box, .new-board-container .action-box.ctrl-box{
-  margin-top: 0;
+.new-task-container .action-box.ctrl-box, .new-board-container .action-box.ctrl-box {
   display: block;
+  margin-top: 0;
 }
 
 .ctrl-box i.fa.edit-ok-action:hover {
   color: #03F;
 }
 
-.ctrl-box i.fa.edit-cancel-action:hover{
+.ctrl-box i.fa.edit-cancel-action:hover {
   color: red;
 }
 
 .row.action.board {
-  color: #8F8F8F;
   border-bottom: 1px dashed black;
   border-color: inherit;
+  color: #8F8F8F;
 }
 
 .row.action.board:hover {
-  color: #000000;
   background-color: #fff;
+  color: #000000;
 }
 
 .new-task-container:hover {
-	
+
 }
 
 a.show-description {
@@ -48,12 +48,12 @@ a.show-description {
 }
 
 .task .fa-clock-o {
-  position: absolute;
-  top: 5px;
-  right: 12px;
-  font-size: 20px;
   color: #838383;
+  font-size: 20px;
   opacity: 0.8;
+  position: absolute;
+  right: 12px;
+  top: 5px;
 }
 
 .task .fa-clock-o.stop-timer {
@@ -62,4 +62,19 @@ a.show-description {
 
 .task .fa-clock-o:hover {
   opacity: 1;
+}
+
+.task:hover .delete-action {
+  display: block;
+}
+
+.task .delete-action {
+  color: #838383;
+  cursor: pointer;
+  display: none;
+  font-size: 20px;
+  opacity: 0.8;
+  position: absolute;
+  right: 6px;
+  top: 5px;
 }
