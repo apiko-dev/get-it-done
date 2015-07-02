@@ -14,7 +14,7 @@
 }
 
 div.list.backlog .board-body {
-  overflow-y: auto;
+  /*overflow-y: auto;*/
 }
 
 #lists > div.list.backlog .board-ctrl > * {

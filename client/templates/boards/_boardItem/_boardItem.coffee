@@ -4,7 +4,6 @@ Template._boardItem.onCreated ()->
   @.showSettings = new ReactiveVar false
 
 Template._boardItem.onRendered ()->
-  @.$(".hidden-settings").hide()
   makeTaskListSortable.call @
   $('.dropdown-toggle').dropdown()
 
@@ -22,7 +21,7 @@ makeTaskListSortable = ->
       ui.placeholder.height(ui.helper.outerHeight());
     update: (event, ui) ->
       targetBoardId = Blaze.getData(event.target)._id
-      targetTaskId = Blaze.getData(ui.item[0])._id
+      targetTaskId = ui.item[0].dataset.id
       try
         prevTaskData = Blaze.getData ui.item[0].previousElementSibling
       try
