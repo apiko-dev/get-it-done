@@ -1,0 +1,52 @@
+<template name="newItemModal">
+  <div class="modal light new-item">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">New {{#if isTaskCreating}}task{{else}}board{{/if}}</h4>
+          <button type="button" class="btn btn-default clear" data-dismiss="modal"><i class="fa fa-times"></i></button>
+        </div>
+        <div class="modal-body">
+          {{#if isTaskCreating}}
+          <form class="new-task">
+            <div class="form-group">
+              <div class='col-md-12'>
+                <div class="form-group">
+                  <input id="title" type='text' class="form-control" placeholder="Title..." contenteditable="false"/>
+                </div>
+                <div class="form-group">
+                  <textarea id="description" class="form-control description" rows="auto" placeholder="Enter your description here..."></textarea>
+                </div>
+                <div class="form-group">
+                  {{> priorityChooser}}
+                </div>
+              </div>
+              </div>
+          </form>
+          {{else}}
+           <form class="new-board">
+            <div class="form-group">
+              <div class='col-md-12'>
+                <div class="form-group">
+                  <input id="title" type='text' class="form-control" placeholder="Title..." contenteditable="false"/>
+                </div>
+                <div class="form-group">
+                  <ul class="colors">
+                    {{#each colors}}
+                      <li class="color {{#if equals curColor _index}}active{{/if}}"><span style="background: {{color}}"></span></li>
+                    {{/each}}
+                  </ul>
+                </div>
+              </div>
+              </div>
+          </form>
+          {{/if}}
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-primary submit">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

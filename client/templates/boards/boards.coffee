@@ -2,7 +2,8 @@ BOARD_WIDTH = 300;
 
 Template.boards.events
   'click .new-board-wrapper': (e, t) ->
-    Template.instance().boardCreating.set true
+    #Template.instance().boardCreating.set true
+    Modal.show 'newItemModal'
   'click .new-board-cancel-action': () ->
     Template.instance().boardCreating.set false
   'click .new-board-ok-action, keydown .board-title': (e, t) ->

@@ -1,6 +1,6 @@
 <template name="priorityChooser">
   <div class="priority-container">
-    <div class="btn-group" id="priority-chooser">
+    <div class="btn-group" id="priority-chooser" data-priority="{{current}}">
       <button data-value="0" type="button" class="priority-value pv-low btn btn-default {{isSelected 0}} {{#if isSelected 0}}active{{/if}}">Low</button>
       <button data-value="1" type="button" class="priority-value pv-med btn btn-default {{isSelected 1}} {{#if isSelected 1}}active{{/if}}">Medium</button>
       <button data-value="2" type="button" class="priority-value pv-high btn btn-default {{isSelected 2}} {{#if isSelected 2}}active{{/if}}">High</button>
