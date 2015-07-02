@@ -21,7 +21,7 @@ makeTaskListSortable = ->
       ui.placeholder.height(ui.helper.outerHeight());
     update: (event, ui) ->
       targetBoardId = Blaze.getData(event.target)._id
-      targetTaskId = Blaze.getData(ui.item[0])._id
+      targetTaskId = ui.item[0].dataset.id
       try
         prevTaskData = Blaze.getData ui.item[0].previousElementSibling
       try

@@ -4,11 +4,8 @@ Template.backlog.onCreated ()->
 
 
 Template.backlog.onRendered ()->
-  makeTaskListSortable.call @
   $('.dropdown-toggle').dropdown()
-
-makeTaskListSortable = ()->
-  taskListOptions =
+  @.$('.task-list').sortable 
     connectWith: '.task-list'
     helper: 'clone'
     placeholder: 'sortable-placeholder'
@@ -20,8 +17,9 @@ makeTaskListSortable = ()->
     start: (e, ui) ->
       ui.placeholder.height(ui.helper.outerHeight());
     update: (event, ui) ->
+      task = Blaze.getData(ui.item[0])
       targetBoardId = Blaze.getData(event.target)._id
-      targetTaskId = Template.instance().data._id
+      targetTaskId = task._id
       try
         prevTaskData = Blaze.getData ui.item[0].previousElementSibling
       try
@@ -39,8 +37,12 @@ makeTaskListSortable = ()->
           boardId: targetBoardId, order: curOrder
       , (err, res) ->
         err and console.log err
-
-  @.$('.task-list').sortable taskListOptions
+  #@.$('.task.action').draggable
+  #  revert: 'invalid'
+  #  connectToSortable: '.task-list'
+  #  zIndex: 9999
+  #  dropOnEmpty: true
+  #  opacity: 1
   
 
 Template.backlog.helpers
