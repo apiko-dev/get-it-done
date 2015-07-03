@@ -27,3 +27,11 @@ textarea {
   border: none;
   border-radius: 0;
 }
+
+.s-alert-success {
+  z-index: 10000;
+  text-align: center;
+  font-size: 18px;
+  padding: 12px;
+  font-weight: bold;
+}

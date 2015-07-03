@@ -1,3 +1,18 @@
+.modal-title {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 22px;
+}
+
+.modal textarea#description {
+  font-size: 24px;
+}
+
+.modal-header {
+  margin-top: 24px;
+}
+
 .modal.light {
   background-color: transparent;
   width: 95%;
@@ -56,9 +71,13 @@ button.btn.btn-default.clear {
   background-color: transparent;
 }
 
+button.btn.btn-default.clear:hover {
+  color: #ED1B24;
+}
+
 .modal.new-item #title {
   line-height: 45px;
-  font-size: 40px;
+  font-size: 32px;
 }
 
 .modal-header element.style {
