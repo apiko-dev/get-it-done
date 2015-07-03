@@ -124,21 +124,6 @@ Template.backlog.events
     cur = Session.get 'backlogExpanded'
     Session.set 'backlogExpanded', not cur
 
-  'click .ok-action, keydown .new-task-action .title': (e, t) ->
-    if e.type == 'click' or e.keyCode == 13
-      text = t.$("input.title").val()
-      description = t.$("textarea.description").val()
-      boardId = t.$("select#select-board").val()
-      boardId = Template.instance().data.backlogBoard._id if boardId?.length < 1
-      priority = Number t.$('#priority-chooser button').filter(".active").data("value")
-
-      if text?.length < 1
-        alert 'text is required'
-      else
-        Tasks.insert {ownerId: Meteor.userId(), boardId: boardId, text: text, description: description, priority: priority || 1, completed: 0}, (err, res) ->
-          err and console.log err
-      Template.instance().taskCreating.set false
-
 createProject = (name, boardId, bgColor, cb)->
   Meteor.call 'toggl/createProject', {name: name, boardId: boardId, color: bgColor}, (err, res)->
     res.result and fetchProjects()
