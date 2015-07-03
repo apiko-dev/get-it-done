@@ -3,6 +3,10 @@
   width: 100%;
 }
 
+body {
+  background-color: #FBFBFB;
+}
+
 body, div#main, .main-container.container {
   margin: 0;
   padding: 0;

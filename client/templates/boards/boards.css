@@ -77,6 +77,7 @@ div#lists {
     -ms-flex: 0 0 270px;
     flex: 0 0 270px;
     position: relative;
+    box-shadow: -2px 4px 20px -6px rgba(16, 16, 16, 0.32);
     height: 100%;
 }
 
@@ -107,12 +108,12 @@ div#lists {
   min-width: 50px;
   max-width: 100px;
   padding: 0;
-  box-shadow: -4px 4px 10px 0px rgba(16, 16, 16, 0.32);
+  box-shadow: -2px 4px 20px -6px rgba(16, 16, 16, 0.32);
   margin-left: 30px;
 }
 
-#lists .new-board-container.first {
-  box-shadow: 4px 4px 10px 0px rgba(16, 16, 16, 0.32);
+#lists .new-board-container.head {
+  box-shadow: 2px 4px 20px -6px rgba(16, 16, 16, 0.32);
   margin-right: 30px;
   margin-left: 0;
 }
@@ -141,7 +142,7 @@ div#lists {
 }
 
 .new-board-sign {
-    font-size: 38px;
+    font-size: 30px;
 }
 
 .list .edit-board-title {
