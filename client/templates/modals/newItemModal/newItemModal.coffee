@@ -1,5 +1,12 @@
-Template.newItemModal.onCreated () ->
+Template.newItemModal.onCreated ->
   @.color = new ReactiveVar 0
+  @.newTaskForBoard = new ReactiveVar ""
+
+Template.newItemModal.onRendered ->
+  $(".main-container, .navbar, .stripe").addClass "blur"
+
+Template.newItemModal.onDestroyed ->
+  $(".main-container, .navbar, .stripe").removeClass "blur"
 
 Template.newItemModal.helpers
   isTaskCreating: ->

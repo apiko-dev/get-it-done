@@ -46,3 +46,20 @@ color: rgb(253, 170, 170);
 .priority-value:hover {
   color: rgba(255, 255, 255, 0.69);
 }
+
+#priority-chooser button {
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -ms-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s;
+}
+
+#priority-chooser .active {
+  transform: scale(1.1, 1.1);
+  z-index: 3;
+}
+
+#priority-chooser button:focus {
+  outline: 0;
+}
