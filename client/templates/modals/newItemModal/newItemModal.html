@@ -19,6 +19,9 @@
                 </div>
                 <div class="form-group pull-left">
                   {{> priorityChooser}}
+                    {{#if backlogTaskCreating}}
+                      {{> boardChooser}}
+                    {{/if}}
                 </div>
                   <div class="form-group pull-right">
                       <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>

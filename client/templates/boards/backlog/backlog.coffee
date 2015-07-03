@@ -59,8 +59,6 @@ Template.backlog.helpers
       if not showArchieved
         findQuery.completed = 0
       return Tasks.find findQuery, sortingQuery
-  taskCreating: () ->
-    return Template.instance().taskCreating and Template.instance().taskCreating.get()
   boardEditing: () ->
     return Template.instance().boardEditing.get()
   isNoTasks: () ->
@@ -77,7 +75,10 @@ Template.backlog.helpers
 
 Template.backlog.events
   'click .new-task-action': (e, t) ->
-    Template.instance().taskCreating.set true
+#    Template.instance().taskCreating.set true
+    Modal.show 'newItemModal',
+      board: Template.instance().data
+      isBacklogTask: true
 
   'click .complete-action': (e, t) ->
     taskData = Blaze.getData(event.target)

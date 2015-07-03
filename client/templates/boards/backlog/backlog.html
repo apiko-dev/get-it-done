@@ -36,26 +36,11 @@
       </div>
     </div>
     <div class="action new-task-container" data-creating={{taskCreating}}>
-      {{#if taskCreating}}
-      <div class="action-box content-box new-task-action">
-        <input class="title" rows="1" placeholder="Enter your title here">
-        <textarea class="description" rows="auto" placeholder="Enter your description here"></textarea>
-      </div>
-      <div class="action-box ctrl-box">
-        {{> priorityChooser}}
-        {{> boardChooser}}
-        <div class="action-box ctrl-box pull-right">
-          <span class="ok-action btn btn-primary btn-sm">Save</span>
-          <span class="cancel-action text-danger btn btn-danger btn-sm">Cancel</span>
-        </div>
-      </div>
-      {{else}}
       <a class="new-task-action btn btn-success btn-sm pull-right">
         <div class="new-task-action-wrapper">
           New task...
         </div>
       </a>
-      {{/if}}
     </div>
   </div>
 </div>
