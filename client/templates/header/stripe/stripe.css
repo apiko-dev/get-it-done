@@ -39,5 +39,5 @@
 
 .collapse.navbar-collapse.pull-right, .navbar.navbar-default .navbar-header {
   height: 50px;
-  z-index: 2;
+  z-index: 10001;
 }

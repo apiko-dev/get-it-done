@@ -26,6 +26,7 @@
 .modal.light.in {
   background-color: rgba(255, 255, 255, 0);
   height: 100%;
+  margin: 0;
   transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
@@ -124,9 +125,10 @@ ul.colors {
   background-color: transparent;
   box-shadow: none;
   color: white;
-  font-size: 40px;
+  font-size: 32px;
   font-weight: lighter;
-  line-height: 58px;
+  line-height: 50px;
+  padding-left: 15px;
 }
 
 .modal.new-item #description {
@@ -140,22 +142,22 @@ ul.colors {
   cursor: pointer;
   display: block;
   height: 75px;
-  width: 75px;
   margin-top: -15px !important;
+  transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
   transition: 0.5s cubic-bezier(.27, 1.64, .32, .95);
   -moz-transition: 0.5s cubic-bezier(.27, 1.64, .32, .95);
   -ms-transition: 0.5s cubic-bezier(.27, 1.64, .32, .95);
   -o-transition: 0.5s cubic-bezier(.27, 1.64, .32, .95);
   -webkit-transition: 0.5s cubic-bezier(.27, 1.64, .32, .95);
-  transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
+  width: 75px;
 }
 
 .close:hover {
-  transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -webkit-transform: rotate(90deg);
+  transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
 }
 
 ul.colors li span, ul.colors li.active span {
@@ -189,4 +191,11 @@ input#board-title:-moz-placeholder {
 /* Firefox 18- */
 input#board-title:-ms-input-placeholder {
   color: white;
+}
+
+.board-name-title {
+  color: white;
+  font-size: 26px;
+  margin-bottom: 10px;
+  padding: 10px 15px;
 }

@@ -67,7 +67,7 @@ Template.registerHelper('isCurrentProject', function(board, togglProjectId) {
 
 fetchProjects = function() {
   console.log('fetch projects');
-  var user = Meteor.user()
+  var user = Meteor.user();
   if (user && user.toggl && user.toggl.workspaceId) {
     Meteor.call('toggl/getProjects', user.toggl.workspaceId, function(err, res) {
       if (res && res.result) {
@@ -79,7 +79,7 @@ fetchProjects = function() {
       }
     })
   }
-}
+};
 
 Template.registerHelper('trimLongText', function(text, symbols) {
   if (symbols < text.length) return text.slice(0, symbols - 2) + "...";
