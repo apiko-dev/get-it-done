@@ -36,7 +36,14 @@ Template.newItemModal.events
       sAlert.success 'Successfully created a task'
     else
       alert 'Text and description required'
-
+  'submit form.new-board': (e, t) ->
+    e.preventDefault()
+    text = $(e.target).find('input#board-title').val()
+    if !text or !text.length
+      alert 'Board name is required'
+    else
+      Boards.insert {ownerId: Meteor.userId(), title: text}, (err, res) ->
+        console.log err or res
   'click .submit': (e, t) ->
     e.preventDefault()
     $('form.new-task').submit()

@@ -19,8 +19,9 @@
             <div class="list layer tile cols new-board-container" data-creating={{boardCreating}}>
                 {{#if boardCreating}}
                     <div class="input-group board-title-editor">
-                        <input class="board-title form-control" type="text" value="{{title}}" placeholder="Enter board name here">
-
+                        <form name="create-board">
+                            <input class="board-title form-control" type="text" value="{{title}}" placeholder="Enter board name here">
+                        </form>
                         <div class="save-cancel-box action-box ctrl-box">
                             <span class="button new-board-ok-action btn btn-sm btn-primary">Save</span>
                             <span class="button new-board-cancel-action text-danger btn btn-sm btn-danger">Cancel</span>

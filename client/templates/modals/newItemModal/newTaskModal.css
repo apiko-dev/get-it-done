@@ -75,7 +75,7 @@ button.btn.btn-default.clear:hover {
   color: #ED1B24;
 }
 
-.modal.new-item #title {
+.modal.new-item #board-title {
   line-height: 45px;
   font-size: 32px;
 }

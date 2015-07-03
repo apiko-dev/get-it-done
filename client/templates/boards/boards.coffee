@@ -6,15 +6,26 @@ Template.boards.events
     Modal.show 'newItemModal'
   'click .new-board-cancel-action': () ->
     Template.instance().boardCreating.set false
-  'click .new-board-ok-action, keydown .board-title': (e, t) ->
-    if e.type is 'click' or e.keyCode is 13 and Template.instance().boardCreating.get()
-      text = $(e.target).closest('.new-board-container').find('input').val()
-      if !text or !text.length
-        alert 'Board name is required'
-      else
-        Boards.insert {ownerId: Meteor.userId(), title: text}, (err, res) ->
-          console.log err or res
-      Template.instance().boardCreating.set false
+  # 'click .new-board-ok-action, keydown .board-title': (e, t) ->
+  #   e.preventDefault()
+  #   if e.type is 'click' or e.keyCode is 13 and Template.instance().boardCreating.get()
+  #     text = $(e.target).closest('.new-board-container').find('input').val()
+  #     if !text or !text.length
+  #       alert 'Board name is required'
+  #     else
+  #       Boards.insert {ownerId: Meteor.userId(), title: text}, (err, res) ->
+  #         console.log err or res
+  #     Template.instance().boardCreating.set false
+  'submit form[name="create-board"]': (e, t) ->
+    e.preventDefault()
+    console.log('WTF')
+    text = e.target.find('input.board-title').val()
+    if !text or !text.length
+      alert 'Board name is required'
+    else
+      Boards.insert {ownerId: Meteor.userId(), title: text}, (err, res) ->
+        console.log err or res
+    Template.instance().boardCreating.set false
 
 Template.boards.helpers
   boards: () ->
