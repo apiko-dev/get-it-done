@@ -17,14 +17,22 @@ Template.newItemModal.events
   'submit form.new-task': (e, t) ->
     e.preventDefault()
     instance = Template.instance()
-    console.log instance
-    board = instance.data.board
+    boardId = ""
+
+    if Template.instance().data.isBacklogTask
+      boardId = instance.data.board.backlogBoard._id
+
+      selectedBoard = $("#select-board").val()
+      boardId = selectedBoard if selectedBoard.length > 0
+    else
+      boardId = instance.data.board._id
+
     titleInput = instance.$('#title')
     descriptionInput = instance.$('#description')
 
     taskDoc =
       ownerId: Meteor.userId()
-      boardId: board._id or board.backlogBoard._id
+      boardId: boardId
       text: titleInput.val()
       description: descriptionInput.val()
       priority: Number $('#priority-chooser')[0].dataset.priority
@@ -39,6 +47,7 @@ Template.newItemModal.events
       sAlert.success 'Successfully created a task'
     else
       alert 'Text and description required'
+
   'submit form.new-board': (e, t) ->
     e.preventDefault()
     text = $(e.target).find('input#board-title').val()
