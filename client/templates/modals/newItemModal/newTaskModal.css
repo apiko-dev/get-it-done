@@ -1,16 +1,5 @@
-.modal-title {
-  font-size: 30px;
-  font-weight: bold;
-  text-align: center;
-  padding-top: 22px;
-}
-
 .modal textarea#description {
   font-size: 24px;
-}
-
-.modal-header {
-  margin-top: 24px;
 }
 
 .modal.light {
@@ -55,31 +44,6 @@
 	background-color: transparent;
 }
 
-.modal.light button {
-  height: 50px;
-  width: 100px;
-}
-
-button.btn.btn-default.clear {
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  border: none;
-  box-shadow: none;
-  font-size: 40px;
-  outline: none;
-  background-color: transparent;
-}
-
-button.btn.btn-default.clear:hover {
-  color: #ED1B24;
-}
-
-.modal.new-item #board-title {
-  line-height: 45px;
-  font-size: 32px;
-}
-
 .modal-header element.style {
   color: rgba(193, 193, 193, 0.62);
   font-size: 50px;
@@ -100,4 +64,77 @@ ul.colors li span {
 ul.colors li.active span {
   height: 22px;
   width: 22px;
+}
+
+.new-item.modal .modal-dialog {
+  display: table;
+  width: 60%;
+  height: 100%;
+  margin-top: 0;
+}
+
+.new-item.modal .modal-content {
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.new-item .modal-header {
+  padding: 0px 30px;
+  overflow: auto;
+}
+
+.new-item .modal-header .modal-title {
+  font-size: 50px;
+  font-weight: lighter;
+  color: #CCC;
+  float: left;
+  float: left;
+}
+
+.new-item .modal-header button.btn.btn-default.clear {
+  float: right;
+  border: none;
+  box-shadow: none;
+  font-size: 40px;
+  font-weight: 100;
+  outline: none;
+  background-color: transparent;
+  color: #ddd;
+  margin-top: 20px;
+  padding: 0;
+}
+
+.new-item .modal-header button.btn.btn-default.clear:hover {
+  color: #ED1B24;
+}
+
+.modal.new-item #board-title {
+  font-size: 40px;
+  line-height: 58px;
+  color: #A1A1A1;
+  font-weight: lighter;
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.close {
+  background: url('http://uxrepo.com/static/icon-sets/google-material/svg/android-close.svg') no-repeat center;
+  background-size: contain;
+  opacity: 0.1;
+  cursor: pointer;
+  display: block;
+  height: 45px;
+  width: 45px;
+  -webkit-transition: 0.5s cubic-bezier(.27,1.64,.32,.95);
+  -moz-transition: 0.5s cubic-bezier(.27,1.64,.32,.95);
+  -ms-transition: 0.5s cubic-bezier(.27,1.64,.32,.95);
+  -o-transition: 0.5s cubic-bezier(.27,1.64,.32,.95);
+  transition: 0.5s cubic-bezier(.27,1.64,.32,.95);
+}
+.close:hover {
+  opacity: 0.3;
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  transform: rotate(90deg);
 }
