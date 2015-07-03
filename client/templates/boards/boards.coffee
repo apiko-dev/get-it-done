@@ -16,16 +16,16 @@ Template.boards.events
   #       Boards.insert {ownerId: Meteor.userId(), title: text}, (err, res) ->
   #         console.log err or res
   #     Template.instance().boardCreating.set false
-  'submit form[name="create-board"]': (e, t) ->
-    e.preventDefault()
-    console.log('WTF')
-    text = e.target.find('input.board-title').val()
-    if !text or !text.length
-      alert 'Board name is required'
-    else
-      Boards.insert {ownerId: Meteor.userId(), title: text}, (err, res) ->
-        console.log err or res
-    Template.instance().boardCreating.set false
+  # 'submit form[name="create-board"]': (e, t) ->
+  #   e.preventDefault()
+  #   console.log('WTF')
+  #   text = e.target.find('input.board-title').val()
+  #   if !text or !text.length
+  #     alert 'Board name is required'
+  #   else
+  #     Boards.insert {ownerId: Meteor.userId(), title: text}, (err, res) ->
+  #       console.log err or res
+  #   Template.instance().boardCreating.set false
 
 Template.boards.helpers
   boards: () ->

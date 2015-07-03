@@ -32,7 +32,7 @@ Template.newItemModal.events
     if taskDoc.text and taskDoc.description
       Tasks.insert taskDoc, (err, res) ->
         console.log err or res
-        res and $('.new-task').modal 'hide'
+        res and Modal.hide('newItemModal')
 
       titleInput.val("")
       descriptionInput.val("")
@@ -46,7 +46,7 @@ Template.newItemModal.events
       alert 'Board name is required'
     else
       Boards.insert {ownerId: Meteor.userId(), title: text}, (err, res) ->
-        console.log err or res
+        res and Modal.hide('newItemModal')
   'click .submit': (e, t) ->
     e.preventDefault()
     $('form.new-task').submit()
