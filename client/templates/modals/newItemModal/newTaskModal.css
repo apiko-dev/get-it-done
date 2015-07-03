@@ -1,4 +1,5 @@
 .modal-title {
+  color: white;
   font-size: 30px;
   font-weight: bold;
   text-align: center;
@@ -47,7 +48,7 @@
   width: 50%;
   background-color: transparent;
   border: none;
-  height: 100%;
+  height: auto;
 }
 
 .modal.light .modal-content > div, .modal.light .modal-footer {
@@ -69,6 +70,7 @@ button.btn.btn-default.clear {
   font-size: 40px;
   outline: none;
   background-color: transparent;
+  color: white;
 }
 
 button.btn.btn-default.clear:hover {
@@ -97,7 +99,26 @@ ul.colors li span {
   display: inline-block;
 }
 
+ul.colors {
+  margin: 0;
+}
+
 ul.colors li.active span {
-  height: 22px;
-  width: 22px;
+  transform: scale(1.2, 1.2);
+  box-shadow: -2px 4px 20px -6px rgba(16, 16, 16, 0.32);
+}
+
+ul.colors li span, ul.colors li.active span {
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -ms-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s;
+}
+
+ul.colors li span:hover {
+  opacity: .8;
 }
