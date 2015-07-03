@@ -1,3 +1,6 @@
+Template.Stripe.onCreated ->
+  @.curHash = new ReactiveVar ""
+
 Template.Stripe.helpers
   colors: ->
     boards = Boards.find({}, { sort: { order: 1 } })
@@ -41,7 +44,7 @@ Template.Stripe.events
     scrollToBoard()
 
   'mouseenter .stripe': (e, t) ->
-    $('#bs-example-navbar-collapse-1 .nav').fadeOut()
+    $('#bs-example-navbar-collapse-1 .nav').hide()
 
   'mouseleave .stripe': (e, t) ->
     Meteor.setTimeout ->

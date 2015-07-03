@@ -91,7 +91,7 @@ Template._boardItem.events
       priority = Number t.$('#priority-chooser button').filter(".active").data("value")
 
       if text?.length < 1
-        sAlert.error "Please, enter the title"
+        sAlert.error "Please, enter the title", timeout: 100
       else
         boardId = t.data._id
         taskDoc =
@@ -185,9 +185,9 @@ Template._boardItem.events
     cur = instance.showSettings.get()
     instance.showSettings.set not cur
   'click #color-chooser': (e, t) ->
-    t.$(e.target).closest(".dropdown-menu").toggle()
+    t.$(e.target).parent().find('.dropdown-menu').toggle()
   'click #toggl-project': (e, t) ->
-    t.$(e.target).closest(".dropdown-menu").toggle()
+    t.$(e.target).parent().find('.dropdown-menu').toggle()
 
 createProject = (name, boardId, bgColor, cb)->
   Meteor.call 'toggl/createProject', name: name, boardId: boardId, color: bgColor, (err, res)->

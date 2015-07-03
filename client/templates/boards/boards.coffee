@@ -25,8 +25,9 @@ Template.boards.onCreated () ->
   hash = Iron.Location.get().hash
   hash = hash.slice 1, hash.length
   if hash
-    body_width = $('body').width()
-    $('#lists').stop().animate {scrollLeft: $('#' + hash).offset().left - body_width / 2 + BOARD_WIDTH / 2}, 700
+    bodyWidth = $('body').width()
+    boardOffset = $('#' + hash).offset()
+    $('#lists').stop().animate {scrollLeft: boardOffset.left - bodyWidth / 2 + BOARD_WIDTH / 2}, 700
 
 Template.boards.onRendered () ->
   Meteor.setTimeout ->
