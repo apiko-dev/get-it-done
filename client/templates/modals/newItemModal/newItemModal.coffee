@@ -52,24 +52,37 @@ Template.newItemModal.events
 
   'submit form.new-board': (e, t) ->
     e.preventDefault()
+    boardDoc = {}
     text = $(e.target).find('input#board-title').val()
+    buttonPressed = Template.instance().data.buttonPressed
+
+    if buttonPressed is "left"
+      boardDoc.insertInTheBeginning = true
+      boardDoc.minBoardOrder = Boards.findOne({}, {sort: order: 1}).order
+
     if !text or !text.length
       alert 'Board name is required'
     else
-      boardDoc =
+      boardProperties =
         ownerId: Meteor.userId()
         title: text
         config:
           bgColor: Template.instance().color.get()
 
-      console.log boardDoc
+      _.extend boardDoc, boardProperties
 
       Boards.insert boardDoc, (err, res) ->
-        console.log err, res
+        if err
+          sAlert.error "Error while creating board"
+#        if res
+#          sAlert.success "Successfully created a board #{boardDoc.title}"
         Modal.hide('newItemModal')
+
+
   'click .submit': (e, t) ->
     e.preventDefault()
     $('form.new-task').submit()
+
   'click ul.colors li span': (e, t)->
     colorIndex = t.$(e.target).parent().index()
     Template.instance().color.set colorIndex

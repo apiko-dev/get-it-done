@@ -2,8 +2,10 @@ BOARD_WIDTH = 300;
 
 Template.boards.events
   'click .new-board-wrapper': (e, t) ->
-    #Template.instance().boardCreating.set true
-    Modal.show 'newItemModal'
+    buttonSide = t.$(e.target).data "side"
+    Modal.show 'newItemModal',
+      buttonPressed: buttonSide
+
   'click .new-board-cancel-action': () ->
     Template.instance().boardCreating.set false
 

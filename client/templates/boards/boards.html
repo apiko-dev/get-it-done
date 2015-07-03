@@ -5,8 +5,8 @@
         <div id="lists">
             {{> highPriorityBoard boards=boards}}
             <div class="list layer tile cols new-board-container head" data-creating={{boardCreating}}>
-                <div class="new-board-wrapper">
-                    <div class="toggle-list edit-board-title">
+                <div class="new-board-wrapper" data-side="left">
+                    <div class="toggle-list edit-board-title" title="Create new board">
                         <i class="fa fa-plus new-board-sign"></i>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
                         </div>
                     </div>
                 {{else}}
-                    <div class="new-board-wrapper tail" title="Create new board">
+                    <div class="new-board-wrapper tail" title="Create new board" data-side="right">
                         <div class="toggle-list edit-board-title">
                             <i class="fa fa-plus new-board-sign"></i>
                         </div>
