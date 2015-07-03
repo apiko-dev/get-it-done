@@ -32,18 +32,20 @@ Template._taskItem.events
       console.log err or res
   'click .action-edit': (e, t) ->
     Template.instance().taskEditing.set true
+    console.log Template.instance().data
   'click .edit-ok-action': (e, t) ->
     taskData = Blaze.getData(e.target)
     text = $(e.target).parent().parent().find('input.title').val()
     description = $(e.target).parent().parent().find('textarea.description').val()
     priority = Number $('#priority-chooser button').filter(".active").data("value")
-
-    console.log text, description, priority
+    boardId = $("#select-board").val()
+    if not boardId
+      boardId = taskData.boardId
 
     if !text or !text.length
       removeTask taskData._id
 
-    Tasks.update {_id: taskData._id}, {$set: {text: text, description: description, priority: priority}}, (err, res) ->
+    Tasks.update {_id: taskData._id}, {$set: {boardId: boardId, text: text, description: description, priority: priority}}, (err, res) ->
       console.log err or res
 
     Template.instance().taskEditing.set false

@@ -1,8 +1,8 @@
 <template name="boardChooser">
-    <div class="form-group">
+    <div class="form-group pull-right">
         <select id="select-board" class="form-control">
             {{#each boards}}
-                <option value="{{_id}}">{{title}}</option>
+                <option selected="{{isSelected _id}}" value="{{_id}}">{{title}}</option>
             {{/each}}
         </select>
     </div>
