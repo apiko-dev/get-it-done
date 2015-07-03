@@ -11,8 +11,9 @@ Boards.allow
 if Meteor.isClient
 	Boards.before.insert (userId, doc) ->
 		doc.config = doc.config or {}
-		randomColorIndex = Math.floor(Math.random() * (COLORS.length))
-		doc.config.bgColor = randomColorIndex # doc.config.bgColor or 14
+		if not doc.config.bgColor?
+			randomColorIndex = Math.floor(Math.random() * (COLORS.length))
+			doc.config.bgColor = randomColorIndex # doc.config.bgColor or 14
 		doc.config.sortByPriority = 0
 		doc.config.showArchieved = 0
 		maxOrderBoard = Boards.findOne {boardId: doc.boardId}, {sort: {order: -1}}

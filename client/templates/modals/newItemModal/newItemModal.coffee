@@ -1,5 +1,5 @@
 Template.newItemModal.onCreated () ->
-  @.color = new ReactiveVar(0);
+  @.color = new ReactiveVar 0
 
 Template.newItemModal.helpers
   isTaskCreating: ->
@@ -10,8 +10,10 @@ Template.newItemModal.helpers
     array = []
     array.push color: color, _index: i for color, i in COLORS
     return array
-  curColor: ()->
+  curColor: ->
     return Template.instance().color.get()
+  backgroundColor: ->
+    return COLORS[Template.instance().color.get()]
 
 Template.newItemModal.events
   'submit form.new-task': (e, t) ->
@@ -54,9 +56,22 @@ Template.newItemModal.events
     if !text or !text.length
       alert 'Board name is required'
     else
-      Boards.insert {ownerId: Meteor.userId(), title: text}, (err, res) ->
-        res and Modal.hide('newItemModal')
+      boardDoc =
+        ownerId: Meteor.userId()
+        title: text
+        config:
+          bgColor: Template.instance().color.get()
+
+      console.log boardDoc
+
+      Boards.insert boardDoc, (err, res) ->
+        console.log err, res
+        Modal.hide('newItemModal')
   'click .submit': (e, t) ->
     e.preventDefault()
     $('form.new-task').submit()
-#  'click .colors li': (e, t)->
+  'click ul.colors li span': (e, t)->
+    colorIndex = t.$(e.target).parent().index()
+    Template.instance().color.set colorIndex
+
+    t.$(".modal.light.new-item.in").css "backgroud-color"

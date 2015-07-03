@@ -1,3 +1,11 @@
+.modal-title {
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 22px;
+}
+
 .modal textarea#description {
   font-size: 24px;
 }
@@ -36,12 +44,17 @@
   width: 50%;
   background-color: transparent;
   border: none;
-  height: 100%;
+  height: auto;
 }
 
 .modal.light .modal-content > div, .modal.light .modal-footer {
 	border: none;
 	background-color: transparent;
+}
+
+.modal.light button {
+  height: 50px;
+  width: 100px;
 }
 
 .modal-header element.style {
@@ -61,9 +74,8 @@ ul.colors li span {
   display: inline-block;
 }
 
-ul.colors li.active span {
-  height: 22px;
-  width: 22px;
+ul.colors {
+  margin: 0;
 }
 
 .new-item.modal .modal-dialog {
@@ -88,7 +100,6 @@ ul.colors li.active span {
   font-size: 50px;
   font-weight: lighter;
   color: #CCC;
-  float: left;
   float: left;
 }
 
@@ -132,9 +143,25 @@ ul.colors li.active span {
   -o-transition: 0.5s cubic-bezier(.27,1.64,.32,.95);
   transition: 0.5s cubic-bezier(.27,1.64,.32,.95);
 }
+
 .close:hover {
   opacity: 0.3;
   -webkit-transform: rotate(90deg);
   -moz-transform: rotate(90deg);
   transform: rotate(90deg);
+}
+
+ul.colors li span, ul.colors li.active span {
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -ms-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s;
+}
+
+ul.colors li span:hover {
+  opacity: .8;
 }
