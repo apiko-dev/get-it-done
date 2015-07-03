@@ -2,8 +2,10 @@ Template.newItemModal.onCreated () ->
   @.color = new ReactiveVar(0);
 
 Template.newItemModal.helpers
-  isTaskCreating: () ->
+  isTaskCreating: ->
     return Template.instance().data and !!Template.instance().data.board
+  backlogTaskCreating: ->
+    return !!Template.instance().data.isBacklogTask
   colors: ->
     array = []
     array.push color: color, _index: i for color, i in COLORS
@@ -15,13 +17,14 @@ Template.newItemModal.events
   'submit form.new-task': (e, t) ->
     e.preventDefault()
     instance = Template.instance()
+    console.log instance
     board = instance.data.board
     titleInput = instance.$('#title')
     descriptionInput = instance.$('#description')
 
     taskDoc =
       ownerId: Meteor.userId()
-      boardId: board._id
+      boardId: board._id or board.backlogBoard._id
       text: titleInput.val()
       description: descriptionInput.val()
       priority: Number $('#priority-chooser')[0].dataset.priority
