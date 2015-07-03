@@ -1,47 +1,43 @@
 <template name="backlog">
-<div id="{{backlogBoard._id}}" class="list layer tile cols backlog {{#if backlogExpanded}}expanded{{/if}}">
-  <button class="show-backlog">
-  {{#if backlogExpanded}}
-    <i class="fa fa-times"></i>
-  {{else}}
-    <i class="fa fa-inbox"></i>
-  {{/if}}
-  </button>
-  <div class="action-row list-title-row">
-    <div class="toggle-list edit-board-title">
-      <span class="list-title">
-        {{backlogBoard.title}}
-      </span>
-    </div>
-    <div class="board-ctrl pull-right">
-      <div class="checkbox show-archieved">
-        <label>
-          <input checked="{{showArchieved}}" type="checkbox"> Show archieved
-        </label>
-      </div>
-      <label class="priority-switch-label">
-        <input checked="{{sortByPriority}}" type="checkbox" name="toggle-switch" class="priority-switch-checkbox">
-        Sort by priority
-      </label>
-    </div>
-  </div>
-  <div class="board-body">
-    <div class="actions collapse in ui-sortable">
-      <div class="backlog-task-list">
-        {{#each tasks}}
-        	{{> _taskItem}}
-        {{else}}
-        <p class="placeholder">No tasks...</p>
-        {{/each}}
-      </div>
-    </div>
-    <div class="action new-task-container" data-creating={{taskCreating}}>
-      <a class="new-task-action btn btn-success btn-sm pull-right">
-        <div class="new-task-action-wrapper">
-          New task...
+    <div id="{{backlogBoard._id}}" class="list layer tile cols backlog {{#if backlogExpanded}}expanded{{/if}}">
+        <button class="show-backlog">
+            {{#if backlogExpanded}}
+                <i class="fa fa-times"></i>
+            {{else}}
+                <i class="fa fa-inbox"></i>
+            {{/if}}
+        </button>
+        <div class="action-row list-title-row">
+            <div class="toggle-list edit-board-title">
+                <span class="list-title">Inbox</span>
+            </div>
+            <div class="board-ctrl pull-right">
+                <label class="priority-switch-label btn btn-primary btn-xs {{#if sortByPriority}}active{{/if}}">
+                    <input checked="{{sortByPriority}}" type="checkbox" name="toggle-switch" class="hidden priority-switch-checkbox">
+                    Priority sort
+                </label>
+                <label class="show-archieved btn btn-primary btn-xs {{#if showArchieved}}active{{/if}}">
+                    <input checked="{{showArchieved}}" type="checkbox" class="hidden"> Archived
+                </label>
+            </div>
         </div>
-      </a>
+        <div class="board-body">
+            <div class="actions collapse in ui-sortable">
+                <div class="backlog-task-list">
+                    {{#each tasks}}
+                        {{> _taskItem}}
+                    {{else}}
+                        <p class="placeholder">No tasks...</p>
+                    {{/each}}
+                </div>
+            </div>
+            <div class="action new-task-container" data-creating={{taskCreating}}>
+                <a class="new-task-action btn btn-success btn-sm pull-right">
+                    <div class="new-task-action-wrapper">
+                        New task...
+                    </div>
+                </a>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 </template>

@@ -51,13 +51,14 @@ Template.backlog.helpers
   tasks: ->
     if Template.instance().data and Template.instance().data.backlogBoard
       board = Template.instance().data.backlogBoard
-      findQuery = { boardId: board._id}
+      findQuery = boardId: board._id
       sortByPriority = board.config.sortByPriority
       showArchieved = board.config.showArchieved
-      sortingQuery = sort: if sortByPriority then  {priority: -1} else {order: 1}
+      sortingQuery = sort: if sortByPriority then  priority: -1 else order: 1
       sortingQuery.sort.completed = -1
-      if not showArchieved
-        findQuery.completed = 0
+      if showArchieved
+        findQuery.completed = 1
+      else findQuery.completed = 0
       return Tasks.find findQuery, sortingQuery
   boardEditing: () ->
     return Template.instance().boardEditing.get()
@@ -116,8 +117,10 @@ Template.backlog.events
     $(e.target).toggleClass "active"
     board = Template.instance().data.backlogBoard
     cur = board.config.showArchieved
-    showArchieved = if cur == 1 then 0 else 1
-    Boards.update {_id: board._id}, {$set: {'config.showArchieved': showArchieved}}, (err, res) ->
+    showArchieved = if cur is 1 then 0 else 1
+    Boards.update {_id: board._id}, $set:
+      'config.showArchieved': showArchieved
+    , (err, res) ->
       err and console.log err
 
   'click .show-backlog': (e, t) ->
