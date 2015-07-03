@@ -39,7 +39,8 @@ Template.newItemModal.events
       description: descriptionInput.val()
       priority: Number $('#priority-chooser')[0].dataset.priority
       completed: 0
-    if taskDoc.text and taskDoc.description
+
+    if taskDoc.text
       Tasks.insert taskDoc, (err, res) ->
         console.log err or res
         res and Modal.hide('newItemModal')
@@ -48,7 +49,7 @@ Template.newItemModal.events
       descriptionInput.val("")
       sAlert.success 'Successfully created a task'
     else
-      alert 'Text and description required'
+      sAlert.error "Please, enter the title"
 
   'submit form.new-board': (e, t) ->
     e.preventDefault()

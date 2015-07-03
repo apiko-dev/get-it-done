@@ -32,7 +32,7 @@ textarea {
   border-radius: 0;
 }
 
-.s-alert-success {
+.s-alert-box {
   z-index: 10000;
   text-align: center;
   font-size: 18px;

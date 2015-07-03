@@ -91,7 +91,7 @@ Template._boardItem.events
       priority = Number t.$('#priority-chooser button').filter(".active").data("value")
 
       if text?.length < 1
-        alert 'text is required'
+        sAlert.error "Please, enter the title"
       else
         boardId = t.data._id
         taskDoc =
