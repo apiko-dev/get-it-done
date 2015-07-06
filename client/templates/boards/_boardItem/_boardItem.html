@@ -20,7 +20,7 @@
         <div class="board-ctrl pull-right hidden-settings">
           <div class="btn-group">
             <label class="btn btn-primary btn-xs color-picker" role="group">
-              <span id="color-chooser" type="button" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span id="color-chooser" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fa fa-caret-down"></i>
                 Color
               </span>
@@ -33,7 +33,7 @@
 
             {{#if currentUser.toggl}}
               <label class="btn btn-primary btn-xs dropdown project-picker">
-                <span id="toggl-project" href="#" class="dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                <span id="toggl-project" class="dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
                   <i class="fa fa-caret-down"></i>
                   Toggl project
                 </span>
@@ -70,26 +70,12 @@
           {{/each}}
         </div>
       </div>
-      <div class="action new-task-container" data-creating={{taskCreating}}>
-        {{#if taskCreating}}
-          <div class="action-box content-box new-task-action">
-            <input class="title" placeholder="Enter your title here">
-            <textarea class="description" rows="auto" placeholder="Enter your description here"></textarea>
+      <div class="action new-task-container">
+        <a class="new-task-action btn btn-success btn-sm pull-right">
+          <div class="new-task-action-wrapper">
+            New task...
           </div>
-          <div class="action-box ctrl-box">
-            {{> priorityChooser}}
-            <div class="action-box ctrl-box pull-right">
-              <span class="ok-action btn btn-primary btn-sm">Save</span>
-              <span class="cancel-action text-danger btn btn-danger btn-sm">Cancel</span>
-            </div>
-          </div>
-        {{else}}
-          <a class="new-task-action btn btn-success btn-sm pull-right">
-            <div class="new-task-action-wrapper">
-              New task...
-            </div>
-          </a>
-        {{/if}}
+        </a>
       </div>
     </div>
   </div>

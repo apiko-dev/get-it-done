@@ -1,5 +1,4 @@
 Template._boardItem.onCreated ->
-  @.taskCreating = new ReactiveVar false
   @.boardEditing = new ReactiveVar false
   @.showSettings = new ReactiveVar false
 
@@ -27,8 +26,6 @@ Template._boardItem.helpers
 
     Tasks.find findQuery, sortingQuery
 
-  taskCreating: ->
-    Template.instance().taskCreating and Template.instance().taskCreating.get()
   boardEditing: ->
     Template.instance().boardEditing.get()
   isNoTasks: ->
@@ -46,6 +43,7 @@ Template._boardItem.events
   'click .new-task-action': ->
     Modal.show 'newItemModal',
       board: Template.instance().data
+      isBacklogTask: !!Template.instance().data?.backlogBoard
 
   'click li.color': (e) ->
     tplInstance = Template.instance()
@@ -88,10 +86,10 @@ Template._boardItem.events
       tplInstance.boardEditing.set null
 
   'click .priority-switch-checkbox': ->
-    board = Template.instance().data
-    currentSorting = board.config.sortByPriority
+    boardData = Template.instance().data
+    currentSorting = boardData.config.sortByPriority
     newSorting = if currentSorting is 1 then 0 else 1
-    updateBoard board._id, 'config.sortByPriority': newSorting
+    updateBoard boardData._id, 'config.sortByPriority': newSorting
 
   'click .show-archieved': ->
     boardData = Template.instance().data
@@ -113,7 +111,7 @@ Template._boardItem.events
   'click #toggl-project': (e, t) ->
     t.$(e.target).parent().find('.dropdown-menu').toggle()
 
-createTogglProject = (name, boardId, bgColor, cb)->
+createTogglProject = (name, boardId, bgColor, cb) ->
   Meteor.call 'toggl/createProject', name: name, boardId: boardId, color: bgColor, (err, res)->
     res.result and fetchProjects()
 
@@ -133,3 +131,7 @@ updateTogglProject = (projectId, data) ->
 @removeBoard = (boardId) ->
   Boards.remove _id: boardId, (err, res) ->
     err and console.log err
+
+Template.backlog.inheritsEventsFrom "_boardItem"
+Template.backlog.inheritsHelpersFrom "_boardItem"
+Template.backlog.inheritsHooksFrom "_boardItem"
