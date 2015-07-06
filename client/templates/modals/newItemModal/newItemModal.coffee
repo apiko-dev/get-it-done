@@ -10,17 +10,17 @@ Template.newItemModal.onDestroyed ->
 
 Template.newItemModal.helpers
   isTaskCreating: ->
-    return Template.instance().data and !!Template.instance().data.board
+    Template.instance().data and !!Template.instance().data.board
   backlogTaskCreating: ->
-    return !!Template.instance().data.isBacklogTask
+    !!Template.instance().data.isBacklogTask
   colors: ->
     array = []
     array.push color: color, _index: i for color, i in COLORS
-    return array
+    array
   curColor: ->
-    return Template.instance().color.get()
+    Template.instance().color.get()
   backgroundColor: ->
-    return COLORS[Template.instance().color.get()]
+    COLORS[Template.instance().color.get()]
 
 Template.newItemModal.events
   'submit form.new-task': (e, t) ->

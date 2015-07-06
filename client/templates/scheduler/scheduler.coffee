@@ -15,39 +15,22 @@ Template.scheduler.onCreated ->
   @calendars = new ReactiveVar()
   calendarsCount = GCCalendars.find().count()
   @showSpinner = new ReactiveVar not calendarsCount
-  self = @
 
 Template.scheduler.onRendered ->
-  hr = $ '<hr>'
-  hr.attr "id", "cur-time-ruler"
-  container = $ '.fc-time-grid'
-
-  rulerPosition = $('td.fc-today').position()
-  rulerWidth = $('td.fc-today').width()
-
-  unit = container.height() / (24 * 60) #pixel per minute
-  curTime = new Date()
-  minutesAfterMidnight = curTime.getHours() * 60 + curTime.getMinutes()
-
-  hr.css 'top', minutesAfterMidnight * unit + 'px'
-  hr.css 'left', rulerPosition.left
-  hr.css 'width', rulerWidth
-  hr.css 'z-index', 12
-  container.append hr
-
+  displayCurrentTimeRuler()
   $("#calendar table").eq(0).fixedTableHeader()
 
-  Meteor.setInterval ->
-    hr.css 'top', hr.height + unit + 'px'
-    console.log hr
-  , 60000
-#$('.fc-view-container > div > table > tbody').height()
-
 Template.scheduler.helpers
-  boards: () ->
-    return Boards.find { ownerId: Meteor.userId(), isBacklog: {$exists: false}}, sort: order: 1
-  backlogBoard: () ->
-    return Boards.findOne {isBacklog: true}
+  boards: ->
+    Boards.find
+      ownerId: Meteor.userId()
+      isBacklog:
+        $exists: false
+    , sort: {order: 1}
+
+  backlogBoard: ->
+    Boards.findOne isBacklog: true
+
   calendarOptions: ->
     {
     eventRender: (event, element) ->
@@ -60,13 +43,14 @@ Template.scheduler.helpers
     events: (start, end, timezone, callback) ->
       allEvents = Chips.find().map (el) ->
         board = Boards.findOne el.boardId
+        #fetch task names to event
         if el.taskIds?
           el.tasks = []
           for taskId in el.taskIds
             try
               el.tasks.push Tasks.findOne(_id: taskId).text
             catch e
-              #task is removed
+            #task is probably removed
         el.title = board.title
         el.color = COLORS[board.config.bgColor]
         el
@@ -104,7 +88,6 @@ Template.scheduler.helpers
         else
           Router.go 'boards', {},
             hash: event.boardId
-    #console.log 'go to board ', event.boardId
     }
   calendars: ->
     return GCCalendars.find()
@@ -113,30 +96,38 @@ Template.scheduler.helpers
 
 Template.scheduler.onRendered ->
   fetchGCCalendars()
+
   Meteor.setTimeout ->
     refetchEvents()
   , 100
+
   Chips.after.insert refetchEvents
   Chips.after.remove refetchEvents
   Chips.after.update refetchEvents
-  @.$('.dropdown-toggle').dropdown()
 
+  @.$('.dropdown-toggle').dropdown()
 
 Template.scheduler.events
   'click .choosable-calendar-item': (e, t)->
     calendar = Blaze.getData e.target
-    events = GCEvents.find(calendarId: calendar.id)
+    events = GCEvents.find calendarId: calendar.id
     if events.count() < 1
       fetchGCEvents calendar.id
     else
       removeGCEventsByCalendarId calendar.id
-    GCCalendars.update {_id: calendar._id}, {$set: {active: not calendar.active}}
+    GCCalendars.update _id: calendar._id,
+      $set:
+        active: not calendar.active
 
 refetchEvents = () ->
   $('#calendar').fullCalendar 'refetchEvents'
 
 updateChip = (event) ->
-  Chips.update {_id: event._id}, {$set: {start: event.start.format(), end: event.end.format()}}, (err, res) ->
+  Chips.update _id: event._id,
+    $set:
+      start: event.start.format()
+      end: event.end.format()
+  , (err, res) ->
     console.log err or res
 
 createChip = (start, end, boardId) ->
@@ -158,17 +149,42 @@ fetchGCEvents = (calendarId) ->
             calendarId: calendarId
       refetchEvents()
 
-fetchGCCalendars = () ->
-  instance = Template.instance()
-  if GCCalendars.find().count() < 1
+fetchGCCalendars = ->
+  tplInstance = Template.instance()
+  if noGoogleCalendars = GCCalendars.find().count() < 1
     Meteor.call 'gcalendar/fetchCalendars', (err, res) ->
       if res and res.result
         res.result.items.forEach (el)->
           el.active = false
           GCCalendars.insert el
-        instance.showSpinner.set false
+        tplInstance.showSpinner.set false
 
 removeGCEventsByCalendarId = (calendarId) ->
   GCEvents.remove calendarId: calendarId, (err, res) ->
     console.log err or res
     refetchEvents()
+
+displayCurrentTimeRuler = ->
+  hr = $ '<hr>'
+  hr.attr "id", "cur-time-ruler"
+  container = $ '.fc-time-grid'
+
+  rulerPosition = $('td.fc-today').position()
+  rulerWidth = $('td.fc-today').width()
+
+  unit = container.height() / (24 * 60) #pixel per minute
+  curTime = new Date()
+  minutesAfterMidnight = curTime.getHours() * 60 + curTime.getMinutes()
+
+  hr.css 'top', minutesAfterMidnight * unit + 'px'
+  hr.css 'left', rulerPosition.left
+  hr.css 'width', rulerWidth
+  hr.css 'z-index', 12
+  container.append hr
+
+  #TODO What if page isn't reloaded for a day
+  #Need to update left position too
+  Meteor.setInterval ->
+    hr.css 'top', hr.height + unit + 'px'
+    console.log hr
+  , 60000
