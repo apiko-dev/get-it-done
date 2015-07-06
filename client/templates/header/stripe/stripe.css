@@ -32,9 +32,9 @@
 }
 
 .navbar.navbar-default {
-  margin-top: -50px;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.23);
   border-radius: 0;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.23);
+  margin-top: -50px;
 }
 
 .collapse.navbar-collapse.pull-right, .navbar.navbar-default .navbar-header {

@@ -4,7 +4,6 @@
       width: {{lineWidth}};
     }
 
-    /* The animation code */
     @keyframes stretch {
       from {
         width: 0;
@@ -14,7 +13,6 @@
       }
     }
 
-    /* The element to apply the animation to */
     .stripe-line {
       animation-name: stretch;
       animation-duration: 1s;
@@ -22,7 +20,7 @@
   </style>
   <div class="stripe">
     {{#each colors}}
-        {{collapseStripe}}
+      {{collapseStripe}}
       <div class="stripe-line" style="background-color: {{boardColor}}; height: 50px; padding: 10px 10px">{{boardName}}</div>
     {{/each}}
   </div>
