@@ -69,3 +69,13 @@ a.show-description {
   right: 6px;
   top: 5px;
 }
+
+.row.task.action .action-box.content-box {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -ms-text-overflow: ellipsis;
+}
+
+.action-title.title.action-edit {
+  white-space: nowrap;
+}
