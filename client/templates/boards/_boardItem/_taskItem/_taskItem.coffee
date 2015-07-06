@@ -79,7 +79,7 @@ Template._taskItem.events
     else
       Modal.show 'togglSignIn'
 
-  'click .stop-timer': (e) ->
+  'click .stop-timer': ->
     if signedInToToggl = Meteor.user().toggl and Meteor.user().toggl.api_token
       Meteor.call 'toggl/stopTimer'
     else

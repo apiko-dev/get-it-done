@@ -1,19 +1,14 @@
 <template name="_taskItem">
   <div class="row task action ui-sortable-handle" data-id="{{_id}}" data-order="{{order}}">
-    <!-- editable title -->
     {{#if taskEditing}}
       <div class="action-box content-box action-edit">
-        <input class="title" rows="1" required value="{{text}}">
+        <input class="title" required value="{{text}}">
         <textarea class="description" rows="auto">{{description}}</textarea>
       </div>
       <div class="edit">
         {{> priorityChooser priority=priority}}
         {{> boardChooser boardId=boardId}}
       </div>
-      <!-- <div class="action-box ctrl-box pull-right">
-              <i class="fa fa-floppy-o edit-ok-action"></i>
-              <i class="fa fa-times edit-cancel-action"></i>
-           </div> -->
       <div class="action-box ctrl-box pull-right">
         <span class="button btn btn-primary btn-sm edit-ok-action">Save</span>
         <span class="button btn btn-danger btn-sm edit-cancel-action text-danger">Cancel</span>
@@ -38,10 +33,8 @@
       </div>
       {{#if isTimeStarted}}
         <i class="fa fa-clock-o stop-timer"></i>
-        <!-- <span class="stop-timer">Stop timer</span> -->
       {{else}}
         <i class="fa fa-clock-o start-timer"></i>
-        <!-- <span class="start-timer">Start timer</span> -->
       {{/if}}
     {{/if}}
   </div>
