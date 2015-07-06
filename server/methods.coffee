@@ -71,8 +71,8 @@ Meteor.methods
         toggl = new TogglClient({apiToken: user.toggl.api_token})
         boundfunction = undefined
 
-        CurrentName.withValue user, ()->
-          boundfunction = Meteor.bindEnvironment ()->
+        CurrentName.withValue user, ->
+          boundfunction = Meteor.bindEnvironment ->
             setTaskTimer user._id
           , (e) -> console.log e
 
@@ -104,7 +104,7 @@ Meteor.methods
 
       if user.toggl and user.toggl.api_token
         toggl = new TogglClient apiToken: user.toggl.api_token
-        proj = Async.runSync (done)->
+        proj = Async.runSync (done) ->
           toggl.createProject
             name: query.name
             color: query.color
@@ -163,12 +163,12 @@ Meteor.methods
 
       if user.services and user.services.google and user.services.google.accessToken
         gc = new GCalendar.GoogleCalendar user.services.google.accessToken
-        resp = Async.runSync (done)->
-          gc.events.list calendarId, (err, res)->
+        resp = Async.runSync (done) ->
+          gc.events.list calendarId, (err, res) ->
             done err, res
     resp
 
-  'gcalendar/fetchCalendars': ()->
+  'gcalendar/fetchCalendars': ->
     resp = undefined
 
     if @.userId
@@ -176,8 +176,8 @@ Meteor.methods
 
       if user.services and user.services.google and user.services.google.accessToken
         gc = new GCalendar.GoogleCalendar user.services.google.accessToken
-        resp = Async.runSync (done)->
-          gc.calendarList.list (err, res)->
+        resp = Async.runSync (done) ->
+          gc.calendarList.list (err, res) ->
             done err, res
     resp
 

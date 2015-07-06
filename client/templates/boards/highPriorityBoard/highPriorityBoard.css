@@ -35,8 +35,7 @@
 
 #lists > div.list.high-priority .board-ctrl > *, div.list.high-priority .board-ctrl > * {
   margin: 0;
-  padding: 0;
-  padding-left: 5px;
+  padding: 0 0 0 5px;
 }
 
 .list.high-priority .list-title-row {

@@ -36,7 +36,6 @@ Template.Stripe.helpers
       $(".stripe-line").css("height", "").css "padding", ""
       $('#bs-example-navbar-collapse-1 .nav').fadeIn()
     , 1000
-    return
 
 Template.Stripe.events
   'click .stripe-line': (e, t) ->

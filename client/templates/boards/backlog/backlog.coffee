@@ -1,7 +1,7 @@
-Template.backlog.onCreated ()->
+Template.backlog.onCreated ->
   @.taskCreating = new ReactiveVar false
 
-Template.backlog.onRendered ()->
+Template.backlog.onRendered ->
   $('.dropdown-toggle').dropdown()
   @.$('.task-list').sortable taskListOptions
 

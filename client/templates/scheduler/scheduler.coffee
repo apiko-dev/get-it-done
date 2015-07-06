@@ -108,7 +108,7 @@ Template.scheduler.onRendered ->
   @.$('.dropdown-toggle').dropdown()
 
 Template.scheduler.events
-  'click .choosable-calendar-item': (e, t)->
+  'click .choosable-calendar-item': (e, t) ->
     calendar = Blaze.getData e.target
     events = GCEvents.find calendarId: calendar.id
     if events.count() < 1
@@ -119,7 +119,7 @@ Template.scheduler.events
       $set:
         active: not calendar.active
 
-refetchEvents = () ->
+refetchEvents = ->
   $('#calendar').fullCalendar 'refetchEvents'
 
 updateChip = (event) ->
@@ -138,7 +138,7 @@ fetchGCEvents = (calendarId) ->
   Meteor.call 'gcalendar/fetchEvents', calendarId, (err, res) ->
     console.log err or res
     if res and res.result
-      res.result.items.forEach (el)->
+      res.result.items.forEach (el) ->
         if el.start and el.start.dateTime and el.end and el.end.dateTime
           GCEvents.insert
             start: el.start.dateTime#new Date el.start.dateTime
@@ -154,7 +154,7 @@ fetchGCCalendars = ->
   if noGoogleCalendars = GCCalendars.find().count() < 1
     Meteor.call 'gcalendar/fetchCalendars', (err, res) ->
       if res and res.result
-        res.result.items.forEach (el)->
+        res.result.items.forEach (el) ->
           el.active = false
           GCCalendars.insert el
         tplInstance.showSpinner.set false

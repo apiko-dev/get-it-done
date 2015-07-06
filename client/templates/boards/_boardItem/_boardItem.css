@@ -66,8 +66,7 @@
 
 .actions {
   overflow: visible;
-  padding: 3px;
-  padding-bottom: 37px;
+  padding: 3px 3px 37px;
 }
 
 .action {

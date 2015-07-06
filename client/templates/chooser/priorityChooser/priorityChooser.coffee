@@ -1,14 +1,14 @@
-Template.priorityChooser.onCreated ()->
+Template.priorityChooser.onCreated ->
   @.currentPriority = new ReactiveVar 1
 
-Template.priorityChooser.onRendered ()->
+Template.priorityChooser.onRendered ->
   if @.data.priority
     @.currentPriority.set Number(@.data.priority)
 
 Template.priorityChooser.helpers
   isSelected: (priority) ->
     return priority == Template.instance().currentPriority.get()
-  current: () ->
+  current: ->
     return Template.instance().currentPriority.get()
 
 Template.priorityChooser.events

@@ -34,11 +34,11 @@ Template.togglSignIn.events
 
 
 Template.togglSignIn.helpers
-	showSpinner:  ()->
+	showSpinner: ->
 		Template.instance().showSpinner.get()
-	signInFailed: () ->
+	signInFailed: ->
 		Template.instance().signInFailed.get()
-	workspaces: () ->
+	workspaces: ->
 		Template.instance().workspaces.get()
 
 fetchWorkspaces = (instance) ->

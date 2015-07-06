@@ -19,4 +19,4 @@ $.fn.fixedTableHeader = function () {
         }
     });
     return t;
-}
+};

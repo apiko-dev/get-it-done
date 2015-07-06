@@ -89,7 +89,7 @@ Template.newItemModal.events
     e.preventDefault()
     $('form.new-task').submit()
 
-  'click ul.colors li span': (e, t)->
+  'click ul.colors li span': (e, t) ->
     colorIndex = t.$(e.target).parent().index()
     Template.instance().color.set colorIndex
 

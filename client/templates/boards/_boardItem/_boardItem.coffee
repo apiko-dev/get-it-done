@@ -113,7 +113,7 @@ Template._boardItem.events
     t.$(e.target).parent().find('.dropdown-menu').toggle()
 
 createTogglProject = (name, boardId, bgColor, cb) ->
-  Meteor.call 'toggl/createProject', name: name, boardId: boardId, color: bgColor, (err, res)->
+  Meteor.call 'toggl/createProject', name: name, boardId: boardId, color: bgColor, (err, res) ->
     res.result and fetchProjects()
 
 updateTogglProject = (projectId, data) ->

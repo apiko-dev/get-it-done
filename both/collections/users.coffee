@@ -1,5 +1,5 @@
 if Meteor.isServer
-  Meteor.users.after.insert (userId, doc)->
+  Meteor.users.after.insert (userId, doc) ->
     Boards.insert
       ownerId: doc._id
       title: 'Backlog'
