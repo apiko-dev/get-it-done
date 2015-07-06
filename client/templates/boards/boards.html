@@ -1,39 +1,27 @@
 <template name="boards">
-    {{#unless currentUser}}
-        <h1>SIGN IN PLEASE</h1>
-    {{else}}
-        <div id="lists">
-            {{> highPriorityBoard boards=boards}}
-            <div class="list layer tile cols new-board-container head" data-creating={{boardCreating}}>
-                <div class="new-board-wrapper" title="Create new board" data-side="left">
-                    <div class="toggle-list edit-board-title">
-                        <i class="fa fa-plus new-board-sign"></i>
-                    </div>
-                </div>
-            </div>
-            {{#each boards}}
-                {{> _boardItem}}
-            {{/each}}
-            <div class="list layer tile cols new-board-container" data-creating={{boardCreating}}>
-                {{#if boardCreating}}
-                    <div class="input-group board-title-editor">
-                        <form name="create-board">
-                            <input class="board-title form-control" type="text" value="{{title}}" placeholder="Enter board name here">
-                        </form>
-                        <div class="save-cancel-box action-box ctrl-box">
-                            <span class="button new-board-ok-action btn btn-sm btn-primary">Save</span>
-                            <span class="button new-board-cancel-action text-danger btn btn-sm btn-danger">Cancel</span>
-                        </div>
-                    </div>
-                {{else}}
-                    <div class="new-board-wrapper tail" title="Create new board" data-side="right">
-                        <div class="toggle-list edit-board-title">
-                            <i class="fa fa-plus new-board-sign"></i>
-                        </div>
-                    </div>
-                {{/if}}
-            </div>
-            {{> backlog backlogBoard}}
+  {{#unless currentUser}}
+    <h1>SIGN IN PLEASE</h1>
+  {{else}}
+    <div id="lists">
+      {{> highPriorityBoard boards=boards}}
+      <div class="list layer tile cols new-board-container head">
+        <div class="new-board-wrapper" title="Create new board" data-side="left">
+          <div class="toggle-list edit-board-title">
+            <i class="fa fa-plus new-board-sign"></i>
+          </div>
         </div>
-    {{/unless}}
+      </div>
+      {{#each boards}}
+        {{> _boardItem}}
+      {{/each}}
+      <div class="list layer tile cols new-board-container">
+        <div class="new-board-wrapper tail" title="Create new board" data-side="right">
+          <div class="toggle-list edit-board-title">
+            <i class="fa fa-plus new-board-sign"></i>
+          </div>
+        </div>
+      </div>
+      {{> backlog backlogBoard}}
+    </div>
+  {{/unless}}
 </template>
