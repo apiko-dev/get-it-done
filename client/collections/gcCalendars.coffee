@@ -1,1 +1,0 @@
-@GCCalendars = new Mongo.Collection null
