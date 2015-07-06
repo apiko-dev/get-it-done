@@ -67,6 +67,7 @@ Template._boardItem.events
     tplInstance = Template.instance()
     boardData = tplInstance.data
     togglProjectData = Blaze.getData e.target
+
     if togglProjectExists = togglProjectData and togglProjectData.id
       updateBoard boardData._id, togglProject: togglProjectData
     else
@@ -135,3 +136,4 @@ updateTogglProject = (projectId, data) ->
 Template.backlog.inheritsEventsFrom "_boardItem"
 Template.backlog.inheritsHelpersFrom "_boardItem"
 Template.backlog.inheritsHooksFrom "_boardItem"
+Template._nestedBoard.inheritsEventsFrom "_boardItem"

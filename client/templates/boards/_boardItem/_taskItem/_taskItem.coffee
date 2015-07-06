@@ -69,10 +69,10 @@ Template._taskItem.events
   'click .start-timer': (e, t) ->
     taskData = Blaze.getData e.target
     user = Meteor.user()
-    taskBoard = Boards.findOne taskData.boardId
+    boardOfTask = Boards.findOne taskData.boardId
 
     if signedInToToggl = user.toggl and user.toggl.api_token and user.toggl.workspaceId
-      if togglProjectSelected = taskBoard.togglProject and taskBoard.togglProject.id
+      if togglProjectSelected = boardOfTask.togglProject and boardOfTask.togglProject.id
         Meteor.call 'toggl/startTimer', taskId: taskData._id, taskTitle: taskData.text, boardId: taskData.boardId
       else
         sAlert.error 'You must choose Toggl project for this board'
