@@ -35,6 +35,8 @@ Template.scheduler.onRendered ->
   hr.css 'z-index', 12
   container.append hr
 
+  $("#calendar table").eq(0).fixedTableHeader()
+
   Meteor.setInterval ->
     hr.css 'top', hr.height + unit + 'px'
     console.log hr
