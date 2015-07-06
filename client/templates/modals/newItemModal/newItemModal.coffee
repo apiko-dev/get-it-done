@@ -82,8 +82,6 @@ Template.newItemModal.events
       Boards.insert boardDoc, (err, res) ->
         if err
           sAlert.error "Error while creating board"
-#        if res
-#          sAlert.success "Successfully created a board #{boardDoc.title}"
         Modal.hide('newItemModal')
 
 

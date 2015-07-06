@@ -92,11 +92,11 @@ Template._taskItem.events
 
     updateTask taskData._id, completed: newTaskCompletedStatus
 
-removeTask = (taskId) ->
+@removeTask = (taskId) ->
   Tasks.remove {_id: taskId}, (err, res) ->
     console.log err or res
 
-updateTask = (taskId, fieldsToSet) ->
+@updateTask = (taskId, fieldsToSet) ->
   Tasks.update _id: taskId,
     $set: fieldsToSet
     (err, res) ->

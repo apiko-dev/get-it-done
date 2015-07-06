@@ -1,13 +1,13 @@
 .list, #lists .sortable-placeholder {
+  background-color: #EEE;
   min-width: 30%;
   position: relative;
-  background-color: #EEE;
 }
 
 .list p.placeholder {
   color: rgb(203, 203, 203);
-  text-align: center;
   line-height: 60px;
+  text-align: center;
 }
 
 .ui-sortable-helper {
@@ -15,8 +15,8 @@
 }
 
 #lists .sortable-placeholder {
-  border: none;
   background-color: #ddd;
+  border: none;
   margin: 0 0 7px 0;
 }
 
@@ -37,10 +37,10 @@
 }
 
 .creator {
+  background: aliceblue;
   height: 50px;
   min-height: 50px;
   padding: 10px;
-  background: aliceblue;
 }
 
 .list * {
@@ -57,28 +57,27 @@
 
 .list.layer.tile.cols.new-board-container {
   background-color: rgb(252, 252, 252);
-  padding: 10px 15px;
-  position: relative;
-  margin: 0;
   border-radius: 5px;
   line-height: 30px;
+  margin: 0;
+  padding: 10px 15px;
+  position: relative;
 }
 
 .actions {
-  padding: 3px;
   overflow: visible;
+  padding: 3px;
   padding-bottom: 37px;
 }
 
 .action {
-  padding: 7px 7px 14px 7px;
-  min-height: 27px;
-  margin: 0 0 7px 0;
-  border-color: inherit;
-  width: 100%;
-  position: relative;
   border-bottom: 1px solid #E0E0E0;
   border-radius: 0;
+  margin: 0 0 7px 0;
+  min-height: 27px;
+  padding: 7px 7px 14px 7px;
+  position: relative;
+  width: 100%;
   z-index: 0;
 }
 
@@ -88,12 +87,12 @@
 
 .action.new-task-container {
   background: inherit;
-  position: absolute;
   bottom: 0;
-  right: 0;
   left: 0;
   margin: 0;
   padding: 10px 18px;
+  position: absolute;
+  right: 0;
 }
 
 .action-box.ctrl-box {
@@ -106,9 +105,9 @@
 
 .action-box.content-box.new-task-action textarea, .action-box.content-box.action-edit textarea,
 .action-box.content-box.new-task-action input, .action-box.content-box.action-edit input {
-  width: 100%;
   border: 1px solid #DEDEDE;
   resize: vertical;
+  width: 100%;
 }
 
 .action-box.content-box.new-task-action {
@@ -117,8 +116,8 @@
 }
 
 .action-box.content-box.new-task-action:hover textarea, .action-box.content-box.new-task-action:hover input {
-  width: 100%;
   border: 1px solid #9C9C9C;
+  width: 100%;
 }
 
 .action-box.content-box.new-task-action input {
@@ -126,8 +125,8 @@
 }
 
 .action.board.list.new-board-container {
-  border: none;
   background-color: transparent;
+  border: none;
   height: 50px;
   padding: 0;
 }
@@ -143,17 +142,17 @@
 
 .new-board-container .col-xs-12 {
   background-color: aliceblue;
+  border-radius: 5px;
+  margin: 0;
   padding: 10px 25px;
   position: relative;
-  margin: 0;
-  border-radius: 5px;
 }
 
 a.action-title {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 500;
   color: #141414;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 100%;
+  font-weight: 500;
   line-height: 22px;
   word-break: break-all;
 }
@@ -176,26 +175,26 @@ a.action-title {
 
 .board-ctrl label {
   background-color: transparent;
-  line-height: 28px;
+  border-left: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 0;
-  border-right: 1px solid rgba(0,0,0,0.05);
-  border-left: 1px solid rgba(0,0,0,0.05);
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
+  line-height: 28px;
 }
 
 .board-ctrl label:hover, .board-ctrl label.active {
-  background-color: rgba(0,0,0,0.1);
-  border-right: 1px solid rgba(0,0,0,0.05);
-  border-left: 1px solid rgba(0,0,0,0.05);
+  background-color: rgba(0, 0, 0, 0.1);
+  border-left: 1px solid rgba(0, 0, 0, 0.05);
+  border-right: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .delete-box {
-  padding-right: 1px;
-  padding-left: 0;
   bottom: 0;
-  margin-top: 20px;
-  line-height: 1em;
-  font-size: 19px;
   color: transparent;
+  font-size: 19px;
+  line-height: 1em;
+  margin-top: 20px;
+  padding-left: 0;
+  padding-right: 1px;
 }
 
 .action:hover .delete-box {
@@ -224,8 +223,8 @@ input.title {
 }
 
 a.color-picker {
-  margin-top: 5px;
   color: #565656;
+  margin-top: 5px;
 }
 
 .color-picker .dropdown-menu li {
@@ -233,8 +232,8 @@ a.color-picker {
 }
 
 .dropdown.color-picker .caret {
-  margin-top: 0;
   margin-left: 5px;
+  margin-top: 0;
 }
 
 .dropdown.color-picker a, .project-picker a, .checkbox-label {
@@ -249,10 +248,10 @@ a.color-picker {
 }
 
 .color-picker .dropdown-menu li span {
-  height: 25px;
   background: rgb(77, 195, 255);
-  width: 25px;
   display: inline-block;
+  height: 25px;
+  width: 25px;
 }
 
 .color-picker.open > .dropdown-menu {
@@ -260,8 +259,8 @@ a.color-picker {
 }
 
 .board-menu.open ul.dropdown-menu {
-  height: inherit;
   background-color: rgba(255, 255, 255, 0.92);
+  height: inherit;
   padding: 5px;
 }
 
@@ -276,19 +275,19 @@ a.color-picker {
 
 .project-picker ul.dropdown-menu {
   max-height: 200px;
-  width: 200px;
   overflow: auto;
+  width: 200px;
 }
 
 .project-picker ul.dropdown-menu li {
-  color: #686868;
   border-bottom: 1px dashed #EAEAEA;
+  color: #686868;
   padding: 2px 5px;
 }
 
 .project-picker ul.dropdown-menu li:hover {
-  color: #484848;
   border-bottom: 1px dashed #009FFF;
+  color: #484848;
 }
 
 li.toggl-project-item.current {
@@ -299,10 +298,10 @@ li.toggl-project-item.current::after {
   content: "\f00c";
   font-style: normal;
   font-weight: normal;
-  text-decoration: inherit;
-  right: 0;
-  position: absolute;
   padding-right: 10px;
+  position: absolute;
+  right: 0;
+  text-decoration: inherit;
 }
 
 .ctrl-box > * {
@@ -333,9 +332,9 @@ li.toggl-project-item.current::after {
 }
 
 .list.layer.tile.cols.new-board-container {
+  border: none;
   margin: 0;
   padding: 0;
-  border: none;
 }
 
 .complete-box i {
@@ -347,11 +346,11 @@ li.toggl-project-item.current::after {
 }
 
 .action.board-row.list-title-row {
-  position: relative;
-  padding: 5px;
+  margin-bottom: 0;
   margin-left: 0;
   margin-right: 0;
-  margin-bottom: 0;
+  padding: 5px;
+  position: relative;
 }
 
 .cols {
@@ -359,9 +358,9 @@ li.toggl-project-item.current::after {
 }
 
 .action-row.list-title-row {
-  padding: 6px;
   line-height: 28px;
   min-height: 42px;
+  padding: 6px;
 }
 
 .action-row.list-title-row * {
@@ -371,8 +370,8 @@ li.toggl-project-item.current::after {
 a.new-task-action {
   font-size: 14px;
   line-height: 20px;
-  margin-right: 15px;
   margin-bottom: 10px;
+  margin-right: 15px;
 }
 
 .new-task-container[data-creating="true"] {
@@ -384,8 +383,8 @@ a.new-task-action {
 }
 
 hr {
-  margin: 5px 0;
   border-style: dashed;
+  margin: 5px 0;
   opacity: 0.3;
 }
 
@@ -398,14 +397,14 @@ input.board-title.form-control {
 }
 
 .board-title-editor input.board-title {
-  margin-bottom: 0;
   height: 28px;
+  margin-bottom: 0;
 }
 
 select.priority-chooser {
-  width: 100px;
   border: 1px solid #CECECE;
   height: 27px;
+  width: 100px;
 }
 
 .priority-container label {
@@ -413,45 +412,35 @@ select.priority-chooser {
 }
 
 span.priority {
+  border-radius: 4px;
+  color: white;
   font-family: sans-serif;
   font-size: 8px;
-  color: white;
-  border-radius: 4px;
-  padding: 2px;
   margin-left: -2px;
+  padding: 2px;
 }
 
 span.priority.LOW {
-  /*background-color: #21B24B;*/
   color: #21B24B;
 }
 
 span.priority.MED {
-  /*background-color: #FDB813;*/
   color: #FDB813;
 }
 
 span.priority.HIGH {
-  /*background-color: #ED1B24;*/
   color: #ED1B24;
 }
 
 input.board-title, .board textarea, .board input, .board select {
   background-color: rgba(255, 255, 255, 0.3);
-  height: initial;
   border-radius: 0;
+  height: initial;
 }
 
 .dropdown.color-picker {
   margin-right: 12px;
 }
-
-/*i.fa.fa-caret-down { WTF?
-  position: absolute;
-  top: 5px;
-  right: 0;
-  margin-right: -12px;
-}*/
 
 .board-title-editor {
   float: left;
@@ -459,7 +448,6 @@ input.board-title, .board textarea, .board input, .board select {
 
 .board-body {
   padding: 7px 14px 7px 14px;
-  /*overflow-y: scroll;*/
 }
 
 .task-list.ui-sortable {
@@ -470,8 +458,8 @@ input.board-title, .board textarea, .board input, .board select {
 
 button.btn.btn-default.sort-by-priority {
   background-color: rgba(242, 242, 242, 0.72);
-  color: rgb(79, 79, 79);
   border: none;
+  color: rgb(79, 79, 79);
 }
 
 .dropdown.board-menu .checkbox {
@@ -483,20 +471,15 @@ button.btn.btn-default.sort-by-priority {
   text-align: center;
 }
 
-/*.priority-switch-label {
-  margin-top: 4px;
-  font-weight: normal;
-}*/
-
 input.priority-switch-checkbox {
   margin: 0 !important;
 }
 
 .board-settings-button {
-  line-height: 30px;
-  width: 30px;
-  text-align: center;
   cursor: pointer;
+  line-height: 30px;
+  text-align: center;
+  width: 30px;
 }
 
 .board-settings-button:hover {
@@ -510,11 +493,7 @@ input.priority-switch-checkbox {
 }
 
 .dropdown.board-menu {
-  margin-right: 15px;
   color: white;
+  margin-right: 15px;
   opacity: 0.8;
 }
-
-/*.show-archieved, .priority-switch-label {
-  margin: 0;
-}*/
