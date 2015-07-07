@@ -1,6 +1,10 @@
 Template.Stripe.onCreated ->
   @.curHash = new ReactiveVar ""
 
+Template.Stripe.onRendered ->
+  $(window).resize ->
+    @.$(".stripe-wrapper").css "width", ($("#bs-example-navbar-collapse-1").position().left - 120) + "px"
+
 Template.Stripe.helpers
   colors: ->
     boards = Boards.find {}, sort: {order: 1}
@@ -28,27 +32,9 @@ Template.Stripe.helpers
     ).count() or 1
     1 / count * 100 + '%'
 
-  collapseStripe: ->
-    Meteor.setTimeout ->
-      $('#bs-example-navbar-collapse-1 .nav').fadeOut()
-    , 300
-    Meteor.setTimeout ->
-      $(".stripe-line").css("height", "").css "padding", ""
-      $('#bs-example-navbar-collapse-1 .nav').fadeIn()
-    , 1000
-    return
-
 Template.Stripe.events
   'click .stripe-line': (e, t) ->
     boardHash = Blaze.getData(e.target).boardHash
     Router.go 'boards', {},
       hash: boardHash
     scrollToBoard()
-
-  'mouseenter .stripe': (e, t) ->
-    $('#bs-example-navbar-collapse-1 .nav').hide()
-
-  'mouseleave .stripe': (e, t) ->
-    Meteor.setTimeout ->
-      $('#bs-example-navbar-collapse-1 .nav').fadeIn()
-    , 200

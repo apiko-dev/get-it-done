@@ -4,21 +4,23 @@
   height: 50px;
   overflow: hidden;
   position: relative;
-  z-index: 1000;
+  top: -50px;
+  transition: width 1s ease, height .3s ease, top .3s ease;
+  -moz-transition: width 1s ease, height .3s ease, top .3s ease;
+  -o-transition: width 1s ease, height .3s ease, top .3s ease;
+  -webkit-transition: width 1s ease, height .3s ease, top .3s ease;
+  z-index: 10002;
 }
 
 .stripe > .stripe-line {
   float: left;
   font-size: 20px;
-  height: 2px;
+  height: 50px;
   overflow: hidden;
+  padding: 10px 10px;
   text-align: center;
   text-overflow: ellipsis;
   -ms-text-overflow: ellipsis;
-  transition: width 1s ease, height .3s ease, padding .3s ease;
-  -moz-transition: width 1s ease, height .3s ease, padding .3s ease;
-  -o-transition: width 1s ease, height .3s ease, padding .3s ease;
-  -webkit-transition: width 1s ease, height .3s ease, padding .3s ease;
   white-space: nowrap;
 }
 
@@ -26,9 +28,12 @@
   z-index: 3;
 }
 
-.stripe:hover > .stripe-line {
-  height: 50px;
-  padding: 10px 10px;
+.stripe-wrapper:hover + .stripe {
+  top: 0;
+}
+
+.stripe:hover {
+  top: 0;
 }
 
 .navbar.navbar-default {
@@ -39,5 +44,39 @@
 
 .collapse.navbar-collapse.pull-right, .navbar.navbar-default .navbar-header {
   height: 50px;
-  z-index: 10001;
+}
+
+.stripe-wrapper {
+  background-color: #fc0;
+  height: 50px;
+  left: 120px;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 69%;
+  z-index: 1;
+}
+
+@media screen and (max-width: 1800px) {
+  .stripe-wrapper {
+    width: 68%;
+  }
+}
+
+@media screen and (max-width: 1700px) {
+  .stripe-wrapper {
+    width: 66%;
+  }
+}
+
+@media screen and (max-width: 1600px) {
+  .stripe-wrapper {
+    width: 66%;
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  .stripe-wrapper {
+    width: 64%;
+  }
 }
