@@ -21,6 +21,10 @@
   text-align: center;
   text-overflow: ellipsis;
   -ms-text-overflow: ellipsis;
+  transition: opacity .3s ease;
+  -moz-transition: opacity .3s ease;
+  -o-transition: opacity .3s ease;
+  -webkit-transition: opacity .3s ease;
   white-space: nowrap;
 }
 
@@ -34,6 +38,10 @@
 
 .stripe:hover {
   top: 0;
+}
+
+.stripe-line:hover {
+  opacity: .85;
 }
 
 .navbar.navbar-default {
@@ -55,28 +63,4 @@
   top: 0;
   width: 69%;
   z-index: 1;
-}
-
-@media screen and (max-width: 1800px) {
-  .stripe-wrapper {
-    width: 68%;
-  }
-}
-
-@media screen and (max-width: 1700px) {
-  .stripe-wrapper {
-    width: 66%;
-  }
-}
-
-@media screen and (max-width: 1600px) {
-  .stripe-wrapper {
-    width: 66%;
-  }
-}
-
-@media screen and (max-width: 1500px) {
-  .stripe-wrapper {
-    width: 64%;
-  }
 }
