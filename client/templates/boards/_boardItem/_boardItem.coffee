@@ -30,12 +30,8 @@ Template._boardItem.helpers
     Template.instance().boardEditing.get()
   isNoTasks: ->
     !Tasks.find(boardId: Template.instance().data._id).count()
-  sortByPriority: ->
-    Template.instance().data.config.sortByPriority
   togglProjects: ->
     TogglProjects.find()
-  showArchieved: ->
-    !!Template.instance().data.config.showArchieved
   showSettings: ->
     Template.instance().showSettings.get()
 
@@ -94,7 +90,7 @@ Template._boardItem.events
 
   'click .show-archieved': ->
     boardData = Template.instance().data
-    showArchivedModeStatus = if Number boardData.config.showArchieved is 1 then 0 else 1
+    showArchivedModeStatus = if Number(boardData.config.showArchieved) is 1 then 0 else 1
     updateBoard boardData._id, 'config.showArchieved': showArchivedModeStatus
 
   'click .show-backlog': ->
