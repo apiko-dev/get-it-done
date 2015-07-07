@@ -18,7 +18,8 @@ Template.scheduler.onCreated ->
 
 Template.scheduler.onRendered ->
   displayCurrentTimeRuler()
-  $("#calendar table").eq(0).fixedTableHeader()
+  if tableIsPresent = $("#calendar table").length > 0
+    $("#calendar table").eq(0).fixedTableHeader()
 
 Template.scheduler.helpers
   boards: ->
@@ -141,8 +142,8 @@ fetchGCEvents = (calendarId) ->
       res.result.items.forEach (el) ->
         if el.start and el.start.dateTime and el.end and el.end.dateTime
           GCEvents.insert
-            start: el.start.dateTime#new Date el.start.dateTime
-            end: el.end.dateTime#new Date el.end.dateTime
+            start: el.start.dateTime
+            end: el.end.dateTime
             title: el.summary
             isGoogle: true
             color: 'rgba(69, 158, 203, 0.55)'
@@ -176,11 +177,12 @@ displayCurrentTimeRuler = ->
   curTime = new Date()
   minutesAfterMidnight = curTime.getHours() * 60 + curTime.getMinutes()
 
-  hr.css 'top', minutesAfterMidnight * unit + 'px'
-  hr.css 'left', rulerPosition.left
-  hr.css 'width', rulerWidth
-  hr.css 'z-index', 12
-  container.append hr
+  if rulerPosition
+    hr.css 'top', minutesAfterMidnight * unit + 'px'
+    hr.css 'left', rulerPosition.left
+    hr.css 'width', rulerWidth
+    hr.css 'z-index', 12
+    container.append hr
 
   #TODO What if page isn't reloaded for a day
   #Need to update left position too

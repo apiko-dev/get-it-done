@@ -161,8 +161,8 @@ Meteor.methods
     if @.userId
       user = Meteor.users.findOne @.userId
 
-      if user.services and user.services.google and user.services.google.accessToken
-        gc = new GCalendar.GoogleCalendar user.services.google.accessToken
+      if user.services and user.services.google and googleAccessToken = user.services.google.accessToken
+        gc = new GCalendar.GoogleCalendar googleAccessToken
         resp = Async.runSync (done) ->
           gc.events.list calendarId, (err, res) ->
             done err, res
@@ -174,8 +174,8 @@ Meteor.methods
     if @.userId
       user = Meteor.users.findOne @.userId
 
-      if user.services and user.services.google and user.services.google.accessToken
-        gc = new GCalendar.GoogleCalendar user.services.google.accessToken
+      if user.services and user.services.google and googleAccessToken = user.services.google.accessToken
+        gc = new GCalendar.GoogleCalendar googleAccessToken
         resp = Async.runSync (done) ->
           gc.calendarList.list (err, res) ->
             done err, res
