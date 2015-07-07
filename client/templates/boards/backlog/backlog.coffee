@@ -7,4 +7,4 @@ Template.backlog.onRendered ->
 
 Template.backlog.helpers
   backlogExpanded: ->
-    return Session.get 'backlogExpanded'
+    Session.get 'backlogExpanded'

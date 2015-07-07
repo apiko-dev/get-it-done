@@ -7,9 +7,9 @@ Template.priorityChooser.onRendered ->
 
 Template.priorityChooser.helpers
   isSelected: (priority) ->
-    return priority == Template.instance().currentPriority.get()
+    priority is Template.instance().currentPriority.get()
   current: ->
-    return Template.instance().currentPriority.get()
+    Template.instance().currentPriority.get()
 
 Template.priorityChooser.events
   'click .priority-value': (e, t) ->

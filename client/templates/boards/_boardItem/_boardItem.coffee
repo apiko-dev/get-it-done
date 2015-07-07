@@ -10,7 +10,7 @@ Template._boardItem.helpers
   colors: ->
     array = []
     array.push color: color, _index: i for color, i in COLORS
-    return array
+    array
 
   tasks: ->
     board = Template.instance().data

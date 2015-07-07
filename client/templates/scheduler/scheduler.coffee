@@ -90,9 +90,9 @@ Template.scheduler.helpers
             hash: event.boardId
     }
   calendars: ->
-    return GCCalendars.find()
+    GCCalendars.find()
   showSpinner: ->
-    return Template.instance().showSpinner.get()
+    Template.instance().showSpinner.get()
 
 Template.scheduler.onRendered ->
   fetchGCCalendars()

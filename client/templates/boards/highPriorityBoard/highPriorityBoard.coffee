@@ -1,6 +1,6 @@
 Template.highPriorityBoard.helpers
   highPriorityExpanded: ->
-    return Session.get 'highPriorityExpanded'
+    Session.get 'highPriorityExpanded'
 
 Template.highPriorityBoard.events
   'click .show-high-priority': ->
