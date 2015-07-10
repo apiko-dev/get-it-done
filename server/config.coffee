@@ -1,6 +1,6 @@
 if not ServiceConfiguration.configurations.findOne(service: "google")
 	ServiceConfiguration.configurations.insert
 		service: 'google'
-		clientId: '452535105296-59bu8jeugo1mgoibumsutqth0vfhbmc9.apps.googleusercontent.com'
-		secret: 'r3Lje0q1W9TFtzfqYDhOoESn'
+		clientId: '909470480368-2eck9vorrtl5me5k0fnlggu1uu786crf.apps.googleusercontent.com'
+		secret: 'T2g9ZWnohhgDsFchQvwOIipb'
 		loginStyle: 'popup'
