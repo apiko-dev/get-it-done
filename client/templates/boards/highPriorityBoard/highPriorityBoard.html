@@ -1,32 +1,29 @@
 <template name="highPriorityBoard">
-<div class="list layer tile cols high-priority {{#if highPriorityExpanded}}expanded{{/if}}">
-	<div class="action-row list-title-row">
-		<div class="toggle-list edit-board-title">
+  <div class="list layer tile cols high-priority {{#if highPriorityExpanded}}expanded{{/if}}">
+    <div class="action-row list-title-row">
+      <div class="toggle-list edit-board-title">
 			<span class="list-title">
 				High priority
 			</span>
-		</div>
-<!-- 		<div class="board-ctrl pull-right">
-			<i class="fa fa-cogs board-settings-button"></i>
-		</div> -->
-	</div>
-	<div class="board-body">
-		<div class="actions collapse in ui-sortable">
-			<div class="task-list">
-				{{#each boards}}
-					{{> _nestedBoard}}
-				{{else}}
-					<p class="placeholder">No tasks...</p>
-				{{/each}}
-			</div>
-		</div>
-	</div>
-	<button class="show-high-priority">
-  	{{#if highPriorityExpanded}}
-  	  <i class="fa fa-times"></i>
-  	{{else}}
-  	  <i class="fa fa-exclamation"></i>
-  	{{/if}}
-  </button>
-</div>
+      </div>
+    </div>
+    <div class="board-body">
+      <div class="actions collapse in ui-sortable">
+        <div class="task-list">
+          {{#each boards}}
+            {{> _nestedBoard}}
+          {{else}}
+            <p class="placeholder">No tasks...</p>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+    <button class="show-high-priority">
+      {{#if highPriorityExpanded}}
+        <i class="fa fa-times"></i>
+      {{else}}
+        <i class="fa fa-exclamation"></i>
+      {{/if}}
+    </button>
+  </div>
 </template>

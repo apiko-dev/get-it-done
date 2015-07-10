@@ -8,22 +8,22 @@ body {
 }
 
 body, div#main, .main-container.container {
+  height: calc(100vh - 73px);
   margin: 0;
-  padding: 0;
-  height: calc(100vh - 73px)
+  padding: 0
 }
 
 div#main {
-  width: 100%;
-  position: relative;
   min-height: calc(100vh - 100px);
+  position: relative;
+  width: 100%;
 }
 
 textarea {
   resize: vertical;
 }
 
-.button  {
+.button {
   cursor: pointer;
 }
 
@@ -33,11 +33,11 @@ textarea {
 }
 
 .s-alert-box {
-  z-index: 10000;
-  text-align: center;
   font-size: 18px;
-  padding: 12px;
   font-weight: bold;
+  padding: 12px;
+  text-align: center;
+  z-index: 10000;
 }
 
 * {
@@ -48,9 +48,9 @@ textarea {
 }
 
 .blur {
+  filter: blur(5px);
+  -ms-filter: blur(5px);
   -webkit-filter: blur(5px);
   -moz-filter: blur(5px);
   -o-filter: blur(5px);
-  -ms-filter: blur(5px);
-  filter: blur(5px);
 }

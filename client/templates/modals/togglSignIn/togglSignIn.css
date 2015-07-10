@@ -1,11 +1,11 @@
 .modal-body input {
-	height: inherit;
+  height: inherit;
 }
 
 .modal-footer .fail-msg {
+  color: rgba(255, 0, 0, 0.54);
   display: inline;
   float: left;
-  padding: 0;
   margin: 0;
-  color: rgba(255, 0, 0, 0.54);
+  padding: 0;
 }

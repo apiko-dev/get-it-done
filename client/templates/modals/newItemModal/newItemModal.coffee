@@ -10,17 +10,17 @@ Template.newItemModal.onDestroyed ->
 
 Template.newItemModal.helpers
   isTaskCreating: ->
-    return Template.instance().data and !!Template.instance().data.board
+    Template.instance().data and !!Template.instance().data.board
   backlogTaskCreating: ->
-    return !!Template.instance().data.isBacklogTask
+    !!Template.instance().data.isBacklogTask
   colors: ->
     array = []
     array.push color: color, _index: i for color, i in COLORS
-    return array
+    array
   curColor: ->
-    return Template.instance().color.get()
+    Template.instance().color.get()
   backgroundColor: ->
-    return COLORS[Template.instance().color.get()]
+    COLORS[Template.instance().color.get()]
 
 Template.newItemModal.events
   'submit form.new-task': (e, t) ->
@@ -82,8 +82,6 @@ Template.newItemModal.events
       Boards.insert boardDoc, (err, res) ->
         if err
           sAlert.error "Error while creating board"
-#        if res
-#          sAlert.success "Successfully created a board #{boardDoc.title}"
         Modal.hide('newItemModal')
 
 
@@ -91,7 +89,7 @@ Template.newItemModal.events
     e.preventDefault()
     $('form.new-task').submit()
 
-  'click ul.colors li span': (e, t)->
+  'click ul.colors li span': (e, t) ->
     colorIndex = t.$(e.target).parent().index()
     Template.instance().color.set colorIndex
 

@@ -94,7 +94,7 @@ ul.colors {
 
 .new-item .modal-header {
   overflow: auto;
-  padding: 0px 30px;
+  padding: 0 30px;
 }
 
 .new-item .modal-header .modal-title {

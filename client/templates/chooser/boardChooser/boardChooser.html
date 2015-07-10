@@ -1,5 +1,5 @@
 <template name="boardChooser">
-    <div class="form-group pull-right">
+    <div class="form-group btn-group select-board-wrapper">
         <select id="select-board" class="form-control">
             {{#each boards}}
                 <option selected="{{isSelected _id}}" value="{{_id}}">{{title}}</option>
