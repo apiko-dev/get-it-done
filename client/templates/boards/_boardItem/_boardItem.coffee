@@ -82,7 +82,7 @@ Template._boardItem.events
       #updateTogglProject @.togglProject.id, name: title
       tplInstance.boardEditing.set null
 
-  'click .priority-switch-checkbox': ->
+  'click .priority-switch-label': ->
     boardData = Template.instance().data
     currentSorting = boardData.config.sortByPriority
     newSorting = if currentSorting is 1 then 0 else 1
