@@ -7,18 +7,150 @@ header.landing {
   margin: 0;
   position: relative;
   border: 0;
+  overflow: hidden;
+  height: inherit;
 }
 
 header.landing video {
-  width: 100%;
   border: none;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.13);
+  min-height: 100vh;
+  min-width: 100%;
+  margin: auto;
+  width: inherit;
+	filter: brightness(80%);
+	-webkit-filter: brightness(80%);
+	-moz-filter: brightness(80%);
+	-o-filter: brightness(80%);
+	-ms-filter: brightness(80%);
 }
 
-section.landing.content {
+div.landing.content {
 	min-height: 100vh;
 	width: 100%;
-	background-color: red;
+	/*margin-top: -5px;*/
+}
+
+.controlls {
+  position: absolute;
+  top: 50%;
+  margin-top: -100px;
+  left: 50%;
+  margin-left: -125px;
+  width: 250px;
+  text-align: center;
+  font-size: 22px;
+  color: white;
+  font-weight: 100;
+}
+
+.controlls > * {
+	display: block;
+
+}
+
+.controlls button.play, .controlls button.pause {
+  height: inherit;
+  width: inherit;
+  padding: 0;
+  background-color: transparent;
+  outline: none;
+  box-shadow: none;
+}
+
+.controlls button.play:active, .controlls button.pause:active {
+	outline: none;
+}
+
+.controlls button.play i, .controlls button.pause i {
+	height: inherit;
+  width: inherit;
+  font-size: 100px;
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: none;
+  text-decoration: none;
+}
+
+.controlls button.play:hover i, .controlls button.pause:hover i {
+  color: orangered;
+}
+
+header > div.video > .content {
+  height: 50px;
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.85);
+  top: 0;
+  width: 100%;
+  padding: 0;
+  transition: all 0.6s ease;
+  -moz-transition: all 0.6s ease;
+  -o-transition: all 0.6s ease;
+  -webkit-transition: all 0.6s ease;
+  opacity: 1;
+}
+
+header > div.video > .content._hidden {
+	opacity: 0;
+	transition: all 0.6s ease;
+  -moz-transition: all 0.6s ease;
+  -o-transition: all 0.6s ease;
+  -webkit-transition: all 0.6s ease;
+}
+
+header .content h1, h3 {
+	line-height: 50px;
+  font-weight: 200;
+}
+
+header .content h1 {
+	padding-left: 10px; 
+}
+
+header .content * {
+  display: inline;
+}
+
+header .content a.navbar-brand {
+  padding: 0 20px;
+}
+
+body > header > div > div.content > div > h3 {
+  padding: 0 20px;
+}
+
+body > header > div > div.content > h1 > i {
+  font-size: 25px;
+  color: orangered;
+}
+
+body > header > div > div.content > div > button {
+  margin: 0;
+  border: none;
+  box-shadow: none;
+  display: inline-block;
+  height: 50px;
+  margin-top: -10px;
+  width: 200px;
+}
+
+header div.controlls button.get-started {
+  width: inherit;
+  height: 50px;
+  margin-top: 10px;
+}
+
+body > div.landing.content > header > h1 {
+	font-weight: 100;
+	text-align: center;
+}
+
+div.landing.content article header * {
+  font-weight: 100;
+  color: #9E9E9E;
+}
+
+div.landing.content article:nth-child(odd) header * {
+	text-align: right;
 }
 
 /*http://codepen.io/dodozhang21/pen/siKtp*/
@@ -75,13 +207,15 @@ body {
 }
 
 .arrow {
+  text-align: center;
   position: absolute;
-  top: 100vh;
   margin-top: -40px;
   left: 50%;
-  margin-left: -20px;
-  width: 40px;
+  margin-left: -125px;
   height: 40px;
+  color: white;
+  font-size: 20px;
+  width: 250px;
 }
 
 .bounce {
@@ -90,11 +224,3 @@ body {
   animation: bounce 2s infinite;
 }
 /**/
-
-.arrow i {
-	height: inherit;
-	width: inherit;
-	padding: 0;
-	margin: 0;
-	font-size: 40px;
-}
