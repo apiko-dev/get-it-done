@@ -16,15 +16,17 @@
   border-radius: 0;
   box-shadow: none;
   height: 95%;
-  transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  -webkit-transition: all 1s ease;
+  transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
   width: 95%;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
 }
 
 .modal.light.in {
-  background-color: rgba(255, 255, 255, 0);
+  background-color: transparent;
   height: 100%;
   margin: 0;
   transition: all 0.5s ease;
@@ -33,6 +35,9 @@
   -webkit-transition: all 0.5s ease;
   width: 100%;
   z-index: 9999;
+  overflow: visible;
+  margin-left: 0%;
+  margin-right: 0%;
 }
 
 .modal.light * {
@@ -51,6 +56,8 @@
 .modal.light .modal-content > div, .modal.light .modal-footer {
   background-color: transparent;
   border: none;
+  overflow: visible;
+  height: 50px;
 }
 
 .modal.light button {
@@ -112,7 +119,6 @@ ul.colors {
   float: right;
   font-size: 40px;
   font-weight: 100;
-  margin-top: 20px;
   outline: none;
   padding: 0;
 }

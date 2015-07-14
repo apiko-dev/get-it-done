@@ -45,6 +45,17 @@ div#lists {
   flex: 0 0 270px;
 }
 
+.board .dropdown-menu {
+  padding: 5px 5px 0px 5px;
+  line-height: 20px;
+  border: none;
+  border-radius: 0;
+}
+
+.board .dropdown-menu li{
+  height: 25px;
+}
+
 .list.board > .container {
   margin-top: 40px;
 }

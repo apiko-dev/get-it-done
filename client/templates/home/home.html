@@ -1,3 +1,26 @@
 <template name="home">
-  <h1>Home</h1>
+<header class="landing">
+  <div class="video">
+    <video preload="auto">
+      <source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4' />
+      <source src="http://video-js.zencoder.com/oceans-clip.webm" type='video/webm' />
+      <source src="http://video-js.zencoder.com/oceans-clip.ogv" type='video/ogg' />
+      <p>To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+    </video>
+    {{#if canPlay}}
+      {{#unless playing}}
+        <div class="controlls">
+          <button class="btn btn-primary play">Play</button>
+        </div>
+        {{#if ended}}
+          <a href="boards" class="btn btn-default">Try</a>
+        {{/if}}
+      {{/unless}}
+    {{/if}}
+  </div>
+  <div class="arrow bounce scroll-to-content"><i class="fa fa-arrow-down"></i></div>
+</header>
+<section class="landing content">
+  
+</section>
 </template>

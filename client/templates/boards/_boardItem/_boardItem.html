@@ -38,9 +38,13 @@
                   Toggl project
                 </span>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="toggl-project">
-                  {{#each togglProjects}}
-                    <li role="presentation" class="toggl-project-item {{#if isCurrentProject .. id }}current{{/if}}">{{name}}</li>
-                  {{/each}}
+                  {{#if togglProjects}}
+                    {{#each togglProjects}}
+                      <li role="presentation" class="toggl-project-item {{#if isCurrentProject .. id }}current{{/if}}">{{name}}</li>
+                    {{/each}}
+                  {{else}}
+                    {{> spinner}}
+                  {{/if}}
                 </ul>
               </label>
             {{/if}}
