@@ -142,6 +142,8 @@ header div.controlls button.get-started {
 body > div.landing.content > header > h1 {
 	font-weight: 100;
 	text-align: center;
+	margin-top: 80px;
+  font-size: 40px;
 }
 
 div.landing.content article header * {
@@ -149,8 +151,14 @@ div.landing.content article header * {
   color: #9E9E9E;
 }
 
-div.landing.content article:nth-child(odd) header * {
+div.landing.content article:nth-child(odd) * {
 	text-align: right;
+}
+
+.landing.content article p {
+  font-weight: 200;
+  font-size: 18px;
+  color: rgb(66, 66, 66);
 }
 
 /*http://codepen.io/dodozhang21/pen/siKtp*/

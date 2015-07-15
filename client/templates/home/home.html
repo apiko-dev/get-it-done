@@ -2,7 +2,7 @@
 <header class="landing">
   <div class="video">
     <video preload="auto">
-      <source src="/videos/landing-video.mov" type='video/mp4' />
+      <source src="/videos/landing_video.mov" type='video/mp4' />
 <!--       <source src="/videos/landing-video.mov" type='video/webm' />
       <source src="/videos/landing-video.mov" type='video/ogg' /> -->
       <p>To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
@@ -34,6 +34,8 @@
     <h1>Features</h1>
   </header>
   {{> boards_feature}}
+  {{> inbox_feature}}
+  {{> high_priority_feature}}
   {{> scheduler_feature}}
   {{> toggl_feature}}
   {{> gc_feature}}
@@ -53,6 +55,42 @@
         <aside class="col-lg-4 col-md-4 col-sm-4">
           <img src="/images/landing-video-poster.png">
         </aside>
+      </div>
+    </div>
+  </article>
+</template>
+
+<template name="inbox_feature">
+  <article>
+    <div class="container">
+      <header>
+        <h2>Inbox</h2>   
+      </header>
+      <div class="row">
+        <aside class="col-lg-4 col-md-4 col-sm-4">
+          <img src="/images/landing-video-poster.png">
+        </aside>
+        <p class="col-lg-8 col-md-8 col-sm-8">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+        </p>
+      </div>
+    </div>
+  </article>
+</template>
+
+<template name="high_priority_feature">
+  <article>
+    <div class="container">
+      <header>
+        <h2>High priority</h2>   
+      </header>
+      <div class="row">
+        <aside class="col-lg-4 col-md-4 col-sm-4">
+          <img src="/images/landing-video-poster.png">
+        </aside>
+        <p class="col-lg-8 col-md-8 col-sm-8">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+        </p>
       </div>
     </div>
   </article>
@@ -111,5 +149,3 @@
     </div>
   </article>
 </template>
-
-
