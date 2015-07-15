@@ -16,11 +16,11 @@
 
 #lists > div.list.backlog .board-ctrl > *, div.list.backlog .board-ctrl > * {
   margin: 0;
-  padding: 0 5px 0 0;
+  /*padding: 0 5px 0 0;*/
 }
 
 #lists > div.list.backlog .list-title-row, div.list.backlog .list-title-row {
-  background-color: #00130C;
+  background-color: #444D4A;
 }
 
 #lists > div.list.backlog .board-ctrl *, div.list.backlog .board-ctrl * {
@@ -54,6 +54,11 @@
 .backlog.expanded button.show-backlog {
   box-shadow: 0 4px 10px rgba(16, 16, 16, 0.38);
   opacity: 0.9
+}
+
+.backlog .list-title-row label.btn {
+  padding: 0 5px;
+  font-size: 14px;
 }
 
 @media screen and (max-width: 1024px) {

@@ -177,7 +177,7 @@ a.action-title {
   border-left: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 0;
   border-right: 1px solid rgba(0, 0, 0, 0.05);
-  line-height: 28px;
+  line-height: 26px;
 }
 
 .board-ctrl label:hover, .board-ctrl label.active {
@@ -482,7 +482,7 @@ input.priority-switch-checkbox {
 }
 
 .board-settings-button:hover {
-  opacity: .7;
+  opacity: 0.7;
 }
 
 .hidden-settings {
@@ -495,4 +495,14 @@ input.priority-switch-checkbox {
   color: white;
   margin-right: 15px;
   opacity: 0.8;
+}
+
+.list-title-row .board-ctrl label.btn {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: none;
+}
+
+.list-title-row .board-ctrl label.btn.active {
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: none;
 }
