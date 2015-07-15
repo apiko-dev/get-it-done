@@ -87,6 +87,7 @@ header > div.video > .content {
   -o-transition: all 0.6s ease;
   -webkit-transition: all 0.6s ease;
   opacity: 1;
+  z-index: 9999;
 }
 
 header > div.video > .content._hidden {
@@ -151,14 +152,27 @@ div.landing.content article header * {
   color: #9E9E9E;
 }
 
-div.landing.content article:nth-child(odd) * {
+div.landing.content article:nth-child(odd) header {
 	text-align: right;
+}
+
+div.landing.content article:nth-child(odd) aside {
+  float: right;
+}
+
+div.landing.content article aside video	{
+	width: 100%;
 }
 
 .landing.content article p {
   font-weight: 200;
   font-size: 18px;
   color: rgb(66, 66, 66);
+}
+
+article > .container {
+  border-bottom: 1px solid #E0E0E0;
+  padding-bottom: 15px;
 }
 
 /*http://codepen.io/dodozhang21/pen/siKtp*/
