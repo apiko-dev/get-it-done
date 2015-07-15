@@ -14,9 +14,9 @@
 .fc-event:hover {
   box-shadow: -1px 0 10px rgba(0, 0, 0, 0.24);
   filter: brightness(95%);
+  -ms-filter: brightness(95%);
   -webkit-filter: brightness(95%);
   -moz-filter: brightness(95%);
-  -ms-filter: brightness(95%);
   -o-filter: brightness(95%);
 }
 

@@ -1,25 +1,43 @@
+.modal-title {
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  padding-top: 22px;
+  text-align: center;
+}
+
+.modal textarea#description {
+  font-size: 24px;
+}
+
 .modal.light {
   background-color: transparent;
-  width: 95%;
-  height: 95%;
-  border-radius: 0;
   border: none;
+  border-radius: 0;
   box-shadow: none;
-  transition: all 1s ease;
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  z-index: 9999;
+  height: 95%;
+  transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  width: 95%;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
 }
 
 .modal.light.in {
-  background-color: rgba(255, 255, 255, 0.93);
-  width: 100%;
+  background-color: transparent;
   height: 100%;
+  margin: 0;
   transition: all 0.5s ease;
-  -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  width: 100%;
+  z-index: 9999;
+  overflow: visible;
+  margin-left: 0%;
+  margin-right: 0%;
 }
 
 .modal.light * {
@@ -27,38 +45,24 @@
 }
 
 .modal.light .modal-content {
-  margin: auto;
-  box-shadow: none;
-  width: 50%;
   background-color: transparent;
   border: none;
-  height: 100%;
+  box-shadow: none;
+  height: auto;
+  margin: auto;
+  width: 50%;
 }
 
 .modal.light .modal-content > div, .modal.light .modal-footer {
-	border: none;
-	background-color: transparent;
+  background-color: transparent;
+  border: none;
+  overflow: visible;
+  height: 50px;
 }
 
 .modal.light button {
   height: 50px;
   width: 100px;
-}
-
-button.btn.btn-default.clear {
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  border: none;
-  box-shadow: none;
-  font-size: 40px;
-  outline: none;
-  background-color: transparent;
-}
-
-.modal.new-item #title {
-  line-height: 45px;
-  font-size: 40px;
 }
 
 .modal-header element.style {
@@ -68,17 +72,136 @@ button.btn.btn-default.clear {
 }
 
 ul.colors li {
-  list-style: none;
   display: inline-block;
+  list-style: none;
 }
 
 ul.colors li span {
+  display: inline-block;
   height: 20px;
   width: 20px;
-  display: inline-block;
 }
 
-ul.colors li.active span {
-  height: 22px;
-  width: 22px;
+ul.colors {
+  margin: 0;
+}
+
+.new-item.modal .modal-dialog {
+  display: table;
+  height: 100%;
+  margin-top: 0;
+  width: 60%;
+}
+
+.new-item.modal .modal-content {
+  display: table-cell;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.new-item .modal-header {
+  overflow: auto;
+  padding: 0 30px;
+}
+
+.new-item .modal-header .modal-title {
+  color: #CCC;
+  float: left;
+  font-size: 50px;
+  font-weight: lighter;
+}
+
+.new-item .modal-header button.btn.btn-default.clear {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  color: #ddd;
+  float: right;
+  font-size: 40px;
+  font-weight: 100;
+  outline: none;
+  padding: 0;
+}
+
+.new-item .modal-header button.btn.btn-default.clear:hover {
+  color: #ED1B24;
+}
+
+.modal.new-item #board-title, .modal.new-item #title {
+  background-color: transparent;
+  box-shadow: none;
+  color: white;
+  font-size: 32px;
+  font-weight: lighter;
+  line-height: 50px;
+  padding-left: 15px;
+}
+
+.modal.new-item #description {
+  background: transparent;
+  color: white;
+}
+
+.close {
+  background: url('http://i.imgur.com/rrSKEDo.png') no-repeat center;
+  background-size: contain;
+  cursor: pointer;
+  display: block;
+  height: 75px;
+  margin-top: -15px !important;
+  transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transition: 0.5s cubic-bezier(.27, 1.64, .32, .95);
+  -moz-transition: 0.5s cubic-bezier(.27, 1.64, .32, .95);
+  -ms-transition: 0.5s cubic-bezier(.27, 1.64, .32, .95);
+  -o-transition: 0.5s cubic-bezier(.27, 1.64, .32, .95);
+  -webkit-transition: 0.5s cubic-bezier(.27, 1.64, .32, .95);
+  width: 75px;
+}
+
+.close:hover {
+  transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+ul.colors li span, ul.colors li.active span {
+  cursor: pointer;
+  height: 50px;
+  transition: all .3s;
+  -moz-transition: all .3s;
+  -ms-transition: all .3s;
+  -o-transition: all .3s;
+  -webkit-transition: all .3s;
+  width: 50px;
+}
+
+ul.colors li span:hover {
+  opacity: .8;
+}
+
+input#board-title::-webkit-input-placeholder {
+  color: white;
+}
+
+input#board-title::-moz-placeholder {
+  color: white;
+}
+
+/* Firefox 19+ */
+input#board-title:-moz-placeholder {
+  color: white;
+}
+
+/* Firefox 18- */
+input#board-title:-ms-input-placeholder {
+  color: white;
+}
+
+.board-name-title {
+  color: white;
+  font-size: 26px;
+  margin-bottom: 10px;
+  padding: 10px 15px;
 }

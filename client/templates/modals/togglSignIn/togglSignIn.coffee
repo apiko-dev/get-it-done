@@ -1,22 +1,22 @@
-Template.togglSignIn.onCreated ()->
-	@.showSpinner = new ReactiveVar(false);
-	@.signInFailed = new ReactiveVar(false);
-	@.workspaces = new ReactiveVar();
+Template.togglSignIn.onCreated ->
+	@.showSpinner = new ReactiveVar false
+	@.signInFailed = new ReactiveVar false
+	@.workspaces = new ReactiveVar()
 
-Template.togglSignIn.onRendered ()->
-	fetchWorkspaces(@)
-	enadleDropdown(@)
+Template.togglSignIn.onRendered ->
+	fetchWorkspaces @
+	enadleDropdown @
 
 Template.togglSignIn.events
 	'submit .toggl-sign-in': (e, t) ->
 		e.preventDefault()
 		self = Template.instance()
-		if Meteor.user().toggl and Meteor.user().toggl.api_token
+		if signedInToToggl = Meteor.user().toggl and Meteor.user().toggl.api_token
 			workspaceId = e.target[0].value
 			Meteor.call 'user/setTogglWorkspace', workspaceId, (err, res) ->
-				console.log res
 				if res and res.result
 					$('#togglSignInModal').modal 'hide'
+				err and console.log err
 		else
 			self.showSpinner.set true
 			self.signInFailed.set false
@@ -34,20 +34,17 @@ Template.togglSignIn.events
 
 
 Template.togglSignIn.helpers
-	showSpinner:  ()->
-		return Template.instance().showSpinner.get()
-	signInFailed: () ->
-		return Template.instance().signInFailed.get()
-	workspaces: () ->
-		return Template.instance().workspaces.get()
-
+	showSpinner: ->
+		Template.instance().showSpinner.get()
+	signInFailed: ->
+		Template.instance().signInFailed.get()
+	workspaces: ->
+		Template.instance().workspaces.get()
 
 fetchWorkspaces = (instance) ->
 	if Meteor.user().toggl and Meteor.user().toggl.api_token
 		Meteor.call 'toggl/getWorkspaces', (err, res) ->
 			if res and res.result
-				console.log 'res', res
-				console.log 'instance', instance
 				instance.workspaces.set res.result
 				enadleDropdown instance
 

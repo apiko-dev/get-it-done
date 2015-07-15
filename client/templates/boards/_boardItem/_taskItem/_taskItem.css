@@ -26,17 +26,12 @@ a.action-title.action-edit.description {
 
 .row.action.board {
   border-bottom: 1px dashed black;
-  border-color: inherit;
   color: #8F8F8F;
 }
 
 .row.action.board:hover {
   background-color: #fff;
   color: #000000;
-}
-
-.new-task-container:hover {
-
 }
 
 a.show-description {
@@ -73,4 +68,14 @@ a.show-description {
   position: absolute;
   right: 6px;
   top: 5px;
+}
+
+.row.task.action .action-box.content-box {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -ms-text-overflow: ellipsis;
+}
+
+.action-title.title.action-edit {
+  white-space: nowrap;
 }

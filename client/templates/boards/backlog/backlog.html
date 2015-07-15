@@ -1,62 +1,57 @@
 <template name="backlog">
-<div id="{{backlogBoard._id}}" class="list layer tile cols backlog {{#if backlogExpanded}}expanded{{/if}}">
-  <button class="show-backlog">
-  {{#if backlogExpanded}}
-    <i class="fa fa-times"></i>
-  {{else}}
-    <i class="fa fa-inbox"></i>
-  {{/if}}
-  </button>
-  <div class="action-row list-title-row">
-    <div class="toggle-list edit-board-title">
-      <span class="list-title">
-        {{backlogBoard.title}}
-      </span>
-    </div>
-    <div class="board-ctrl pull-right">
-      <div class="checkbox show-archieved">
-        <label>
-          <input checked="{{showArchieved}}" type="checkbox"> Show archieved
+  <div id="{{backlogBoard._id}}" class="list layer tile cols backlog {{#if backlogExpanded}}expanded{{/if}}">
+    <button class="show-backlog">
+      {{#if backlogExpanded}}
+        <i class="fa fa-times"></i>
+      {{else}}
+        <i class="fa fa-inbox"></i>
+      {{/if}}
+    </button>
+    <div class="action-row list-title-row">
+      <div class="toggle-list edit-board-title">
+        <span class="list-title">Inbox</span>
+      </div>
+      <div class="board-ctrl pull-right">
+        {{#if currentUser.toggl}}
+          <label class="btn btn-primary btn-xs dropdown project-picker">
+                <span id="toggl-project" class="dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                  <i class="fa fa-caret-down"></i>
+                  Toggl project
+                </span>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="toggl-project">
+              {{#each togglProjects}}
+                <li role="presentation" class="toggl-project-item {{#if isCurrentProject .. id }}current{{/if}}">{{name}}</li>
+              {{/each}}
+            </ul>
+          </label>
+        {{/if}}
+
+        <label class="priority-switch-label btn btn-primary btn-xs {{#if sortByPriority}}active{{/if}}">
+          Priority sort
+        </label>
+
+        <label class="show-archieved btn btn-primary btn-xs {{#if showArchieved}}active{{/if}}">
+          Archived
         </label>
       </div>
-      <label class="priority-switch-label">
-        <input checked="{{sortByPriority}}" type="checkbox" name="toggle-switch" class="priority-switch-checkbox">
-        Sort by priority
-      </label>
     </div>
-  </div>
-  <div class="board-body">
-    <div class="actions collapse in ui-sortable">
-      <div class="backlog-task-list">
-        {{#each tasks}}
-        	{{> _taskItem}}
-        {{else}}
-        <p class="placeholder">No tasks...</p>
-        {{/each}}
-      </div>
-    </div>
-    <div class="action new-task-container" data-creating={{taskCreating}}>
-      {{#if taskCreating}}
-      <div class="action-box content-box new-task-action">
-        <input class="title" rows="1" placeholder="Enter your title here">
-        <textarea class="description" rows="auto" placeholder="Enter your description here"></textarea>
-      </div>
-      <div class="action-box ctrl-box">
-        {{> priorityChooser}}
-        {{> boardChooser}}
-        <div class="action-box ctrl-box pull-right">
-          <span class="ok-action btn btn-primary btn-sm">Save</span>
-          <span class="cancel-action text-danger btn btn-danger btn-sm">Cancel</span>
+    <div class="board-body">
+      <div class="actions collapse in ui-sortable">
+        <div class="task-list">
+          {{#each tasks}}
+            {{> _taskItem}}
+          {{else}}
+            <p class="placeholder">No tasks...</p>
+          {{/each}}
         </div>
       </div>
-      {{else}}
-      <a class="new-task-action btn btn-success btn-sm pull-right">
-        <div class="new-task-action-wrapper">
-          New task...
-        </div>
-      </a>
-      {{/if}}
+      <div class="action new-task-container">
+        <a class="new-task-action btn btn-success btn-sm pull-right">
+          <div class="new-task-action-wrapper">
+            New task...
+          </div>
+        </a>
+      </div>
     </div>
   </div>
-</div>
 </template>

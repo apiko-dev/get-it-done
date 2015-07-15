@@ -1,103 +1,84 @@
 <template name="_boardItem">
-    <div id="{{_id}}" class="list layer tile cols board"
-         style="border-color: {{colorByKey config.bgColor}};">
-        <div class="action-row list-title-row" style="background-color: {{colorByKey config.bgColor}};">
-            {{#unless showSettings}}
-                {{#if boardEditing}}
-                    <div class="board-title-editor">
-                        <input class="board-title" type="text" value="{{title}}">
-                    </div>
-                {{else}}
-                    <div class="toggle-list edit-board-title">
-                       <span class="list-title">
-                           {{trimLongText title 25}}
-                       </span>
-                    </div>
-                {{/if}}
-            {{/unless}}
-            <div class="board-ctrl pull-right">
-                <i class="fa fa-cogs board-settings-button"></i>
-            </div>
-            {{#if showSettings}}
-                <div class="board-ctrl pull-right hidden-settings">
-                    <div class="btn-group">
-                        <label class="btn btn-primary btn-xs color-picker" role="group">
-                            <span id="color-chooser" type="button" class="dropdown-toggle" data-toggle="dropdown"
-                                    aria-haspopup="true"
-                                    aria-expanded="  false">
-                              <i class="fa fa-caret-down"></i>
-                              Color
-                            </span>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="color-chooser">
-                                {{#each colors}}
-                                    <li data-color="{{_index}}" class="color"><span style="background: {{color}}"></span></li>
-                                {{/each}}
-                            </ul>
-                        </label>
+  <div id="{{_id}}" class="list layer tile cols board"
+       style="border-color: {{colorByKey config.bgColor}};">
+    <div class="action-row list-title-row" style="background-color: {{colorByKey config.bgColor}};">
+      {{#unless showSettings}}
+        {{#if boardEditing}}
+          <div class="board-title-editor">
+            <input class="board-title" required type="text" value="{{title}}">
+          </div>
+        {{else}}
+          <div class="toggle-list edit-board-title">
+            <span class="list-title"> {{trimLongText title 25}}</span>
+          </div>
+        {{/if}}
+      {{/unless}}
+      <div class="board-ctrl pull-right">
+        <i class="fa fa-cogs board-settings-button"></i>
+      </div>
+      {{#if showSettings}}
+        <div class="board-ctrl pull-right hidden-settings">
+          <div class="btn-group">
+            <label class="btn btn-primary btn-xs color-picker" role="group">
+              <span id="color-chooser" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-caret-down"></i>
+                Color
+              </span>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="color-chooser">
+                {{#each colors}}
+                  <li data-color="{{_index}}" class="color"><span style="background: {{color}}"></span></li>
+                {{/each}}
+              </ul>
+            </label>
 
-                        {{#if currentUser.toggl}}
-                            <label class="btn btn-primary btn-xs dropdown project-picker">
-                                <span id="toggl-project" href="#" class="dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" role="button"
-                                  aria-expanded="false">
-                                  <i class="fa fa-caret-down"></i>
-                                  Toggl project
-                                </span>
-                                <ul class="dropdown-menu" role="menu" aria-labelledby="toggl-project">
-                                <!-- {{#if allowCreatingNew}} -->
-                                    <li role="presentation" class="toggl-project-item">The same...</li>
-                                        <!-- {{/if}} -->
-                                    {{#each togglProjects}}
-                                        <li role="presentation" class="toggl-project-item {{#if isCurrentProject .. id }}current{{/if}}">{{name}}</li>
-                                    {{/each}}
-                                </ul>
-                            </label>
-                        {{/if}}
-
-                        <label class="priority-switch-label btn btn-primary btn-xs {{#if sortByPriority}}active{{/if}}">
-                            <input style="display: none;" checked="{{sortByPriority}}" type="checkbox" name="toggle-switch" class="priority-switch-checkbox">
-                            Priority sort
-                        </label>
-                        <label class="show-archieved btn btn-primary btn-xs {{#if showArchieved}}active{{/if}}">
-                            <input style="display: none;" checked="{{showArchieved}}" type="checkbox"> Archived
-                        </label>
-                        <label class="btn btn-danger btn-xs delete-board">
-                            Delete board
-                        </label>
-                    </div>
-                </div>
-            {{/if}}
-        </div>
-        <div class="board-body">
-            <div class="actions collapse in ui-sortable">
-                <div class="task-list">
-                    {{#each tasks}}
-                        {{> _taskItem}}
-                    {{else}}
-                        <p class="placeholder">No tasks...</p>
+            {{#if currentUser.toggl}}
+              <label class="btn btn-primary btn-xs dropdown project-picker">
+                <span id="toggl-project" class="dropdown-toggle " data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                  <i class="fa fa-caret-down"></i>
+                  Toggl project
+                </span>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="toggl-project">
+                  {{#if togglProjects}}
+                    {{#each togglProjects}}
+                      <li role="presentation" class="toggl-project-item {{#if isCurrentProject .. id }}current{{/if}}">{{name}}</li>
                     {{/each}}
-                </div>
-            </div>
-            <div class="action new-task-container" data-creating={{taskCreating}}>
-                {{#if taskCreating}}
-                    <div class="action-box content-box new-task-action">
-                        <input class="title" rows="1" placeholder="Enter your title here">
-                        <textarea class="description" rows="auto" placeholder="Enter your description here"></textarea>
-                    </div>
-                    <div class="action-box ctrl-box">
-                        {{> priorityChooser}}
-                        <div class="action-box ctrl-box pull-right">
-                            <span class="ok-action btn btn-primary btn-sm">Save</span>
-                            <span class="cancel-action text-danger btn btn-danger btn-sm">Cancel</span>
-                        </div>
-                    </div>
-                {{else}}
-                    <a class="new-task-action btn btn-success btn-sm pull-right">
-                        <div class="new-task-action-wrapper">
-                            New task...
-                        </div>
-                    </a>
-                {{/if}}
-            </div>
+                  {{else}}
+                    {{> spinner}}
+                  {{/if}}
+                </ul>
+              </label>
+            {{/if}}
+
+            <label class="priority-switch-label btn btn-primary btn-xs {{#if sortByPriority}}active{{/if}}">
+              Priority sort
+            </label>
+            <label class="show-archieved btn btn-primary btn-xs {{#if showArchieved}}active{{/if}}">
+              Archived
+            </label>
+            <label class="btn btn-danger btn-xs delete-board">
+              Delete board
+            </label>
+          </div>
         </div>
+      {{/if}}
     </div>
+    <div class="board-body">
+      <div class="actions collapse in ui-sortable">
+        <div class="task-list">
+          {{#each tasks}}
+            {{> _taskItem}}
+          {{else}}
+            <p class="placeholder">No tasks...</p>
+          {{/each}}
+        </div>
+      </div>
+      <div class="action new-task-container">
+        <a class="new-task-action btn btn-success btn-sm pull-right">
+          <div class="new-task-action-wrapper">
+            New task...
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
 </template>

@@ -1,51 +1,12 @@
-Template.backlog.onCreated ()->
+Template.backlog.onCreated ->
   @.taskCreating = new ReactiveVar false
-  @.boardEditing = new ReactiveVar false
 
-
-Template.backlog.onRendered ()->
+Template.backlog.onRendered ->
   $('.dropdown-toggle').dropdown()
-  @.$('.backlog-task-list').sortable 
-    connectWith: '.task-list'
-    helper: 'clone'
-    placeholder: 'sortable-placeholder'
-    items: '.action'
-    forcePlaceholderSize: !0
-    dropOnEmpty: true
-    opacity: 1
-    zIndex: 9999
-    start: (e, ui) ->
-      ui.placeholder.height(ui.helper.outerHeight());
-    update: (event, ui) ->
-      task = Blaze.getData(ui.item[0])
-      targetBoardId = Blaze.getData(event.target)._id
-      targetTaskId = task._id
-      try
-        prevTaskData = Blaze.getData ui.item[0].previousElementSibling
-      try
-        nextTaskData = Blaze.getData ui.item[0].nextElementSibling
-      if !nextTaskData and prevTaskData
-        curOrder = prevTaskData.order + 1
-      if !prevTaskData and nextTaskData
-        curOrder = nextTaskData.order / 2
-      if !prevTaskData and !nextTaskData
-        curOrder = 1
-      if prevTaskData and nextTaskData
-        curOrder = (nextTaskData.order + prevTaskData.order) / 2
-      Tasks.update _id: targetTaskId,
-        $set:
-          boardId: targetBoardId, order: curOrder
-      , (err, res) ->
-        err and console.log err
-  #@.$('.task.action').draggable
-  #  revert: 'invalid'
-  #  connectToSortable: '.task-list'
-  #  zIndex: 9999
-  #  dropOnEmpty: true
-  #  opacity: 1
-  
+  @.$('.task-list').sortable taskListOptions
 
 Template.backlog.helpers
+<<<<<<< HEAD
   backlogExpanded: () ->
     return Session.get 'backlogExpanded'
   tasks: ->
@@ -143,3 +104,7 @@ Template.backlog.events
 createProject = (name, boardId, bgColor, cb)->
   Meteor.call 'toggl/createProject', {name: name, boardId: boardId, color: bgColor}, (err, res)->
     res.result and fetchProjects()
+=======
+  backlogExpanded: ->
+    Session.get 'backlogExpanded'
+>>>>>>> 55ff557f3591f62b0b9859fdf1b931ccee555962
