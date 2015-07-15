@@ -77,7 +77,9 @@ Template.backlog.helpers
 
 Template.backlog.events
   'click .new-task-action': (e, t) ->
-    Template.instance().taskCreating.set true
+    Modal.show 'newItemModal',
+      board: Template.instance().data
+    #Template.instance().taskCreating.set true
 
   'click .complete-action': (e, t) ->
     taskData = Blaze.getData(event.target)
