@@ -25,6 +25,7 @@
 }
 
 #lists.row.ui-sortable > .ui-sortable-helper {
+  z-index: 99999;
   margin-top: 5px;
 }
 
