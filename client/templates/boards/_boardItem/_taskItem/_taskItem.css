@@ -1,9 +1,9 @@
-.task-list {
+/*.task-list {
   transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   -webkit-transition: all 0.5s ease;
-}
+}*/
 
 a.action-title.action-edit.description {
   display: block;
@@ -87,4 +87,34 @@ a.show-description {
 
 .action-title.title.action-edit {
   white-space: nowrap;
+}
+
+
+
+/*################################################################*/
+.action 
+{ 
+    margin: 0 15px 15px 0; 
+    height: 240px;
+    width: 25%;
+    float:left;
+    overflow-x: none;
+    position: relative;
+}
+.portlet-header 
+{ 
+    margin: 0.3em; 
+    padding-bottom: 4px; 
+    padding-left: 0.2em; 
+}
+.portlet-header .ui-icon { float: right; }
+.portlet-content { padding: 0.4em; overflow-x: none;}
+.ui-sortable-placeholder * { visibility: hidden; background-color: rgb(242, 245, 247); }
+
+#cloned_items {
+}
+
+#cloned_items .action {
+    position: absolute!important;
+    z-index: 1;
 }
