@@ -8,17 +8,19 @@
       <p>To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
     </video>
     {{#if canPlay}}
-        <div class="controlls">
-          Watch the wideo
+        <div class="controlls {{#if playing}}secondary{{/if}}">
         {{#if playing}}
           <button class="btn btn-default pause"><i class="fa fa-pause"></i></button>
         {{else}}
+          Watch the wideo
           <button class="btn btn-default play"><i class="fa fa-play-circle-o"></i></button>
-        {{/if}}
           or
+        {{/if}}
           <button class="btn btn-primary get-started">START NOW</button>
         </div>
-        <div class="arrow bounce scroll-to-content">Scroll down to read more...<!-- <i class="fa fa-arrow-down"></i> --></div>
+        {{#unless playing}}
+          <div class="arrow bounce scroll-to-content">Scroll down to read more...<!-- <i class="fa fa-arrow-down"></i> --></div>
+        {{/unless}}
     {{/if}}
       <div class="content">
         <h1><i class="fa fa-check-square-o"></i> Get it Done</h1>
@@ -112,8 +114,8 @@
       </header>
       <div class="row">
         <aside class="col-lg-4 col-md-4 col-sm-4">
-          <video preload="auto"  poster="/images/posters/boards.png">
-            <source src="/videos/boards.mov" type='video/mp4' />
+          <video preload="auto"  poster="/images/posters/toggl.png">
+            <source src="/videos/toggl.mov" type='video/mp4' />
             <p>To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
           </video>
         </aside>
@@ -141,6 +143,26 @@
       </div>
     </div>
   </article>
+    <article class="subscribe">
+    <div class="container">
+      <header>
+        <h2>Subscribe to news</h2>   
+      </header>
+      <div class="container">
+        <div class="row">
+          <input type="email" class="form-control col-lg-8 col-md-8 col-sm-8" placeholder="sample@mail.com">
+          <button class="btn btn-primary subscribe col-lg-4 col-md-4 col-sm-4">Subscribe</button>
+        </div>
+      </div>
+    </div>
+  </article>
 </div>
+<footer class="landing">
+  <div class="container">
+    <div class="row">
+      <p>Made with <i class="fa fa-heart-o"></i> by <a href="http://jssolutionsdev.com/" title="JSSolutions">JSSolutions</a></p>
+    </div>
+  </div>
+</footer>
 </template>
 

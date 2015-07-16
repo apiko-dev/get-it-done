@@ -100,4 +100,4 @@ Template._taskItem.events
   Tasks.update _id: taskId,
     $set: fieldsToSet
     (err, res) ->
-      console.log err or res
+      err and console.log err

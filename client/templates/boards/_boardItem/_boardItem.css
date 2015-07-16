@@ -302,6 +302,7 @@ li.toggl-project-item.current::after {
   position: absolute;
   right: 0;
   text-decoration: inherit;
+  font-family: FontAwesome;
 }
 
 .ctrl-box > * {

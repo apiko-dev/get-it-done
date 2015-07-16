@@ -42,6 +42,19 @@ div.landing.content {
   font-size: 22px;
   color: white;
   font-weight: 100;
+  transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+}
+
+.controlls.secondary {
+  right: 20px;
+  bottom: 20px;
+  top: initial;
+  left: inherit;
+  width: 150px;
+  opacity: 0.8;
 }
 
 .controlls > * {
@@ -246,3 +259,8 @@ body {
   animation: bounce 2s infinite;
 }
 /**/
+
+footer.landing {
+  padding: 20px 0 5px 0;
+  text-align: center;
+}

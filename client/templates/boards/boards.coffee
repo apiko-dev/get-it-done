@@ -10,6 +10,7 @@ Template.boards.onRendered ->
   @.$('#lists').sortable boardsListOptions
   scrollToBoard()
 
+
 Template.boards.helpers
   boards: ->
     Boards.find
@@ -31,6 +32,14 @@ Template.boards.events
   hash = Iron.Location.get().hash
   hash = hash.slice 1, hash.length
   if hash
+    $('.board.active').removeClass 'active'
+    board = $('#' + hash)
+    board.addClass('active')
     bodyWidth = $('body').width()
-    boardOffset = $('#' + hash).offset()
+    boardOffset = board.offset()
     $('#lists').stop().animate {scrollLeft: boardOffset.left - bodyWidth / 2 + BOARD_WIDTH / 2}, 700
+
+$('body,html').bind 'scroll mousedown wheel DOMMouseScroll mousewheel keyup', (e) ->
+  if not (e.type == 'mousedown' or e.type == 'mousewheel')
+    $('.board.active').removeClass 'active'
+    location.hash = ''

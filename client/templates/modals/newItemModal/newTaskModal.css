@@ -216,6 +216,7 @@ form.new-board button.submit {
   background-color: transparent;
   border: none;
   outline: none;
+  box-shadow: none;
 }
 
 form.new-board button.submit:active {
