@@ -85,9 +85,13 @@ Template.newItemModal.events
         Modal.hide('newItemModal')
 
 
-  'click .submit': (e, t) ->
+  'click .new-task .submit': (e, t) ->
     e.preventDefault()
     $('form.new-task').submit()
+    
+  'click .new-board .submit': (e, t) ->
+    e.preventDefault()
+    $('form.new-board').submit()
 
   'click ul.colors li span': (e, t) ->
     colorIndex = t.$(e.target).parent().index()
