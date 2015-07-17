@@ -6,7 +6,7 @@
   forcePlaceholderSize: yes
   dropOnEmpty: yes
   opacity: 1
-  zIndex: 9999
+  zIndex: 99999
   start: (e, ui) ->
     ui.placeholder.height ui.helper.outerHeight()
   update: (event, ui) ->

@@ -42,6 +42,19 @@ div.landing.content {
   font-size: 22px;
   color: white;
   font-weight: 100;
+  transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+}
+
+.controlls.secondary {
+  right: 20px;
+  bottom: 20px;
+  top: initial;
+  left: inherit;
+  width: 150px;
+  opacity: 0.8;
 }
 
 .controlls > * {
@@ -160,6 +173,17 @@ div.landing.content article:nth-child(odd) aside {
   float: right;
 }
 
+@media screen and (max-width: 768px) {
+
+  div.landing.content article, div.landing.content article header, div.landing.content article:nth-child(odd) header {
+    text-align: center;
+  }
+
+  div.landing.content article aside {
+    float: none;
+  }
+}
+
 div.landing.content article aside video	{
 	width: 100%;
 }
@@ -173,6 +197,43 @@ div.landing.content article aside video	{
 article > .container {
   border-bottom: 1px solid #E0E0E0;
   padding-bottom: 15px;
+}
+
+div.landing.content article.subscribe header * {
+  text-align: center;
+  color: orangered;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+div.landing.content article.subscribe > div > * {
+  height: 50px;
+  border-radius: 0;
+  margin: 0;
+  width: 65%;
+  font-size: 20px;
+}
+
+div.landing.content article.subscribe > div > input {
+  font-weight: 100;
+}
+
+div.landing.content article.subscribe > div > button {
+  width: 34%;
+  position: relative;
+}
+
+.spinner-container {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 20px;
+  margin-top: -10px;
+  margin-left: 20px;
+}
+
+.spinner-container * {
+  background-color: white !important;
 }
 
 /*http://codepen.io/dodozhang21/pen/siKtp*/
@@ -238,6 +299,7 @@ body {
   color: white;
   font-size: 20px;
   width: 250px;
+  top: 100vh;
 }
 
 .bounce {
@@ -246,3 +308,8 @@ body {
   animation: bounce 2s infinite;
 }
 /**/
+
+footer.landing {
+  padding: 20px 0 5px 0;
+  text-align: center;
+}

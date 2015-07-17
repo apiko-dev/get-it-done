@@ -1,3 +1,10 @@
+/*.task-list {
+  transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+}*/
+
 a.action-title.action-edit.description {
   display: block;
   font-family: sans-serif;
@@ -80,4 +87,8 @@ a.show-description {
 
 .action-title.title.action-edit {
   white-space: nowrap;
+}
+
+.edit {
+  padding: 10px 3px;
 }
