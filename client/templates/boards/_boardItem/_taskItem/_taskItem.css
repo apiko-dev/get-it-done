@@ -38,20 +38,22 @@ a.show-description {
   margin-left: 5px;
 }
 
-.task .fa-clock-o {
+.task > .fa {
   color: #838383;
   font-size: 20px;
   opacity: 0.8;
   position: absolute;
   right: 12px;
   top: 5px;
+  padding: 0 2px 0 0;
+  margin-right: -2px;
 }
 
-.task .fa-clock-o.stop-timer {
+.task .fa.stop-timer {
   color: red;
 }
 
-.task .fa-clock-o:hover {
+.task > .fa:hover {
   opacity: 1;
 }
 
