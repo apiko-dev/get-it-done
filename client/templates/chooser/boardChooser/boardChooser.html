@@ -5,5 +5,16 @@
                 <option selected="{{isSelected _id}}" value="{{_id}}">{{title}}</option>
             {{/each}}
         </select>
+<!--         <div class="dropdown board-selector">
+				  <button class="btn btn-default dropdown-toggle" type="button" id="board-chooser" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+				    {{curretnBoard}}
+				    <span class="caret"></span>
+				  </button>
+				  <ul class="dropdown-menu" aria-labelledby="board-chooser">
+				    {{#each boards}}
+				      <li class="{{#if isSelected _id}}selected{{/if}}" data-value="{{_id}}">{{title}}</li>
+				    {{/each}}
+				  </ul>
+				</div> -->
     </div>
 </template>

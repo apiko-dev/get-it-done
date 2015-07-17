@@ -2,6 +2,7 @@
   width: auto;
   position: relative;
   display: inline-block;
+  padding-right: 10px;
 }
 
 .priority-container .btn-group button {
@@ -61,4 +62,8 @@ color: rgb(253, 170, 170);
 
 #priority-chooser button:focus {
   outline: 0;
+}
+
+#select-board {
+  height: 32px;
 }

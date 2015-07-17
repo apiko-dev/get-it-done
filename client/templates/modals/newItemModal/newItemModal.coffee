@@ -97,4 +97,4 @@ Template.newItemModal.events
     colorIndex = t.$(e.target).parent().index()
     Template.instance().color.set colorIndex
 
-    t.$(".modal.light.new-item.in").css "backgroud-color"
+    #t.$(".modal.light.new-item.in").css "backgroud-color"

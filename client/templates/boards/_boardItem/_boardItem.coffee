@@ -119,13 +119,13 @@ updateTogglProject = (projectId, data) ->
   , (err, res) ->
     err and console.log err
 
-updateBoard = (boardId, fieldsToSet) ->
+@updateBoard = (boardId, fieldsToSet) ->
   Boards.update _id: boardId,
     $set: fieldsToSet
     (err, res) ->
       console.log err or res
 
-removeBoard = (boardId) ->
+@removeBoard = (boardId) ->
   Boards.remove _id: boardId, (err, res) ->
     err and console.log err
 

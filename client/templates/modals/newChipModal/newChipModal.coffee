@@ -46,7 +46,7 @@ Template.newChipModal.events
   'click .submit': (e, t) ->
     $('.new-chip').submit()
 
-  'click #select-board': (e, t) ->
+  'change #select-board': (e, t) ->
     Session.set "selectedBoard", t.$(e.target).val()
 
   'click #select-tasks': (e, t) ->
