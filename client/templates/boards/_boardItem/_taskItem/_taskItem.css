@@ -88,3 +88,7 @@ a.show-description {
 .action-title.title.action-edit {
   white-space: nowrap;
 }
+
+.edit {
+  padding: 10px 3px;
+}

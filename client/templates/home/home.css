@@ -211,10 +211,29 @@ div.landing.content article.subscribe > div > * {
   border-radius: 0;
   margin: 0;
   width: 65%;
+  font-size: 20px;
+}
+
+div.landing.content article.subscribe > div > input {
+  font-weight: 100;
 }
 
 div.landing.content article.subscribe > div > button {
   width: 34%;
+  position: relative;
+}
+
+.spinner-container {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 20px;
+  margin-top: -10px;
+  margin-left: 20px;
+}
+
+.spinner-container * {
+  background-color: white !important;
 }
 
 /*http://codepen.io/dodozhang21/pen/siKtp*/
