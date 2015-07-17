@@ -16,13 +16,19 @@
       prevTaskData = ui.item[0].previousElementSibling.dataset
     try
       nextTaskData = ui.item[0].nextElementSibling.dataset
-    if not nextTaskData and prevTaskData
+    if not nextTaskData and !!prevTaskData and !!prevTaskData.order
       curOrder = Number prevTaskData.order + 1
-    if not prevTaskData and nextTaskData
+      console.log '------ prew'
+    if not prevTaskData and !!nextTaskData and !!nextTaskData.order
       curOrder = Number nextTaskData.order / 2
+      console.log '------ next'
     if not prevTaskData and not nextTaskData
       curOrder = 1
-    if prevTaskData and nextTaskData
+      console.log '------ empty'
+    if !!prevTaskData and !!prevTaskData.order and !!nextTaskData and !!nextTaskData.order
       curOrder = (nextTaskData.order + prevTaskData.order) / 2
-    console.log curOrder
+      console.log '------ all'
+    console.log 'curOrder',curOrder
+    console.log 'prevTaskData',prevTaskData
+    console.log 'nextTaskData',nextTaskData
     updateTask targetTaskId, boardId: targetBoardId, order: curOrder
