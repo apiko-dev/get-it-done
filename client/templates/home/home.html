@@ -2,18 +2,15 @@
 {{> sAlert}}
 <header class="landing">
   <div class="video">
-    <video preload="auto" class="landing-video">
-      <source src="/videos/landing_video.mov" type='video/mp4' />
-<!--       <source src="/videos/landing-video.mov" type='video/webm' />
-      <source src="/videos/landing-video.mov" type='video/ogg' /> -->
-      <p>To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+    <video preload="auto" class="landing-video" poster="/images/posters/boards.png">
+      <source src="/videos/landing_video.mp4" type='video/mp4'/>
     </video>
     {{#if canPlay}}
         <div class="controlls {{#if playing}}secondary{{/if}}">
         {{#if playing}}
           <button class="btn btn-default pause"><i class="fa fa-pause"></i></button>
         {{else}}
-          Watch the wideo
+          Watch the video
           <button class="btn btn-default play"><i class="fa fa-play-circle-o"></i></button>
           or
         {{/if}}
@@ -44,7 +41,7 @@
       <div class="row">
         <aside class="col-lg-4 col-md-5 col-sm-6">
           <video preload="auto" poster="/images/posters/boards.png">
-            <source src="/videos/boards.mov" type='video/mp4' />
+            <source src="/videos/boards.mp4" type='video/mp4' />
             <p>To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
           </video>
         </aside>
@@ -62,7 +59,7 @@
       <div class="row">
         <aside class="col-lg-4 col-md-5 col-sm-6">
           <video preload="auto"  poster="/images/posters/inbox.png">
-            <source src="/videos/inbox.mov" type='video/mp4' />
+            <source src="/videos/inbox.mp4" type='video/mp4' />
             <p>To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
           </video>
         </aside>
@@ -80,7 +77,7 @@
       <div class="row">
         <aside class="col-lg-4 col-md-5 col-sm-6">
           <video preload="auto" poster="/images/posters/high_priority.png">
-            <source src="/videos/high_priority.mov" type='video/mp4' />
+            <source src="/videos/high_priority.mp4" type='video/mp4' />
             <p>To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
           </video>
         </aside>
@@ -98,7 +95,7 @@
       <div class="row">
         <aside class="col-lg-4 col-md-5 col-sm-6">
           <video preload="auto" poster="/images/posters/scheduler.png">
-            <source src="/videos/scheduler.mov" type='video/mp4' />
+            <source src="/videos/scheduler.mp4" type='video/mp4' />
             <p>To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
           </video>
         </aside>
@@ -116,7 +113,7 @@
       <div class="row">
         <aside class="col-lg-4 col-md-5 col-sm-6">
           <video preload="auto"  poster="/images/posters/toggl.png">
-            <source src="/videos/toggl.mov" type='video/mp4' />
+            <source src="/videos/toggl.mp4" type='video/mp4' />
             <p>To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
           </video>
         </aside>
@@ -134,7 +131,7 @@
       <div class="row">
         <aside class="col-lg-4 col-md-5 col-sm-6">
           <video preload="auto"  poster="/images/posters/gc.png">
-            <source src="/videos/gc.mov" type='video/mp4' />
+            <source src="/videos/gc.mp4" type='video/mp4' />
             <p>To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
           </video>
         </aside>
