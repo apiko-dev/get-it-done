@@ -173,6 +173,17 @@ div.landing.content article:nth-child(odd) aside {
   float: right;
 }
 
+@media screen and (max-width: 768px) {
+
+  div.landing.content article, div.landing.content article header, div.landing.content article:nth-child(odd) header {
+    text-align: center;
+  }
+
+  div.landing.content article aside {
+    float: none;
+  }
+}
+
 div.landing.content article aside video	{
 	width: 100%;
 }
@@ -186,6 +197,24 @@ div.landing.content article aside video	{
 article > .container {
   border-bottom: 1px solid #E0E0E0;
   padding-bottom: 15px;
+}
+
+div.landing.content article.subscribe header * {
+  text-align: center;
+  color: orangered;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+div.landing.content article.subscribe > div > * {
+  height: 50px;
+  border-radius: 0;
+  margin: 0;
+  width: 65%;
+}
+
+div.landing.content article.subscribe > div > button {
+  width: 34%;
 }
 
 /*http://codepen.io/dodozhang21/pen/siKtp*/
@@ -251,6 +280,7 @@ body {
   color: white;
   font-size: 20px;
   width: 250px;
+  top: 100vh;
 }
 
 .bounce {

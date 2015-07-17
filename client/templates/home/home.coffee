@@ -32,6 +32,19 @@ Template.home.events
     e.target.play()
   'mouseleft article video': (e, t) ->
     e.target.pause()
+  'click #subscribe button.submit': (e, t) ->
+    email = $(e.target.parentElement).find('#email').val()
+    if not validateEmail email
+      sAlert.error 'Invalid email'
+    else
+      Emails.insert
+        email: email
+      , (err, res) ->
+        if res
+          sAlert.info 'You successfully subscribed to updates'
+        else 
+          sAlert.error 'This email is already registered'
+          console.log err
 
 
 Template.home.helpers
@@ -39,3 +52,7 @@ Template.home.helpers
     return Template.instance().canPlay.get()
   playing: () ->
     return Template.instance().playing.get()
+
+validateEmail = (email) ->
+  re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
+  re.test email
