@@ -24,7 +24,11 @@ Template.newChipModal.helpers
   boards: ->
     Boards.find ownerId: Meteor.userId()
   tasks: ->
-    Tasks.find boardId: Session.get "selectedBoard"
+    tasks = Tasks.find boardId: Session.get "selectedBoard"
+    Meteor.setTimeout ->
+      $('#select-tasks').selectpicker()
+    , 1000
+    tasks
 
 Template.newChipModal.events
   'submit .new-chip': (e, t) ->

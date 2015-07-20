@@ -222,7 +222,7 @@ form.new-board button.submit {
 form.new-board button.submit:active {
   outline: none;
   box-shadow: none;
-  background-color: rgba(10, 10, 10, 0.1);
+  background-color: rgba(0, 0, 0, 0.14);
   border: none;
 }
 

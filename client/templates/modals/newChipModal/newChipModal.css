@@ -31,3 +31,28 @@
 .bootstrap-datetimepicker-widget table td {
   border-color: transparent !important;
 }
+
+button.clear {
+  background-color: transparent;
+}
+
+.modal.light.new-chip.in {
+  background-color: rgba(70, 70, 70, 0.7);
+}
+
+form.new-chip .bootstrap-select.btn-group {
+  width: 100% !important;
+  display: block;
+  height: 30px;
+}
+
+form.new-chip .bootstrap-select.btn-group button {
+  width: 100%;
+  height: inherit;
+}
+
+.modal.light.new-chip.in label {
+  color: white;
+  font-weight: 200;
+  font-size: 15px;
+}
