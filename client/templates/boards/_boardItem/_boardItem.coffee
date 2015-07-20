@@ -103,10 +103,10 @@ Template._boardItem.events
     tplInstance.showSettings.set not curShowSettingsState
 
   'click #color-chooser': (e, t) ->
-    t.$(e.target).parent().find('.dropdown-menu').toggle()
+    #t.$(e.target).parent().find('.dropdown-menu').toggle()
 
   'click #toggl-project': (e, t) ->
-    t.$(e.target).parent().find('.dropdown-menu').toggle()
+    #t.$(e.target).parent().find('.dropdown-menu').toggle()
 
 createTogglProject = (name, boardId, bgColor, cb) ->
   Meteor.call 'toggl/createProject', name: name, boardId: boardId, color: bgColor, (err, res) ->

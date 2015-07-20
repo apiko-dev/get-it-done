@@ -102,3 +102,13 @@ span.remove-event {
 .gc-event {
   z-index: -1 !important;
 }
+
+#calendars-chooser > div.spinner-container {
+  position: absolute;
+  left: 0;
+  margin-left: 5px;
+}
+
+#calendars-chooser > div.spinner-container * {
+  background-color: #eee !important;
+}
