@@ -10,6 +10,7 @@ Meteor.Spinner.options =
   length: 5
   width: 1
   speed: 3
+  'z-index': 9
 
 Template.scheduler.onCreated ->
   @calendars = new ReactiveVar()

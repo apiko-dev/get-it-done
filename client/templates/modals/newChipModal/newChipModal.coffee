@@ -1,8 +1,10 @@
 Template.newChipModal.onDestroyed ->
   delete Session.keys['selectedBoard']
   delete Session.keys['selectedTasks']
+  $(".main-container, .navbar, .stripe").removeClass "blur"
 
 Template.newChipModal.onRendered ->
+  $(".main-container, .navbar, .stripe").addClass "blur"
   @.$('.selectpicker').selectpicker()
   @.$('#datetimepicker_start').datetimepicker
     date: new Date @.data.start
@@ -26,13 +28,14 @@ Template.newChipModal.helpers
   tasks: ->
     tasks = Tasks.find boardId: Session.get "selectedBoard"
     Meteor.setTimeout ->
-      $('#select-tasks').selectpicker()
-    , 1000
+      $('#select-tasks').selectpicker("refresh");
+    , 500
     tasks
 
 Template.newChipModal.events
-  'submit .new-chip': (e, t) ->
+  'submit form#new-chip': (e, t) ->
     e.preventDefault()
+    console.log 'submit form#new-chip'
     startTime = e.target[0].value
     endTime = e.target[1].value
     selectedBoardId = e.target[2].value
@@ -46,10 +49,13 @@ Template.newChipModal.events
       taskIds: selectedTasksIds
 
     Chips.insert chipDoc, (err, res) ->
-      console.log err or res
+      if res
+        Modal.hide '.modal.new-chip'
+      else
+        sAlert.error "Problem with event creation"
 
   'click .submit': (e, t) ->
-    $('.new-chip').submit()
+    $('form#new-chip').submit()
 
   'change #select-board': (e, t) ->
     Session.set "selectedBoard", t.$(e.target).val()

@@ -28,6 +28,18 @@
   z-index: 99999999 !important;
 }
 
+.new-chip .modal-body {
+  min-width: 0;
+}
+
+.new-chip .modal-content {
+  padding-top: 10px;
+}
+
+.modal.light.new-chip .modal-content > div {
+  height: 70px;
+}
+
 .bootstrap-datetimepicker-widget table td {
   border-color: transparent !important;
 }
@@ -55,4 +67,15 @@ form.new-chip .bootstrap-select.btn-group button {
   color: white;
   font-weight: 200;
   font-size: 15px;
+}
+
+div.modal.light.new-chip .modal-header > button {
+  float: right;
+  right: 0;
+  padding: initial;
+  width: inherit;
+}
+
+div.modal.light.new-chip .modal-header > button:hover, div.modal.light.new-chip .modal-header > button:active, div.modal.light.new-chip .modal-header > button:focus {
+  background-color: transparent;
 }

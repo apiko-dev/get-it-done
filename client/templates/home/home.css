@@ -212,6 +212,7 @@ div.landing.content article.subscribe > div > * {
   margin: 0;
   width: 65%;
   font-size: 20px;
+  display: inline;
 }
 
 div.landing.content article.subscribe > div > input {
@@ -221,15 +222,16 @@ div.landing.content article.subscribe > div > input {
 div.landing.content article.subscribe > div > button {
   width: 34%;
   position: relative;
+  margin-top: -6px;
 }
 
-.spinner-container {
+.dropdown.calendars-chooser .spinner-container {
   position: absolute;
   left: 0;
   top: 50%;
   height: 20px;
   margin-top: -10px;
-  margin-left: 20px;
+  margin-left: 15px;
 }
 
 .spinner-container * {
