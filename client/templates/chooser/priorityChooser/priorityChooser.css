@@ -8,43 +8,55 @@
 .priority-container .btn-group button {
   text-shadow: none;
   outline: none;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .priority-container .btn-group button:active {
   text-shadow: none;
   outline: none;
-}
-
-.priority-value {
   color: white;
 }
 
-.priority-value.pv-low {
+.priority-value.pv-low, .priority-value.pv-low:hover, .priority-value.pv-low:active {
   background-color: #21B24B;
 }
 
-.priority-value.pv-med {
+.priority-value.pv-med, .priority-value.pv-med:hover, .priority-value.pv-med:active {
   background-color: #FDB813;
 }
 
-.priority-value.pv-high {
+.priority-value.pv-hi, .priority-value.pv-hi:hover, .priority-value.pv-hi:active {
   background-color: #ED1B24;
 }
 
-.priority-value.pv-low.active {
-  color: rgb(165, 237, 165);;
+/*hover*/
+.priority-value.pv-low:hover, .priority-value.pv-low:active {
+  background-color: #31C25B;
 }
 
-.priority-value.pv-med.active {
-  color: #FCF6DA;
+.priority-value.pv-med:hover, .priority-value.pv-med:active {
+  background-color: #FFC823;
 }
 
-.priority-value.pv-high.active {
-color: rgb(253, 170, 170);
+.priority-value.pv-hi:hover, .priority-value.pv-hi:active {
+  background-color: #FD2B34;
+}
+/**/
+
+.priority-value.pv-low.active, .btn.priority-value.pv-low.active:active, .btn.priority-value.pv-low.active:hover {
+  background-color: #22B34D;
 }
 
-.priority-value:hover {
-  color: rgba(255, 255, 255, 0.69);
+.priority-value.pv-med.active, .btn.priority-value.pv-med.active:active, .btn.priority-value.pv-med.active:hover {
+  background-color: #FEB914;
+}
+
+.priority-value.pv-hi.active, .btn.priority-value.pv-hi.active:active, .btn.priority-value.pv-hi.active:hover {
+  background-color: #ec1a24;
+}
+
+.priority-value.active, .priority-value.active:hover, .priority-value.active:active, .priority-value.active:focus {
+  color: white;
 }
 
 #priority-chooser button {

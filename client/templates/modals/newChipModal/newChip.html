@@ -1,14 +1,15 @@
 <template name="newChipModal">
-  <div class="modal fade">
+  <div class="modal light new-chip">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">New chip</h4>
+          <!-- <h4 class="modal-title">New chip</h4> -->
+          <button type="button" class="btn btn-default clear" data-dismiss="modal"><i class="close"></i></button>
         </div>
         <div class="modal-body">
-          <form class="new-chip">
+          <form id="new-chip" class="new-chip">
             <div class="form-group">
-              <div class='col-md-6'>
+              <div class='col-lg-6 col-md-6 col-sm-12'>
                 <div class="form-group">
                   <label for="datetimepicker_start">Start time</label>
 
@@ -20,7 +21,7 @@
                   </div>
                 </div>
               </div>
-              <div class='col-md-6'>
+              <div class='col-lg-6 col-md-6 col-sm-12'>
                 <div class="form-group">
                   <label for="datetimepicker_end">End time</label>
 
@@ -33,23 +34,27 @@
                 </div>
               </div>
             </div>
-            <div class='col-md-6'>
+            <div class='col-lg-6 col-md-6 col-sm-12'>
               <div class="form-group">
                 <label for="select-board">Select the board</label>
-                <select id="select-board" class="form-control">
+                <select id="select-board" class="selectpicker form-control">
                   {{#each boards}}
                     <option value="{{_id}}">{{title}}</option>
                   {{/each}}
                 </select>
               </div>
             </div>
-            <div class='col-md-6'>
+            <div class='col-lg-6 col-md-6 col-sm-12'>
               <div class="form-group">
                 <label for="select-tasks">Select the tasks</label>
-                <select id="select-tasks" class="form-control" multiple size="5">
-                  {{#each tasks}}
-                    <option value="{{_id}}">{{text}}</option>
-                  {{/each}}
+                <select id="select-tasks" class="selectpicker form-control" multiple size="5">
+                  {{#if tasks}}
+                    {{#each tasks}}
+                      <option value="{{_id}}">{{text}}</option>
+                    {{/each}}
+                  {{else}}
+                    No tasks
+                  {{/if}}
                 </select>
               </div>
             </div>
@@ -57,7 +62,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-          <button type="submit" class="btn btn-primary submit" data-dismiss="modal">Submit</button>
+          <button type="submit" class="btn btn-primary submit">Submit</button>
         </div>
       </div>
     </div>

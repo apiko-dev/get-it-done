@@ -1,3 +1,8 @@
+#calendar {
+  padding: 0 20px;
+  margin-top: 10px;
+}
+
 .fc-event {
   border: none;
   box-shadow: -1px 0 7px rgba(0, 0, 0, 0.24);
@@ -53,10 +58,6 @@ span.remove-event {
   opacity: 1;
 }
 
-#calendar {
-  padding: 0 20px;
-}
-
 .dropdown.calendars-chooser {
   background-color: #FDFDFD;
   margin-left: calc(50% - 110px);
@@ -101,4 +102,41 @@ span.remove-event {
 
 .gc-event {
   z-index: -1 !important;
+}
+
+#calendars-chooser > div.spinner-container {
+  position: absolute;
+  left: 0;
+  margin-left: 5px;
+}
+
+#calendars-chooser > div.spinner-container * {
+  background-color: #eee !important;
+}
+
+@media screen and (max-width: 640px) {
+  #calendar > div.fc-toolbar {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 0;
+  }
+
+  #calendar > div.fc-toolbar > div {
+    width: 100%;
+    padding-bottom: 10px;
+  }
+
+  #calendar > div.fc-toolbar > div.fc-center, #calendar > div.fc-toolbar > div.fc-clear {
+    display: none;
+  }
+
+  #calendar > div.fc-toolbar * {
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #calendar {
+    padding: 0 5px;
+  }
 }

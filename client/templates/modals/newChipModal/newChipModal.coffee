@@ -1,20 +1,23 @@
 Template.newChipModal.onDestroyed ->
   delete Session.keys['selectedBoard']
   delete Session.keys['selectedTasks']
+  $(".main-container, .navbar, .stripe").removeClass "blur"
 
 Template.newChipModal.onRendered ->
-  $('#datetimepicker_start').datetimepicker
+  $(".main-container, .navbar, .stripe").addClass "blur"
+  @.$('.selectpicker').selectpicker()
+  @.$('#datetimepicker_start').datetimepicker
     date: new Date @.data.start
     stepping: 30
 
-  $('#datetimepicker_end').datetimepicker
+  @.$('#datetimepicker_end').datetimepicker
     date: new Date @.data.end
     stepping: 30
 
-  $('#datetimepicker_start').on 'dp.change', (e) ->
+  @.$('#datetimepicker_start').on 'dp.change', (e) ->
     $('#datetimepicker_end').data('DateTimePicker').minDate e.date
 
-  $('#datetimepicker_end').on 'dp.change', (e) ->
+  @.$('#datetimepicker_end').on 'dp.change', (e) ->
     $('#datetimepicker_start').data('DateTimePicker').maxDate e.date
 
 Template.newChipModal.helpers
@@ -23,11 +26,16 @@ Template.newChipModal.helpers
   boards: ->
     Boards.find ownerId: Meteor.userId()
   tasks: ->
-    Tasks.find boardId: Session.get "selectedBoard"
+    tasks = Tasks.find boardId: Session.get "selectedBoard"
+    Meteor.setTimeout ->
+      $('#select-tasks').selectpicker("refresh");
+    , 500
+    tasks
 
 Template.newChipModal.events
-  'submit .new-chip': (e, t) ->
+  'submit form#new-chip': (e, t) ->
     e.preventDefault()
+    console.log 'submit form#new-chip'
     startTime = e.target[0].value
     endTime = e.target[1].value
     selectedBoardId = e.target[2].value
@@ -41,10 +49,13 @@ Template.newChipModal.events
       taskIds: selectedTasksIds
 
     Chips.insert chipDoc, (err, res) ->
-      console.log err or res
+      if res
+        Modal.hide '.modal.new-chip'
+      else
+        sAlert.error "Problem with event creation"
 
   'click .submit': (e, t) ->
-    $('.new-chip').submit()
+    $('form#new-chip').submit()
 
   'change #select-board': (e, t) ->
     Session.set "selectedBoard", t.$(e.target).val()

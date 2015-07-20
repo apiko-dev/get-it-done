@@ -6,6 +6,11 @@
   text-align: center;
 }
 
+.modal.new-item ul.colors {
+  padding: 0;
+  text-align: center;
+}
+
 .modal textarea#description {
   font-size: 24px;
 }
@@ -217,15 +222,62 @@ form.new-board button.submit {
   border: none;
   outline: none;
   box-shadow: none;
+  width: 45px;
+  padding-right: 0;
+  padding-left: 0;
 }
 
 form.new-board button.submit:active {
   outline: none;
   box-shadow: none;
-  background-color: rgba(10, 10, 10, 0.1);
+  background-color: rgba(0, 0, 0, 0.14);
   border: none;
 }
 
 form.new-board .form-group {
   position: relative;
+}
+
+li.color.active {
+  border: 1px solid white;
+  height: 52px;
+}
+
+.modal.new-item.in div.modal-body > form > div > div > div.form-group.pull-left {
+  float: none !important;
+  width: 100%;
+}
+
+.modal.new-item.in div.modal-body > form > div > div > div.form-group.pull-left div {
+  width: 100%;
+  padding: 0;
+}
+
+@media screen and (max-width: 960px) {
+  .new-item.modal .modal-dialog {
+    width: 100%;
+  }
+
+  .modal.light {
+    height: 95%;
+    width: 100%;
+  }
+
+  .modal.light.in {
+    height: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .modal.new-item #board-title, .modal.new-item #title {
+    font-size: 24px;
+  }
+
+  #priority-chooser {
+    width: 100%
+  }
+
+  #priority-chooser button {
+    width: 33%;
+  }
 }

@@ -7,7 +7,6 @@
 meteor-platform
 accounts-base
 accounts-google
-bootstrap
 iron:router
 coffeescript
 fortawesome:fontawesome
@@ -18,11 +17,9 @@ percolate:momentum
 matb33:collection-hooks
 risul:bootstrap-colorpicker
 rzymek:fullcalendar
-twbs:bootstrap
 peppelg:bootstrap-3-modal
 tsega:bootstrap3-datetimepicker
 ian:accounts-ui-bootstrap-3
-mrt:bootstrap-select
 less
 okgrow:iron-router-autoscroll
 jss:toggl-api
@@ -41,3 +38,6 @@ aldeed:template-extension
 matb33:bootstrap-glyphicons
 jss:google-track-id
 email
+twbs:bootstrap
+mrt:bootstrap-select
+aldeed:autoform-select2

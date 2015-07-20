@@ -83,6 +83,11 @@ Template.newItemModal.events
         if err
           sAlert.error "Error while creating board"
         Modal.hide('newItemModal')
+        if res
+          location.hash = res
+          Meteor.setTimeout ->
+            scrollToBoard()
+          , 300
 
 
   'click .new-task .submit': (e, t) ->

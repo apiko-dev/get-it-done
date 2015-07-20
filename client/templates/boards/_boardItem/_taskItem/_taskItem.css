@@ -91,4 +91,22 @@ a.show-description {
 
 .edit {
   padding: 10px 3px 0 3px;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 1280px) {
+  .edit > div {
+    text-align: right;
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .edit > div.priority-container > div {
+    width: 100%;
+  }
+
+  .edit > div.priority-container button {
+    width: 33.333%;
+  }
 }
