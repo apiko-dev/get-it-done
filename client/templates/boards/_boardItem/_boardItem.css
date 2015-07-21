@@ -270,7 +270,7 @@ a.color-picker {
 }
 
 .project-picker, .show-archieved {
-  margin-right: 10px;
+  margin-right: 5px;
 }
 
 .project-picker ul.dropdown-menu {
@@ -490,7 +490,7 @@ input.priority-switch-checkbox {
 .hidden-settings {
   display: none;
   float: left !important;
-  margin-left: 10px;
+  margin: 0;
 }
 
 .dropdown.board-menu {
@@ -511,4 +511,16 @@ input.priority-switch-checkbox {
 
 label.btn.delete-board {
   float: right;
+}
+
+@media screen and (max-width: 1355px) {
+  .list-title-row .board-ctrl label.btn {
+    font-size: 8pt;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .list-title-row .board-ctrl label.btn {
+    margin-top: 3px;
+  }
 }

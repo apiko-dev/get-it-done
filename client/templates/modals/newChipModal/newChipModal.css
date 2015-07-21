@@ -79,3 +79,14 @@ div.modal.light.new-chip .modal-header > button {
 div.modal.light.new-chip .modal-header > button:hover, div.modal.light.new-chip .modal-header > button:active, div.modal.light.new-chip .modal-header > button:focus {
   background-color: transparent;
 }
+
+@media screen and (max-width: 768px) {
+  .modal.light .modal-dialog .modal-content {
+    width: 100%;
+    padding: 0;
+  }
+
+  body > div.modal.light.new-chip.in > div > div > div.modal-body {
+    height: inherit;
+  }
+}

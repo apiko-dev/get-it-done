@@ -78,4 +78,6 @@
 
 #select-board {
   height: 32px;
+  border: 1px solid rgb(210, 210, 210);
+  border-radius: 0;
 }

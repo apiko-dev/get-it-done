@@ -74,3 +74,10 @@
     width: 70%;
   }
 }
+
+@media screen and (max-width: 480px) {
+  #lists > div.list.backlog .board-ctrl > *, div.list.backlog .board-ctrl > * {
+    margin-top: 5px;
+  }
+
+}

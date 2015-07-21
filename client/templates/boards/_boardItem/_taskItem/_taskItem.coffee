@@ -37,29 +37,22 @@ Template._taskItem.events
     Template.instance().taskEditing.set true
 
   'click .edit-ok-action': (e, t) ->
+    instance = Template.instance()
     taskData = Blaze.getData e.target
-    console.log 'taskData', taskData
-    taskText = $(e.target).parent().parent().find("input.title").val()
-    taskDescription = $(e.target).parent().parent().find("textarea.description").val()
-    taskPriority = Number $('#priority-chooser button').filter(".active").data "value"
+    taskText = instance.$("input.title").val() 
+    taskDescription = instance.$("textarea.description").val()
+    taskPriority = Number instance.$('#priority-chooser button').filter(".active").data "value"
     taskBoardNewId = $("#select-board").val()
 
-    if not taskBoardNewId
-      taskBoardOldId = taskData.boardId
-      taskBoardNewId = taskBoardOldId
-
-    if taskInputsAreEmpty = not taskText or not taskText.length
-      removeTask taskData._id
-
     taskDoc =
-      boardId: taskBoardNewId
-      text: taskText
-      description: taskDescription
-      priority: taskPriority
-    console.log 'taskDoc', taskDoc
-    console.log 'taskData._id', taskData._id
+      boardId: taskBoardNewId or taskData.boardId
+      text: taskText or taskData.text
+      description: taskDescription or taskData.description
+      priority: taskPriority or taskData.priority
     updateTask taskData._id, taskDoc
     Template.instance().taskEditing.set false
+    if taskBoardNewId
+      scrollToBoard(taskBoardNewId)
 
   'click .edit-cancel-action': (e, t) ->
     Template.instance().taskEditing.set false

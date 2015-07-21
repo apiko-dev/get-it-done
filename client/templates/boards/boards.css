@@ -176,3 +176,21 @@ input {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
 }
+
+.action-box.ctrl-box.pull-right {
+  display: block;
+  width: 100%;
+  text-align: right;
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 1280px) {
+  .action-box.ctrl-box.pull-right {
+    margin: 0;
+    padding: 0;
+  }
+
+  .action-box.ctrl-box.pull-right > *:last-child {
+    margin: 0;
+  }
+}

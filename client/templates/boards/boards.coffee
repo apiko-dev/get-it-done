@@ -28,16 +28,20 @@ Template.boards.events
     Modal.show 'newItemModal',
       buttonPressed: buttonSide
 
-@scrollToBoard = ->
+@scrollToBoard = (boardId)->
   hash = Iron.Location.get().hash
   hash = hash.slice 1, hash.length
+  if not hash
+    hash = boardId
+    location.hash = hash
   if hash
     $('.board.active').removeClass 'active'
     board = $('#' + hash)
     board.addClass('active')
     bodyWidth = $('body').width()
     boardOffset = board.offset()
-    $('#lists').stop().animate {scrollLeft: boardOffset.left - bodyWidth / 2 + BOARD_WIDTH / 2}, 700
+    try
+      $('#lists').stop().animate {scrollLeft: boardOffset.left - bodyWidth / 2 + BOARD_WIDTH / 2}, 700
 
 $('body,html').bind 'scroll mousedown wheel DOMMouseScroll mousewheel keyup', (e) ->
   if not (e.type == 'mousedown' or e.type == 'mousewheel')

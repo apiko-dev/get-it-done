@@ -253,9 +253,14 @@ li.color.active {
   padding: 0;
 }
 
+body > div.modal.light.new-item.in > div > div > div.modal-header {
+  padding: 0;
+}
+
 @media screen and (max-width: 960px) {
   .new-item.modal .modal-dialog {
     width: 100%;
+    margin: 0;
   }
 
   .modal.light {
@@ -269,6 +274,11 @@ li.color.active {
 }
 
 @media screen and (max-width: 480px) {
+  .modal.light .modal-content > div.modal-header {
+    padding: 0;
+    margin: 0;
+  }
+
   .modal.new-item #board-title, .modal.new-item #title {
     font-size: 24px;
   }

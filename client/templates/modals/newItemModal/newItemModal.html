@@ -9,7 +9,7 @@
           {{#if isTaskCreating}}
             <form class="new-task">
               <div class="form-group">
-                <div class='col-md-12'>
+                <div class=''>
                   <div class="form-group">
                     <div class="board-name-title" style="background-color: {{colorByKey board.config.bgColor}};">
                       {{board.title}}
@@ -33,7 +33,7 @@
           {{else}}
             <form class="new-board">
               <div class="form-group">
-                <div class='col-md-12'>
+                <div class=''>
                   <div class="form-group">
                     <input id="board-title" type='text' class="form-control" placeholder="New board's name..." contenteditable="false"/>
                     <button type="button" class="btn btn-primary submit"><i class="fa fa-arrow-right"></i></button>
