@@ -114,6 +114,12 @@ span.remove-event {
   background-color: #eee !important;
 }
 
+.fc .fc-button-group > * {
+  margin-left: 0;
+  box-shadow: none;
+  background: none;
+}
+
 @media screen and (max-width: 640px) {
   #calendar > div.fc-toolbar {
     width: 100%;

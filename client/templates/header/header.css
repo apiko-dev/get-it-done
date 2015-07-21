@@ -72,10 +72,31 @@
   right: 9px;
 }
 
-@media (max-width: 767px) {
+#bs-example-navbar-collapse-1 > ul > div > button {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+#bs-example-navbar-collapse-1 > ul > div > button:hover {
+  color: white;
+}
+
+.navbar-brand {
+  float: left;
+  height: 50px;
+  padding: 20px 25px;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+  background-color: transparent;
+}
+
+@media (max-width: 768px) {
 
   div#bs-example-navbar-collapse-1 {
     width: 100%;
+    height: inherit;
   }
 
   div#bs-example-navbar-collapse-1 ul.nav.navbar-nav {

@@ -70,6 +70,7 @@
 #priority-chooser .active {
   transform: scale(1.1, 1.1);
   z-index: 3;
+  box-shadow: none;
 }
 
 #priority-chooser button:focus {

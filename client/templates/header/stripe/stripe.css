@@ -50,10 +50,6 @@
   margin-top: -50px;
 }
 
-.collapse.navbar-collapse.pull-right, .navbar.navbar-default .navbar-header {
-  height: 50px;
-}
-
 .stripe-wrapper {
   background-color: #fc0;
   height: 50px;
@@ -61,6 +57,20 @@
   opacity: 0;
   position: absolute;
   top: 0;
-  width: 69%;
+  width: 68%;
   z-index: 1;
+}
+
+#bs-example-navbar-collapse-1 > ul > div {
+  padding: 5px 0px;
+}
+
+body > nav > div > div.navbar-header, #bs-example-navbar-collapse-1 {
+  height: 50px;
+}
+
+@media screen and (max-width: 768px) {
+  .collapse.navbar-collapse.pull-right, .navbar.navbar-default .navbar-header {
+    height: inherit;
+  }
 }

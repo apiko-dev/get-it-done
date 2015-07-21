@@ -1,5 +1,3 @@
-BOARD_WIDTH = 300
-
 Template.boards.onCreated ->
   fetchProjects()
 
@@ -29,19 +27,18 @@ Template.boards.events
       buttonPressed: buttonSide
 
 @scrollToBoard = (boardId)->
-  hash = Iron.Location.get().hash
-  hash = hash.slice 1, hash.length
-  if not hash
-    hash = boardId
-    location.hash = hash
-  if hash
-    $('.board.active').removeClass 'active'
-    board = $('#' + hash)
-    board.addClass('active')
-    bodyWidth = $('body').width()
-    boardOffset = board.offset()
-    try
-      $('#lists').stop().animate {scrollLeft: boardOffset.left - bodyWidth / 2 + BOARD_WIDTH / 2}, 700
+    if location.hash != '#'+boardId
+      hash = boardId or location.hash.slice 1, location.hash.length
+      location.hash = hash
+      $('.board.active').removeClass 'active'
+      board = $('#' + hash)
+      board.addClass('active')
+      bodyWidth = $('body').width()
+      boardOffset = board.offset()
+      try
+        boardWidth = $('.board').width()
+        listsScroll = $('#lists').scrollLeft()
+        $('#lists').stop().animate {scrollLeft: listsScroll + boardOffset.left - bodyWidth / 2 + boardWidth / 2}, 700
 
 $('body,html').bind 'scroll mousedown wheel DOMMouseScroll mousewheel keyup', (e) ->
   if not (e.type == 'mousedown' or e.type == 'mousewheel')
