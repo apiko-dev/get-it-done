@@ -2,7 +2,7 @@
 {{> sAlert}}
 <header class="landing">
   <div class="video">
-    <video preload="auto" class="landing-video" poster="/images/posters/boards.png">
+    <video preload="auto" class="landing-video {{#if playing}}bright{{/if}}" poster="/images/posters/landing.png">
       <source src="/videos/landing_video.mp4" type='video/mp4'/>
     </video>
     {{#if canPlay}}

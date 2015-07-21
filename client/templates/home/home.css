@@ -18,11 +18,23 @@ header.landing video {
   min-width: 100%;
   margin: auto;
   width: inherit;
-	filter: brightness(80%);
-	-webkit-filter: brightness(80%);
-	-moz-filter: brightness(80%);
-	-o-filter: brightness(80%);
-	-ms-filter: brightness(80%);
+	filter: brightness(50%);
+	-webkit-filter: brightness(50%);
+	-moz-filter: brightness(50%);
+	-o-filter: brightness(50%);
+	-ms-filter: brightness(50%);
+  transition: all 0.6s ease;
+  -moz-transition: all 0.6s ease;
+  -o-transition: all 0.6s ease;
+  -webkit-transition: all 0.6s ease;
+}
+
+header.landing video.bright {
+  filter: brightness(80%);
+  -webkit-filter: brightness(80%);
+  -moz-filter: brightness(80%);
+  -o-filter: brightness(80%);
+  -ms-filter: brightness(80%);
 }
 
 div.landing.content {
@@ -79,7 +91,7 @@ div.landing.content {
 	height: inherit;
   width: inherit;
   font-size: 100px;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.95);
   text-shadow: none;
   text-decoration: none;
 }
@@ -89,7 +101,8 @@ div.landing.content {
 }
 
 header > div.video > .content {
-  height: 50px;
+  /*height: 50px;*/
+  height: initial;
   position: fixed;
   background-color: rgba(255, 255, 255, 0.85);
   top: 0;
@@ -143,8 +156,8 @@ body > header > div > div.content > div > button {
   box-shadow: none;
   display: inline-block;
   height: 50px;
-  margin-top: -10px;
   width: 200px;
+  float: right;
 }
 
 header div.controlls button.get-started {
@@ -315,3 +328,107 @@ footer.landing {
   padding: 20px 0 5px 0;
   text-align: center;
 }
+
+.controlls.secondary button.pause {
+  width: 30px;
+  margin: auto;
+}
+
+.controlls.secondary button.get-started {
+  height: 30px;
+}
+
+.controlls.secondary button i {
+  font-size: 30px;
+}
+
+button.btn.btn-default.play:active:hover, div.controlls.secondary > button.btn.btn-default.pause:active, div.controlls.secondary > button.btn.btn-default.pause:active:hover {
+  background-color: transparent;
+}
+
+@media (max-width: 768px) {
+  header .content h1 {
+    font-size: 20px;
+  }
+
+  body > header > div > div.content > h1 > i, body > header > div > div.content > div > h3 {
+    font-size: 18px;
+  }
+
+  body > header > div > div.content > div > button {
+    height: 50px;
+    padding: 0 10px;
+    margin-top: 0;
+    width: inherit;
+  }
+
+  body > header > div > div.content > div > h3 {
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  header .content h1 {
+    font-size: 18px;
+  }
+
+  body > header > div > div.content > h1 > i, body > header > div > div.content > div > h3 {
+    font-size: 16px;
+  }
+
+  button.btn.btn-primary.get-started {
+    font-size: 12px;
+  }
+
+  #subscribe > button {
+    font-size: 18px;
+    margin-top: 5px;
+  }
+
+  div#subscribe > * {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 420px) {
+  header .content h1 {
+    font-size: 16px;
+  }
+
+  button.btn.btn-primary.get-started {
+    font-size: 10px;
+  }
+
+  body > header > div > div.content > h1 > i, body > header > div > div.content > div > h3 {
+    font-size: 14px;
+  }
+
+}
+
+@media (max-width: 360px) {
+  header .content h1 {
+    font-size: 15px;
+  }
+
+  button.btn.btn-primary.get-started {
+    font-size: 9px;
+    padding: 0 5px;
+  }
+
+  body > header > div > div.content > h1 > i, body > header > div > div.content > div > h3 {
+    font-size: 13px;
+  }
+
+  body > header > div > div.content > div > h3 {
+    padding: 0 3px;
+  }
+}
+/*
+@media (max-width: 350px) {
+  body > header > div > div.content > div > h3 {
+    text-align: right;
+  }
+
+}*/

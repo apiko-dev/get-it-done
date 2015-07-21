@@ -24,7 +24,10 @@ Template.newChipModal.helpers
   data: ->
     Template.instance().data
   boards: ->
-    Boards.find ownerId: Meteor.userId()
+    Boards.find
+      ownerId: Meteor.userId()
+      isBacklog:
+        $exists: false
   tasks: ->
     tasks = Tasks.find boardId: Session.get "selectedBoard"
     Meteor.setTimeout ->

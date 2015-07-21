@@ -213,8 +213,8 @@ input#board-title:-ms-input-placeholder {
 
 form.new-board button.submit {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 2px;
+  right: 2px;
   font-size: 30px;
   line-height: 30px;
   height: 60px;

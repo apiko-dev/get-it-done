@@ -123,7 +123,7 @@ updateTogglProject = (projectId, data) ->
   Boards.update _id: boardId,
     $set: fieldsToSet
     (err, res) ->
-      console.log err or res
+      err and console.log err
 
 @removeBoard = (boardId) ->
   Boards.remove _id: boardId, (err, res) ->

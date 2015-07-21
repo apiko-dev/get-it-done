@@ -35,7 +35,6 @@ Template.Stripe.helpers
 Template.Stripe.events
   'click .stripe-line': (e, t) ->
     boardHash = Blaze.getData(e.target).boardHash
-    console.log 'boardHash ------------->', boardHash
     if location.pathname == '/boards'
       scrollToBoard boardHash
     else

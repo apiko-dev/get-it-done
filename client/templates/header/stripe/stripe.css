@@ -73,4 +73,14 @@ body > nav > div > div.navbar-header, #bs-example-navbar-collapse-1 {
   .collapse.navbar-collapse.pull-right, .navbar.navbar-default .navbar-header {
     height: inherit;
   }
+
+  .stripe-wrapper {
+    width: 58%;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .stripe-wrapper {
+    width: 41%;
+  }
 }
