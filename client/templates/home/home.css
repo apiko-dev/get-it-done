@@ -1,5 +1,5 @@
 header.landing {
-  height: 100vh;
+  height: 50px;
 }
 
 .video {
@@ -8,7 +8,7 @@ header.landing {
   position: relative;
   border: 0;
   overflow: hidden;
-  height: inherit;
+  height: 100vh;
 }
 
 header.landing video {
@@ -425,6 +425,36 @@ button.btn.btn-default.play:active:hover, div.controlls.secondary > button.btn.b
     padding: 0 3px;
   }
 }
+
+.content {
+  height: 50px;
+}
+  
+.content p, h3 {
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.content i {
+  border-right: 1px black solid;
+  padding-right: 10px;
+  font-size: 16px;
+  color: #6BA7FF;
+}
+
+.content p {
+  margin-left: 10px;
+}
+
+.pull-right {
+  height: 50px;
+}
+
+.pull-right button {
+  height: 50px;
+  margin-left: 10px;
+}
+
 /*
 @media (max-width: 350px) {
   body > header > div > div.content > div > h3 {
