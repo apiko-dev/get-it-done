@@ -11,7 +11,7 @@ header.landing {
   height: 100vh;
 }
 
-header.landing video {
+.video video {
   border: none;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.13);
   min-height: 100vh;
@@ -29,7 +29,7 @@ header.landing video {
   -webkit-transition: all 0.6s ease;
 }
 
-header.landing video.bright {
+.video video.bright {
   filter: brightness(80%);
   -webkit-filter: brightness(80%);
   -moz-filter: brightness(80%);
@@ -98,6 +98,10 @@ div.landing.content {
 
 .controlls button.play:hover i, .controlls button.pause:hover i {
   color: orangered;
+}
+
+.controlls button.get-started {
+  margin: auto;
 }
 
 header > div.video > .content {
