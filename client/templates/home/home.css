@@ -14,7 +14,7 @@ header.landing {
 .video video {
   border: none;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.13);
-  min-height: 100vh;
+  height: calc(100vh - 50px);
   min-width: 100%;
   margin: auto;
   width: inherit;
@@ -318,7 +318,7 @@ body {
   color: white;
   font-size: 20px;
   width: 250px;
-  top: 100vh;
+  top: calc(100vh - 50px);
 }
 
 .bounce {
@@ -433,24 +433,33 @@ button.btn.btn-default.play:active:hover, div.controlls.secondary > button.btn.b
 .content {
   height: 50px;
 }
+
+.content h1 {
+  display: inline-block;
+  margin-top: -3px;
+  height: 20px;
+}
   
 .content p, h3 {
+  vertical-align: middle;
   font-size: 16px;
   text-transform: uppercase;
 }
 
 .content i {
-  border-right: 1px black solid;
+  vertical-align: middle;
+  border-right: 1px rgb(51, 122, 183) solid;
   padding-right: 10px;
   font-size: 16px;
-  color: #6BA7FF;
+  color: rgb(51, 122, 183);
 }
 
 .content p {
-  margin-left: 10px;
+  margin-left: 7px;
 }
 
 .pull-right {
+  display: inline-block;
   height: 50px;
 }
 
