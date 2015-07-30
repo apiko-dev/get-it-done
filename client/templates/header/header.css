@@ -24,7 +24,7 @@
 }
 
 .nav .navbar-form button {
-  margin-top: 7px;
+  margin-top: 8px;
 }
 
 .navbar-brand input {
@@ -55,6 +55,10 @@
 .navbar-default .navbar-nav li a, .navbar-text {
   color: #626262;
   font-size: 11pt;
+  color: #626262;
+  font-size: 11pt;
+  line-height: 52px;
+  padding: 0 12px;
 }
 
 .navbar-default .nav i {
@@ -82,10 +86,11 @@
 
 .navbar-brand {
   float: left;
+  text-transform: uppercase;
   height: 50px;
-  padding: 20px 25px;
   font-size: 18px;
-  line-height: 20px;
+  padding: 0px 14px;
+  line-height: 52px;
 }
 
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {

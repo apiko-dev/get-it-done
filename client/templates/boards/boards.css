@@ -79,12 +79,14 @@ div#lists {
 }
 
 #lists .new-board-container {
+  position: relative;
   box-shadow: -2px 4px 20px -6px rgba(16, 16, 16, 0.32);
   margin-left: 30px;
   max-width: 100px;
   min-width: 50px;
   padding: 0;
   width: 100px;
+  background-color: rgb(240, 240, 240);
 }
 
 #lists .new-board-container.head {
@@ -115,15 +117,6 @@ div#lists {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
-}
-
-.new-board-wrapper {
-  background-color: rgb(240, 240, 240);
-  height: 100%;
-}
-
-.new-board-wrapper:hover {
-  background-color: #e8e8e8;
 }
 
 .new-board-container .save-cancel-box {
