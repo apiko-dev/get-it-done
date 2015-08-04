@@ -1,5 +1,11 @@
-header.landing {
+header.landing .content {
   height: 50px;
+  overflow: auto;
+  margin: 0;  
+}
+
+header.landing .content * {
+  display: inline;
 }
 
 .video {
@@ -17,6 +23,7 @@ header.landing {
   min-height: calc(100vh - 50px);
   min-width: 100%;
   margin: auto;
+  padding-top: 50px;
   width: inherit;
 	filter: brightness(50%);
 	-webkit-filter: brightness(50%);
