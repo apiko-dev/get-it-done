@@ -105,10 +105,10 @@ div.landing.content {
 }
 
 header > div.video > .content {
-  /*height: 50px;*/
   height: initial;
   position: fixed;
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.23);
   top: 0;
   width: 100%;
   padding: 0;
@@ -131,6 +131,9 @@ header > div.video > .content._hidden {
 header .content h1, h3 {
 	line-height: 50px;
   font-weight: 200;
+  vertical-align: middle;
+  font-size: 16px;
+  text-transform: uppercase;
 }
 
 header .content h1 {
@@ -143,6 +146,7 @@ header .content h1 {
 
 header .content a.navbar-brand {
   padding: 0 20px;
+  text-transform: uppercase;
 }
 
 body > header > div > div.content > div > h3 {
@@ -150,8 +154,11 @@ body > header > div > div.content > div > h3 {
 }
 
 body > header > div > div.content > h1 > i {
-  font-size: 25px;
-  color: orangered;
+  font-size: 16px;
+  color: #337AB7;
+  padding: 0 16px 0 8px;
+  margin-right: 12px;
+  border-right: 1px solid #ccc;
 }
 
 body > header > div > div.content > div > button {
@@ -161,6 +168,7 @@ body > header > div > div.content > div > button {
   display: inline-block;
   height: 50px;
   width: 200px;
+  font-size: 16px;
   float: right;
 }
 
@@ -189,6 +197,12 @@ div.landing.content article header * {
 div.landing.content article:nth-child(odd) aside {
   float: right;
 }*/
+
+.navbar-brand i.fa.fa-check-square-o {
+  padding: 0 14px 0 4px;
+  border-right: 1px solid #ccc;
+  margin-right: 10px;
+}
 
 @media screen and (max-width: 768px) {
 

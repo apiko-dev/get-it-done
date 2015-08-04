@@ -21,7 +21,7 @@ Template.boards.helpers
     Boards.findOne isBacklog: true
 
 Template.boards.events
-  'click .new-board-wrapper': (e, t) ->
+  'click .new-board-container': (e, t) ->
     buttonSide = t.$(e.target).data "side"
     Modal.show 'newItemModal',
       buttonPressed: buttonSide
