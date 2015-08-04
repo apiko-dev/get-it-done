@@ -14,7 +14,7 @@ header.landing {
 .video video {
   border: none;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.13);
-  height: calc(100vh - 50px);
+  min-height: calc(100vh - 50px);
   min-width: 100%;
   margin: auto;
   width: inherit;
@@ -137,9 +137,9 @@ header .content h1 {
 	padding-left: 10px; 
 }
 
-header .content * {
+/*header .content * {
   display: inline;
-}
+}*/
 
 header .content a.navbar-brand {
   padding: 0 20px;
@@ -182,13 +182,13 @@ div.landing.content article header * {
   color: #9E9E9E;
 }
 
-div.landing.content article:nth-child(odd) header {
+/*div.landing.content article:nth-child(odd) header {
 	text-align: right;
 }
 
 div.landing.content article:nth-child(odd) aside {
   float: right;
-}
+}*/
 
 @media screen and (max-width: 768px) {
 
@@ -434,12 +434,6 @@ button.btn.btn-default.play:active:hover, div.controlls.secondary > button.btn.b
   height: 50px;
 }
 
-.content h1 {
-  display: inline-block;
-  margin-top: -3px;
-  height: 20px;
-}
-  
 .content p, h3 {
   vertical-align: middle;
   font-size: 16px;
@@ -454,16 +448,7 @@ button.btn.btn-default.play:active:hover, div.controlls.secondary > button.btn.b
   color: rgb(51, 122, 183);
 }
 
-.content p {
-  margin-left: 7px;
-}
-
-.pull-right {
-  display: inline-block;
-  height: 50px;
-}
-
-.pull-right button {
+button.get-started {
   height: 50px;
   margin-left: 10px;
 }
