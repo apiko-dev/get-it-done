@@ -451,10 +451,6 @@ button.btn.btn-default.play:active:hover, div.controlls.secondary > button.btn.b
   }
 }
 
-.content {
-  height: 50px;
-}
-
 .content p, h3 {
   vertical-align: middle;
   font-size: 16px;
