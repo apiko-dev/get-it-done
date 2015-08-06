@@ -1,4 +1,4 @@
-@Emails = new Mongo.Collection 'emails' 
+@Emails = new Mongo.Collection 'emails'
 
 Emails.allow
   insert: (userId, doc) ->

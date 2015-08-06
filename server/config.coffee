@@ -7,9 +7,9 @@ if not ServiceConfiguration.configurations.findOne(service: "google")
     forceApprovalPrompt: true
 
 MailConfig =
-  hostName: 'smtp.mailgun.org',
-  password: '*********************************',
-  username: '*******************************************',
+  hostName: 'smtp.mailgun.org'
+  password: '*********************************'
+  username: '*******************************************'
   port: 587
 
-process.env.MAIL_URL = MailConfig.username + ':' + MailConfig.password + '@' + MailConfig.hostName + ':' + MailConfig.port;
+process.env.MAIL_URL = "MailConfig.username:MailConfig.password@MailConfig.hostName:MailConfig.port"
