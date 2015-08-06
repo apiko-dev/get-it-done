@@ -14,10 +14,12 @@ Template._boardItem.helpers
 
   tasks: ->
     board = Template.instance().data
-    findQuery = boardId: board._id
+    findQuery =
+      boardId: board._id
     sortByPriority = board.config.sortByPriority
     showArchieved = board.config.showArchieved
-    sortingQuery = sort: if sortByPriority then  priority: -1 else order: 1
+    sortingQuery =
+      sort: if sortByPriority then  priority: -1 else order: 1
     sortingQuery.sort.completed = -1
 
     if showArchieved
@@ -67,7 +69,7 @@ Template._boardItem.events
     if togglProjectExists = togglProjectData and togglProjectData.id
       updateBoard boardData._id, togglProject: togglProjectData
     else
-      createTogglProject boardData.title, boardData._id, boardData.config.bgColor, (err, res) ->
+      createTogglProject boardData.title, boardData._id, boardData.config.bgColor, (err) ->
         err and console.log err
 
   'keyup, focusout input.board-title': (e) ->

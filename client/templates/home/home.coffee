@@ -45,7 +45,7 @@ Template.home.events
         instance.showSpinner.set false
         if res
           sAlert.info 'You successfully subscribed to updates'
-        else 
+        else
           sAlert.warning 'This email is already registered'
           console.log err
 

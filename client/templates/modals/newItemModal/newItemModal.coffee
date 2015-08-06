@@ -66,7 +66,10 @@ Template.newItemModal.events
 
     if buttonPressed is "left"
       boardDoc.insertInTheBeginning = true
-      boardDoc.minBoardOrder = Boards.findOne({}, {sort: order: 1}).order
+      boardDoc.minBoardOrder = Boards.findOne({}, {
+        sort:
+          order: 1
+      }).order
 
     if !text or !text.length
       alert 'Board name is required'
@@ -90,7 +93,7 @@ Template.newItemModal.events
   'click .new-task .submit': (e, t) ->
     e.preventDefault()
     $('form.new-task').submit()
-    
+
   'click .new-board .submit': (e, t) ->
     e.preventDefault()
     $('form.new-board').submit()
@@ -99,4 +102,4 @@ Template.newItemModal.events
     colorIndex = t.$(e.target).parent().index()
     Template.instance().color.set colorIndex
 
-    #t.$(".modal.light.new-item.in").css "backgroud-color"
+#t.$(".modal.light.new-item.in").css "backgroud-color"

@@ -29,7 +29,8 @@ Template._taskItem.events
         newPriority = 2
       when 2
         newPriority = 0
-      else newPriority = 2
+      else
+        newPriority = 2
 
     updateTask taskId, priority: newPriority
 
@@ -39,7 +40,7 @@ Template._taskItem.events
   'click .edit-ok-action': (e, t) ->
     instance = Template.instance()
     taskData = Blaze.getData e.target
-    taskText = instance.$("input.title").val() 
+    taskText = instance.$("input.title").val()
     taskDescription = instance.$("textarea.description").val()
     taskPriority = Number instance.$('#priority-chooser button').filter(".active").data "value"
     taskBoardNewId = $("#select-board").val()
@@ -94,5 +95,5 @@ Template._taskItem.events
 @updateTask = (taskId, fieldsToSet) ->
   Tasks.update _id: taskId,
     $set: fieldsToSet
-    (err, res) ->
+    (err) ->
       err and console.log err

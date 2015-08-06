@@ -31,7 +31,7 @@ Template.newChipModal.helpers
   tasks: ->
     tasks = Tasks.find boardId: Session.get "selectedBoard"
     Meteor.setTimeout ->
-      $('#select-tasks').selectpicker("refresh");
+      $('#select-tasks').selectpicker "refresh"
     , 500
     tasks
 

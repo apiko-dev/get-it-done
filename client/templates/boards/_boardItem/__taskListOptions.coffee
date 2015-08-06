@@ -30,6 +30,6 @@
       console.log '------ all'
     console.log '------', curOrder
     console.log 'not prevTaskData and not nextTaskData', not prevTaskData and not nextTaskData
-    console.log 'prevTaskData',prevTaskData
-    console.log 'nextTaskData',nextTaskData
+    console.log 'prevTaskData', prevTaskData
+    console.log 'nextTaskData', nextTaskData
     updateTask targetTaskId, boardId: targetBoardId, order: curOrder

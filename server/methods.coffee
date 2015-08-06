@@ -1,4 +1,4 @@
-CurrentName = new Meteor.EnvironmentVariable;
+CurrentName = new Meteor.EnvironmentVariable()
 
 setTaskTimer = (userId, taskId, timeEntry) ->
   console.log 'setTaskTimer'

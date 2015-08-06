@@ -1,7 +1,6 @@
 EVENT_REMOVE_BUTTON = '<div class="event-ctrls"><span class="remove-event"><i class="fa fa-minus"></i></span></div>'
 
 Meteor.Spinner.options =
-  width: 5
   radius: 3
   color: '#666'
   top: '10px'
@@ -110,7 +109,7 @@ Template.scheduler.onRendered ->
   @.$('.dropdown-toggle').dropdown()
 
 Template.scheduler.events
-  'click .choosable-calendar-item': (e, t) ->
+  'click .choosable-calendar-item': (e) ->
     calendar = Blaze.getData e.target
     events = GCEvents.find calendarId: calendar.id
     if events.count() < 1

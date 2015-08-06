@@ -33,7 +33,7 @@ Template.Stripe.helpers
     1 / count * 100 + '%'
 
 Template.Stripe.events
-  'click .stripe-line': (e, t) ->
+  'click .stripe-line': (e) ->
     boardHash = Blaze.getData(e.target).boardHash
     if location.pathname == '/boards'
       scrollToBoard boardHash

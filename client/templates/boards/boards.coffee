@@ -27,18 +27,18 @@ Template.boards.events
       buttonPressed: buttonSide
 
 @scrollToBoard = (boardId)->
-    if location.hash != '#'+boardId
-      hash = boardId or location.hash.slice 1, location.hash.length
-      location.hash = hash
-      $('.board.active').removeClass 'active'
-      board = $('#' + hash)
-      board.addClass('active')
-      bodyWidth = $('body').width()
-      boardOffset = board.offset()
-      try
-        boardWidth = $('.board').width()
-        listsScroll = $('#lists').scrollLeft()
-        $('#lists').stop().animate {scrollLeft: listsScroll + boardOffset.left - bodyWidth / 2 + boardWidth / 2}, 700
+  if location.hash != '#' + boardId
+    hash = boardId or location.hash.slice 1, location.hash.length
+    location.hash = hash
+    $('.board.active').removeClass 'active'
+    board = $('#' + hash)
+    board.addClass('active')
+    bodyWidth = $('body').width()
+    boardOffset = board.offset()
+    try
+      boardWidth = $('.board').width()
+      listsScroll = $('#lists').scrollLeft()
+      $('#lists').stop().animate {scrollLeft: listsScroll + boardOffset.left - bodyWidth / 2 + boardWidth / 2}, 700
 
 $('body,html').bind 'scroll mousedown wheel DOMMouseScroll mousewheel keyup', (e) ->
   if not (e.type == 'mousedown' or e.type == 'mousewheel')

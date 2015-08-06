@@ -22,10 +22,3 @@ Package.onUse(function(api) {
 Npm.depends({
   'toggl-api': '0.0.3'
 });
-
-
-Package.onTest(function(api) {
-  api.use('tinytest');
-  api.use('jss:toggl-api');
-  api.addFiles('toggl-api-tests.js');
-});
