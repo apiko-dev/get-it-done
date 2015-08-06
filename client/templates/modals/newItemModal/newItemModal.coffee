@@ -23,7 +23,7 @@ Template.newItemModal.helpers
     COLORS[Template.instance().color.get()]
 
 Template.newItemModal.events
-  'submit form.new-task': (e, t) ->
+  'submit form.new-task': (e) ->
     e.preventDefault()
     instance = Template.instance()
     boardId = ""
@@ -58,7 +58,7 @@ Template.newItemModal.events
     else
       sAlert.error "Please, enter the title"
 
-  'submit form.new-board': (e, t) ->
+  'submit form.new-board': (e) ->
     e.preventDefault()
     boardDoc = {}
     text = $(e.target).find('input#board-title').val()
@@ -90,11 +90,11 @@ Template.newItemModal.events
           scrollToBoard res
 
 
-  'click .new-task .submit': (e, t) ->
+  'click .new-task .submit': (e) ->
     e.preventDefault()
     $('form.new-task').submit()
 
-  'click .new-board .submit': (e, t) ->
+  'click .new-board .submit': (e) ->
     e.preventDefault()
     $('form.new-board').submit()
 

@@ -3,7 +3,8 @@ Template.Stripe.onCreated ->
 
 Template.Stripe.onRendered ->
   $(window).resize ->
-    @.$(".stripe-wrapper").css "width", ($("#bs-example-navbar-collapse-1").position().left - 120) + "px"
+    left = $("#bs-example-navbar-collapse-1").position().left
+    @.$(".stripe-wrapper").css "width", (left - 120) + "px"
 
 Template.Stripe.helpers
   colors: ->

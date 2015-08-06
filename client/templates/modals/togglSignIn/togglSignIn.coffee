@@ -8,7 +8,7 @@ Template.togglSignIn.onRendered ->
   enadleDropdown @
 
 Template.togglSignIn.events
-  'submit .toggl-sign-in': (e, t) ->
+  'submit .toggl-sign-in': (e) ->
     e.preventDefault()
     self = Template.instance()
     if signedInToToggl = Meteor.user().toggl and Meteor.user().toggl.api_token
@@ -29,7 +29,7 @@ Template.togglSignIn.events
             self.signInFailed.set true
           else
             fetchWorkspaces(self)
-  'click .submit': (e, t) ->
+  'click .submit': () ->
     $('.toggl-sign-in').submit()
 
 
@@ -50,6 +50,6 @@ fetchWorkspaces = (instance) ->
 
 enadleDropdown = (instance) ->
   if Meteor.user().toggl and Meteor.user().toggl.api_token
-    Meteor.setTimeout (->
+    Meteor.setTimeout () ->
       instance.$('.dropdown-toggle').dropdown()
-    ), 500
+    , 500

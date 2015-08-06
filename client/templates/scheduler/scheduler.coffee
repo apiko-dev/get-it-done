@@ -124,12 +124,15 @@ refetchEvents = ->
   $('#calendar').fullCalendar 'refetchEvents'
 
 updateChip = (event) ->
-  Chips.update _id: event._id,
+  Chips.update
+    _id: event._id
+  ,
     $set:
       start: event.start.format()
       end: event.end.format()
-  , (err, res) ->
-    console.log err or res
+  ,
+    (err, res) ->
+      console.log err or res
 
 createChip = (start, end, boardId) ->
   Chips.insert {start: start, end: end, boardId: boardId}, (err, res) ->

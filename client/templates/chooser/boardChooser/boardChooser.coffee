@@ -1,8 +1,8 @@
 #Template.boardChooser.onCreated ()->
-#	@.currentBoard = new ReactiveVar()
+#  @.currentBoard = new ReactiveVar()
 #
 #Template.boardChooser.onRendered ()->
-#	@.currentBoard.set Boards.findOne @.data.boardId
+#  @.currentBoard.set Boards.findOne @.data.boardId
 
 Template.boardChooser.helpers
   boards: ->
@@ -12,4 +12,4 @@ Template.boardChooser.helpers
 
 #Template.boardChooser.events
 #  'click .board-selector li': (e, t) ->
-#  	console.log e, t
+#    console.log e, t

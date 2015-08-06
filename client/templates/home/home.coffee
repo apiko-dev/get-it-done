@@ -7,32 +7,32 @@ Template.home.onRendered () ->
   @.video = $('video')[0]
 
 Template.home.events
-  'canplay .landing-video': (e, t) ->
+  'canplay .landing-video': () ->
     Template.instance().canPlay.set true
-  'play .landing-video': (e, t) ->
+  'play .landing-video': () ->
     instance = Template.instance()
     instance.playing.set true
-  'pause .landing-video': (e, t) ->
+  'pause .landing-video': () ->
     instance = Template.instance()
     instance.playing.set false
-  'ended .landing-video': (e, t) ->
+  'ended .landing-video': () ->
     instance = Template.instance()
     instance.playing.set false
-  'click .play': (e, t) ->
+  'click .play': () ->
     Template.instance().video.play()
-  'click .pause': (e, t) ->
+  'click .pause': () ->
     Template.instance().video.pause()
-  'click .scroll-to-content': (e, t) ->
+  'click .scroll-to-content': () ->
     $('html, body').animate
       scrollTop: $(".landing.content").offset().top - 60
     , 400
-  'click .get-started': (e, t) ->
+  'click .get-started': () ->
     Router.go 'boards'
-  'mouseover article video': (e, t) ->
+  'mouseover article video': (e) ->
     e.target.play()
-  'mouseleft article video': (e, t) ->
+  'mouseleft article video': (e) ->
     e.target.pause()
-  'click #subscribe button.submit': (e, t) ->
+  'click #subscribe button.submit': (e) ->
     instance = Template.instance()
     instance.showSpinner.set true
     email = $(e.target.parentElement).find('#email').val()

@@ -2,28 +2,37 @@ CurrentName = new Meteor.EnvironmentVariable()
 
 setTaskTimer = (userId, taskId, timeEntry) ->
   console.log 'setTaskTimer'
-  Tasks.update {
+  Tasks.update
     ownerId: userId
     timerStarted: 1
-  }, { $set:
-    timerStarted: 0
-    timeEntry: null
-    multi: 1 }, (err, res) ->
-    console.log err or res
-    if taskId
-      return Tasks.update({ _id: taskId }, { $set:
-        timerStarted: 1
-        timeEntry: timeEntry }, ->
-        console.log err or res
-      )
-    return
+  ,
+    $set:
+      timerStarted: 0
+      timeEntry: null
+      multi: 1
+  ,
+    (err, res) ->
+      console.log err or res
+      if taskId
+        Tasks.update
+          _id: taskId
+        ,
+          $set:
+            timerStarted: 1
+            timeEntry: timeEntry
+        ,
+          () ->
+            console.log err or res
 
 setBoardProject = (boardId, togglProject) ->
-  Boards.update _id: boardId,
+  Boards.update
+    _id: boardId
+  ,
     $set:
       togglProject: togglProject
-  , (err, res) ->
-    console.log err or res
+  ,
+    (err, res) ->
+      console.log err or res
 
 Meteor.methods
   'toggl/createUser': (email, password) ->

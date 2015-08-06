@@ -1,8 +1,12 @@
 Accounts.ui.config
   forceApprovalPrompt: true
   requestPermissions:
-    google: ['openid', 'email', 'https://www.googleapis.com/auth/calendar',
-             'https://www.googleapis.com/auth/calendar.readonly']
+    google: [
+      'openid'
+      'email'
+      'https://www.googleapis.com/auth/calendar'
+      'https://www.googleapis.com/auth/calendar.readonly'
+    ]
   requestOfflineToken:
     google: true
 #  forceApprovalPrompt:

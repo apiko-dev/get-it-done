@@ -38,7 +38,9 @@ Template.boards.events
     try
       boardWidth = $('.board').width()
       listsScroll = $('#lists').scrollLeft()
-      $('#lists').stop().animate {scrollLeft: listsScroll + boardOffset.left - bodyWidth / 2 + boardWidth / 2}, 700
+      $('#lists').stop().animate scrollLeft:
+        listsScroll + boardOffset.left - bodyWidth / 2 + boardWidth / 2
+      , 700
 
 $('body,html').bind 'scroll mousedown wheel DOMMouseScroll mousewheel keyup', (e) ->
   if not (e.type == 'mousedown' or e.type == 'mousewheel')
