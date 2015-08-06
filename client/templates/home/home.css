@@ -20,7 +20,7 @@ header.landing .content * {
 .video video {
   border: none;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.13);
-  min-height: calc(100vh - 50px);
+  min-height: 100vh;
   min-width: 100%;
   margin: auto;
   padding-top: 50px;
@@ -339,7 +339,7 @@ body {
   color: white;
   font-size: 20px;
   width: 250px;
-  top: calc(100vh - 50px);
+  top: 100vh;
 }
 
 .bounce {
