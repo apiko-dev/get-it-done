@@ -1,4 +1,4 @@
-if not ServiceConfiguration.configurations.findOne(service: "google")
+unless ServiceConfiguration.configurations.findOne(service: "google")
   ServiceConfiguration.configurations.insert
     service: 'google'
     clientId: '********************************************************'
@@ -12,4 +12,4 @@ MailConfig =
   username: '*******************************************'
   port: 587
 
-process.env.MAIL_URL = "MailConfig.username:MailConfig.password@MailConfig.hostName:MailConfig.port"
+process.env.MAIL_URL = "#{MailConfig.username}:#{MailConfig.password}@#{MailConfig.hostName}:#{MailConfig.port}"
